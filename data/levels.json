@@ -1,0 +1,19 @@
+{
+    "levels": [
+        {
+            "id": "1",
+            "name": "Level 1",
+            "scene": "res://scenes/levels/Level1.tscn"
+        },
+        {
+            "id": "2",
+            "name": "Level 2",
+            "scene": "res://scenes/levels/Level2.tscn"
+        },
+        {
+            "id": "3",
+            "name": "Level 3",
+            "scene": "res://scenes/levels/Level3.tscn"
+        }
+    ]
+}

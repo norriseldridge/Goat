@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Retro Success Melody 01 - sawtooth lead 1.wav-290a9c55f36b76515732cbc3be8eb9b3.sample"
+
+[deps]
+
+source_file="res://sfx/Retro Success Melody 01 - sawtooth lead 1.wav"
+dest_files=[ "res://.import/Retro Success Melody 01 - sawtooth lead 1.wav-290a9c55f36b76515732cbc3be8eb9b3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
