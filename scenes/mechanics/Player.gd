@@ -5,12 +5,13 @@ const MAX_GRAVITY = 150
 const FRICTION = 350
 
 export var speed = 50
-export var acceleration = 50
+export var acceleration = 70
 export var jumpForce = 50
 export var maxJumpCount = 2
 var velocity = Vector2.ZERO
 var jumpCount = 0
 var grounded = false
+var ladderCount = 0
 
 onready var animatedSprite = $AnimatedSprite
 onready var messageBroker = MessageBroker
@@ -30,7 +31,7 @@ func _process(delta):
 		elif velocity.x < 0:
 			animatedSprite.flip_h = true
 	
-	if !grounded:
+	if !grounded && ladderCount == 0:
 		animatedSprite.play("falling")
 		velocity.y += GRAVITY * delta
 		if velocity.y > MAX_GRAVITY:
@@ -42,7 +43,9 @@ func _process(delta):
 		jumpSfx.play()
 
 func _physics_process(delta):
-	move_and_slide(velocity)
+	# this is to get moving platforms working... don't ask me how this works
+	var snap = Vector2.DOWN if grounded else Vector2.ZERO
+	move_and_slide_with_snap(velocity, snap, Vector2.UP)
 
 func _on_Area2D_body_entered(body):
 	grounded = true

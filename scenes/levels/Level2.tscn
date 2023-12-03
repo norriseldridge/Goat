@@ -1,24 +1,23 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/levels/LevelTileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/mechanics/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/mechanics/KillZone.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/mechanics/Portal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/mechanics/Coin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/levels/Level2.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 308, 8 )
 
 [node name="Level2" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="Portal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 16, 8 )
+position = Vector2( 162, 130 )
 
 [node name="AnimatedSprite" parent="Portal" index="0"]
 frame = 2
-
-[node name="LevelLoadZone" parent="Portal" index="1"]
-nextLevel = "3"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -26,10 +25,10 @@ cell_size = Vector2( 12, 12 )
 show_collision = true
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -327681, 5, 0, -262145, 5, 0, -196609, 5, 0, -131073, 5, 0, -65537, 5, 0, -1, 5, 0, 65535, 5, 0, 9, 16, 0, 10, 9, 0, 11, 10, 0, 12, 16, 0, 14, 16, 0, 15, 16, 0, 131071, 5, 0, 65545, 16, 0, 65546, 11, 0, 65547, 12, 0, 65548, 16, 0, 65550, 16, 0, 65551, 16, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 2, 0, 131081, 16, 0, 131084, 16, 0, 131086, 16, 0, 131087, 16, 0, 196608, 9, 0, 196609, 7, 0, 196610, 7, 0, 196611, 7, 0, 196612, 7, 0, 196613, 7, 0, 196614, 8, 0, 196617, 13, 0, 196618, 1, 0, 196619, 1, 0, 196620, 14, 0, 196622, 16, 0, 196623, 16, 0, 196625, 15, 0, 262144, 5, 0, 262158, 16, 0, 262159, 16, 0, 262164, 15, 0, 327680, 5, 0, 327694, 16, 0, 327695, 16, 0, 393216, 5, 0, 393222, 4, 0, 393230, 16, 0, 393231, 16, 0, 393239, 15, 0, 458752, 11, 0, 458753, 2, 0, 458766, 16, 0, 458767, 16, 0, 524289, 5, 0, 524292, 15, 0, 524293, 15, 0, 524294, 15, 0, 524295, 15, 0, 524296, 15, 0, 524297, 15, 0, 524302, 16, 0, 524303, 16, 0, 589825, 5, 0, 589838, 16, 0, 589839, 16, 0, 589844, 15, 0, 655361, 5, 0, 655374, 16, 0, 655375, 16, 0, 720897, 5, 0, 720910, 16, 0, 720911, 16, 0, 786433, 5, 0, 786441, 15, 0, 786446, 13, 0, 786447, 14, 0, 851969, 5, 0, 917505, 5, 0, 983041, 5, 0, 1048577, 5, 0, 1114113, 5, 0 )
+tile_data = PoolIntArray( 0, 5, 0, 12, 16, 0, 15, 16, 0, 24, 3, 0, 65536, 5, 0, 65548, 16, 0, 65551, 16, 0, 65560, 3, 0, 131072, 5, 0, 131084, 16, 0, 131087, 16, 0, 131096, 3, 0, 196608, 5, 0, 196620, 16, 0, 196623, 16, 0, 196632, 3, 0, 262144, 5, 0, 262156, 16, 0, 262159, 16, 0, 262168, 3, 0, 327680, 5, 0, 327692, 16, 0, 327695, 16, 0, 327704, 3, 0, 393216, 5, 0, 393228, 16, 0, 393231, 16, 0, 393240, 3, 0, 458752, 5, 0, 458764, 16, 0, 458767, 16, 0, 458776, 3, 0, 524288, 5, 0, 524300, 16, 0, 524303, 16, 0, 524312, 3, 0, 589824, 5, 0, 589836, 16, 0, 589839, 16, 0, 589848, 3, 0, 655360, 5, 0, 655372, 16, 0, 655375, 16, 0, 655384, 3, 0, 720896, 5, 0, 720908, 16, 0, 720911, 16, 0, 720920, 3, 0, 786432, 11, 0, 786433, 1, 0, 786434, 1, 0, 786435, 1, 0, 786436, 2, 0, 786444, 15, 0, 786445, 15, 0, 786446, 15, 0, 786447, 15, 0, 786454, 0, 0, 786455, 1, 0, 786456, 12, 0, 851972, 5, 0, 851990, 3, 0, 917508, 5, 0, 917526, 3, 0, 983044, 5, 0, 983062, 3, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 19, 72 )
+position = Vector2( 24, 136 )
 
 [node name="KillZone" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -32 )
@@ -39,7 +38,7 @@ position = Vector2( 268, 232 )
 shape = SubResource( 1 )
 
 [node name="Coin" parent="." instance=ExtResource( 5 )]
-position = Vector2( 108, 132 )
+position = Vector2( 264, 128 )
 
 [editable path="Portal"]
 [editable path="Portal/LevelLoadZone"]

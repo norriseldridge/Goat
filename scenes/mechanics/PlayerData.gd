@@ -1,19 +1,10 @@
 extends Node
 
-# temporary state
-var coins = 0
-var keys = 0
-
 # permanent data
 export(String) var playerFileName = "player1"
 export(String) var currentLevel = "1"
-var levelScores = {}
-
-func ResetState(levelId):
-	coins = 0
-	keys = 0
-	# NOTE: don't set this from saved data at all because the point
-	# is to let users try to level again, do better, save that score
+var completedLevels = []
+var lastPlayed = null
 
 func Load():
 	var json_file = File.new()
@@ -24,7 +15,7 @@ func Load():
 		json_file.close()
 		
 		currentLevel = raw_data.currentLevel
-		levelScores = raw_data.levelScores
+		completedLevels = raw_data.completedLevels
 	
 func Save():
 	var json_file = File.new()
@@ -32,16 +23,15 @@ func Save():
 	json_file.open(filePath, File.WRITE)
 	var raw_data = {
 		"currentLevel": currentLevel,
-		"levelScores": levelScores
+		"completedLevels": completedLevels,
+		"lastPlayed": OS.get_datetime()
 	}
 	json_file.store_line(to_json(raw_data))
 	json_file.close()
 
-func SaveLevelScore():
-	if levelScores.has(currentLevel):
-		if levelScores[currentLevel] > coins:
-			return # DON'T save a score lower than the highest
-	levelScores[currentLevel] = coins
+func MarkLevelCompleted():
+	if !completedLevels.has(currentLevel):
+		completedLevels.append(currentLevel)
 
 func GetUserFilePath():
 	return "user://" + playerFileName + ".json"

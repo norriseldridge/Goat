@@ -1,13 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/levels/LevelTileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/mechanics/KillZone.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/mechanics/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/mechanics/Portal.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/mechanics/Key.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/mechanics/Door.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/mechanics/DisappearingBlock.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/mechanics/Coin.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 384, 13.75 )
@@ -15,10 +11,10 @@ extents = Vector2( 384, 13.75 )
 [node name="Level" type="Node2D"]
 
 [node name="Portal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 276, 120 )
+position = Vector2( 264, 168 )
 
-[node name="LevelLoadZone" parent="Portal" index="1"]
-nextLevel = "res://scenes/levels/Level2.tscn"
+[node name="AnimatedSprite" parent="Portal" index="0"]
+frame = 2
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -26,10 +22,10 @@ cell_size = Vector2( 12, 12 )
 show_collision = true
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -262144, 5, 0, -196608, 5, 0, -131072, 5, 0, -65536, 5, 0, 0, 5, 0, 21, 3, 0, 65536, 5, 0, 65557, 3, 0, 131072, 5, 0, 131093, 3, 0, 196608, 5, 0, 196629, 3, 0, 262144, 5, 0, 262165, 3, 0, 327680, 5, 0, 327701, 3, 0, 393216, 5, 0, 393237, 3, 0, 458752, 5, 0, 458773, 3, 0, 524288, 5, 0, 524309, 3, 0, 589824, 5, 0, 589845, 6, 0, 589846, 7, 0, 589847, 7, 0, 589848, 10, 0, 655360, 5, 0, 655384, 3, 0, 720896, 5, 0, 720916, 13, 0, 720917, 1, 0, 720918, 1, 0, 720919, 1, 0, 720920, 12, 0, 786432, 5, 0, 786440, 15, 0, 786441, 15, 0, 786445, 0, 0, 786446, 1, 0, 786447, 1, 0, 786448, 2, 0, 851968, 5, 0, 851981, 3, 0, 851984, 5, 0, 917504, 5, 0, 917517, 3, 0, 917520, 5, 0 )
+tile_data = PoolIntArray( 0, 5, 0, 24, 3, 0, 65536, 5, 0, 65560, 3, 0, 131072, 5, 0, 131096, 3, 0, 196608, 5, 0, 196632, 3, 0, 262144, 5, 0, 262168, 3, 0, 327680, 5, 0, 327704, 3, 0, 393216, 5, 0, 393240, 3, 0, 458752, 5, 0, 458776, 3, 0, 524288, 5, 0, 524312, 3, 0, 589824, 5, 0, 589848, 3, 0, 655360, 5, 0, 655384, 3, 0, 720896, 5, 0, 720920, 3, 0, 786432, 5, 0, 786456, 3, 0, 851968, 5, 0, 851992, 3, 0, 917504, 5, 0, 917528, 3, 0, 983040, 11, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 1, 0, 983059, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 12, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 180, 132 )
+position = Vector2( 30, 175 )
 
 [node name="KillZone" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -24 )
@@ -37,22 +33,6 @@ position = Vector2( 0, -24 )
 [node name="CollisionShape2D" parent="KillZone" index="0"]
 position = Vector2( 384, 228.5 )
 shape = SubResource( 1 )
-
-[node name="Key" parent="." instance=ExtResource( 5 )]
-position = Vector2( 36, 120 )
-
-[node name="Door" parent="." instance=ExtResource( 6 )]
-position = Vector2( 252, 120 )
-
-[node name="DisappearingBlock2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 36, 132 )
-active = false
-
-[node name="Coin" parent="." instance=ExtResource( 8 )]
-position = Vector2( 108, 132 )
-
-[node name="Coin2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 96, 132 )
 
 [editable path="Portal"]
 [editable path="Portal/LevelLoadZone"]

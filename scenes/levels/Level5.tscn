@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/levels/LevelTileMap.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/mechanics/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/mechanics/KillZone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/mechanics/Portal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/mechanics/Key.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/mechanics/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/mechanics/DisappearingBlock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/mechanics/Spikes.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 384, 13.75 )
+
+[node name="Level" type="Node2D"]
+
+[node name="Portal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 276, 120 )
+
+[node name="AnimatedSprite" parent="Portal" index="0"]
+frame = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 12, 12 )
+show_collision = true
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 0, 5, 0, 6, 3, 0, 8, 5, 0, 12, 3, 0, 14, 5, 0, 24, 3, 0, 65536, 5, 0, 65542, 3, 0, 65544, 5, 0, 65548, 3, 0, 65550, 5, 0, 65560, 3, 0, 131072, 5, 0, 131078, 3, 0, 131080, 5, 0, 131084, 3, 0, 131086, 5, 0, 131096, 3, 0, 196608, 5, 0, 196614, 3, 0, 196616, 5, 0, 196620, 3, 0, 196622, 5, 0, 196632, 3, 0, 262144, 5, 0, 262150, 3, 0, 262152, 5, 0, 262156, 3, 0, 262158, 5, 0, 262168, 3, 0, 327680, 5, 0, 327681, 15, 0, 327686, 6, 0, 327687, 7, 0, 327688, 8, 0, 327692, 3, 0, 327694, 5, 0, 327704, 3, 0, 393216, 5, 0, 393228, 3, 0, 393230, 5, 0, 393240, 3, 0, 458752, 5, 0, 458758, 0, 0, 458759, 1, 0, 458760, 2, 0, 458764, 6, 0, 458765, 7, 0, 458766, 8, 0, 458776, 3, 0, 524288, 5, 0, 524294, 3, 0, 524296, 5, 0, 524312, 3, 0, 589824, 5, 0, 589825, 15, 0, 589830, 3, 0, 589832, 5, 0, 589848, 3, 0, 655360, 5, 0, 655366, 3, 0, 655368, 5, 0, 655384, 3, 0, 720896, 5, 0, 720901, 15, 0, 720902, 3, 0, 720904, 5, 0, 720908, 0, 0, 720909, 1, 0, 720910, 2, 0, 720918, 0, 0, 720919, 1, 0, 720920, 12, 0, 786432, 5, 0, 786438, 3, 0, 786440, 5, 0, 786444, 3, 0, 786446, 5, 0, 786449, 15, 0, 786450, 15, 0, 786451, 15, 0, 786454, 3, 0, 851968, 5, 0, 851974, 3, 0, 851976, 5, 0, 851980, 3, 0, 851982, 5, 0, 851990, 3, 0, 917504, 11, 0, 917505, 1, 0, 917506, 1, 0, 917507, 1, 0, 917508, 1, 0, 917509, 1, 0, 917510, 12, 0, 917512, 11, 0, 917513, 1, 0, 917514, 1, 0, 917515, 1, 0, 917516, 12, 0, 917518, 5, 0, 917526, 3, 0, 983054, 5, 0, 983062, 3, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 19, 163 )
+
+[node name="KillZone" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -24 )
+
+[node name="CollisionShape2D" parent="KillZone" index="0"]
+position = Vector2( 384, 228.5 )
+shape = SubResource( 1 )
+
+[node name="Key" parent="." instance=ExtResource( 5 )]
+position = Vector2( 60, 24 )
+
+[node name="Door" parent="." instance=ExtResource( 2 )]
+position = Vector2( 84, 72 )
+
+[node name="Spikes" parent="." instance=ExtResource( 8 )]
+position = Vector2( 108, 156 )
+
+[node name="Spikes4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 204, 132 )
+
+[node name="Spikes5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 216, 132 )
+
+[node name="Spikes6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 228, 132 )
+
+[node name="Spikes2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 120, 156 )
+
+[node name="Spikes3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 132, 156 )
+
+[node name="DisappearingBlock" parent="." instance=ExtResource( 7 )]
+position = Vector2( 144, 96 )
+
+[node name="DisappearingBlock2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 144, 108 )
+
+[node name="DisappearingBlock3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 144, 120 )
+
+[editable path="Portal"]
+[editable path="Portal/LevelLoadZone"]
+[editable path="KillZone"]

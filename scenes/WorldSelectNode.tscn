@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://fonts/ThaleahFat.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://sprites/FlashCycle.png" type="Texture" id=2]
+[ext_resource path="res://scenes/WorldSelectNode.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 3, 3 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 3, 0, 3, 3 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 6, 0, 3, 3 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=5]
+size = 9
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
+
+[node name="WorldSelectNode" type="AnimatedSprite"]
+position = Vector2( 70.005, 77.005 )
+scale = Vector2( 0.67, 0.67 )
+frames = SubResource( 4 )
+frame = 1
+playing = true
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+theme = SubResource( 6 )
+text = "Gate"
+align = 1

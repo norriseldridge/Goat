@@ -13,3 +13,18 @@ func GetScene(levelId):
 		if level.id == levelId:
 			return level.scene
 	return null
+
+func GetNextLevel(levelId):
+	for level in level_data["levels"]:
+		if level.id == levelId:
+			return level.next
+	return null
+
+func GetWorldData():
+	return level_data["worlds"]
+	
+func GetWorldComplete(worldData, playerData):
+	for level in worldData["levels"]:
+		if !playerData.completedLevels.has(level):
+			return false
+	return true

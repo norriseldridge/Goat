@@ -2,15 +2,19 @@ extends Node
 
 onready var messageBroker = MessageBroker
 var gameOverScene = preload("res://scenes/ui/GameOver.tscn")
+var worldSelectorScene = preload("res://scenes/WorldSelector.tscn")
 var levelTransitionScene = preload("res://scenes/ui/LevelTransition.tscn")
 
 onready var levelUtility = LevelUtility
 var current_level = null
+var worldSelector = null
 
 onready var camera = $Camera2D
-
 onready var hud = $Camera2D/CanvasLayer/HUD
+
 onready var playerData = $PlayerData
+var selectedUserFile = null
+var keys = 0
 
 onready var pickUpSfx = $PickUpSfx
 onready var doorUnlockSfx = $DoorUnlockSfx
@@ -26,14 +30,32 @@ func _ready():
 	messageBroker.connect("player_entered_portal", self, "on_player_entered_portal")
 	messageBroker.connect("load_level", self, "on_load_level")
 	
+	if selectedUserFile != null:
+		playerData.playerFileName = selectedUserFile
 	playerData.Load()
-	on_load_level(playerData.currentLevel)
+	
+	ShowWorldSelect()
 
 func _process(delta):
 	if Input.is_action_just_pressed("escape"):
 		# todo open menu
 		playerData.Save()
 		get_tree().quit()
+
+func ShowWorldSelect():
+	worldSelector = worldSelectorScene.instance()
+	worldSelector.playerData = playerData
+	add_child(worldSelector)
+	hud.visible = false
+	
+func HideWorldSelect():
+	if worldSelector != null:
+		worldSelector.camera.current = false
+		worldSelector.queue_free()
+		worldSelector = null
+	
+	camera.current = true
+	hud.visible = true
 
 func on_player_died():
 	playerDiedSfx.play()
@@ -44,41 +66,42 @@ func on_player_died():
 	pass
 	
 func on_player_picked_up_key():
-	playerData.keys += 1
-	hud.set_keys(playerData.keys)
+	keys += 1
+	hud.set_keys(keys)
 	pickUpSfx.play()
 	
 func on_player_entered_door_unlock(doorid):
-	if playerData.keys > 0:
-		playerData.keys -= 1
-		hud.set_keys(playerData.keys)
+	if keys > 0:
+		keys -= 1
+		hud.set_keys(keys)
 		messageBroker.emit_signal("player_unlocked_door", doorid)
 		doorUnlockSfx.play()
 
 func on_player_picked_up_coin():
-	playerData.coins += 1
-	hud.set_score(playerData.coins)
+	print("picked up a coin I guess?")
 	pickUpSfx.play()
 
-func on_player_entered_portal(nextLevel):
-	playerData.SaveLevelScore()
+func on_player_entered_portal():
+	playerData.MarkLevelCompleted()
 	
 	if current_level != null:
 		current_level.queue_free()
 		current_level = null
 	
 	enteredPortalSfx.play()
+	var nextLevelId = levelUtility.GetNextLevel(playerData.currentLevel)
 	var transitionScene = levelTransitionScene.instance()
-	transitionScene.nextLevel = nextLevel
+	transitionScene.nextLevel = nextLevelId
 	add_child(transitionScene)
 
 func on_load_level(nextLevel):
+	HideWorldSelect()
+	
 	if current_level != null:
 		current_level.queue_free()
 	
-	playerData.ResetState(nextLevel)
-	hud.set_keys(playerData.keys)
-	hud.set_score(playerData.coins)
+	keys = 0
+	hud.set_keys(keys)
 	
 	playerData.currentLevel = nextLevel
 	var levelScene = levelUtility.GetScene(playerData.currentLevel)

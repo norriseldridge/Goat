@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/WorldSelector.gd" type="Script" id=2]
+[ext_resource path="res://sprites/castle.png" type="Texture" id=3]
+[ext_resource path="res://scenes/WorldSelectNode.tscn" type="PackedScene" id=5]
+
+[node name="WorldSelector" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Castle" type="Sprite" parent="."]
+position = Vector2( 120, 60 )
+texture = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 105, 64 )
+zoom = Vector2( 0.6, 0.6 )
+
+[node name="CastleEntrance" parent="." instance=ExtResource( 5 )]
+
+[node name="CastleEntrance2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 85, 68 )
+
+[node name="CastleEntrance3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 95, 78 )
+
+[node name="CastleEntrance4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 99, 90 )
+
+[node name="CastleEntrance5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 107, 65 )
+frame = 0
+
+[node name="CastleEntrance6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 109, 34 )
+frame = 0
+
+[node name="CastleEntrance7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 135, 83 )
+frame = 0

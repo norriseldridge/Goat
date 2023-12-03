@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/blacknwhite.png" type="Texture" id=1]
+[ext_resource path="res://scenes/mechanics/Ladder.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 18 )
+
+[node name="Ladder" type="Area2D"]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 6, 30 )
+z_index = -5
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 35
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 6, 18 )
+z_index = -5
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 35
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 6, 6 )
+z_index = -5
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 6, 18 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_Ladder_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Ladder_body_exited"]
+[connection signal="child_entered_tree" from="CollisionShape2D" to="." method="_on_CollisionShape2D_child_entered_tree"]
+[connection signal="child_exiting_tree" from="CollisionShape2D" to="." method="_on_CollisionShape2D_child_exiting_tree"]

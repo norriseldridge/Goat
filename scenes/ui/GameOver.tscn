@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/ui/GameOver.gd" type="Script" id=1]
-[ext_resource path="res://fonts/title_theme.tres" type="Theme" id=2]
 [ext_resource path="res://fonts/prompt_theme.tres" type="Theme" id=3]
 
 [node name="GameOver" type="CanvasLayer"]
@@ -29,16 +28,35 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="Label" type="Label" parent="Backing/Fill"]
 anchor_right = 1.0
-anchor_bottom = 0.6
-theme = ExtResource( 2 )
+anchor_bottom = 0.5
+theme = ExtResource( 3 )
 text = "You Died"
 align = 1
 valign = 2
 
-[node name="Label2" type="Label" parent="Backing/Fill"]
-anchor_top = 0.6
+[node name="HBoxContainer" type="HBoxContainer" parent="Backing/Fill"]
+anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="Backing/Fill/HBoxContainer"]
+margin_left = 7.0
+margin_right = 30.0
+margin_bottom = 17.0
+focus_neighbour_right = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
 theme = ExtResource( 3 )
-text = "Retry? y/n"
-align = 1
+text = "Retry"
+
+[node name="QuitButton" type="Button" parent="Backing/Fill/HBoxContainer"]
+margin_left = 34.0
+margin_right = 50.0
+margin_bottom = 17.0
+focus_neighbour_left = NodePath("../RetryButton")
+focus_previous = NodePath(".")
+theme = ExtResource( 3 )
+text = "Quit"
+
+[connection signal="pressed" from="Backing/Fill/HBoxContainer/RetryButton" to="." method="_on_RetryButton_pressed"]
+[connection signal="pressed" from="Backing/Fill/HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

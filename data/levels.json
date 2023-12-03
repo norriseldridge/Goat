@@ -3,17 +3,75 @@
         {
             "id": "1",
             "name": "Level 1",
-            "scene": "res://scenes/levels/Level1.tscn"
+            "scene": "res://scenes/levels/Level1.tscn",
+            "next": "2"
         },
         {
             "id": "2",
             "name": "Level 2",
-            "scene": "res://scenes/levels/Level2.tscn"
+            "scene": "res://scenes/levels/Level2.tscn",
+            "next": "3"
         },
         {
             "id": "3",
             "name": "Level 3",
-            "scene": "res://scenes/levels/Level3.tscn"
+            "scene": "res://scenes/levels/Level3.tscn",
+            "next": "4"
+        },
+        {
+            "id": "4",
+            "name": "Level 4",
+            "scene": "res://scenes/levels/Level4.tscn",
+            "next": "5"
+        },
+        {
+            "id": "5",
+            "name": "Level 5",
+            "scene": "res://scenes/levels/Level5.tscn",
+            "next": "1"
+        },
+        {
+            "id": "6",
+            "name": "Level 6",
+            "scene": "res://scenes/levels/Level6.tscn",
+            "next": "1"
+        }
+    ],
+    "worlds": [
+        {
+            "id": "1",
+            "name": "Gate",
+            "levels": ["1", "2", "3", "4", "5", "6"]
+        },
+        {
+            "id": "2",
+            "name": "Bridge",
+            "levels": []
+        },
+        {
+            "id": "3",
+            "name": "Kitchen",
+            "levels": []
+        },
+        {
+            "id": "4",
+            "name": "Dock",
+            "levels": []
+        },
+        {
+            "id": "5",
+            "name": "Conservatory",
+            "levels": []
+        },
+        {
+            "id": "6",
+            "name": "Tower",
+            "levels": []
+        },
+        {
+            "id": "7",
+            "name": "Dungeon",
+            "levels": []
         }
     ]
 }

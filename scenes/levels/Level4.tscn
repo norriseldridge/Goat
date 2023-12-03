@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/levels/LevelTileMap.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/mechanics/KillZone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/mechanics/Portal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/mechanics/Key.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/mechanics/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/mechanics/DisappearingBlock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/mechanics/Door.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 384, 13.75 )
+
+[node name="Level" type="Node2D"]
+
+[node name="Portal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 276, 120 )
+
+[node name="AnimatedSprite" parent="Portal" index="0"]
+frame = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 12, 12 )
+show_collision = true
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -262144, 5, 0, -196608, 5, 0, -131072, 5, 0, -65536, 5, 0, 0, 5, 0, 21, 3, 0, 65536, 5, 0, 65557, 3, 0, 131072, 5, 0, 131093, 3, 0, 196608, 5, 0, 196629, 3, 0, 262144, 5, 0, 262165, 3, 0, 327680, 5, 0, 327701, 3, 0, 393216, 5, 0, 393237, 3, 0, 458752, 5, 0, 458773, 3, 0, 524288, 5, 0, 524309, 3, 0, 589824, 5, 0, 589845, 6, 0, 589846, 7, 0, 589847, 7, 0, 589848, 10, 0, 655360, 5, 0, 655384, 3, 0, 720896, 5, 0, 720916, 13, 0, 720917, 1, 0, 720918, 1, 0, 720919, 1, 0, 720920, 12, 0, 786432, 5, 0, 786440, 15, 0, 786441, 15, 0, 786445, 0, 0, 786446, 1, 0, 786447, 1, 0, 786448, 2, 0, 851968, 5, 0, 851981, 3, 0, 851984, 5, 0, 917504, 5, 0, 917517, 3, 0, 917520, 5, 0, 983040, 5, 0, 983053, 3, 0, 983056, 5, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 180, 139 )
+
+[node name="KillZone" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -24 )
+
+[node name="CollisionShape2D" parent="KillZone" index="0"]
+position = Vector2( 384, 228.5 )
+shape = SubResource( 1 )
+
+[node name="Key" parent="." instance=ExtResource( 4 )]
+position = Vector2( 36, 120 )
+
+[node name="Door" parent="." instance=ExtResource( 7 )]
+position = Vector2( 252, 120 )
+
+[node name="DisappearingBlock2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 36, 132 )
+active = false
+
+[editable path="Portal"]
+[editable path="Portal/LevelLoadZone"]
+[editable path="KillZone"]
