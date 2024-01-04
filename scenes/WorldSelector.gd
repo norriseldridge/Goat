@@ -25,6 +25,9 @@ func _ready():
 	worldData = levelUtility.GetWorldData()
 	for index in worldData.size():
 		levelNodes[index].SetWorldData(worldData[index])
+		
+		if levelUtility.GetWorldUnlocked(worldData[index], playerData):
+			activeIndex = index
 	
 	SetActive(activeIndex)
 
@@ -51,7 +54,7 @@ func ChangeIndex(amount):
 	if activeIndex >= levelNodes.size():
 		activeIndex = levelNodes.size() - 1
 	
-	if !levelUtility.GetWorldComplete(worldData[activeIndex], playerData):
+	if !levelUtility.GetWorldUnlocked(worldData[activeIndex], playerData):
 		activeIndex = previousIndex
 	SetActive(activeIndex)
 

@@ -78,7 +78,6 @@ func on_player_entered_door_unlock(doorid):
 		doorUnlockSfx.play()
 
 func on_player_picked_up_coin():
-	print("picked up a coin I guess?")
 	pickUpSfx.play()
 
 func on_player_entered_portal():
@@ -102,6 +101,10 @@ func on_load_level(nextLevel):
 	
 	keys = 0
 	hud.set_keys(keys)
+	
+	if nextLevel == "-1":
+		ShowWorldSelect()
+		return
 	
 	playerData.currentLevel = nextLevel
 	var levelScene = levelUtility.GetScene(playerData.currentLevel)

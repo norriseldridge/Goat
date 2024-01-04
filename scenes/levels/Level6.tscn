@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/levels/LevelTileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/mechanics/KillZone.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/mechanics/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/mechanics/Ladder.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/mechanics/MovingPlatform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/mechanics/Enemy/Birdy.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 384, 13.75 )
@@ -13,7 +14,10 @@ extents = Vector2( 384, 13.75 )
 [node name="Level" type="Node2D"]
 
 [node name="Portal" parent="." instance=ExtResource( 3 )]
-position = Vector2( 264, -12 )
+position = Vector2( 264, 0 )
+
+[node name="AnimatedSprite" parent="Portal" index="0"]
+frame = 2
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -21,7 +25,7 @@ cell_size = Vector2( 12, 12 )
 show_collision = true
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 0, 5, 0, 24, 3, 0, 65536, 5, 0, 65560, 3, 0, 131072, 5, 0, 131096, 3, 0, 196608, 5, 0, 196632, 3, 0, 262144, 5, 0, 262168, 3, 0, 327680, 5, 0, 327704, 3, 0, 393216, 5, 0, 393240, 3, 0, 458752, 5, 0, 458776, 3, 0, 524288, 5, 0, 524312, 3, 0, 589824, 5, 0, 589826, 15, 0, 589848, 3, 0, 655360, 5, 0, 655384, 3, 0, 720896, 5, 0, 720920, 3, 0, 786432, 5, 0, 786456, 3, 0, 851968, 5, 0, 851992, 3, 0, 917504, 5, 0, 917528, 3, 0, 983040, 11, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 2, 0, 983060, 0, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 12, 0 )
+tile_data = PoolIntArray( 0, 5, 0, 5, 16, 0, 7, 16, 0, 17, 16, 0, 19, 16, 0, 24, 3, 0, 65536, 5, 0, 65541, 16, 0, 65543, 16, 0, 65553, 16, 0, 65555, 16, 0, 65560, 3, 0, 131072, 5, 0, 131077, 15, 0, 131078, 15, 0, 131079, 15, 0, 131089, 15, 0, 131090, 15, 0, 131091, 15, 0, 131096, 3, 0, 196608, 5, 0, 196632, 3, 0, 262144, 5, 0, 262168, 3, 0, 327680, 5, 0, 327686, 4, 0, 327698, 4, 0, 327704, 3, 0, 393216, 5, 0, 393240, 3, 0, 458752, 5, 0, 458776, 3, 0, 524288, 5, 0, 524312, 3, 0, 589824, 5, 0, 589826, 15, 0, 589848, 3, 0, 655360, 5, 0, 655384, 3, 0, 720896, 5, 0, 720920, 3, 0, 786432, 5, 0, 786456, 3, 0, 851968, 5, 0, 851992, 3, 0, 917504, 5, 0, 917528, 3, 0, 983040, 11, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 2, 0, 983060, 0, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 12, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 30, 175 )
@@ -42,10 +46,28 @@ position = Vector2( 12, 108 )
 [node name="MovingPlatform" parent="." instance=ExtResource( 6 )]
 position = Vector2( 60, 108 )
 
+[node name="Platform" parent="MovingPlatform" index="0"]
+position = Vector2( 84, 0 )
+
 [node name="End" parent="MovingPlatform" index="2"]
 position = Vector2( 162, 0 )
+
+[node name="MovingPlatform2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 264, 144 )
+
+[node name="End" parent="MovingPlatform2" index="2"]
+position = Vector2( 0, -96 )
+
+[node name="Birdy" parent="." instance=ExtResource( 7 )]
+position = Vector2( 150, 50 )
+
+[node name="EndPoint" parent="Birdy" index="1"]
+position = Vector2( 0, 137 )
 
 [editable path="Portal"]
 [editable path="Portal/LevelLoadZone"]
 [editable path="KillZone"]
 [editable path="MovingPlatform"]
+[editable path="MovingPlatform2"]
+[editable path="Birdy"]
+[editable path="Birdy/KinematicBody2D/KillZone"]
