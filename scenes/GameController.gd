@@ -42,6 +42,9 @@ func _ready():
 	ShowWorldSelect()
 
 func _process(delta):
+	if worldSelector != null:
+		return
+		
 	if Input.is_action_just_pressed("escape"):
 		if !globals.paused:
 			pause = pauseMenuScene.instance()
