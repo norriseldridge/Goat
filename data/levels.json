@@ -52,6 +52,30 @@
             "id": "9",
             "name": "Level 9",
             "scene": "res://scenes/levels/Level9.tscn",
+            "next": "10"
+        },
+        {
+            "id": "10",
+            "name": "Level 10",
+            "scene": "res://scenes/levels/Level10.tscn",
+            "next": "11"
+        },
+        {
+            "id": "11",
+            "name": "Level 11",
+            "scene": "res://scenes/levels/Level11.tscn",
+            "next": "12"
+        },
+        {
+            "id": "12",
+            "name": "Level 12",
+            "scene": "res://scenes/levels/Level12.tscn",
+            "next": "13"
+        },
+        {
+            "id": "13",
+            "name": "Level 13",
+            "scene": "res://scenes/levels/Level13.tscn",
             "next": "-1"
         }
     ],
@@ -66,7 +90,7 @@
             "id": "2",
             "prereqid": "1",
             "name": "Bridge",
-            "levels": ["9"]
+            "levels": ["9", "10", "11", "12", "13"]
         },
         {
             "id": "3",

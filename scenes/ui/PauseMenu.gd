@@ -12,4 +12,3 @@ func _on_RetryButton_pressed():
  
 func _on_QuitButton_pressed():
 	messageBroker.emit_signal("load_main_menu")
-	queue_free()

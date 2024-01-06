@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/prompt_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/ui/PauseMenu.gd" type="Script" id=2]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Black" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="Backing" type="ColorRect" parent="."]
+anchor_left = 0.4
+anchor_top = 0.4
+anchor_right = 0.6
+anchor_bottom = 0.6
+
+[node name="Fill" type="ColorRect" parent="Backing"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = -1.0
+margin_bottom = -1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="Backing/Fill"]
+anchor_right = 1.0
+anchor_bottom = 0.5
+theme = ExtResource( 1 )
+text = "Menu"
+align = 1
+valign = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Backing/Fill"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="Backing/Fill/HBoxContainer"]
+margin_left = 7.0
+margin_right = 30.0
+margin_bottom = 17.0
+focus_neighbour_right = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+theme = ExtResource( 1 )
+text = "Retry"
+
+[node name="QuitButton" type="Button" parent="Backing/Fill/HBoxContainer"]
+margin_left = 34.0
+margin_right = 50.0
+margin_bottom = 17.0
+focus_neighbour_left = NodePath("../RetryButton")
+focus_previous = NodePath(".")
+theme = ExtResource( 1 )
+text = "Quit"
+
+[connection signal="pressed" from="Backing/Fill/HBoxContainer/RetryButton" to="." method="_on_RetryButton_pressed"]
+[connection signal="pressed" from="Backing/Fill/HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/levels/LevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/mechanics/Ladder.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/mechanics/Spikes.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/mechanics/DisappearingBlock.tscn" type="PackedScene" id=4]
+
+[node name="Level" instance=ExtResource( 1 )]
+
+[node name="AnimatedSprite" parent="Portal" index="0"]
+frame = 1
+
+[node name="TileMap" parent="." index="1"]
+tile_data = PoolIntArray( -196608, 5, 0, -196605, 3, 0, -196603, 5, 0, -131072, 5, 0, -131069, 3, 0, -131067, 5, 0, -65536, 5, 0, -65533, 3, 0, -65531, 5, 0, 0, 5, 0, 3, 3, 0, 5, 5, 0, 24, 3, 0, 65536, 5, 0, 65539, 3, 0, 65541, 5, 0, 65560, 3, 0, 131072, 5, 0, 131075, 3, 0, 131076, 4, 0, 131077, 5, 0, 131096, 3, 0, 196608, 11, 0, 196609, 2, 0, 196611, 6, 0, 196612, 7, 0, 196613, 8, 0, 196632, 3, 0, 262145, 5, 0, 262168, 3, 0, 327681, 5, 0, 327704, 3, 0, 393217, 5, 0, 393228, 17, 0, 393240, 3, 0, 458753, 5, 0, 458764, 18, 0, 458776, 3, 0, 524289, 5, 0, 524303, 17, 0, 524312, 3, 0, 589825, 11, 0, 589826, 2, 0, 589830, 0, 0, 589831, 1, 0, 589832, 1, 0, 589833, 2, 0, 589839, 18, 0, 589848, 3, 0, 655362, 11, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 12, 0, 655369, 5, 0, 655378, 17, 0, 655384, 3, 0, 720905, 5, 0, 720914, 18, 0, 720920, 3, 0, 786441, 5, 0, 786456, 3, 0, 851977, 5, 0, 851992, 3, 0, 917513, 5, 0, 917528, 3, 0, 983049, 5, 0, 983060, 0, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 12, 0 )
+
+[node name="Player" parent="." index="2"]
+position = Vector2( 18, 31 )
+
+[node name="DisappearingBlock2" parent="." index="4" instance=ExtResource( 4 )]
+position = Vector2( 36, 60 )
+max_delay = 1.0
+
+[node name="DisappearingBlock3" parent="." index="5" instance=ExtResource( 4 )]
+position = Vector2( 48, 60 )
+max_delay = 1.0
+
+[node name="DisappearingBlock4" parent="." index="6" instance=ExtResource( 4 )]
+position = Vector2( 60, 60 )
+max_delay = 1.0
+
+[node name="Spikes" parent="." index="7" instance=ExtResource( 3 )]
+position = Vector2( 48, 60 )
+rotation = 3.14159
+
+[node name="Spikes2" parent="." index="8" instance=ExtResource( 3 )]
+position = Vector2( 60, 60 )
+rotation = 3.14159
+
+[node name="Spikes3" parent="." index="9" instance=ExtResource( 3 )]
+position = Vector2( 72, 60 )
+rotation = 3.14159
+
+[node name="Spikes4" parent="." index="10" instance=ExtResource( 3 )]
+position = Vector2( 36, 108 )
+
+[node name="Spikes5" parent="." index="11" instance=ExtResource( 3 )]
+position = Vector2( 48, 108 )
+
+[node name="Spikes6" parent="." index="12" instance=ExtResource( 3 )]
+position = Vector2( 60, 108 )
+
+[node name="Ladder" parent="." index="13" instance=ExtResource( 2 )]
+position = Vector2( 24, 72 )
+
+[editable path="Portal"]
+[editable path="Portal/LevelLoadZone"]
+[editable path="KillZone"]

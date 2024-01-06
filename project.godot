@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 
 MessageBroker="*res://scenes/MessageBroker.tscn"
 LevelUtility="*res://scenes/LevelUtility.tscn"
+Globals="*res://scenes/Globals.tscn"
 
 [display]
 

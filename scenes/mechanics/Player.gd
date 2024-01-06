@@ -16,8 +16,12 @@ var ladderCount = 0
 onready var animatedSprite = $AnimatedSprite
 onready var messageBroker = MessageBroker
 onready var jumpSfx = $JumpSFX
+onready var globals = Globals
 
 func _process(delta):
+	if globals.paused:
+		return
+		
 	var input_dir = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
 	if input_dir == 0:
