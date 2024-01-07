@@ -1,0 +1,132 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/levels/LevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/backing.png" type="Texture" id=2]
+[ext_resource path="res://scenes/mechanics/MovingPlatform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/mechanics/Enemy/Birdy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/tree.png" type="Texture" id=5]
+
+[node name="Level" instance=ExtResource( 1 )]
+
+[node name="Backing" type="Sprite" parent="." index="0"]
+position = Vector2( 248, 66 )
+texture = ExtResource( 2 )
+offset = Vector2( -98, 28 )
+
+[node name="Portal" parent="." index="1"]
+position = Vector2( 252, 24 )
+
+[node name="AnimatedSprite" parent="Portal" index="0"]
+frame = 2
+
+[node name="TileMap" parent="." index="2"]
+tile_data = PoolIntArray(  )
+
+[node name="Player" parent="." index="3"]
+position = Vector2( 30, 31 )
+
+[node name="KillZone" parent="." index="4"]
+position = Vector2( -229, -27 )
+
+[node name="MovingPlatform" parent="." index="5" instance=ExtResource( 3 )]
+position = Vector2( 24, 36 )
+
+[node name="End" parent="MovingPlatform" index="2"]
+position = Vector2( 0, 108 )
+
+[node name="MovingPlatform2" parent="." index="6" instance=ExtResource( 3 )]
+position = Vector2( 72, 132 )
+speed = 15
+
+[node name="End" parent="MovingPlatform2" index="2"]
+position = Vector2( 0, -72 )
+
+[node name="MovingPlatform3" parent="." index="7" instance=ExtResource( 3 )]
+position = Vector2( 144, 96 )
+speed = 22
+
+[node name="End" parent="MovingPlatform3" index="2"]
+position = Vector2( 48, 0 )
+
+[node name="MovingPlatform5" parent="." index="8" instance=ExtResource( 3 )]
+position = Vector2( 252, 36 )
+speed = 25
+
+[node name="End" parent="MovingPlatform5" index="2"]
+position = Vector2( 0, 60 )
+
+[node name="Birdy" parent="." index="9" instance=ExtResource( 4 )]
+position = Vector2( 78, 31 )
+
+[node name="EndPoint" parent="Birdy" index="1"]
+position = Vector2( 0, 91 )
+
+[node name="AnimatedSprite" parent="Birdy/KinematicBody2D" index="0"]
+frame = 2
+
+[node name="Birdy2" parent="." index="10" instance=ExtResource( 4 )]
+position = Vector2( 192, 60 )
+
+[node name="EndPoint" parent="Birdy2" index="1"]
+position = Vector2( 0, 91 )
+
+[node name="AnimatedSprite" parent="Birdy2/KinematicBody2D" index="0"]
+frame = 2
+
+[node name="Birdy3" parent="." index="11" instance=ExtResource( 4 )]
+position = Vector2( 30, 122 )
+
+[node name="EndPoint" parent="Birdy3" index="1"]
+position = Vector2( 114, 0 )
+
+[node name="AnimatedSprite" parent="Birdy3/KinematicBody2D" index="0"]
+frame = 2
+
+[node name="Birdy4" parent="." index="12" instance=ExtResource( 4 )]
+position = Vector2( 284, 122 )
+
+[node name="EndPoint" parent="Birdy4" index="1"]
+position = Vector2( -134, 0 )
+
+[node name="AnimatedSprite" parent="Birdy4/KinematicBody2D" index="0"]
+frame = 1
+
+[node name="Tree" type="Sprite" parent="." index="13"]
+position = Vector2( 11, 235 )
+texture = ExtResource( 5 )
+
+[node name="Tree2" type="Sprite" parent="." index="14"]
+position = Vector2( 84, 257 )
+texture = ExtResource( 5 )
+
+[node name="Tree3" type="Sprite" parent="." index="15"]
+position = Vector2( 114, 247 )
+texture = ExtResource( 5 )
+
+[node name="Tree4" type="Sprite" parent="." index="16"]
+position = Vector2( 176, 264 )
+texture = ExtResource( 5 )
+
+[node name="Tree5" type="Sprite" parent="." index="17"]
+position = Vector2( 252, 241 )
+texture = ExtResource( 5 )
+
+[node name="Tree6" type="Sprite" parent="." index="18"]
+position = Vector2( 284, 252 )
+texture = ExtResource( 5 )
+
+[editable path="Portal"]
+[editable path="Portal/LevelLoadZone"]
+[editable path="KillZone"]
+[editable path="MovingPlatform"]
+[editable path="MovingPlatform2"]
+[editable path="MovingPlatform3"]
+[editable path="MovingPlatform5"]
+[editable path="Birdy"]
+[editable path="Birdy/KinematicBody2D/KillZone"]
+[editable path="Birdy2"]
+[editable path="Birdy2/KinematicBody2D/KillZone"]
+[editable path="Birdy3"]
+[editable path="Birdy3/KinematicBody2D/KillZone"]
+[editable path="Birdy4"]
+[editable path="Birdy4/KinematicBody2D/KillZone"]

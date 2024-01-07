@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/levels/LevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/mechanics/FallingBlock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/mechanics/Enemy/Birdy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/mechanics/Ladder.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/mechanics/Trigger.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 10 )
+
+[node name="Level" instance=ExtResource( 1 )]
+
+[node name="Portal" parent="." index="0"]
+position = Vector2( 258, 168 )
+
+[node name="AnimatedSprite" parent="Portal" index="0"]
+frame = 2
+
+[node name="TileMap" parent="." index="1"]
+tile_data = PoolIntArray( -65536, 5, 0, -65535, 7, 0, -65534, 7, 0, -65533, 7, 0, -65532, 7, 0, -65531, 7, 0, -65530, 7, 0, -65529, 7, 0, -65528, 7, 0, -65527, 7, 0, -65526, 7, 0, -65525, 7, 0, -65524, 7, 0, -65523, 7, 0, -65522, 7, 0, -65521, 7, 0, -65520, 7, 0, -65519, 7, 0, -65518, 7, 0, -65517, 7, 0, -65516, 7, 0, -65515, 7, 0, -65514, 7, 0, -65513, 7, 0, -65512, 3, 0, 0, 5, 0, 24, 3, 0, 65536, 5, 0, 65560, 3, 0, 131072, 11, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131085, 2, 0, 131087, 0, 0, 131088, 1, 0, 131089, 1, 0, 131090, 1, 0, 131091, 2, 0, 131096, 3, 0, 196608, 9, 0, 196609, 7, 0, 196610, 7, 0, 196611, 7, 0, 196612, 7, 0, 196613, 7, 0, 196614, 7, 0, 196615, 7, 0, 196616, 7, 0, 196617, 7, 0, 196618, 7, 0, 196619, 7, 0, 196620, 7, 0, 196621, 8, 0, 196623, 6, 0, 196624, 7, 0, 196625, 7, 0, 196626, 10, 0, 196627, 5, 0, 196632, 3, 0, 262144, 5, 0, 262162, 3, 0, 262163, 5, 0, 262168, 3, 0, 327680, 5, 0, 327698, 3, 0, 327699, 5, 0, 327704, 3, 0, 393216, 5, 0, 393230, 15, 0, 393234, 3, 0, 393235, 5, 0, 393240, 3, 0, 458752, 5, 0, 458770, 3, 0, 458771, 5, 0, 458776, 3, 0, 524288, 5, 0, 524299, 15, 0, 524306, 3, 0, 524307, 5, 0, 524312, 3, 0, 589824, 5, 0, 589842, 3, 0, 589843, 5, 0, 589848, 3, 0, 655360, 5, 0, 655368, 15, 0, 655378, 3, 0, 655379, 5, 0, 655384, 3, 0, 720896, 5, 0, 720914, 3, 0, 720915, 5, 0, 720920, 3, 0, 786432, 5, 0, 786437, 15, 0, 786450, 3, 0, 786451, 5, 0, 786456, 3, 0, 851968, 5, 0, 851986, 3, 0, 851987, 5, 0, 851992, 3, 0, 917504, 5, 0, 917522, 3, 0, 917523, 5, 0, 917528, 3, 0, 983040, 11, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 2, 0, 983058, 3, 0, 983059, 11, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 12, 0 )
+
+[node name="Birdy" parent="." index="4" instance=ExtResource( 3 )]
+position = Vector2( 102, 54 )
+
+[node name="EndPoint" parent="Birdy" index="1"]
+position = Vector2( 0, 59 )
+
+[node name="AnimatedSprite" parent="Birdy/KinematicBody2D" index="0"]
+frame = 2
+
+[node name="Birdy2" parent="." index="5" instance=ExtResource( 3 )]
+position = Vector2( 266, -31 )
+speed = 80
+
+[node name="EndPoint" parent="Birdy2" index="1"]
+position = Vector2( -2, 214 )
+
+[node name="AnimatedSprite" parent="Birdy2/KinematicBody2D" index="0"]
+frame = 2
+
+[node name="Birdy3" parent="." index="6" instance=ExtResource( 3 )]
+position = Vector2( 280, -31 )
+speed = 110
+
+[node name="EndPoint" parent="Birdy3" index="1"]
+position = Vector2( -2, 214 )
+
+[node name="AnimatedSprite" parent="Birdy3/KinematicBody2D" index="0"]
+frame = 2
+
+[node name="Birdy4" parent="." index="7" instance=ExtResource( 3 )]
+position = Vector2( 252, -31 )
+speed = 120
+
+[node name="EndPoint" parent="Birdy4" index="1"]
+position = Vector2( -2, 214 )
+
+[node name="AnimatedSprite" parent="Birdy4/KinematicBody2D" index="0"]
+frame = 1
+
+[node name="Trigger" type="Node2D" parent="." index="8"]
+position = Vector2( 66, 134 )
+script = ExtResource( 5 )
+nodeNames = "Birdy"
+
+[node name="Area2D" type="Area2D" parent="Trigger" index="0"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger/Area2D" index="0"]
+shape = SubResource( 1 )
+
+[node name="Trigger2" type="Node2D" parent="." index="9"]
+position = Vector2( 264, 46 )
+script = ExtResource( 5 )
+nodeNames = "Birdy2
+Birdy3
+Birdy4"
+
+[node name="Area2D" type="Area2D" parent="Trigger2" index="0"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger2/Area2D" index="0"]
+shape = SubResource( 2 )
+
+[node name="Ladder" parent="." index="10" instance=ExtResource( 4 )]
+position = Vector2( 168, 36 )
+
+[node name="FallingBlock" parent="." index="11" instance=ExtResource( 2 )]
+position = Vector2( 246, 30 )
+
+[node name="FallingBlock2" parent="." index="12" instance=ExtResource( 2 )]
+position = Vector2( 258, 30 )
+
+[node name="FallingBlock3" parent="." index="13" instance=ExtResource( 2 )]
+position = Vector2( 270, 30 )
+
+[node name="FallingBlock4" parent="." index="14" instance=ExtResource( 2 )]
+position = Vector2( 282, 30 )
+
+[connection signal="body_entered" from="Trigger/Area2D" to="Trigger" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Trigger2/Area2D" to="Trigger2" method="_on_Area2D_body_entered"]
+
+[editable path="Portal"]
+[editable path="Portal/LevelLoadZone"]
+[editable path="KillZone"]
+[editable path="Birdy"]
+[editable path="Birdy/KinematicBody2D/KillZone"]
+[editable path="Birdy2"]
+[editable path="Birdy2/KinematicBody2D/KillZone"]
+[editable path="Birdy3"]
+[editable path="Birdy3/KinematicBody2D/KillZone"]
+[editable path="Birdy4"]
+[editable path="Birdy4/KinematicBody2D/KillZone"]

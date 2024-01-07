@@ -19,7 +19,7 @@ extents = Vector2( 384, 13.75 )
 position = Vector2( 276, 120 )
 
 [node name="AnimatedSprite" parent="Portal" index="0"]
-frame = 3
+frame = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )

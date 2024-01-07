@@ -159,7 +159,7 @@ playing = true
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 12, 12 )
 format = 1
-tile_data = PoolIntArray( 9, 16, 0, 15, 16, 0, 65545, 16, 0, 65551, 16, 0, 131081, 16, 0, 131087, 16, 0, 196617, 16, 0, 196623, 16, 0, 262153, 16, 0, 262159, 16, 0, 720904, 13, 0, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 14, 0 )
+tile_data = PoolIntArray( 9, 16, 0, 15, 16, 0, 65545, 16, 0, 65551, 16, 0, 131081, 16, 0, 131087, 16, 0, 196617, 16, 0, 196623, 16, 0, 262153, 16, 0, 262159, 16, 0, 327685, 17, 0, 327700, 17, 0, 393221, 18, 0, 393236, 18, 0, 720904, 13, 0, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 14, 0 )
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]

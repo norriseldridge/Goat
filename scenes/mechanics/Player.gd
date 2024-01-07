@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+const AIR_FORCE = 100 # in code these are "ladders"
 const GRAVITY = 300
 const MAX_GRAVITY = 150
 const FRICTION = 350
@@ -35,11 +36,14 @@ func _process(delta):
 		elif velocity.x < 0:
 			animatedSprite.flip_h = true
 	
-	if !grounded && ladderCount == 0:
+	if !grounded:
 		animatedSprite.play("falling")
-		velocity.y += GRAVITY * delta
-		if velocity.y > MAX_GRAVITY:
-			velocity.y = MAX_GRAVITY
+		if ladderCount == 0:
+			velocity.y += GRAVITY * delta
+			if velocity.y > MAX_GRAVITY:
+				velocity.y = MAX_GRAVITY
+		else:
+			velocity.y -= AIR_FORCE * delta
 	
 	if Input.is_action_just_pressed("jump") && jumpCount < maxJumpCount:
 		velocity.y = -jumpForce

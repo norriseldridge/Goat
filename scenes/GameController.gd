@@ -24,6 +24,7 @@ onready var playerDiedSfx = $PlayerDiedSfx
 onready var enteredPortalSfx = $EnteredPortalSfx
 
 var pause = null
+var gameOver = null
 
 func _ready():
 	messageBroker.connect("player_died", self, "on_player_died")
@@ -34,6 +35,10 @@ func _ready():
 	
 	messageBroker.connect("player_entered_portal", self, "on_player_entered_portal")
 	messageBroker.connect("load_level", self, "on_load_level")
+	
+	gameOver = gameOverScene.instance()
+	gameOver.Hide()
+	camera.add_child(gameOver)
 	
 	if selectedUserFile != null:
 		playerData.playerFileName = selectedUserFile
@@ -73,9 +78,9 @@ func HideWorldSelect():
 
 func on_player_died():
 	playerDiedSfx.play()
-	var gameOver = gameOverScene.instance()
+	
 	gameOver.retryScene = playerData.currentLevel
-	camera.add_child(gameOver)
+	gameOver.Show()
 	camera.shake(0.7)
 	
 func on_player_picked_up_key():
@@ -98,6 +103,7 @@ func on_player_picked_up_food():
 
 func on_player_entered_portal():
 	playerData.MarkLevelCompleted()
+	playerData.Save()
 	
 	if current_level != null:
 		current_level.queue_free()
@@ -113,7 +119,8 @@ func on_load_level(nextLevel):
 	HideWorldSelect()
 	
 	if current_level != null:
-		current_level.queue_free()
+		current_level.free()
+		current_level = null
 	
 	keys = 0
 	hud.set_keys(keys)
@@ -125,7 +132,10 @@ func on_load_level(nextLevel):
 	globals.paused = false
 	pause = null
 	
+	gameOver.visible = false
+	
 	playerData.currentLevel = nextLevel
+	playerData.Save()
 	var levelScene = levelUtility.GetScene(playerData.currentLevel)
 	current_level = load(levelScene).instance()
 	add_child(current_level)

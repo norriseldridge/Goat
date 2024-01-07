@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/levels/LevelTileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/mechanics/KillZone.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/mechanics/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/mechanics/Ladder.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/mechanics/MovingPlatform.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/mechanics/Enemy/Birdy.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 384, 13.75 )
@@ -15,6 +14,9 @@ extents = Vector2( 384, 13.75 )
 
 [node name="Portal" parent="." instance=ExtResource( 3 )]
 position = Vector2( 264, 0 )
+
+[node name="AnimatedSprite" parent="Portal" index="0"]
+frame = 3
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -55,19 +57,8 @@ position = Vector2( 264, 144 )
 [node name="End" parent="MovingPlatform2" index="2"]
 position = Vector2( 0, -96 )
 
-[node name="Birdy" parent="." instance=ExtResource( 7 )]
-position = Vector2( 150, 50 )
-
-[node name="EndPoint" parent="Birdy" index="1"]
-position = Vector2( 0, 137 )
-
-[node name="AnimatedSprite" parent="Birdy/KinematicBody2D" index="0"]
-frame = 2
-
 [editable path="Portal"]
 [editable path="Portal/LevelLoadZone"]
 [editable path="KillZone"]
 [editable path="MovingPlatform"]
 [editable path="MovingPlatform2"]
-[editable path="Birdy"]
-[editable path="Birdy/KinematicBody2D/KillZone"]

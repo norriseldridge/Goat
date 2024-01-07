@@ -9,6 +9,7 @@ anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="KeysLabel" type="Label" parent="."]
+visible = false
 anchor_right = 0.5
 margin_left = 2.0
 margin_top = 2.0
