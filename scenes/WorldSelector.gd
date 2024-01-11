@@ -61,6 +61,7 @@ func ChangeIndex(amount):
 func SelectWorld():
 	# either load the current level or the first level of this world
 	var levels = worldData[activeIndex].levels
+	messageBroker.emit_signal("play_music", worldData[activeIndex].music)
 	if playerData.currentLevel in levels:
 		messageBroker.emit_signal("load_level", playerData.currentLevel)
 	else:

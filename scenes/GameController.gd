@@ -26,6 +26,8 @@ onready var enteredPortalSfx = $EnteredPortalSfx
 var pause = null
 var gameOver = null
 
+var worldSelectMusic = "Intro.mp3"
+
 func _ready():
 	messageBroker.connect("player_died", self, "on_player_died")
 	messageBroker.connect("player_picked_up_key", self, "on_player_picked_up_key")
@@ -66,6 +68,7 @@ func ShowWorldSelect():
 	worldSelector.playerData = playerData
 	add_child(worldSelector)
 	hud.visible = false
+	messageBroker.emit_signal("play_music", worldSelectMusic)
 	
 func HideWorldSelect():
 	if worldSelector != null:
