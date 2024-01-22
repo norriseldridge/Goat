@@ -3,7 +3,10 @@ extends Node
 # permanent data
 export(String) var playerFileName = "player1"
 export(String) var currentLevel = "1"
+export(String) var lastUnlockedLevel = "1"
 var completedLevels = []
+var levelHighScores = {}
+var levelFastestTimes = {}
 var lastPlayed = null
 
 func Load():
@@ -15,7 +18,10 @@ func Load():
 		json_file.close()
 		
 		currentLevel = raw_data.currentLevel
+		lastUnlockedLevel = raw_data.lastUnlockedLevel
 		completedLevels = raw_data.completedLevels
+		levelHighScores = raw_data.levelHighScores
+		levelFastestTimes = raw_data.levelFastestTimes
 	
 func Save():
 	var json_file = File.new()
@@ -23,15 +29,24 @@ func Save():
 	json_file.open(filePath, File.WRITE)
 	var raw_data = {
 		"currentLevel": currentLevel,
+		"lastUnlockedLevel": lastUnlockedLevel,
 		"completedLevels": completedLevels,
+		"levelHighScores": levelHighScores,
+		"levelFastestTimes": levelFastestTimes,
 		"lastPlayed": OS.get_datetime()
 	}
 	json_file.store_line(to_json(raw_data))
 	json_file.close()
 
-func MarkLevelCompleted():
+func MarkLevelCompleted(levelScore, levelTime):
 	if !completedLevels.has(currentLevel):
 		completedLevels.append(currentLevel)
+	
+	if !levelHighScores.has(currentLevel) or levelHighScores[currentLevel] < levelScore:
+		levelHighScores[currentLevel] = levelScore
+
+	if !levelFastestTimes.has(currentLevel) or levelFastestTimes[currentLevel] > levelTime:
+		levelFastestTimes[currentLevel] = levelTime
 
 func GetUserFilePath():
 	return "user://" + playerFileName + ".json"

@@ -17,7 +17,13 @@ var ladderCount = 0
 onready var animatedSprite = $AnimatedSprite
 onready var messageBroker = MessageBroker
 onready var jumpSfx = $JumpSFX
+onready var runSfx = $RunSFX
 onready var globals = Globals
+
+var rng = RandomNumberGenerator.new()
+
+func _ready():
+	rng.randomize()
 
 func _process(delta):
 	if globals.paused:
@@ -45,6 +51,11 @@ func _process(delta):
 		else:
 			jumpCount = 0
 			velocity.y -= AIR_FORCE * delta
+	else:
+		if velocity.x != 0:
+			if !runSfx.playing:
+				runSfx.pitch_scale = rng.randf_range(0.95, 1)
+				runSfx.play()
 	
 	if Input.is_action_just_pressed("jump") && jumpCount < maxJumpCount:
 		velocity.y = -jumpForce

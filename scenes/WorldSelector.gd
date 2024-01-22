@@ -3,6 +3,7 @@ extends Node2D
 onready var messageBroker = MessageBroker
 onready var camera = $Camera2D
 onready var levelUtility = LevelUtility
+onready var levelSelect = $LevelSelect
 var playerData = null
 var worldData = null
 
@@ -36,6 +37,9 @@ func SetActive(index):
 		levelNodes[i].visible = i == index
 	
 func _process(delta):
+	if levelSelect.visible:
+		return
+
 	if Input.is_action_just_pressed("ui_right"):
 		ChangeIndex(1)
 		
@@ -59,10 +63,4 @@ func ChangeIndex(amount):
 	SetActive(activeIndex)
 
 func SelectWorld():
-	# either load the current level or the first level of this world
-	var levels = worldData[activeIndex].levels
-	messageBroker.emit_signal("play_music", worldData[activeIndex].music)
-	if playerData.currentLevel in levels:
-		messageBroker.emit_signal("load_level", playerData.currentLevel)
-	else:
-		messageBroker.emit_signal("load_level", levels[0])
+	levelSelect.Show(worldData[activeIndex], playerData)

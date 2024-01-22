@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://scenes/polish/BlinkingStar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/WorldSelector.gd" type="Script" id=2]
 [ext_resource path="res://sprites/castle.png" type="Texture" id=3]
+[ext_resource path="res://scenes/ui/LevelSelect.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/WorldSelectNode.tscn" type="PackedScene" id=5]
 
 [node name="WorldSelector" type="Node2D"]
@@ -16,28 +18,44 @@ position = Vector2( 105, 64 )
 zoom = Vector2( 0.6, 0.6 )
 
 [node name="CastleEntrance" parent="." instance=ExtResource( 5 )]
-frame = 0
+frame = 2
 
 [node name="CastleEntrance2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 85, 68 )
-frame = 0
+frame = 2
 
 [node name="CastleEntrance3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 95, 78 )
-frame = 0
+frame = 2
 
 [node name="CastleEntrance4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 99, 90 )
-frame = 0
+frame = 2
 
 [node name="CastleEntrance5" parent="." instance=ExtResource( 5 )]
 position = Vector2( 107, 65 )
-frame = 2
 
 [node name="CastleEntrance6" parent="." instance=ExtResource( 5 )]
 position = Vector2( 109, 34 )
-frame = 2
 
 [node name="CastleEntrance7" parent="." instance=ExtResource( 5 )]
 position = Vector2( 135, 83 )
+
+[node name="BlinkingStar" parent="." instance=ExtResource( 1 )]
+position = Vector2( 38, 32 )
+frame = 4
+
+[node name="BlinkingStar2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 148, 15 )
+frame = 3
+
+[node name="BlinkingStar3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 185, 42 )
 frame = 2
+
+[node name="BlinkingStar4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 81, 35 )
+frame = 2
+
+[node name="LevelSelect" parent="." instance=ExtResource( 4 )]
+visible = false

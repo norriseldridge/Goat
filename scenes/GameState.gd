@@ -5,7 +5,7 @@ onready var music = $Music
 
 export var fadeSpeed = 50
 
-var mainMenuMusic = "Intro.mp3"
+export var mainMenuMusic = ""
 
 var mainMenu
 var gameController
@@ -26,7 +26,7 @@ func _process(delta):
 			currentMusic = nextMusic
 			music.stream = load("res://music/" + nextMusic)
 			music.play()
-			music.volume_db = 0
+			music.volume_db = -10
 	
 func _on_load_main_menu():
 	if gameController != null:

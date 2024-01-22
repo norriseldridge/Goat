@@ -11,6 +11,7 @@
 
 [node name="GameController" type="Node"]
 script = ExtResource( 3 )
+worldSelectMusic = "Vibing2.mp3"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

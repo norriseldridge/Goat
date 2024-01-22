@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/mechanics/Player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Flame.png" type="Texture" id=2]
 [ext_resource path="res://sfx/Retro Jump Classic 08.wav" type="AudioStream" id=3]
+[ext_resource path="res://sfx/Gallop.wav" type="AudioStream" id=4]
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 2 )
@@ -59,7 +60,7 @@ jumpForce = 110
 position = Vector2( 0, -1 )
 frames = SubResource( 17 )
 animation = "idle"
-frame = 1
+speed_scale = 0.5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -77,6 +78,10 @@ shape = SubResource( 26 )
 stream = ExtResource( 3 )
 volume_db = -20.0
 pitch_scale = 0.6
+
+[node name="RunSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -30.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

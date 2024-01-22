@@ -17,6 +17,8 @@ onready var hud = $Camera2D/CanvasLayer/HUD
 onready var playerData = $PlayerData
 var selectedUserFile = null
 var keys = 0
+var levelScore = 0
+var levelTimeSeconds = 0.0
 
 onready var pickUpSfx = $PickUpSfx
 onready var doorUnlockSfx = $DoorUnlockSfx
@@ -26,13 +28,14 @@ onready var enteredPortalSfx = $EnteredPortalSfx
 var pause = null
 var gameOver = null
 
-var worldSelectMusic = "Intro.mp3"
+export var worldSelectMusic = ""
 
 func _ready():
 	messageBroker.connect("player_died", self, "on_player_died")
 	messageBroker.connect("player_picked_up_key", self, "on_player_picked_up_key")
 	messageBroker.connect("player_entered_door_unlock", self, "on_player_entered_door_unlock")
 	messageBroker.connect("player_picked_up_coin", self, "on_player_picked_up_coin")
+	messageBroker.connect("player_picked_up_gem", self, "on_player_picked_up_gem")
 	messageBroker.connect("player_picked_up_food", self, "on_player_picked_up_food")
 	
 	messageBroker.connect("player_entered_portal", self, "on_player_entered_portal")
@@ -50,7 +53,12 @@ func _ready():
 
 func _process(delta):
 	if worldSelector != null:
+		if Input.is_action_just_pressed("escape"):
+			messageBroker.emit_signal("load_main_menu")
 		return
+
+	if !globals.paused:
+		levelTimeSeconds += delta
 		
 	if Input.is_action_just_pressed("escape"):
 		if !globals.paused:
@@ -101,11 +109,16 @@ func on_player_entered_door_unlock(doorid):
 func on_player_picked_up_coin():
 	pickUpSfx.play()
 	
+func on_player_picked_up_gem():
+	levelScore += 1
+	hud.set_score(levelScore)
+	pickUpSfx.play()
+	
 func on_player_picked_up_food():
 	pickUpSfx.play()
 
 func on_player_entered_portal():
-	playerData.MarkLevelCompleted()
+	playerData.MarkLevelCompleted(levelScore, levelTimeSeconds)
 	playerData.Save()
 	
 	if current_level != null:
@@ -127,8 +140,12 @@ func on_load_level(nextLevel):
 	
 	keys = 0
 	hud.set_keys(keys)
+
+	levelScore = 0
+	hud.set_score(levelScore)
 	
 	if nextLevel == "-1":
+		UnlockNextWorldLevel()
 		ShowWorldSelect()
 		return
 	
@@ -138,7 +155,21 @@ func on_load_level(nextLevel):
 	gameOver.visible = false
 	
 	playerData.currentLevel = nextLevel
+	if !playerData.completedLevels.has(nextLevel):
+		playerData.lastUnlockedLevel = nextLevel
+
 	playerData.Save()
 	var levelScene = levelUtility.GetScene(playerData.currentLevel)
 	current_level = load(levelScene).instance()
 	add_child(current_level)
+	levelTimeSeconds = 0
+
+func UnlockNextWorldLevel():
+	var worldData = levelUtility.GetWorldData()
+	for index in worldData.size():
+		if levelUtility.GetWorldUnlocked(worldData[index], playerData):
+			var firstLevelId = worldData[index].levels[0]
+			if !playerData.completedLevels.has(firstLevelId):
+				playerData.lastUnlockedLevel = firstLevelId
+				playerData.Save()
+				return

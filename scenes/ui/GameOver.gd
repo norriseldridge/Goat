@@ -14,4 +14,5 @@ func _on_RetryButton_pressed():
 	messageBroker.emit_signal("load_level", retryScene)
  
 func _on_QuitButton_pressed():
-	messageBroker.emit_signal("load_main_menu")
+	messageBroker.emit_signal("load_level", "-1") # load the world select screen
+	Hide()

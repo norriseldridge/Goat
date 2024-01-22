@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/levels/LevelTileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/mechanics/KillZone.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/mechanics/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/mechanics/DisappearingBlock.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/mechanics/Door.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/mechanics/Gem.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 384, 13.75 )
@@ -15,9 +16,6 @@ extents = Vector2( 384, 13.75 )
 
 [node name="Portal" parent="." instance=ExtResource( 3 )]
 position = Vector2( 276, 120 )
-
-[node name="AnimatedSprite" parent="Portal" index="0"]
-frame = 3
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -46,6 +44,9 @@ position = Vector2( 252, 120 )
 [node name="DisappearingBlock2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 36, 132 )
 active = false
+
+[node name="Gem" parent="." instance=ExtResource( 8 )]
+position = Vector2( 36, 144 )
 
 [editable path="Portal"]
 [editable path="Portal/LevelLoadZone"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/DungeonGoat.mp3-2b0648891b29cd1eda19a2ce706edc07.mp3str"
+
+[deps]
+
+source_file="res://music/DungeonGoat.mp3"
+dest_files=[ "res://.import/DungeonGoat.mp3-2b0648891b29cd1eda19a2ce706edc07.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

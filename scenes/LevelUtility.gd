@@ -8,6 +8,12 @@ func _ready():
 	file.open(levelFile, File.READ)
 	level_data = parse_json(file.get_as_text())
 
+func GetLevelData(levelId):
+	for level in level_data["levels"]:
+		if level.id == levelId:
+			return level
+	return null
+
 func GetScene(levelId):
 	for level in level_data["levels"]:
 		if level.id == levelId:

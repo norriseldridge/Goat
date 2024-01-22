@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/levels/LevelTileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/mechanics/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/mechanics/KillZone.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/mechanics/Portal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/mechanics/Gem.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 384, 13.75 )
@@ -12,6 +13,9 @@ extents = Vector2( 384, 13.75 )
 
 [node name="Portal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 216, 95 )
+
+[node name="AnimatedSprite" parent="Portal" index="0"]
+frame = 3
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -30,6 +34,18 @@ position = Vector2( 0, -24 )
 [node name="CollisionShape2D" parent="KillZone" index="0"]
 position = Vector2( 384, 228.5 )
 shape = SubResource( 14 )
+
+[node name="Gem" parent="." instance=ExtResource( 5 )]
+position = Vector2( 12, 84 )
+
+[node name="Gem2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 108, 132 )
+
+[node name="Gem3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 120, 132 )
+
+[node name="Gem4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 132, 132 )
 
 [editable path="Portal"]
 [editable path="Portal/LevelLoadZone"]

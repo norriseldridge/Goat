@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/levels/LevelTileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/mechanics/KillZone.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/mechanics/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/mechanics/Ladder.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/mechanics/MovingPlatform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/mechanics/Gem.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 384, 13.75 )
@@ -16,7 +17,7 @@ extents = Vector2( 384, 13.75 )
 position = Vector2( 264, 0 )
 
 [node name="AnimatedSprite" parent="Portal" index="0"]
-frame = 3
+frame = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -51,14 +52,33 @@ position = Vector2( 84, 0 )
 [node name="End" parent="MovingPlatform" index="2"]
 position = Vector2( 162, 0 )
 
+[node name="MovingPlatform3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 84, 24 )
+
+[node name="Platform" parent="MovingPlatform3" index="0"]
+position = Vector2( 84, 0 )
+
+[node name="Begin" parent="MovingPlatform3" index="1"]
+position = Vector2( 84, 0 )
+
+[node name="End" parent="MovingPlatform3" index="2"]
+position = Vector2( 36, 0 )
+
 [node name="MovingPlatform2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 264, 144 )
 
 [node name="End" parent="MovingPlatform2" index="2"]
 position = Vector2( 0, -96 )
 
+[node name="Gem" parent="." instance=ExtResource( 7 )]
+position = Vector2( 73, 12 )
+
+[node name="Gem2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 216, 12 )
+
 [editable path="Portal"]
 [editable path="Portal/LevelLoadZone"]
 [editable path="KillZone"]
 [editable path="MovingPlatform"]
+[editable path="MovingPlatform3"]
 [editable path="MovingPlatform2"]

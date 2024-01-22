@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/levels/LevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mechanics/Ladder.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/mechanics/FallingBlock.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/mechanics/Gem.tscn" type="PackedScene" id=4]
 
 [node name="Level" instance=ExtResource( 1 )]
 
@@ -10,7 +11,7 @@
 position = Vector2( 108, 36 )
 
 [node name="AnimatedSprite" parent="Portal" index="0"]
-frame = 2
+frame = 1
 
 [node name="TileMap" parent="." index="1"]
 tile_data = PoolIntArray( 0, 9, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 6, 7, 0, 7, 7, 0, 8, 7, 0, 9, 7, 0, 10, 7, 0, 11, 7, 0, 12, 7, 0, 13, 7, 0, 14, 7, 0, 15, 7, 0, 16, 7, 0, 17, 7, 0, 18, 7, 0, 19, 7, 0, 20, 7, 0, 21, 7, 0, 22, 7, 0, 23, 7, 0, 24, 10, 0, 65536, 5, 0, 65560, 3, 0, 131072, 5, 0, 131075, 17, 0, 131078, 17, 0, 131084, 17, 0, 131087, 17, 0, 131093, 17, 0, 131096, 3, 0, 196608, 5, 0, 196611, 18, 0, 196614, 18, 0, 196620, 18, 0, 196623, 18, 0, 196629, 18, 0, 196632, 3, 0, 262144, 5, 0, 262168, 3, 0, 327680, 5, 0, 327699, 0, 0, 327700, 1, 0, 327701, 1, 0, 327702, 1, 0, 327703, 1, 0, 327704, 12, 0, 393216, 5, 0, 393235, 3, 0, 458752, 5, 0, 458755, 17, 0, 458771, 3, 0, 524288, 5, 0, 524291, 18, 0, 524307, 3, 0, 589824, 5, 0, 589843, 3, 0, 655360, 5, 0, 655379, 3, 0, 720896, 5, 0, 720915, 3, 0, 786432, 5, 0, 786451, 3, 0, 851968, 5, 0, 851987, 3, 0, 917504, 5, 0, 917523, 3, 0, 983040, 11, 0, 983041, 1, 0, 983042, 2, 0, 983059, 3, 0 )
@@ -98,6 +99,12 @@ position = Vector2( 126, 66 )
 
 [node name="FallingBlock21" parent="." index="31" instance=ExtResource( 3 )]
 position = Vector2( 138, 66 )
+
+[node name="Gem" parent="." index="32" instance=ExtResource( 4 )]
+position = Vector2( 48, 132 )
+
+[node name="Gem2" parent="." index="33" instance=ExtResource( 4 )]
+position = Vector2( 12, 48 )
 
 [editable path="Portal"]
 [editable path="Portal/LevelLoadZone"]

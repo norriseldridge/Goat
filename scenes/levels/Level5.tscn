@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/levels/LevelTileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/mechanics/Door.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/mechanics/DisappearingBlock.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/mechanics/Spikes.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/mechanics/MovingPlatform.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/mechanics/Gem.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 384, 13.75 )
@@ -17,9 +18,6 @@ extents = Vector2( 384, 13.75 )
 
 [node name="Portal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 276, 120 )
-
-[node name="AnimatedSprite" parent="Portal" index="0"]
-frame = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -77,6 +75,15 @@ position = Vector2( 12, 96 )
 
 [node name="End" parent="MovingPlatform" index="2"]
 position = Vector2( 0, -60 )
+
+[node name="Gem" parent="." instance=ExtResource( 10 )]
+position = Vector2( 120, 96 )
+
+[node name="Gem2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 120, 108 )
+
+[node name="Gem3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 120, 120 )
 
 [editable path="Portal"]
 [editable path="Portal/LevelLoadZone"]

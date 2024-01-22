@@ -2,121 +2,121 @@
     "levels": [
         {
             "id": "1",
-            "name": "Level 1",
+            "name": "Hoof in the Door",
             "scene": "res://scenes/levels/Level1.tscn",
             "next": "2"
         },
         {
             "id": "2",
-            "name": "Level 2",
+            "name": "Double Back",
             "scene": "res://scenes/levels/Level2.tscn",
             "next": "3"
         },
         {
             "id": "3",
-            "name": "Level 3",
+            "name": "Block Hop",
             "scene": "res://scenes/levels/Level3.tscn",
             "next": "4"
         },
         {
             "id": "4",
-            "name": "Level 4",
+            "name": "Key to Success",
             "scene": "res://scenes/levels/Level4.tscn",
             "next": "5"
         },
         {
             "id": "5",
-            "name": "Level 5",
+            "name": "Get Movin'",
             "scene": "res://scenes/levels/Level5.tscn",
             "next": "6"
         },
         {
             "id": "6",
-            "name": "Level 6",
+            "name": "High Life",
             "scene": "res://scenes/levels/Level6.tscn",
             "next": "6.2"
         },
         {
             "id": "6.2",
-            "name": "Level 6.2",
+            "name": "Gettin' Batty",
             "scene": "res://scenes/levels/Level6.2.tscn",
             "next": "6.3"
         },
         {
             "id": "6.3",
-            "name": "Level 6.3",
+            "name": "Trust Fall",
             "scene": "res://scenes/levels/Level6.3.tscn",
             "next": "7"
         },
         {
             "id": "7",
-            "name": "Level 7",
+            "name": "Double Trouble",
             "scene": "res://scenes/levels/Level7.tscn",
             "next": "8"
         },
         {
             "id": "8",
-            "name": "Level 8",
+            "name": "Open the Gate",
             "scene": "res://scenes/levels/Level8.tscn",
             "next": "-1"
         },
         {
             "id": "9",
-            "name": "Level 9",
+            "name": "High Flyin'",
             "scene": "res://scenes/levels/Level9.tscn",
             "next": "9.2"
         },
         {
             "id": "9.2",
-            "name": "Level 9.2",
+            "name": "Platforms at Night",
             "scene": "res://scenes/levels/Level9.2.tscn",
             "next": "9.2.1"
         },
         {
             "id": "9.2.1",
-            "name": "Level 9.2.1",
+            "name": "Batforms at Night",
             "scene": "res://scenes/levels/Level9.2.1.tscn",
             "next": "9.2.2"
         },
         {
             "id": "9.2.2",
-            "name": "Level 9.2.2",
+            "name": "Easy Breezy",
             "scene": "res://scenes/levels/Level9.2.2.tscn",
             "next": "9.3"
         },
         {
             "id": "9.3",
-            "name": "Level 9.3",
+            "name": "Lower the Bridge",
             "scene": "res://scenes/levels/Level9.3.tscn",
             "next": "10"
         },
         {
             "id": "10",
-            "name": "Level 10",
+            "name": "Fallin' Through",
             "scene": "res://scenes/levels/Level10.tscn",
             "next": "11"
         },
         {
             "id": "11",
-            "name": "Level 11",
+            "name": "Updraft",
             "scene": "res://scenes/levels/Level11.tscn",
             "next": "12"
         },
         {
             "id": "12",
-            "name": "Level 12",
+            "name": "Close Calls",
             "scene": "res://scenes/levels/Level12.tscn",
             "next": "13"
         },
         {
             "id": "13",
-            "name": "Level 13",
+            "name": "Matter of Timing",
             "scene": "res://scenes/levels/Level13.tscn",
             "next": "-1"
         },
         {
             "id": "14",
-            "name": "Level 14",
+            "name": "Kitchen Greetin'",
             "scene": "res://scenes/levels/Level14.tscn",
             "next": "-1"
         }
@@ -127,49 +127,49 @@
             "prereqid": "-1",
             "name": "Gate",
             "levels": ["1", "2", "3", "4", "5", "6", "6.2", "6.3", "7", "8"],
-            "music": "_Goat2.mp3"
+            "music": "Vibing2.mp3"
         },
         {
             "id": "2",
             "prereqid": "1",
             "name": "Bridge",
             "levels": ["9", "9.2", "9.2.1", "9.2.2", "9.3", "10", "11", "12", "13"],
-            "music": "_Goat2.mp3"
+            "music": "Vibing2.mp3"
         },
         {
             "id": "3",
             "prereqid": "2",
             "name": "Kitchen",
             "levels": ["14"],
-            "music": "_Goat2.mp3"
+            "music": "Vibing2.mp3"
         },
         {
             "id": "4",
             "prereqid": "3",
             "name": "Dock",
             "levels": [],
-            "music": "_Goat2.mp3"
+            "music": "Vibing2.mp3"
         },
         {
             "id": "5",
             "prereqid": "4",
             "name": "Conservatory",
             "levels": [],
-            "music": "_Goat2.mp3"
+            "music": "Vibing2.mp3"
         },
         {
             "id": "6",
             "prereqid": "5",
             "name": "Tower",
             "levels": [],
-            "music": "_Goat2.mp3"
+            "music": "Vibing2.mp3"
         },
         {
             "id": "7",
             "prereqid": "6",
             "name": "Dungeon",
             "levels": [],
-            "music": "_Goat2.mp3"
+            "music": "DungeonGoat.mp3"
         }
     ]
 }

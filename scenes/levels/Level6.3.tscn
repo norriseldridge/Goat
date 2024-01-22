@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/mechanics/MovingPlatform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mechanics/Enemy/Birdy.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/levels/LevelTemplate.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/mechanics/Spikes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/mechanics/Key.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/mechanics/Gem.tscn" type="PackedScene" id=9]
 
 [node name="Level" instance=ExtResource( 6 )]
 
@@ -15,7 +16,7 @@
 position = Vector2( 276, 12 )
 
 [node name="AnimatedSprite" parent="Portal" index="0"]
-frame = 2
+frame = 1
 
 [node name="TileMap" parent="." index="1"]
 tile_data = PoolIntArray( -393200, 5, 0, -393192, 3, 0, -327664, 5, 0, -327656, 3, 0, -262128, 5, 0, -262120, 3, 0, -196592, 5, 0, -196584, 3, 0, -131056, 5, 0, -131048, 3, 0, -65520, 5, 0, -65519, 7, 0, -65518, 7, 0, -65517, 7, 0, -65516, 7, 0, -65515, 7, 0, -65514, 7, 0, -65513, 7, 0, -65512, 3, 0, 0, 5, 0, 13, 3, 0, 16, 5, 0, 24, 3, 0, 65536, 5, 0, 65549, 3, 0, 65552, 5, 0, 65560, 3, 0, 131072, 5, 0, 131074, 17, 0, 131085, 3, 0, 131088, 5, 0, 131090, 0, 0, 131091, 1, 0, 131092, 1, 0, 131093, 1, 0, 131094, 1, 0, 131095, 1, 0, 131096, 12, 0, 196608, 5, 0, 196610, 18, 0, 196621, 3, 0, 196624, 5, 0, 196626, 3, 0, 262144, 5, 0, 262157, 6, 0, 262158, 7, 0, 262159, 7, 0, 262160, 8, 0, 262162, 3, 0, 327680, 5, 0, 327698, 3, 0, 393216, 11, 0, 393217, 1, 0, 393218, 1, 0, 393219, 2, 0, 393229, 0, 0, 393230, 1, 0, 393231, 1, 0, 393232, 1, 0, 393233, 1, 0, 393234, 12, 0, 458752, 9, 0, 458753, 7, 0, 458754, 7, 0, 458755, 8, 0, 458765, 3, 0, 524288, 5, 0, 524301, 3, 0, 589824, 5, 0, 589837, 3, 0, 655360, 5, 0, 655364, 0, 0, 655365, 1, 0, 655366, 2, 0, 655373, 3, 0, 720896, 5, 0, 720900, 3, 0, 720902, 5, 0, 720909, 3, 0, 786432, 5, 0, 786436, 3, 0, 786438, 5, 0, 786440, 15, 0, 786443, 15, 0, 786445, 3, 0, 851968, 5, 0, 851972, 3, 0, 851974, 5, 0, 851981, 3, 0, 917504, 5, 0, 917508, 3, 0, 917510, 5, 0, 917517, 3, 0, 983040, 11, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 12, 0, 983046, 11, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 12, 0 )
@@ -49,6 +50,9 @@ position = Vector2( 156, 60 )
 
 [node name="MovingPlatform" parent="." index="12" instance=ExtResource( 1 )]
 position = Vector2( 72, 72 )
+
+[node name="Gem" parent="MovingPlatform/Platform" index="2" instance=ExtResource( 9 )]
+position = Vector2( 0, 6 )
 
 [node name="End" parent="MovingPlatform" index="2"]
 position = Vector2( 72, 0 )
@@ -85,6 +89,9 @@ position = Vector2( 240, 12 )
 
 [node name="Spikes5" parent="." index="20" instance=ExtResource( 7 )]
 position = Vector2( 252, 12 )
+
+[node name="Gem" parent="." index="21" instance=ExtResource( 9 )]
+position = Vector2( 12, 96 )
 
 [editable path="Portal"]
 [editable path="Portal/LevelLoadZone"]
