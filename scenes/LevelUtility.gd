@@ -7,6 +7,7 @@ func _ready():
 	var file = File.new()
 	file.open(levelFile, File.READ)
 	level_data = parse_json(file.get_as_text())
+	file.close()
 
 func GetLevelData(levelId):
 	for level in level_data["levels"]:
