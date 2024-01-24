@@ -16,9 +16,6 @@ extents = Vector2( 384, 13.75 )
 [node name="Portal" parent="." instance=ExtResource( 3 )]
 position = Vector2( 264, 0 )
 
-[node name="AnimatedSprite" parent="Portal" index="0"]
-frame = 1
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 12, 12 )
@@ -75,6 +72,9 @@ position = Vector2( 73, 12 )
 
 [node name="Gem2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 216, 12 )
+
+[node name="Gem3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 144, 60 )
 
 [editable path="Portal"]
 [editable path="Portal/LevelLoadZone"]

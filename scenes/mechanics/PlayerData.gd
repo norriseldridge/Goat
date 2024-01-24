@@ -8,6 +8,7 @@ var completedLevels = []
 var levelHighScores = {}
 var levelFastestTimes = {}
 var lastPlayed = null
+var totalSecondsPlayed = 0
 
 func Load():
 	var json_file = File.new()
@@ -22,6 +23,7 @@ func Load():
 		completedLevels = raw_data.completedLevels
 		levelHighScores = raw_data.levelHighScores
 		levelFastestTimes = raw_data.levelFastestTimes
+		totalSecondsPlayed = raw_data.totalSecondsPlayed
 	
 func Save():
 	var json_file = File.new()
@@ -33,6 +35,7 @@ func Save():
 		"completedLevels": completedLevels,
 		"levelHighScores": levelHighScores,
 		"levelFastestTimes": levelFastestTimes,
+		"totalSecondsPlayed": totalSecondsPlayed,
 		"lastPlayed": OS.get_datetime()
 	}
 	json_file.store_line(to_json(raw_data))

@@ -118,6 +118,12 @@
             "id": "14",
             "name": "Kitchen Greetin'",
             "scene": "res://scenes/levels/Level14.tscn",
+            "next": "1000"
+        },
+        {
+            "id": "1000",
+            "name": "Thanks for Play'n",
+            "scene": "res://scenes/levels/ThanksForPlayingLevel.tscn",
             "next": "-1"
         }
     ],
@@ -140,35 +146,35 @@
             "id": "3",
             "prereqid": "2",
             "name": "Kitchen",
-            "levels": ["14"],
+            "levels": ["14", "1000"],
             "music": "Vibing2.mp3"
         },
         {
             "id": "4",
             "prereqid": "3",
             "name": "Dock",
-            "levels": [],
+            "levels": ["1000"],
             "music": "Vibing2.mp3"
         },
         {
             "id": "5",
             "prereqid": "4",
             "name": "Conservatory",
-            "levels": [],
+            "levels": ["1000"],
             "music": "Vibing2.mp3"
         },
         {
             "id": "6",
             "prereqid": "5",
             "name": "Tower",
-            "levels": [],
+            "levels": ["1000"],
             "music": "Vibing2.mp3"
         },
         {
             "id": "7",
             "prereqid": "6",
             "name": "Dungeon",
-            "levels": [],
+            "levels": ["1000"],
             "music": "DungeonGoat.mp3"
         }
     ]

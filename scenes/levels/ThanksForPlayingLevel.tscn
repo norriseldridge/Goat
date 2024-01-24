@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/prompt_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/levels/LevelTemplate.tscn" type="PackedScene" id=2]
+
+[node name="Level" instance=ExtResource( 2 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
+layer = 0
+
+[node name="Label" type="Label" parent="CanvasLayer" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+text = "Thanks for playing!
+
+Please send me your feedback and how long you played."
+align = 1
+valign = 1
+
+[editable path="Portal"]
+[editable path="Portal/LevelLoadZone"]
+[editable path="KillZone"]

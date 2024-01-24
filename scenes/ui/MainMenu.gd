@@ -14,13 +14,13 @@ func _ready():
 	playButton.grab_focus()
 	
 	# set up the play popup
-	$PlayPopup/BackButton.focus_neighbour_right = $PlayPopup/BackButton.get_path_to($PlayPopup/ColorRect/PlaySlots/Slot1)
+	$PlayPopup/BackButton.focus_neighbour_right = $PlayPopup/BackButton.get_path_to($PlayPopup/ColorRect/Control/PlaySlots/Slot1)
 	for saveSlot in [
-		{ "file": "player1", "button": "PlayPopup/ColorRect/PlaySlots/Slot1" },
-		{ "file": "player2", "button": "PlayPopup/ColorRect/PlaySlots/Slot2" },
-		{ "file": "player3", "button": "PlayPopup/ColorRect/PlaySlots/Slot3" },
-		{ "file": "player4", "button": "PlayPopup/ColorRect/PlaySlots/Slot4" },
-		{ "file": "player5", "button": "PlayPopup/ColorRect/PlaySlots/Slot5" }]:
+		{ "file": "player1", "button": "PlayPopup/ColorRect/Control/PlaySlots/Slot1" },
+		{ "file": "player2", "button": "PlayPopup/ColorRect/Control/PlaySlots/Slot2" },
+		{ "file": "player3", "button": "PlayPopup/ColorRect/Control/PlaySlots/Slot3" },
+		{ "file": "player4", "button": "PlayPopup/ColorRect/Control/PlaySlots/Slot4" },
+		{ "file": "player5", "button": "PlayPopup/ColorRect/Control/PlaySlots/Slot5" }]:
 		var button = get_node(saveSlot.button)
 		button.focus_neighbour_left = button.get_path_to($PlayPopup/BackButton)
 		var playerFile = File.new()
@@ -32,10 +32,21 @@ func _ready():
 			playerFile.open(playerFilePath, File.READ)
 			var data = parse_json(playerFile.get_as_text())
 			playerFile.close()
-			var ld = data.lastPlayed
-			button.text = "Last played: %s/%s/%s %s:%s:%s" % [ld.day, ld.month, ld.year, ld.hour, ld.minute, ld.second]
+			# var ld = data.lastPlayed
+			# var slotText = "Last played: %s/%s/%s %s:%s:%s" % [ld.day, ld.month, ld.year, ld.hour, ld.minute, ld.second]
+			var slotText = "Time played: " + time_convert(data.totalSecondsPlayed)
+			button.text = slotText
 		else:
 			button.text = "New Game"
+
+
+func time_convert(time_elapsed):	
+	var seconds = fmod(time_elapsed, 60)
+	var minutes = fmod((time_elapsed/60), 60)
+	var hours = (time_elapsed/60)/60
+	
+	#returns a string with the format "HH:MM:SS"
+	return "%02d:%02d:%02d" % [hours, minutes, seconds]
 
 
 func _on_PlayButton_pressed():

@@ -28,6 +28,9 @@ onready var enteredPortalSfx = $EnteredPortalSfx
 var pause = null
 var gameOver = null
 
+onready var levelNameLabel = $Camera2D/CanvasLayer/LevelStart/LevelName
+onready var levelStartDisplay = $Camera2D/CanvasLayer/LevelStart
+
 export var worldSelectMusic = ""
 
 func _ready():
@@ -44,6 +47,8 @@ func _ready():
 	gameOver = gameOverScene.instance()
 	gameOver.Hide()
 	camera.add_child(gameOver)
+
+	levelStartDisplay.visible = false
 	
 	if selectedUserFile != null:
 		playerData.playerFileName = selectedUserFile
@@ -51,7 +56,12 @@ func _ready():
 	
 	ShowWorldSelect()
 
+func _exit_tree():
+	playerData.Save()
+
 func _process(delta):
+	playerData.totalSecondsPlayed += delta
+
 	if worldSelector != null:
 		if Input.is_action_just_pressed("escape"):
 			messageBroker.emit_signal("load_main_menu")
@@ -59,6 +69,10 @@ func _process(delta):
 
 	if !globals.paused:
 		levelTimeSeconds += delta
+		hud.set_time(levelTimeSeconds)
+	
+	if levelStartDisplay.visible && levelTimeSeconds > 1.5:
+		levelStartDisplay.visible = false
 		
 	if Input.is_action_just_pressed("escape"):
 		if !globals.paused:
@@ -76,6 +90,7 @@ func ShowWorldSelect():
 	worldSelector.playerData = playerData
 	add_child(worldSelector)
 	hud.visible = false
+	levelStartDisplay.visible = false
 	messageBroker.emit_signal("play_music", worldSelectMusic)
 	
 func HideWorldSelect():
@@ -159,17 +174,22 @@ func on_load_level(nextLevel):
 		playerData.lastUnlockedLevel = nextLevel
 
 	playerData.Save()
-	var levelScene = levelUtility.GetScene(playerData.currentLevel)
+
+	var levelData = levelUtility.GetLevelData(playerData.currentLevel)
+	levelNameLabel.text = levelData.name
+	var levelScene = levelData.scene
 	current_level = load(levelScene).instance()
 	add_child(current_level)
 	levelTimeSeconds = 0
+	levelStartDisplay.visible = true
 
 func UnlockNextWorldLevel():
 	var worldData = levelUtility.GetWorldData()
 	for index in worldData.size():
 		if levelUtility.GetWorldUnlocked(worldData[index], playerData):
-			var firstLevelId = worldData[index].levels[0]
-			if !playerData.completedLevels.has(firstLevelId):
-				playerData.lastUnlockedLevel = firstLevelId
-				playerData.Save()
-				return
+			if worldData[index].levels.size() > 0:
+				var firstLevelId = worldData[index].levels[0]
+				if !playerData.completedLevels.has(firstLevelId):
+					playerData.lastUnlockedLevel = firstLevelId
+					playerData.Save()
+					return

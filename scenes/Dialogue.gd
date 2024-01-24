@@ -7,6 +7,10 @@ onready var text = $Border/ColorRect/RichTextLabel
 var data = null
 var currentDialogue = null
 var index = 0
+var charIndex = 0
+var nextText = null
+var charDelay = 0
+var maxCharDelay = 0.02
 
 func _ready():
 	visible = false
@@ -18,12 +22,29 @@ func _ready():
 
 func Show():
 	visible = true
-	text.text = currentDialogue[index]
+	text.text = ""
+	nextText = currentDialogue[index]
 
 func _process(delta):
+	if nextText != null:
+		charDelay += delta
+		if charDelay >= maxCharDelay:
+			charDelay = 0
+			if charIndex < nextText.length():
+				text.text += nextText[charIndex]
+				charIndex += 1
+			else:
+				nextText = null
+
 	if Input.is_action_just_pressed("ui_accept"):
-		index += 1
-		if index < currentDialogue.size():
-			text.text = currentDialogue[index]
+		if nextText != null:
+			text.text = nextText
+			nextText = null
 		else:
-			visible = false
+			index += 1
+			if index < currentDialogue.size():
+				text.text = ""
+				nextText = currentDialogue[index]
+				charIndex = 0
+			else:
+				visible = false
