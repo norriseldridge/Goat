@@ -4,6 +4,12 @@
             "id": "1",
             "name": "Hoof in the Door",
             "scene": "res://scenes/levels/Level1.tscn",
+            "next": "1.1"
+        },
+        {
+            "id": "1.1",
+            "name": "Raise the Hoof",
+            "scene": "res://scenes/levels/Level1.1.tscn",
             "next": "2"
         },
         {
@@ -132,7 +138,7 @@
             "id": "1",
             "prereqid": "-1",
             "name": "Gate",
-            "levels": ["1", "2", "3", "4", "5", "6", "6.2", "6.3", "7", "8"],
+            "levels": ["1", "1.1", "2", "3", "4", "5", "6", "6.2", "6.3", "7", "8"],
             "music": "Vibing2.mp3"
         },
         {

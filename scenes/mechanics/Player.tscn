@@ -47,7 +47,7 @@ animations = [ {
 extents = Vector2( 3.5, 4.5 )
 
 [sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 3.5, 1.5 )
+extents = Vector2( 3.5, 1 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -61,7 +61,7 @@ position = Vector2( 0, -1 )
 frames = SubResource( 17 )
 animation = "idle"
 frame = 1
-speed_scale = 0.5
+speed_scale = 0.7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -72,7 +72,7 @@ shape = SubResource( 25 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -0.5, 5.5 )
+position = Vector2( -0.5, 5 )
 shape = SubResource( 26 )
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]

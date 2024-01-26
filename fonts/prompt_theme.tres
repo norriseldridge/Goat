@@ -33,3 +33,5 @@ Button/styles/focus = SubResource( 7 )
 Button/styles/hover = SubResource( 4 )
 Button/styles/normal = SubResource( 2 )
 Button/styles/pressed = SubResource( 3 )
+HFlowContainer/constants/hseparation = 4
+HFlowContainer/constants/vseparation = 4

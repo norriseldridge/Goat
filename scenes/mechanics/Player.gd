@@ -16,6 +16,7 @@ var ladderCount = 0
 
 onready var animatedSprite = $AnimatedSprite
 onready var messageBroker = MessageBroker
+onready var settings = PlayerSettings
 onready var jumpSfx = $JumpSFX
 onready var runSfx = $RunSFX
 onready var globals = Globals
@@ -24,6 +25,8 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	rng.randomize()
+	jumpSfx.volume_db = settings.GetSFXVolume()
+	runSfx.volume_db = settings.GetSFXVolume()
 
 func _process(delta):
 	if globals.paused:
@@ -70,6 +73,7 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	grounded = true
 	jumpCount = 0
+	velocity.y = 1
 
 func _on_Area2D_body_exited(body):
 	grounded = false

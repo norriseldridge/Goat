@@ -2,6 +2,7 @@ extends Node
 
 onready var messageBroker = MessageBroker
 onready var music = $Music
+onready var settings = PlayerSettings
 
 export var fadeSpeed = 50
 
@@ -16,6 +17,9 @@ func _ready():
 	messageBroker.connect("selected_user_file", self, "_on_selected_user_file")
 	messageBroker.connect("load_main_menu", self, "_on_load_main_menu")
 	messageBroker.connect("play_music", self, "_on_play_music")
+
+	settings.Load()
+
 	_on_load_main_menu()
 	
 func _process(delta):
@@ -26,7 +30,9 @@ func _process(delta):
 			currentMusic = nextMusic
 			music.stream = load("res://music/" + nextMusic)
 			music.play()
-			music.volume_db = -10
+			music.volume_db = settings.GetMusicVolume()
+	else:
+		music.volume_db = settings.GetMusicVolume()
 	
 func _on_load_main_menu():
 	if gameController != null:

@@ -1,6 +1,7 @@
 extends Node
 
 onready var messageBroker = MessageBroker
+onready var settings = PlayerSettings
 onready var globals = Globals
 var gameOverScene = preload("res://scenes/ui/GameOver.tscn")
 var pauseMenuScene = preload("res://scenes/ui/PauseMenu.tscn")
@@ -43,6 +44,11 @@ func _ready():
 	
 	messageBroker.connect("player_entered_portal", self, "on_player_entered_portal")
 	messageBroker.connect("load_level", self, "on_load_level")
+
+	pickUpSfx.volume_db = settings.GetSFXVolume()
+	doorUnlockSfx.volume_db = settings.GetSFXVolume()
+	playerDiedSfx.volume_db = settings.GetSFXVolume()
+	enteredPortalSfx.volume_db = settings.GetSFXVolume()
 	
 	gameOver = gameOverScene.instance()
 	gameOver.Hide()
