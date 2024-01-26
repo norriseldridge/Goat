@@ -73,7 +73,7 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	grounded = true
 	jumpCount = 0
-	velocity.y = 1
+	velocity.y = 5
 
 func _on_Area2D_body_exited(body):
 	grounded = false

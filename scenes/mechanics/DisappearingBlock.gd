@@ -19,4 +19,4 @@ func _process(delta):
 
 func set_active(is_active):
 	sprite.frame = 21 if is_active else 20
-	collision.disabled = !is_active
+	collision.set_deferred("disabled", !is_active)

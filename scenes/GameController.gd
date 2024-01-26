@@ -48,7 +48,7 @@ func _ready():
 	pickUpSfx.volume_db = settings.GetSFXVolume()
 	doorUnlockSfx.volume_db = settings.GetSFXVolume()
 	playerDiedSfx.volume_db = settings.GetSFXVolume()
-	enteredPortalSfx.volume_db = settings.GetSFXVolume()
+	enteredPortalSfx.volume_db = settings.GetMusicVolume()
 	
 	gameOver = gameOverScene.instance()
 	gameOver.Hide()

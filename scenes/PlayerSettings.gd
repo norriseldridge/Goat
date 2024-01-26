@@ -3,6 +3,7 @@ extends Node
 export(String) var fileName = "settings"
 export(int) var musicVolume = 100
 export(int) var sfxVolume = 100
+onready var sfxTest = $SFXTest
 
 func Load():
 	var json_file = File.new()
@@ -25,6 +26,10 @@ func Save():
 	}
 	json_file.store_line(to_json(raw_data))
 	json_file.close()
+
+func TestSfx():
+	sfxTest.volume_db = GetSFXVolume()
+	sfxTest.play()
 
 func GetSettingsFilePath():
 	return "user://" + fileName + ".json"

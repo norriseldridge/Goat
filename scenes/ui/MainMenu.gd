@@ -19,7 +19,6 @@ onready var musicVolumeLabel = $SettingsPopup/ColorRect/Control/Music/HFlowConta
 onready var musicMinusButton = $SettingsPopup/ColorRect/Control/Music/HFlowContainer/MinusButton
 onready var sfxVolumeLabel = $SettingsPopup/ColorRect/Control/SFX/HFlowContainer/VolumeLabel
 onready var sfxMinusButton = $SettingsPopup/ColorRect/Control/SFX/HFlowContainer/MinusButton
-onready var sfxTest = $SettingsPopup/SFXTest
 
 func _ready():
 	playButton.grab_focus()
@@ -108,8 +107,7 @@ func _on_SFX_MinusButton_pressed():
 	if settings.sfxVolume < 0:
 		settings.sfxVolume = 0
 	sfxVolumeLabel.text = str(int(settings.sfxVolume))
-	sfxTest.volume_db = settings.GetSFXVolume()
-	sfxTest.play()
+	settings.TestSfx()
 
 
 func _on_SFX_PlusButton_pressed():
@@ -117,5 +115,4 @@ func _on_SFX_PlusButton_pressed():
 	if settings.sfxVolume > 100:
 		settings.sfxVolume = 100
 	sfxVolumeLabel.text = str(int(settings.sfxVolume))
-	sfxTest.volume_db = settings.GetSFXVolume()
-	sfxTest.play()
+	settings.TestSfx()

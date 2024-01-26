@@ -11,6 +11,9 @@
 [node name="Portal" parent="." index="0"]
 position = Vector2( 240, 72 )
 
+[node name="AnimatedSprite" parent="Portal" index="0"]
+frame = 2
+
 [node name="TileMap" parent="." index="1"]
 position = Vector2( 0, -12 )
 tile_data = PoolIntArray( 131072, 9, 0, 131073, 7, 0, 131074, 7, 0, 131075, 7, 0, 131076, 7, 0, 131077, 7, 0, 131078, 7, 0, 131079, 7, 0, 131080, 7, 0, 131081, 7, 0, 131082, 7, 0, 131083, 7, 0, 131084, 7, 0, 131085, 7, 0, 131086, 7, 0, 131087, 7, 0, 131088, 7, 0, 131089, 7, 0, 131090, 7, 0, 131091, 7, 0, 131092, 7, 0, 131093, 7, 0, 131094, 7, 0, 131095, 7, 0, 131096, 10, 0, 196608, 5, 0, 196632, 3, 0, 262144, 5, 0, 262168, 3, 0, 327680, 5, 0, 327704, 3, 0, 393216, 5, 0, 393240, 3, 0, 458752, 5, 0, 458776, 3, 0, 524288, 5, 0, 524302, 15, 0, 524303, 15, 0, 524305, 0, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 524312, 12, 0, 589824, 5, 0, 589841, 3, 0, 655360, 5, 0, 655377, 3, 0, 720896, 5, 0, 720913, 3, 0, 786432, 5, 0, 786434, 15, 0, 786435, 15, 0, 786449, 3, 0, 851968, 5, 0, 851985, 3, 0, 917504, 5, 0, 917521, 3, 0, 983040, 11, 0, 983041, 1, 0, 983042, 1, 0, 983043, 2, 0, 983057, 3, 0, 1048579, 5, 0, 1048593, 3, 0 )
@@ -26,7 +29,7 @@ speed = 50
 position = Vector2( 0, 108 )
 
 [node name="AnimatedSprite" parent="Birdy/KinematicBody2D" index="0"]
-frame = 1
+frame = 2
 
 [node name="Birdy2" parent="." index="5" instance=ExtResource( 3 )]
 position = Vector2( 152, 152 )
@@ -34,6 +37,9 @@ speed = 50
 
 [node name="EndPoint" parent="Birdy2" index="1"]
 position = Vector2( 0, -108 )
+
+[node name="AnimatedSprite" parent="Birdy2/KinematicBody2D" index="0"]
+frame = 1
 
 [node name="Spikes" parent="." index="6" instance=ExtResource( 1 )]
 position = Vector2( 216, 72 )
