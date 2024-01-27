@@ -35,6 +35,12 @@ func GetWorldDataById(id):
 		if world.id == id:
 			return world
 	return null
+
+func GetCurrentWorldName(playerData):
+	for world in level_data["worlds"]:
+		if world["levels"].has(playerData.lastUnlockedLevel):
+			return world.name
+	return ""
 	
 func GetWorldComplete(worldData, playerData):
 	if worldData["levels"].size() == 0:

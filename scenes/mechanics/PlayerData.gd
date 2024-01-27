@@ -2,13 +2,14 @@ extends Node
 
 # permanent data
 export(String) var playerFileName = "player1"
-export(String) var currentLevel = "1"
-export(String) var lastUnlockedLevel = "1"
+export(String) var currentLevel = "0"
+export(String) var lastUnlockedLevel = "0"
 var completedLevels = []
 var levelHighScores = {}
 var levelFastestTimes = {}
 var lastPlayed = null
 var totalSecondsPlayed = 0
+var totalDeaths = 0
 
 func Load():
 	var json_file = File.new()
@@ -24,6 +25,7 @@ func Load():
 		levelHighScores = raw_data.levelHighScores
 		levelFastestTimes = raw_data.levelFastestTimes
 		totalSecondsPlayed = raw_data.totalSecondsPlayed
+		totalDeaths = raw_data.totalDeaths
 	
 func Save():
 	var json_file = File.new()
@@ -36,6 +38,7 @@ func Save():
 		"levelHighScores": levelHighScores,
 		"levelFastestTimes": levelFastestTimes,
 		"totalSecondsPlayed": totalSecondsPlayed,
+		"totalDeaths": totalDeaths,
 		"lastPlayed": OS.get_datetime()
 	}
 	json_file.store_line(to_json(raw_data))

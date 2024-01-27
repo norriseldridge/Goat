@@ -110,7 +110,9 @@ func HideWorldSelect():
 
 func on_player_died():
 	playerDiedSfx.play()
-	
+	playerData.totalDeaths += 1
+	playerData.Save()
+
 	gameOver.retryScene = playerData.currentLevel
 	gameOver.Show()
 	camera.shake(0.7)
