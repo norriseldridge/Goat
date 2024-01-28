@@ -26,32 +26,34 @@ offset = Vector2( -98, 28 )
 
 [node name="BlinkingStar" parent="Backing" index="0" instance=ExtResource( 9 )]
 position = Vector2( -34, -48 )
-frame = 1
 
 [node name="BlinkingStar2" parent="Backing" index="1" instance=ExtResource( 9 )]
 position = Vector2( -205, 55 )
+frame = 4
 
 [node name="BlinkingStar8" parent="Backing" index="2" instance=ExtResource( 9 )]
 position = Vector2( -214, 6 )
-frame = 4
+frame = 3
 
 [node name="BlinkingStar3" parent="Backing" index="3" instance=ExtResource( 9 )]
 position = Vector2( -148, 24 )
+frame = 4
 
 [node name="BlinkingStar4" parent="Backing" index="4" instance=ExtResource( 9 )]
 position = Vector2( -61, 27 )
+frame = 4
 
 [node name="BlinkingStar5" parent="Backing" index="5" instance=ExtResource( 9 )]
 position = Vector2( -42, 74 )
-frame = 4
+frame = 3
 
 [node name="BlinkingStar6" parent="Backing" index="6" instance=ExtResource( 9 )]
 position = Vector2( -129.5, 66.5 )
-frame = 4
+frame = 3
 
 [node name="BlinkingStar7" parent="Backing" index="7" instance=ExtResource( 9 )]
 position = Vector2( -88, -5 )
-frame = 4
+frame = 3
 
 [node name="Portal" parent="." index="1"]
 position = Vector2( 252, 120 )
@@ -66,7 +68,7 @@ position = Vector2( 30, 163 )
 position = Vector2( 108, 37 )
 
 [node name="Coin2" parent="." index="6" instance=ExtResource( 4 )]
-position = Vector2( 252, 72 )
+position = Vector2( 240, 72 )
 
 [node name="Tree" type="Sprite" parent="." index="7"]
 position = Vector2( 8, 259 )

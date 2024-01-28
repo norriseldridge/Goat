@@ -148,12 +148,24 @@
             "id": "13",
             "name": "Matter of Timing",
             "scene": "res://scenes/levels/Level13.tscn",
+            "next": "13.1"
+        },
+        {
+            "id": "13.1",
+            "name": "Stairway",
+            "scene": "res://scenes/levels/Level13.1.tscn",
             "next": "-1"
         },
         {
             "id": "14",
             "name": "Kitchen Greetin'",
             "scene": "res://scenes/levels/Level14.tscn",
+            "next": "15"
+        },
+        {
+            "id": "15",
+            "name": "Prep Kitchen",
+            "scene": "res://scenes/levels/Level15.tscn",
             "next": "1000"
         },
         {
@@ -175,14 +187,14 @@
             "id": "2",
             "prereqid": "1",
             "name": "Bridge",
-            "levels": ["9", "9.2", "9.2.1", "9.2.2", "9.2.3", "9.2.4", "9.2.5", "9.3", "10", "11", "12", "13"],
+            "levels": ["9", "9.2", "9.2.1", "9.2.2", "9.2.3", "9.2.4", "9.2.5", "9.3", "10", "11", "12", "13", "13.1"],
             "music": "Vibing2.mp3"
         },
         {
             "id": "3",
             "prereqid": "2",
             "name": "Kitchen",
-            "levels": ["14", "1000"],
+            "levels": ["14", "15"],
             "music": "Vibing2.mp3"
         },
         {
