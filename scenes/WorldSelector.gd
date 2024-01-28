@@ -36,7 +36,7 @@ func SetActive(index):
 	for i in levelNodes.size():
 		levelNodes[i].visible = i == index
 	
-func _process(delta):
+func _process(_delta):
 	if levelSelect.visible:
 		return
 

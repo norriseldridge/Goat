@@ -5,8 +5,8 @@ var duration = 0
 var amount = 0.5
 var speed = 35
 
-func shake(duration):
-	self.duration = duration
+func shake(new_duration):
+	self.duration = new_duration
 	elapsedTime = 0
 
 func _process(delta):

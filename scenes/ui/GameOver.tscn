@@ -58,5 +58,8 @@ focus_previous = NodePath(".")
 theme = ExtResource( 3 )
 text = "Quit"
 
+[node name="RetryTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="pressed" from="Backing/Fill/HBoxContainer/RetryButton" to="." method="_on_RetryButton_pressed"]
 [connection signal="pressed" from="Backing/Fill/HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

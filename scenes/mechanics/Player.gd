@@ -65,17 +65,17 @@ func _process(delta):
 		jumpCount += 1
 		jumpSfx.play()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# this is to get moving platforms working... don't ask me how this works
 	var snap = Vector2.DOWN if grounded else Vector2.ZERO
 	move_and_slide_with_snap(velocity, snap, Vector2.UP)
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(_body):
 	grounded = true
 	jumpCount = 0
 	velocity.y = 5
 
-func _on_Area2D_body_exited(body):
+func _on_Area2D_body_exited(_body):
 	grounded = false
 
 func kill():
