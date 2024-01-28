@@ -3,18 +3,29 @@ extends Node2D
 
 onready var messageBroker = MessageBroker
 onready var bridge = $Bridge/Bridge
-export(float) var bridgeSpeed = 20
+export(float) var bridgeSpeed = 20.0
+onready var gem = $Gem3
+onready var gemCollision = $Gem3/CollisionShape2D
 var opened = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	messageBroker.connect("player_picked_up_coin", self, "on_player_picked_up_coin")
+	gem.visible = false
+	gemCollision.set_deferred("disabled", true)
 
 func on_player_picked_up_coin():
-	OpenBridge()
+	if !opened:
+		OpenBridge()
+	else:
+		ShowGem()
 
 func OpenBridge():
 	opened = true
+
+func ShowGem():
+	gem.visible = true
+	gemCollision.set_deferred("disabled", false)
 
 func _process(delta):
 	if opened:

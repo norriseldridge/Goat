@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var messageBroker = MessageBroker
+onready var settings = PlayerSettings
 onready var gate = $Gate
 onready var end = $EndPoint
 onready var sfx = $Gate/AudioStreamPlayer2D
@@ -11,6 +12,7 @@ var speed = 90
 
 func _ready():
 	messageBroker.connect("player_picked_up_coin", self, "on_player_picked_up_coin")
+	sfx.volume_db = settings.GetSFXVolume()
 
 func on_player_picked_up_coin():
 	sfx.play()

@@ -100,6 +100,24 @@
             "id": "9.2.2",
             "name": "Easy Breezy",
             "scene": "res://scenes/levels/Level9.2.2.tscn",
+            "next": "9.2.3"
+        },
+        {
+            "id": "9.2.3",
+            "name": "Crumbl'n Down",
+            "scene": "res://scenes/levels/Level9.2.3.tscn",
+            "next": "9.2.4"
+        },
+        {
+            "id": "9.2.4",
+            "name": "Under the Bridge",
+            "scene": "res://scenes/levels/Level9.2.4.tscn",
+            "next": "9.2.5"
+        },
+        {
+            "id": "9.2.5",
+            "name": "Blast Off",
+            "scene": "res://scenes/levels/Level9.2.5.tscn",
             "next": "9.3"
         },
         {
@@ -157,7 +175,7 @@
             "id": "2",
             "prereqid": "1",
             "name": "Bridge",
-            "levels": ["9", "9.2", "9.2.1", "9.2.2", "9.3", "10", "11", "12", "13"],
+            "levels": ["9", "9.2", "9.2.1", "9.2.2", "9.2.3", "9.2.4", "9.2.5", "9.3", "10", "11", "12", "13"],
             "music": "Vibing2.mp3"
         },
         {

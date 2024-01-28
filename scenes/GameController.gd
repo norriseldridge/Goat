@@ -3,8 +3,7 @@ extends Node
 onready var messageBroker = MessageBroker
 onready var settings = PlayerSettings
 onready var globals = Globals
-var gameOverScene = preload("res://scenes/ui/GameOver.tscn")
-var pauseMenuScene = preload("res://scenes/ui/PauseMenu.tscn")
+
 var worldSelectorScene = preload("res://scenes/WorldSelector.tscn")
 var levelTransitionScene = preload("res://scenes/ui/LevelTransition.tscn")
 
@@ -14,6 +13,8 @@ var worldSelector = null
 
 onready var camera = $Camera2D
 onready var hud = $Camera2D/CanvasLayer/HUD
+onready var gameOverDisplay = $GameOver
+onready var pauseDisplay = $PauseMenu
 
 onready var playerData = $PlayerData
 var selectedUserFile = null
@@ -25,9 +26,6 @@ onready var pickUpSfx = $PickUpSfx
 onready var doorUnlockSfx = $DoorUnlockSfx
 onready var playerDiedSfx = $PlayerDiedSfx
 onready var enteredPortalSfx = $EnteredPortalSfx
-
-var pause = null
-var gameOver = null
 
 onready var levelNameLabel = $Camera2D/CanvasLayer/LevelStart/LevelName
 onready var levelStartDisplay = $Camera2D/CanvasLayer/LevelStart
@@ -50,10 +48,8 @@ func _ready():
 	playerDiedSfx.volume_db = settings.GetSFXVolume()
 	enteredPortalSfx.volume_db = settings.GetMusicVolume()
 	
-	gameOver = gameOverScene.instance()
-	gameOver.Hide()
-	camera.add_child(gameOver)
-
+	gameOverDisplay.Hide()
+	pauseDisplay.Hide()
 	levelStartDisplay.visible = false
 	
 	if selectedUserFile != null:
@@ -69,6 +65,8 @@ func _process(delta):
 	playerData.totalSecondsPlayed += delta
 
 	if worldSelector != null:
+		gameOverDisplay.Hide()
+		pauseDisplay.Hide()
 		if Input.is_action_just_pressed("escape"):
 			messageBroker.emit_signal("load_main_menu")
 		return
@@ -81,14 +79,15 @@ func _process(delta):
 		levelStartDisplay.visible = false
 		
 	if Input.is_action_just_pressed("escape"):
+		if gameOverDisplay.visible:
+			return
+
 		if !globals.paused:
-			pause = pauseMenuScene.instance()
-			pause.retryScene = playerData.currentLevel
-			camera.add_child(pause)
+			pauseDisplay.retryScene = playerData.currentLevel
+			pauseDisplay.Show()
 			globals.paused = true
 		else:
-			pause.queue_free()
-			pause = null
+			pauseDisplay.Hide()
 			globals.paused = false
 
 func ShowWorldSelect():
@@ -113,8 +112,12 @@ func on_player_died():
 	playerData.totalDeaths += 1
 	playerData.Save()
 	camera.shake(0.7)
-	gameOver.retryScene = playerData.currentLevel
-	gameOver.Show()
+
+	globals.paused = false
+	pauseDisplay.Hide()
+
+	gameOverDisplay.retryScene = playerData.currentLevel
+	gameOverDisplay.Show()
 	
 func on_player_picked_up_key():
 	keys += 1
@@ -172,9 +175,9 @@ func on_load_level(nextLevel, retry = false):
 		return
 	
 	globals.paused = false
-	pause = null
 	
-	gameOver.visible = false
+	gameOverDisplay.Hide()
+	pauseDisplay.Hide()
 	
 	playerData.currentLevel = nextLevel
 	if !playerData.completedLevels.has(nextLevel):

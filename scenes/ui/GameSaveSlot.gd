@@ -25,7 +25,7 @@ func SetUp(playerData):
 	lastPlayedLabel.text = "%s/%s/%s %s:%s%s" % [date.month, date.day, date.year, hour, date.minute, amPm]
 
 	var timePlayed = playerData.totalSecondsPlayed
-	timePlayedLabel.text = time_convert(timePlayed)
+	timePlayedLabel.text = "Time Played: " + time_convert(timePlayed)
 
 	deathsLabel.text = "Deaths: " + str(playerData.totalDeaths)
 

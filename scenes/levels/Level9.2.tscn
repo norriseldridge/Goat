@@ -17,37 +17,34 @@ offset = Vector2( 86, 92 )
 
 [node name="BlinkingStar" parent="Backing" index="0" instance=ExtResource( 6 )]
 position = Vector2( 196, 43 )
-frame = 4
+frame = 2
 
 [node name="BlinkingStar2" parent="Backing" index="1" instance=ExtResource( 6 )]
 position = Vector2( -8, 107 )
-frame = 3
+frame = 1
 
 [node name="BlinkingStar3" parent="Backing" index="2" instance=ExtResource( 6 )]
 position = Vector2( 55, 58 )
-frame = 3
+frame = 1
 
 [node name="BlinkingStar4" parent="Backing" index="3" instance=ExtResource( 6 )]
 position = Vector2( -50, 23 )
-frame = 3
+frame = 1
 
 [node name="BlinkingStar5" parent="Backing" index="4" instance=ExtResource( 6 )]
 position = Vector2( 150, 123 )
-frame = 2
 
 [node name="BlinkingStar6" parent="Backing" index="5" instance=ExtResource( 6 )]
 position = Vector2( 57, 134 )
-frame = 2
 
 [node name="BlinkingStar7" parent="Backing" index="6" instance=ExtResource( 6 )]
 position = Vector2( 132, 21 )
-frame = 2
 
 [node name="Portal" parent="." index="1"]
 position = Vector2( 228, 8 )
 
 [node name="AnimatedSprite" parent="Portal" index="0"]
-frame = 3
+frame = 1
 
 [node name="TileMap" parent="." index="2"]
 tile_data = PoolIntArray(  )
