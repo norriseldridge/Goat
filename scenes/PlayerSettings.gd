@@ -3,6 +3,7 @@ extends Node
 export(String) var fileName = "settings"
 export(int) var musicVolume = 100
 export(int) var sfxVolume = 100
+export(bool) var autoRetry = false
 onready var sfxTest = $SFXTest
 
 func Load():
@@ -15,6 +16,7 @@ func Load():
 		
 		musicVolume = raw_data.musicVolume
 		sfxVolume = raw_data.sfxVolume
+		autoRetry = raw_data.autoRetry
 	
 func Save():
 	var json_file = File.new()
@@ -22,7 +24,8 @@ func Save():
 	json_file.open(filePath, File.WRITE)
 	var raw_data = {
 		"musicVolume": musicVolume,
-		"sfxVolume": sfxVolume
+		"sfxVolume": sfxVolume,
+		"autoRetry": autoRetry
 	}
 	json_file.store_line(to_json(raw_data))
 	json_file.close()

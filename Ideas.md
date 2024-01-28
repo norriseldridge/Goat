@@ -1,12 +1,7 @@
 Ideas
 
 TODO:
-- Keep track of player deaths
-- Main menu play selection should show all the stats (last played, total time played, total deaths, current world)
-- Settings menu
-    - Music volume
-    - SFX volume
-    - Auto retry toggle
+- Intro dialogue
 
 
 Gate level

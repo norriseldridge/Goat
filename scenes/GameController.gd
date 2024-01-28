@@ -112,10 +112,9 @@ func on_player_died():
 	playerDiedSfx.play()
 	playerData.totalDeaths += 1
 	playerData.Save()
-
+	camera.shake(0.7)
 	gameOver.retryScene = playerData.currentLevel
 	gameOver.Show()
-	camera.shake(0.7)
 	
 func on_player_picked_up_key():
 	keys += 1
@@ -154,7 +153,7 @@ func on_player_entered_portal():
 	transitionScene.nextLevel = nextLevelId
 	add_child(transitionScene)
 
-func on_load_level(nextLevel):
+func on_load_level(nextLevel, retry = false):
 	HideWorldSelect()
 	
 	if current_level != null:
@@ -189,7 +188,7 @@ func on_load_level(nextLevel):
 	current_level = load(levelScene).instance()
 	add_child(current_level)
 	levelTimeSeconds = 0
-	levelStartDisplay.visible = true
+	levelStartDisplay.visible = !retry
 
 func UnlockNextWorldLevel():
 	var worldData = levelUtility.GetWorldData()

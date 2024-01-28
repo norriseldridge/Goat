@@ -19,6 +19,8 @@ onready var musicVolumeLabel = $SettingsPopup/ColorRect/Control/Music/HFlowConta
 onready var musicMinusButton = $SettingsPopup/ColorRect/Control/Music/HFlowContainer/MinusButton
 onready var sfxVolumeLabel = $SettingsPopup/ColorRect/Control/SFX/HFlowContainer/VolumeLabel
 onready var sfxMinusButton = $SettingsPopup/ColorRect/Control/SFX/HFlowContainer/MinusButton
+onready var autoRetryCheckbox = $SettingsPopup/ColorRect/Control/AutoRetry/CheckBox
+onready var autoRetryBorder = $SettingsPopup/ColorRect/Control/AutoRetry/ActiveBorder
 
 func _ready():
 	playButton.grab_focus()
@@ -48,6 +50,8 @@ func _ready():
 	settingsBackButton.focus_neighbour_right = settingsBackButton.get_path_to(musicMinusButton)
 	musicMinusButton.focus_neighbour_left = musicMinusButton.get_path_to(settingsBackButton)
 	sfxMinusButton.focus_neighbour_left = sfxMinusButton.get_path_to(settingsBackButton)
+	autoRetryCheckbox.focus_neighbour_left = autoRetryCheckbox.get_path_to(settingsBackButton)
+	autoRetryBorder.visible = false
 
 
 func _on_PlayButton_pressed():
@@ -61,6 +65,7 @@ func _on_UserSlotSelected(userFile):
 func _on_SettingsButton_pressed():
 	musicVolumeLabel.text = str(int(settings.musicVolume))
 	sfxVolumeLabel.text = str(int(settings.sfxVolume))
+	autoRetryCheckbox.pressed = settings.autoRetry
 	settingsPopup.popup()
 
 
@@ -69,6 +74,7 @@ func _on_QuitButton_pressed():
 
 
 func _on_BackButton_pressed():
+	settings.autoRetry = autoRetryCheckbox.pressed
 	settings.Save()
 	playPopup.hide()
 	settingsPopup.hide()
@@ -102,3 +108,11 @@ func _on_SFX_PlusButton_pressed():
 		settings.sfxVolume = 100
 	sfxVolumeLabel.text = str(int(settings.sfxVolume))
 	settings.TestSfx()
+
+
+func _on_AutoRetry_focus_entered():
+	autoRetryBorder.visible = true
+
+
+func _on_AutoRetry_focus_exited():
+	autoRetryBorder.visible = false

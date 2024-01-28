@@ -70,7 +70,6 @@ theme = ExtResource( 2 )
 text = "Quit"
 
 [node name="PlayPopup" type="Popup" parent="."]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -119,6 +118,7 @@ theme = ExtResource( 2 )
 text = "< Back"
 
 [node name="SettingsPopup" type="Popup" parent="."]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -234,6 +234,51 @@ size_flags_horizontal = 3
 theme = ExtResource( 2 )
 text = "+"
 
+[node name="Label2" type="Label" parent="SettingsPopup/ColorRect/Control"]
+anchor_right = 1.0
+margin_top = 34.0
+margin_bottom = 43.0
+theme = ExtResource( 2 )
+text = "Game Play"
+align = 1
+valign = 1
+
+[node name="ColorRect" type="ColorRect" parent="SettingsPopup/ColorRect/Control/Label2"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 1.0
+
+[node name="AutoRetry" type="Control" parent="SettingsPopup/ColorRect/Control"]
+anchor_right = 1.0
+margin_top = 46.6
+margin_bottom = 56.6
+
+[node name="Label" type="Label" parent="SettingsPopup/ColorRect/Control/AutoRetry"]
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+text = "Auto Retry"
+align = 1
+valign = 1
+
+[node name="ActiveBorder" type="ColorRect" parent="SettingsPopup/ColorRect/Control/AutoRetry"]
+margin_left = 109.0
+margin_right = 117.0
+margin_bottom = 8.0
+color = Color( 0.0901961, 0.368627, 0.996078, 1 )
+
+[node name="CheckBox" type="CheckBox" parent="SettingsPopup/ColorRect/Control/AutoRetry"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -10.0
+margin_top = 1.0
+margin_right = 6.0
+margin_bottom = 17.0
+rect_scale = Vector2( 0.38, 0.38 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 2 )
+
 [node name="BackButton" type="Button" parent="SettingsPopup"]
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -245,6 +290,7 @@ text = "< Back"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 110, 126 )
 frames = SubResource( 3 )
+frame = 1
 speed_scale = 0.8
 playing = true
 
@@ -262,4 +308,6 @@ tile_data = PoolIntArray( 9, 16, 0, 15, 16, 0, 65545, 16, 0, 65551, 16, 0, 13108
 [connection signal="pressed" from="SettingsPopup/ColorRect/Control/Music/HFlowContainer/PlusButton" to="." method="_on_Volume_PlusButton_pressed"]
 [connection signal="pressed" from="SettingsPopup/ColorRect/Control/SFX/HFlowContainer/MinusButton" to="." method="_on_SFX_MinusButton_pressed"]
 [connection signal="pressed" from="SettingsPopup/ColorRect/Control/SFX/HFlowContainer/PlusButton" to="." method="_on_SFX_PlusButton_pressed"]
+[connection signal="focus_entered" from="SettingsPopup/ColorRect/Control/AutoRetry/CheckBox" to="." method="_on_AutoRetry_focus_entered"]
+[connection signal="focus_exited" from="SettingsPopup/ColorRect/Control/AutoRetry/CheckBox" to="." method="_on_AutoRetry_focus_exited"]
 [connection signal="pressed" from="SettingsPopup/BackButton" to="." method="_on_BackButton_pressed"]
