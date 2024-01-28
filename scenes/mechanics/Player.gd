@@ -71,9 +71,10 @@ func _physics_process(_delta):
 	move_and_slide_with_snap(velocity, snap, Vector2.UP)
 
 func _on_Area2D_body_entered(_body):
-	grounded = true
-	jumpCount = 0
-	velocity.y = 5
+	if velocity.y >= 0:
+		grounded = true
+		jumpCount = 0
+		velocity.y = 5
 
 func _on_Area2D_body_exited(_body):
 	grounded = false
