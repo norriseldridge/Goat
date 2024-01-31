@@ -18,9 +18,15 @@ var angle = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	delayTimer.connect("timeout", self, "start_timer")
 	timer.connect("timeout", self, "on_timer")
 	initalY = lid.position.y
+
+	if initialDelay > 0:
+		delayTimer.connect("timeout", self, "start_timer")
+		delayTimer.wait_time = initialDelay
+		delayTimer.start()
+	else:
+		timer.start()
 
 func start_timer():
 	timer.start()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/mechanics/Player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Flame.png" type="Texture" id=2]
 [ext_resource path="res://sfx/Retro Jump Classic 08.wav" type="AudioStream" id=3]
 [ext_resource path="res://sfx/Gallop.wav" type="AudioStream" id=4]
+[ext_resource path="res://sprites/Flame-death.png" type="Texture" id=5]
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 2 )
@@ -47,7 +48,39 @@ animations = [ {
 extents = Vector2( 3.5, 4.5 )
 
 [sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 3.5, 1 )
+extents = Vector2( 3.5, 5 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 5 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 5 )
+region = Rect2( 48, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 5 )
+region = Rect2( 72, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 5 )
+region = Rect2( 96, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 5 )
+region = Rect2( 120, 0, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=32]
+animations = [ {
+"frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
+"loop": false,
+"name": "default",
+"speed": 7.0
+} ]
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -58,9 +91,9 @@ jumpForce = 110
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -1 )
+z_index = 1000
 frames = SubResource( 17 )
-animation = "idle"
-frame = 1
+animation = "run"
 speed_scale = 0.7
 playing = true
 
@@ -72,7 +105,7 @@ shape = SubResource( 25 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -0.5, 5 )
+position = Vector2( -0.5, 1 )
 shape = SubResource( 26 )
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
@@ -84,5 +117,10 @@ pitch_scale = 0.6
 stream = ExtResource( 4 )
 volume_db = -45.0
 
+[node name="DeathAnimation" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 32 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="animation_finished" from="DeathAnimation" to="." method="_on_DeathAnimation_animation_finished"]

@@ -8,6 +8,8 @@ signal player_picked_up_coin
 signal player_picked_up_gem
 signal player_picked_up_food
 
+signal show_gameover_screen
+
 signal load_main_menu
 signal selected_user_file(userFile)
 

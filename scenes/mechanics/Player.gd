@@ -1,9 +1,11 @@
 extends KinematicBody2D
 
-const AIR_FORCE = 10 # in code these are "ladders"
+const AIR_FORCE = 120 # in code these are "ladders"
+const MAX_AIR_FORCE = 120
+const MAX_AIR_GRAVITY = 80
 const GRAVITY = 300
 const MAX_GRAVITY = 150
-const FRICTION = 350
+const FRICTION = 400
 
 export var speed = 50
 export var acceleration = 70
@@ -13,8 +15,10 @@ var velocity = Vector2.ZERO
 var jumpCount = 0
 var grounded = false
 var ladderCount = 0
+var is_dead = false
 
 onready var animatedSprite = $AnimatedSprite
+onready var deathSprite = $DeathAnimation
 onready var messageBroker = MessageBroker
 onready var settings = PlayerSettings
 onready var jumpSfx = $JumpSFX
@@ -29,7 +33,7 @@ func _ready():
 	runSfx.volume_db = settings.GetSFXVolume()
 
 func _process(delta):
-	if globals.paused:
+	if globals.paused or is_dead:
 		return
 		
 	var input_dir = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -53,7 +57,11 @@ func _process(delta):
 				velocity.y = MAX_GRAVITY
 		else:
 			jumpCount = 0
-			velocity.y -= AIR_FORCE * delta
+			if velocity.y > -MAX_AIR_FORCE:
+				velocity.y -= AIR_FORCE * delta
+
+			if velocity.y > MAX_AIR_GRAVITY:
+				velocity.y -= 1.25 * AIR_FORCE * delta
 	else:
 		if velocity.x != 0:
 			if !runSfx.playing:
@@ -66,6 +74,9 @@ func _process(delta):
 		jumpSfx.play()
 
 func _physics_process(_delta):
+	if is_dead:
+		return
+
 	# this is to get moving platforms working... don't ask me how this works
 	var snap = Vector2.DOWN if grounded else Vector2.ZERO
 	move_and_slide_with_snap(velocity, snap, Vector2.UP)
@@ -80,5 +91,12 @@ func _on_Area2D_body_exited(_body):
 	grounded = false
 
 func kill():
+	deathSprite.visible = true
+	deathSprite.play()
+	animatedSprite.visible = false
+	is_dead = true
 	messageBroker.emit_signal("player_died")
+
+func _on_DeathAnimation_animation_finished():
+	messageBroker.emit_signal("show_gameover_screen")
 	queue_free()

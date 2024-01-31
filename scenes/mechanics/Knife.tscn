@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sprites/Knife.png" type="Texture" id=1]
+[ext_resource path="res://scenes/mechanics/KillZone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/mechanics/Knife.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.5, 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.5, 1.5 )
+
+[sub_resource type="SegmentShape2D" id=3]
+a = Vector2( -2, -3 )
+b = Vector2( 13, -3 )
+
+[node name="Knife" type="KinematicBody2D"]
+script = ExtResource( 3 )
+
+[node name="Knife" type="Sprite" parent="."]
+position = Vector2( 12, 3 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 11.5, 1 )
+shape = SubResource( 1 )
+
+[node name="KillZone" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" parent="KillZone" index="0"]
+position = Vector2( 10.5, 3.5 )
+shape = SubResource( 2 )
+
+[node name="KillZone2" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" parent="KillZone2" index="0"]
+position = Vector2( 3, 6 )
+shape = SubResource( 3 )
+
+[editable path="KillZone"]
+[editable path="KillZone2"]

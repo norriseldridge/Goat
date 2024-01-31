@@ -34,6 +34,7 @@ export var worldSelectMusic = ""
 
 func _ready():
 	messageBroker.connect("player_died", self, "on_player_died")
+	messageBroker.connect("show_gameover_screen", self, "on_show_gameover_screen")
 	messageBroker.connect("player_picked_up_key", self, "on_player_picked_up_key")
 	messageBroker.connect("player_entered_door_unlock", self, "on_player_entered_door_unlock")
 	messageBroker.connect("player_picked_up_coin", self, "on_player_picked_up_coin")
@@ -74,7 +75,7 @@ func _process(delta):
 	if !globals.paused:
 		levelTimeSeconds += delta
 		hud.set_time(levelTimeSeconds)
-	
+
 	if levelStartDisplay.visible && levelTimeSeconds > 1.5:
 		levelStartDisplay.visible = false
 		
@@ -86,9 +87,11 @@ func _process(delta):
 			pauseDisplay.retryScene = playerData.currentLevel
 			pauseDisplay.Show()
 			globals.paused = true
+			get_tree().paused = true
 		else:
 			pauseDisplay.Hide()
 			globals.paused = false
+			get_tree().paused = false
 
 func ShowWorldSelect():
 	worldSelector = worldSelectorScene.instance()
@@ -113,7 +116,9 @@ func on_player_died():
 	playerData.Save()
 	camera.shake(0.7)
 
+func on_show_gameover_screen():
 	globals.paused = false
+	get_tree().paused = false
 	pauseDisplay.Hide()
 
 	gameOverDisplay.retryScene = playerData.currentLevel
@@ -157,6 +162,9 @@ func on_player_entered_portal():
 	add_child(transitionScene)
 
 func on_load_level(nextLevel, retry = false):
+	globals.paused = false
+	get_tree().paused = false
+
 	HideWorldSelect()
 	
 	if current_level != null:
@@ -173,8 +181,6 @@ func on_load_level(nextLevel, retry = false):
 		UnlockNextWorldLevel()
 		ShowWorldSelect()
 		return
-	
-	globals.paused = false
 	
 	gameOverDisplay.Hide()
 	pauseDisplay.Hide()

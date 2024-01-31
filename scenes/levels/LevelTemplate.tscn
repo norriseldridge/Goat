@@ -9,6 +9,7 @@
 extents = Vector2( 384, 13.75 )
 
 [node name="Level" type="Node2D"]
+pause_mode = 1
 
 [node name="Portal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 264, 168 )
