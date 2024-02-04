@@ -1,9 +1,7 @@
 Ideas
 
 TODO:
-- VHS filter toggle setting
 - boiling pot sfx
-- Knives - blade side is dangerous, flat side is safe to jump on
 - Plates? Forks? Spoons?
 - Chef in the background cooking, throws meatballs over his shoulder, meatballs fall from top of screen
 

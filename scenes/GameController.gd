@@ -199,6 +199,9 @@ func on_load_level(nextLevel, retry = false):
 	levelTimeSeconds = 0
 	levelStartDisplay.visible = !retry
 
+	var worldData = levelUtility.GetWorldDataForLevel(nextLevel)
+	messageBroker.emit_signal("play_music", worldData.music)
+
 func UnlockNextWorldLevel():
 	var worldData = levelUtility.GetWorldData()
 	for index in worldData.size():

@@ -5,6 +5,20 @@
 [ext_resource path="res://sprites/white.png" type="Texture" id=3]
 [ext_resource path="res://fonts/ThaleahFat.ttf" type="DynamicFontData" id=4]
 
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 1 )
+Label/fonts/font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 18
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
 [sub_resource type="Shader" id=2]
 code = "/*
 Shader from Godot Shaders - the free shader library.
@@ -246,10 +260,10 @@ shader_param/resolution = Vector2( 120, 72 )
 shader_param/pixelate = false
 shader_param/roll = true
 shader_param/roll_speed = 2.0
-shader_param/roll_size = 10.0
+shader_param/roll_size = 5.0
 shader_param/roll_variation = 4.8
 shader_param/distort_intensity = 0.001
-shader_param/noise_opacity = 0.1
+shader_param/noise_opacity = 0.2
 shader_param/noise_speed = 1.0
 shader_param/static_noise_intensity = 0.001
 shader_param/aberration = -0.005
@@ -259,20 +273,6 @@ shader_param/warp_amount = 0.0
 shader_param/clip_warp = false
 shader_param/vignette_intensity = 1.1
 shader_param/vignette_opacity = 0.1
-
-[sub_resource type="DynamicFont" id=1]
-size = 22
-font_data = ExtResource( 4 )
-
-[sub_resource type="Theme" id=4]
-default_font = SubResource( 1 )
-Label/fonts/font = SubResource( 1 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 18
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 4 )
 
 [node name="PauseMenu" type="CanvasLayer"]
 pause_mode = 2
@@ -288,7 +288,7 @@ anchor_left = 0.4
 anchor_top = 0.5
 anchor_right = 0.6
 anchor_bottom = 0.5
-margin_top = -10.0
+margin_top = -11.0
 margin_bottom = 10.0
 
 [node name="Fill" type="ColorRect" parent="Backing"]
@@ -308,7 +308,7 @@ alignment = 1
 [node name="RetryButton" type="Button" parent="Backing/Fill/HBoxContainer"]
 margin_left = 7.0
 margin_right = 30.0
-margin_bottom = 18.0
+margin_bottom = 19.0
 focus_neighbour_right = NodePath("../QuitButton")
 focus_next = NodePath("../QuitButton")
 theme = ExtResource( 1 )
@@ -317,25 +317,18 @@ text = "Retry"
 [node name="QuitButton" type="Button" parent="Backing/Fill/HBoxContainer"]
 margin_left = 34.0
 margin_right = 50.0
-margin_bottom = 18.0
+margin_bottom = 19.0
 focus_neighbour_left = NodePath("../RetryButton")
 focus_previous = NodePath(".")
 theme = ExtResource( 1 )
 text = "Quit"
-
-[node name="VHSOverlay" type="TextureRect" parent="."]
-material = SubResource( 3 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 3 )
-expand = true
-flip_v = true
 
 [node name="Paused" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 0.44
 
 [node name="Label" type="Label" parent="Paused"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = SubResource( 4 )
@@ -347,6 +340,26 @@ custom_fonts/font = SubResource( 5 )
 text = "Paused"
 align = 1
 valign = 2
+
+[node name="ColorRect" type="ColorRect" parent="Paused"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 24.0
+margin_bottom = 37.0
+
+[node name="ColorRect2" type="ColorRect" parent="Paused"]
+margin_left = 30.0
+margin_top = 20.0
+margin_right = 34.0
+margin_bottom = 37.0
+
+[node name="VHSOverlay" type="TextureRect" parent="."]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+flip_v = true
 
 [connection signal="pressed" from="Backing/Fill/HBoxContainer/RetryButton" to="." method="_on_RetryButton_pressed"]
 [connection signal="pressed" from="Backing/Fill/HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

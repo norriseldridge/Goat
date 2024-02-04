@@ -6,6 +6,7 @@ const MAX_AIR_GRAVITY = 80
 const GRAVITY = 300
 const MAX_GRAVITY = 150
 const FRICTION = 400
+const IN_AIR_FRICTION_MOD = 0.4
 
 export var speed = 50
 export var acceleration = 70
@@ -39,7 +40,8 @@ func _process(delta):
 	var input_dir = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
 	if input_dir == 0:
-		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
+		var frictionMod = 1.0 if !grounded else IN_AIR_FRICTION_MOD
+		velocity.x = move_toward(velocity.x, 0, frictionMod * FRICTION * delta)
 		animatedSprite.play("idle")
 	else:
 		velocity.x = move_toward(velocity.x, input_dir * speed, acceleration * delta)

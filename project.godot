@@ -30,6 +30,7 @@ PlayerSettings="*res://scenes/PlayerSettings.tscn"
 window/size/width=300
 window/size/height=188
 window/size/resizable=false
+window/size/fullscreen=true
 window/size/test_width=1280
 window/size/test_height=800
 window/stretch/mode="2d"
