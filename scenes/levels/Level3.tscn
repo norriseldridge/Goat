@@ -32,22 +32,9 @@ position = Vector2( 264, 96 )
 max_delay = 2.0
 
 [node name="Gem" parent="." index="7"]
-visible = false
-position = Vector2( 120, 120 )
+position = Vector2( 120, -49 )
 
-[node name="Gem2" parent="." index="8"]
-visible = false
-position = Vector2( 132, 120 )
-
-[node name="Gem3" parent="." index="9"]
-visible = false
-position = Vector2( 144, 120 )
-
-[node name="Gem4" parent="." index="10"]
-visible = false
-position = Vector2( 156, 120 )
-
-[node name="Gem5" parent="." index="11" instance=ExtResource( 3 )]
+[node name="Gem5" parent="." index="8" instance=ExtResource( 3 )]
 position = Vector2( 264, 48 )
 
 [editable path="Portal"]

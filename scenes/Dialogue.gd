@@ -3,7 +3,10 @@ extends CanvasLayer
 export(String) var dialogueFile = "res://data/dialogue.json"
 export (String) var id
 
+onready var settings = PlayerSettings
+
 onready var text = $Border/ColorRect/RichTextLabel
+onready var sound = $AudioStreamPlayer
 var data = null
 var currentDialogue = null
 var index = 0
@@ -12,7 +15,12 @@ var nextText = null
 var charDelay = 0
 var maxCharDelay = 0.02
 
+var rng = RandomNumberGenerator.new()
+
 func _ready():
+	rng.randomize()
+	sound.volume_db = settings.GetSFXVolume()
+
 	visible = false
 	var file = File.new()
 	file.open(dialogueFile, File.READ)
@@ -26,11 +34,18 @@ func Show():
 	nextText = currentDialogue[index]
 
 func _process(delta):
+	if !visible:
+		return
+
 	if nextText != null:
 		charDelay += delta
 		if charDelay >= maxCharDelay:
 			charDelay = 0
 			if charIndex < nextText.length():
+				if !sound.playing && nextText[charIndex] != ' ':
+					sound.pitch_scale = rng.randf_range(1.0, 1.1)
+					sound.play()
+
 				text.text += nextText[charIndex]
 				charIndex += 1
 			else:
