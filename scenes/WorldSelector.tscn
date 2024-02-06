@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/polish/BlinkingStar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/WorldSelector.gd" type="Script" id=2]
 [ext_resource path="res://sprites/castle.png" type="Texture" id=3]
 [ext_resource path="res://scenes/ui/LevelSelect.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/WorldSelectNode.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sprites/castle-gate-bridge.png" type="Texture" id=6]
+[ext_resource path="res://sprites/castle-bridge-kitchen.png" type="Texture" id=7]
+[ext_resource path="res://sprites/castle-kitchen-dock.png" type="Texture" id=8]
+[ext_resource path="res://sprites/castle-dock-conservatory.png" type="Texture" id=9]
+[ext_resource path="res://sprites/castle-conservatory-tower.png" type="Texture" id=10]
+[ext_resource path="res://sprites/castle-tower-dungeon.png" type="Texture" id=11]
 
 [node name="WorldSelector" type="Node2D"]
 script = ExtResource( 2 )
@@ -12,6 +18,30 @@ script = ExtResource( 2 )
 [node name="Castle" type="Sprite" parent="."]
 position = Vector2( 120, 60 )
 texture = ExtResource( 3 )
+
+[node name="Castle_gate_bridge" type="Sprite" parent="Castle"]
+visible = false
+texture = ExtResource( 6 )
+
+[node name="Castle_bridge_kitchen" type="Sprite" parent="Castle"]
+visible = false
+texture = ExtResource( 7 )
+
+[node name="Castle_kitchen_dock" type="Sprite" parent="Castle"]
+visible = false
+texture = ExtResource( 8 )
+
+[node name="Castle_dock_conservatory" type="Sprite" parent="Castle"]
+visible = false
+texture = ExtResource( 9 )
+
+[node name="Castle_conservatory_tower" type="Sprite" parent="Castle"]
+visible = false
+texture = ExtResource( 10 )
+
+[node name="Castle_tower_dungeon" type="Sprite" parent="Castle"]
+visible = false
+texture = ExtResource( 11 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 105, 64 )
@@ -43,19 +73,18 @@ position = Vector2( 135, 83 )
 
 [node name="BlinkingStar" parent="." instance=ExtResource( 1 )]
 position = Vector2( 38, 32 )
-frame = 4
 
 [node name="BlinkingStar2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 148, 15 )
-frame = 3
+frame = 4
 
 [node name="BlinkingStar3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 185, 42 )
-frame = 2
+frame = 3
 
 [node name="BlinkingStar4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 81, 35 )
-frame = 2
+frame = 3
 
 [node name="LevelSelect" parent="." instance=ExtResource( 4 )]
 visible = false

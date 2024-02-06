@@ -9,6 +9,7 @@ var worldData = null
 
 var levelNodes = []
 var activeIndex = 0
+var worldPaths = []
 
 func _ready():
 	camera.current = true
@@ -22,13 +23,28 @@ func _ready():
 		$CastleEntrance6,
 		$CastleEntrance7
 	]
+
+	worldPaths = [
+		$Castle/Castle_gate_bridge,
+		$Castle/Castle_bridge_kitchen,
+		$Castle/Castle_kitchen_dock,
+		$Castle/Castle_dock_conservatory,
+		$Castle/Castle_conservatory_tower,
+		$Castle/Castle_tower_dungeon
+	]
 	
+	var pathIndex = -1
 	worldData = levelUtility.GetWorldData()
 	for index in worldData.size():
 		levelNodes[index].SetWorldData(worldData[index])
 		
-		if levelUtility.GetWorldUnlocked(worldData[index], playerData):
+		var unlocked = levelUtility.GetWorldUnlocked(worldData[index], playerData)
+		if unlocked:
 			activeIndex = index
+	
+		pathIndex = index - 1
+		if pathIndex >= 0:
+			worldPaths[pathIndex].visible = unlocked
 	
 	SetActive(activeIndex)
 
