@@ -16,6 +16,7 @@ b = Vector2( 13, -3 )
 
 [node name="Knife" type="KinematicBody2D"]
 script = ExtResource( 3 )
+speed = 40.0
 
 [node name="Knife" type="Sprite" parent="."]
 position = Vector2( 12, 3 )
