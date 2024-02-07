@@ -68,8 +68,6 @@ func _process(delta):
 	if worldSelector != null:
 		gameOverDisplay.Hide()
 		pauseDisplay.Hide()
-		if Input.is_action_just_pressed("escape"):
-			messageBroker.emit_signal("load_main_menu")
 		return
 
 	if !globals.paused:

@@ -13,7 +13,7 @@ var index = 0
 var charIndex = 0
 var nextText = null
 var charDelay = 0
-var maxCharDelay = 0.02
+var maxCharDelay = 0.01
 
 var rng = RandomNumberGenerator.new()
 

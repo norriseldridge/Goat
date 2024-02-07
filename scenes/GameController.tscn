@@ -21,8 +21,6 @@ default_font = SubResource( 4 )
 Label/fonts/font = SubResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 18
-outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
@@ -40,8 +38,9 @@ script = ExtResource( 8 )
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
 visible = false
-margin_right = 298.0
-margin_bottom = 166.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 
 [node name="HUD" parent="Camera2D/CanvasLayer" instance=ExtResource( 1 )]
 
@@ -55,20 +54,22 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = -15.0
 margin_bottom = 15.0
-color = Color( 0, 0, 0, 0.705882 )
+color = Color( 0, 0, 0, 0.784314 )
 
 [node name="Underline" type="ColorRect" parent="Camera2D/CanvasLayer/LevelStart"]
-anchor_left = 0.2
+anchor_left = 0.1
 anchor_top = 0.55
-anchor_right = 0.8
+anchor_right = 0.9
 anchor_bottom = 0.55
 margin_bottom = 1.0
+color = Color( 0.0901961, 0.368627, 0.996078, 1 )
 
 [node name="LevelName" type="Label" parent="Camera2D/CanvasLayer/LevelStart"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = -3.0
 theme = SubResource( 2 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
 custom_constants/shadow_as_outline = 1

@@ -188,7 +188,7 @@
             "prereqid": "1",
             "name": "Bridge",
             "levels": ["9", "9.2", "9.2.1", "9.2.2", "9.2.3", "9.2.4", "9.2.5", "9.3", "10", "11", "12", "13", "13.1"],
-            "music": "Goat-gameplay-loop.wav"
+            "music": "Goat-gameplay-loop3v2.wav"
         },
         {
             "id": "3",

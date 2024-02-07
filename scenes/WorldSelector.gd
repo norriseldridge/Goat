@@ -54,7 +54,12 @@ func SetActive(index):
 	
 func _process(_delta):
 	if levelSelect.visible:
+		if Input.is_action_just_pressed("escape"):
+			levelSelect.visible = false
 		return
+
+	if Input.is_action_just_pressed("escape"):
+		messageBroker.emit_signal("load_main_menu")
 
 	if Input.is_action_just_pressed("ui_right"):
 		ChangeIndex(1)
