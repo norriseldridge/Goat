@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/levels/LevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/mechanics/Pot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/mechanics/KnifeSpawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/mechanics/Gem.tscn" type="PackedScene" id=4]
+
+[node name="Level" instance=ExtResource( 1 )]
+
+[node name="AnimatedSprite" parent="Portal" index="0"]
+frame = 2
+
+[node name="TileMap" parent="." index="1"]
+tile_data = PoolIntArray( -393216, 5, 0, -393213, 3, 0, -327680, 5, 0, -327677, 3, 0, -262144, 5, 0, -262141, 3, 0, -196608, 5, 0, -196605, 3, 0, -131072, 5, 0, -131069, 3, 0, -65536, 5, 0, -65533, 3, 0, 0, 5, 0, 3, 3, 0, 65536, 5, 0, 65539, 3, 0, 131072, 5, 0, 131074, 0, 0, 131075, 12, 0, 196608, 5, 0, 196610, 3, 0, 196611, 9, 0, 196612, 7, 0, 196613, 7, 0, 196614, 7, 0, 196615, 7, 0, 196616, 7, 0, 196617, 7, 0, 196618, 7, 0, 196619, 7, 0, 196620, 7, 0, 196621, 7, 0, 196622, 7, 0, 196623, 7, 0, 196624, 7, 0, 196625, 7, 0, 196626, 7, 0, 196627, 7, 0, 196628, 7, 0, 196629, 7, 0, 196630, 7, 0, 196631, 7, 0, 196632, 10, 0, 262144, 5, 0, 262146, 3, 0, 262147, 5, 0, 262168, 3, 0, 327680, 5, 0, 327682, 3, 0, 327683, 5, 0, 327704, 3, 0, 393216, 5, 0, 393218, 3, 0, 393219, 5, 0, 393224, 17, 0, 393230, 17, 0, 393235, 0, 0, 393236, 2, 0, 393238, 17, 0, 393240, 3, 0, 458752, 5, 0, 458754, 3, 0, 458755, 5, 0, 458760, 18, 0, 458766, 18, 0, 458771, 3, 0, 458772, 5, 0, 458774, 18, 0, 458776, 3, 0, 524288, 5, 0, 524290, 3, 0, 524291, 5, 0, 524307, 3, 0, 524308, 5, 0, 524312, 3, 0, 589824, 5, 0, 589826, 3, 0, 589827, 5, 0, 589843, 3, 0, 589844, 5, 0, 589848, 3, 0, 655360, 5, 0, 655362, 6, 0, 655363, 8, 0, 655379, 3, 0, 655380, 5, 0, 655384, 3, 0, 720896, 5, 0, 720915, 3, 0, 720916, 5, 0, 720918, 17, 0, 720920, 3, 0, 786432, 5, 0, 786451, 3, 0, 786452, 5, 0, 786454, 18, 0, 786456, 3, 0, 851968, 11, 0, 851969, 1, 0, 851970, 1, 0, 851971, 2, 0, 851987, 3, 0, 851988, 5, 0, 851992, 3, 0, 917507, 11, 0, 917508, 1, 0, 917509, 1, 0, 917510, 1, 0, 917511, 1, 0, 917512, 1, 0, 917513, 1, 0, 917514, 1, 0, 917515, 1, 0, 917516, 1, 0, 917517, 1, 0, 917518, 1, 0, 917519, 1, 0, 917520, 1, 0, 917521, 1, 0, 917522, 1, 0, 917523, 12, 0, 917524, 5, 0, 917528, 3, 0, 983060, 5, 0, 983064, 3, 0 )
+
+[node name="Player" parent="." index="2"]
+position = Vector2( 30, 19 )
+
+[node name="Pot" parent="." index="4" instance=ExtResource( 2 )]
+
+[node name="Pot2" parent="." index="5" instance=ExtResource( 2 )]
+position = Vector2( 66, 162 )
+initialDelay = 0.25
+
+[node name="Pot3" parent="." index="6" instance=ExtResource( 2 )]
+position = Vector2( 78, 162 )
+initialDelay = 0.5
+
+[node name="Pot4" parent="." index="7" instance=ExtResource( 2 )]
+position = Vector2( 90, 162 )
+initialDelay = 0.75
+
+[node name="Pot5" parent="." index="8" instance=ExtResource( 2 )]
+position = Vector2( 102, 162 )
+initialDelay = 1.0
+
+[node name="Pot6" parent="." index="9" instance=ExtResource( 2 )]
+position = Vector2( 114, 162 )
+
+[node name="Pot7" parent="." index="10" instance=ExtResource( 2 )]
+position = Vector2( 126, 162 )
+initialDelay = 0.25
+
+[node name="Pot8" parent="." index="11" instance=ExtResource( 2 )]
+position = Vector2( 138, 162 )
+initialDelay = 0.5
+
+[node name="Pot9" parent="." index="12" instance=ExtResource( 2 )]
+position = Vector2( 150, 162 )
+initialDelay = 0.75
+
+[node name="Pot10" parent="." index="13" instance=ExtResource( 2 )]
+position = Vector2( 162, 162 )
+initialDelay = 1.0
+
+[node name="Pot11" parent="." index="14" instance=ExtResource( 2 )]
+position = Vector2( 174, 162 )
+
+[node name="Pot12" parent="." index="15" instance=ExtResource( 2 )]
+position = Vector2( 186, 162 )
+initialDelay = 0.25
+
+[node name="Pot13" parent="." index="16" instance=ExtResource( 2 )]
+position = Vector2( 198, 162 )
+initialDelay = 0.5
+
+[node name="Pot14" parent="." index="17" instance=ExtResource( 2 )]
+position = Vector2( 210, 162 )
+initialDelay = 0.75
+
+[node name="Pot15" parent="." index="18" instance=ExtResource( 2 )]
+position = Vector2( 222, 162 )
+initialDelay = 1.0
+
+[node name="KnifeSpawner" parent="." index="19" instance=ExtResource( 3 )]
+position = Vector2( 300, 132 )
+
+[node name="Timer" parent="KnifeSpawner" index="0"]
+wait_time = 5.0
+
+[node name="KnifeSpawner2" parent="." index="20" instance=ExtResource( 3 )]
+position = Vector2( 324, 120 )
+
+[node name="Timer" parent="KnifeSpawner2" index="0"]
+wait_time = 5.0
+
+[node name="KnifeSpawner3" parent="." index="21" instance=ExtResource( 3 )]
+position = Vector2( 348, 108 )
+
+[node name="Timer" parent="KnifeSpawner3" index="0"]
+wait_time = 5.0
+
+[node name="Gem" parent="." index="22" instance=ExtResource( 4 )]
+position = Vector2( 60, 60 )
+
+[node name="Gem2" parent="." index="23" instance=ExtResource( 4 )]
+position = Vector2( 132, 108 )
+
+[editable path="Portal"]
+[editable path="Portal/LevelLoadZone"]
+[editable path="KillZone"]
+[editable path="KnifeSpawner"]
+[editable path="KnifeSpawner2"]
+[editable path="KnifeSpawner3"]

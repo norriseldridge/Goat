@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://sprites/Chef.png" type="Texture" id=1]
+[ext_resource path="res://scenes/mechanics/KillZone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/mechanics/Enemy/Chef.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 12, 24 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 12, 0, 12, 24 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 24, 0, 12, 24 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 36, 0, 12, 24 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8, 21 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 1, 9.5 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 8, 4.5 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 7, 19.5 )
+
+[node name="Chef" type="KinematicBody2D"]
+collision_layer = 4
+script = ExtResource( 3 )
+speed = 15
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -24 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 5 )
+frame = 3
+playing = true
+
+[node name="KillZone" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" parent="KillZone" index="0"]
+position = Vector2( 0, -21 )
+shape = SubResource( 6 )
+
+[node name="RightSideDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightSideDetector"]
+position = Vector2( 9, -9.5 )
+shape = SubResource( 7 )
+
+[node name="LeftSideDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftSideDetector"]
+position = Vector2( -9, -9.5 )
+shape = SubResource( 7 )
+
+[node name="GroundDetector" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundDetector"]
+position = Vector2( 0, -4.5 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -19.5 )
+shape = SubResource( 9 )
+
+[connection signal="body_entered" from="RightSideDetector" to="." method="_on_RightSideDetector_body_entered"]
+[connection signal="body_entered" from="LeftSideDetector" to="." method="_on_LeftSideDetector_body_entered"]
+[connection signal="body_entered" from="GroundDetector" to="." method="_on_GroundDetector_body_entered"]
+[connection signal="body_exited" from="GroundDetector" to="." method="_on_GroundDetector_body_exited"]
+
+[editable path="KillZone"]

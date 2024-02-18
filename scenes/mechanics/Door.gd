@@ -9,7 +9,7 @@ func _ready():
 	messageBroker.connect("player_unlocked_door", self, "on_player_unlocked_door")
 	set_locked(true)
 
-func _on_Door_body_entered(body):
+func _on_Door_body_entered(_body):
 	messageBroker.emit_signal("player_entered_door_unlock", id)
 
 func on_player_unlocked_door(doorid):

@@ -166,6 +166,24 @@
             "id": "15",
             "name": "Prep Kitchen",
             "scene": "res://scenes/levels/Level15.tscn",
+            "next": "16"
+        },
+        {
+            "id": "16",
+            "name": "Fly'n Knives",
+            "scene": "res://scenes/levels/Level16.tscn",
+            "next": "17"
+        },
+        {
+            "id": "17",
+            "name": "Keep a Lid on It!",
+            "scene": "res://scenes/levels/Level17.tscn",
+            "next": "18"
+        },
+        {
+            "id": "18",
+            "name": "Rats!",
+            "scene": "res://scenes/levels/Level18.tscn",
             "next": "1000"
         },
         {
@@ -194,8 +212,8 @@
             "id": "3",
             "prereqid": "2",
             "name": "Kitchen",
-            "levels": ["14", "15"],
-            "music": "Goat-gameplay-loop.wav"
+            "levels": ["14", "15", "16", "17", "18"],
+            "music": "Goat-gameplay-loop3v2.wav"
         },
         {
             "id": "4",

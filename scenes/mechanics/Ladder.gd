@@ -14,6 +14,6 @@ func _on_Ladder_body_entered(body):
 	player = body
 	player.ladderCount = player.ladderCount + 1
 
-func _on_Ladder_body_exited(body):
+func _on_Ladder_body_exited(_body):
 	player.ladderCount = player.ladderCount - 1
 	player = null

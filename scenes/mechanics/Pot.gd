@@ -6,7 +6,7 @@ const MAX_GRAVITY = 150
 export var shootForce = 200
 export var shakeSpeed = 30
 export var shakeAmount = 2
-export var initialDelay = 0
+export (float) var initialDelay = 0.0
 
 onready var lid = $KinematicBody2D
 onready var sprite = $KinematicBody2D/PotLid

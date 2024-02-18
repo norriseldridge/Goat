@@ -4,7 +4,7 @@ var shouldShake = false
 var shouldFall = false
 var angle = 0
 onready var sprite = $Sprite
-export(float) var shakeTime = 2
+export(float) var shakeTime = 2.0
 export var shakeSpeed = 10
 export var shakeAmount = 10
 var movement = Vector2(0, 1)
@@ -22,5 +22,5 @@ func _process(delta):
 	if shouldFall:
 		position = position + (movement * fallSpeed * delta)
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(_body):
 	shouldShake = true

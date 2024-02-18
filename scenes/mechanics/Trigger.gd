@@ -15,7 +15,7 @@ func _ready():
 		node.set_physics_process(false)
 		
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(_body):
 	for node in nodes:
 		node.set_process(true)
 		node.set_physics_process(true)
