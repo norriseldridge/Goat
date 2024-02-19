@@ -7,6 +7,9 @@ const GRAVITY = 300
 const MAX_GRAVITY = 150
 const FRICTION = 400
 const IN_AIR_FRICTION_MOD = 0.4
+const IN_AIR_ACCEL_MOD = 0.6
+const SLIPPERY_SURFACE_MOD = 0.01
+const SLIPPERY_SURFACE_ACCEL_MOD = 0.3
 
 export var speed = 50
 export var acceleration = 70
@@ -16,10 +19,12 @@ var velocity = Vector2.ZERO
 var jumpCount = 0
 var grounded = false
 var ladderCount = 0
+var slipperyFloorCount = 0
 var is_dead = false
 
 onready var animatedSprite = $AnimatedSprite
 onready var deathSprite = $DeathAnimation
+onready var groundedCheckbox = $Area2D
 onready var messageBroker = MessageBroker
 onready var settings = PlayerSettings
 onready var jumpSfx = $JumpSFX
@@ -36,19 +41,27 @@ func _ready():
 func _process(delta):
 	if globals.paused or is_dead:
 		return
+
+	var frictionMod = 1.0
+	var accelMod = 1.0
+	if !grounded:
+		frictionMod = IN_AIR_FRICTION_MOD
+		accelMod = IN_AIR_ACCEL_MOD
+	elif slipperyFloorCount > 0:
+		frictionMod = SLIPPERY_SURFACE_MOD
+		accelMod = SLIPPERY_SURFACE_ACCEL_MOD
 		
 	var input_dir = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
 	if input_dir == 0:
-		var frictionMod = 1.0 if !grounded else IN_AIR_FRICTION_MOD
 		velocity.x = move_toward(velocity.x, 0, frictionMod * FRICTION * delta)
 		animatedSprite.play("idle")
 	else:
-		velocity.x = move_toward(velocity.x, input_dir * speed, acceleration * delta)
+		velocity.x = move_toward(velocity.x, input_dir * speed, accelMod * acceleration * delta)
 		animatedSprite.play("run")
-		if velocity.x > 0:
+		if input_dir > 0:
 			animatedSprite.flip_h = false
-		elif velocity.x < 0:
+		elif input_dir < 0:
 			animatedSprite.flip_h = true
 	
 	if !grounded:
@@ -79,18 +92,19 @@ func _physics_process(_delta):
 	if is_dead:
 		return
 
+	grounded = groundedCheckbox.get_overlapping_bodies().size() > 0
+
 	# this is to get moving platforms working... don't ask me how this works
 	var snap = Vector2.DOWN if grounded else Vector2.ZERO
 	move_and_slide_with_snap(velocity, snap, Vector2.UP)
 
 func _on_Area2D_body_entered(_body):
 	if velocity.y >= 0:
-		grounded = true
 		jumpCount = 0
 		velocity.y = 5
 
 func _on_Area2D_body_exited(_body):
-	grounded = false
+	pass
 
 func kill():
 	deathSprite.visible = true

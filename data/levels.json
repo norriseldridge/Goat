@@ -184,6 +184,18 @@
             "id": "18",
             "name": "Rats!",
             "scene": "res://scenes/levels/Level18.tscn",
+            "next": "19"
+        },
+        {
+            "id": "19",
+            "name": "Where's the Wet Floor Sign?",
+            "scene": "res://scenes/levels/Level19.tscn",
+            "next": "20"
+        },
+        {
+            "id": "20",
+            "name": "Seriously Where's that Sign?",
+            "scene": "res://scenes/levels/Level20.tscn",
             "next": "1000"
         },
         {
@@ -212,7 +224,7 @@
             "id": "3",
             "prereqid": "2",
             "name": "Kitchen",
-            "levels": ["14", "15", "16", "17", "18"],
+            "levels": ["14", "15", "16", "17", "18", "19", "20"],
             "music": "Goat-gameplay-loop3v2.wav"
         },
         {

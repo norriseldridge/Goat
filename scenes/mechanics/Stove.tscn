@@ -1,0 +1,106 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://sprites/Stove.png" type="Texture" id=1]
+[ext_resource path="res://scenes/mechanics/KillZone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/mechanics/Stove.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 36, 0, 12, 36 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 24, 0, 12, 36 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 12, 0, 12, 36 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 12, 36 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 12, 36 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 60, 0, 12, 36 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 72, 0, 12, 36 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 84, 0, 12, 36 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 12, 36 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 12, 0, 12, 36 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 24, 0, 12, 36 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 1 )
+region = Rect2( 36, 0, 12, 36 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": false,
+"name": "End",
+"speed": 20.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "Loop",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": false,
+"name": "Start",
+"speed": 20.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 6, 6 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 5, 10.5 )
+
+[node name="Stove" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Animation" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -18 )
+frames = SubResource( 13 )
+animation = "Start"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, -6 )
+shape = SubResource( 14 )
+
+[node name="KillZone" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" parent="KillZone" index="0"]
+position = Vector2( 0, -22.5 )
+shape = SubResource( 15 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="animation_finished" from="Animation" to="." method="_on_Animation_animation_finished"]
+
+[editable path="KillZone"]

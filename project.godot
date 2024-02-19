@@ -108,6 +108,7 @@ escape={
 2d_physics/layer_5="Door"
 2d_physics/layer_6="Coin"
 2d_physics/layer_7="Ladder"
+2d_physics/layer_8="SlipperyFloor"
 
 [mono]
 
