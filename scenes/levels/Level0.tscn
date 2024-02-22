@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/levels/LevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/gate.png" type="Texture" id=2]
 [ext_resource path="res://sprites/backing.png" type="Texture" id=3]
 [ext_resource path="res://scenes/polish/BlinkingStar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/mechanics/Gem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/polish/Snow.tscn" type="PackedScene" id=6]
 
 [node name="Level" instance=ExtResource( 1 )]
 
@@ -14,9 +15,6 @@ texture = ExtResource( 3 )
 
 [node name="Portal" parent="." index="1"]
 position = Vector2( 276, 72 )
-
-[node name="AnimatedSprite" parent="Portal" index="0"]
-frame = 2
 
 [node name="TileMap" parent="." index="2"]
 tile_data = PoolIntArray( 65535, 5, 0, 6, 16, 0, 8, 16, 0, 12, 16, 0, 14, 16, 0, 21, 3, 0, 22, 16, 0, 23, 19, 0, 24, 19, 0, 131071, 5, 0, 65542, 16, 0, 65544, 16, 0, 65548, 16, 0, 65550, 16, 0, 65557, 3, 0, 65558, 16, 0, 65559, 19, 0, 65560, 19, 0, 196607, 5, 0, 131078, 16, 0, 131080, 16, 0, 131084, 16, 0, 131086, 16, 0, 131093, 3, 0, 131094, 16, 0, 131096, 19, 0, 262143, 5, 0, 196614, 16, 0, 196616, 16, 0, 196620, 16, 0, 196622, 16, 0, 196629, 6, 0, 196630, 7, 0, 196631, 7, 0, 196632, 7, 0, 327679, 5, 0, 262150, 16, 0, 262152, 16, 0, 262156, 16, 0, 262158, 16, 0, 262169, 3, 0, 393215, 5, 0, 327686, 16, 0, 327688, 16, 0, 327692, 16, 0, 327694, 16, 0, 327705, 3, 0, 458751, 5, 0, 393222, 15, 0, 393223, 15, 0, 393224, 15, 0, 393228, 16, 0, 393230, 16, 0, 393241, 3, 0, 524287, 5, 0, 458764, 16, 0, 458766, 16, 0, 458772, 13, 0, 458773, 0, 0, 458774, 1, 0, 458775, 1, 0, 458776, 1, 0, 589823, 5, 0, 524300, 15, 0, 524301, 15, 0, 524302, 15, 0, 524309, 3, 0, 524310, 19, 0, 524312, 19, 0, 655359, 5, 0, 589845, 3, 0, 589846, 19, 0, 589848, 19, 0, 589849, 19, 0, 720895, 5, 0, 655381, 3, 0, 655382, 19, 0, 655384, 19, 0, 655385, 19, 0, 786431, 5, 0, 720913, 13, 0, 720914, 0, 0, 720915, 1, 0, 720916, 1, 0, 720917, 12, 0, 720918, 19, 0, 720919, 19, 0, 720920, 19, 0, 720921, 19, 0, 720922, 19, 0, 851967, 5, 0, 786450, 3, 0, 786451, 19, 0, 786452, 19, 0, 786453, 19, 0, 786454, 19, 0, 786455, 19, 0, 786456, 19, 0, 786457, 19, 0, 917503, 5, 0, 851980, 0, 0, 851981, 1, 0, 851982, 2, 0, 851986, 3, 0, 851987, 19, 0, 851988, 17, 0, 851989, 19, 0, 851990, 19, 0, 851991, 17, 0, 851992, 19, 0, 851993, 19, 0, 983039, 5, 0, 917513, 0, 0, 917514, 1, 0, 917515, 1, 0, 917516, 12, 0, 917517, 19, 0, 917518, 5, 0, 917522, 3, 0, 917523, 19, 0, 917524, 18, 0, 917525, 19, 0, 917526, 19, 0, 917527, 18, 0, 917528, 19, 0, 917529, 19, 0, 917530, 19, 0, 917531, 19, 0, 983040, 1, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 12, 0, 983059, 19, 0, 983060, 19, 0, 983061, 19, 0, 983062, 19, 0, 983063, 19, 0, 983064, 19, 0, 1048600, 19, 0 )
@@ -35,68 +33,125 @@ texture = ExtResource( 2 )
 
 [node name="BlinkingStar" parent="." index="6" instance=ExtResource( 4 )]
 position = Vector2( 103, 108 )
-frame = 1
 
 [node name="BlinkingStar2" parent="." index="7" instance=ExtResource( 4 )]
 position = Vector2( 40, 125 )
-frame = 1
 
 [node name="BlinkingStar3" parent="." index="8" instance=ExtResource( 4 )]
 position = Vector2( 201, 133 )
+frame = 4
 
 [node name="BlinkingStar4" parent="." index="9" instance=ExtResource( 4 )]
 position = Vector2( 36, 67 )
-frame = 4
+frame = 3
 
 [node name="BlinkingStar5" parent="." index="10" instance=ExtResource( 4 )]
 position = Vector2( 124, 56 )
-frame = 4
+frame = 3
 
 [node name="BlinkingStar6" parent="." index="11" instance=ExtResource( 4 )]
 position = Vector2( 180, 36 )
-frame = 4
+frame = 3
 
 [node name="BlinkingStar7" parent="." index="12" instance=ExtResource( 4 )]
 position = Vector2( 163, 27 )
-frame = 3
+frame = 2
 
 [node name="BlinkingStar8" parent="." index="13" instance=ExtResource( 4 )]
 position = Vector2( 106, 12 )
-frame = 3
+frame = 2
 
 [node name="BlinkingStar9" parent="." index="14" instance=ExtResource( 4 )]
 position = Vector2( 89, 37 )
-frame = 2
+frame = 1
 
 [node name="BlinkingStar10" parent="." index="15" instance=ExtResource( 4 )]
 position = Vector2( 62, 21 )
-frame = 2
+frame = 1
 
 [node name="BlinkingStar11" parent="." index="16" instance=ExtResource( 4 )]
 position = Vector2( 247, 56 )
-frame = 2
+frame = 1
 
 [node name="BlinkingStar12" parent="." index="17" instance=ExtResource( 4 )]
 position = Vector2( 221, 78 )
-frame = 1
 
 [node name="BlinkingStar13" parent="." index="18" instance=ExtResource( 4 )]
 position = Vector2( 156, 134 )
-frame = 1
 
 [node name="BlinkingStar14" parent="." index="19" instance=ExtResource( 4 )]
 position = Vector2( 19, 75 )
-frame = 1
 
 [node name="BlinkingStar15" parent="." index="20" instance=ExtResource( 4 )]
 position = Vector2( 56, 61 )
+frame = 4
 
 [node name="BlinkingStar16" parent="." index="21" instance=ExtResource( 4 )]
 position = Vector2( 152, 84 )
-frame = 4
+frame = 3
 
 [node name="Gem" parent="." index="22" instance=ExtResource( 5 )]
 position = Vector2( 84, 60 )
+
+[node name="Snow" parent="." index="23" instance=ExtResource( 6 )]
+position = Vector2( 24, -8 )
+
+[node name="Snow2" parent="." index="24" instance=ExtResource( 6 )]
+position = Vector2( 72, -18 )
+
+[node name="Snow3" parent="." index="25" instance=ExtResource( 6 )]
+position = Vector2( 134, -9 )
+
+[node name="Snow4" parent="." index="26" instance=ExtResource( 6 )]
+position = Vector2( 204, -17 )
+
+[node name="Snow5" parent="." index="27" instance=ExtResource( 6 )]
+position = Vector2( 184, -7 )
+
+[node name="Snow6" parent="." index="28" instance=ExtResource( 6 )]
+position = Vector2( 159, -13 )
+
+[node name="Snow7" parent="." index="29" instance=ExtResource( 6 )]
+position = Vector2( 119, -16 )
+
+[node name="Snow8" parent="." index="30" instance=ExtResource( 6 )]
+position = Vector2( 90, -7 )
+
+[node name="Snow9" parent="." index="31" instance=ExtResource( 6 )]
+position = Vector2( 51, -9 )
+
+[node name="Snow10" parent="." index="32" instance=ExtResource( 6 )]
+position = Vector2( 11, -19 )
+
+[node name="Snow11" parent="." index="33" instance=ExtResource( 6 )]
+position = Vector2( 31.75, -20.25 )
+
+[node name="Snow12" parent="." index="34" instance=ExtResource( 6 )]
+position = Vector2( 79.75, -30.25 )
+
+[node name="Snow13" parent="." index="35" instance=ExtResource( 6 )]
+position = Vector2( 141.75, -21.25 )
+
+[node name="Snow14" parent="." index="36" instance=ExtResource( 6 )]
+position = Vector2( 107, -12 )
+
+[node name="Snow15" parent="." index="37" instance=ExtResource( 6 )]
+position = Vector2( 191.75, -19.25 )
+
+[node name="Snow16" parent="." index="38" instance=ExtResource( 6 )]
+position = Vector2( 166.75, -25.25 )
+
+[node name="Snow17" parent="." index="39" instance=ExtResource( 6 )]
+position = Vector2( 126.75, -28.25 )
+
+[node name="Snow18" parent="." index="40" instance=ExtResource( 6 )]
+position = Vector2( 97.75, -19.25 )
+
+[node name="Snow19" parent="." index="41" instance=ExtResource( 6 )]
+position = Vector2( 58.75, -21.25 )
+
+[node name="Snow20" parent="." index="42" instance=ExtResource( 6 )]
+position = Vector2( 18.75, -32.25 )
 
 [editable path="Portal"]
 [editable path="Portal/LevelLoadZone"]

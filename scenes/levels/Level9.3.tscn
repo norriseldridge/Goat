@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/levels/LevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/tree.png" type="Texture" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://scenes/polish/BlinkingStar.tscn" type="PackedScene" id=9]
 [ext_resource path="res://sprites/BridgeMount.png" type="Texture" id=10]
 [ext_resource path="res://scenes/mechanics/Gem.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/polish/Snow.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/polish/Snow.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.5, 30 )
@@ -26,37 +28,41 @@ offset = Vector2( -98, 28 )
 
 [node name="BlinkingStar" parent="Backing" index="0" instance=ExtResource( 9 )]
 position = Vector2( -34, -48 )
+frame = 3
 
 [node name="BlinkingStar2" parent="Backing" index="1" instance=ExtResource( 9 )]
 position = Vector2( -205, 55 )
-frame = 4
+frame = 2
 
 [node name="BlinkingStar8" parent="Backing" index="2" instance=ExtResource( 9 )]
 position = Vector2( -214, 6 )
-frame = 3
+frame = 1
 
 [node name="BlinkingStar3" parent="Backing" index="3" instance=ExtResource( 9 )]
 position = Vector2( -148, 24 )
-frame = 4
+frame = 2
 
 [node name="BlinkingStar4" parent="Backing" index="4" instance=ExtResource( 9 )]
 position = Vector2( -61, 27 )
-frame = 4
+frame = 2
 
 [node name="BlinkingStar5" parent="Backing" index="5" instance=ExtResource( 9 )]
 position = Vector2( -42, 74 )
-frame = 3
+frame = 1
 
 [node name="BlinkingStar6" parent="Backing" index="6" instance=ExtResource( 9 )]
 position = Vector2( -129.5, 66.5 )
-frame = 3
+frame = 1
 
 [node name="BlinkingStar7" parent="Backing" index="7" instance=ExtResource( 9 )]
 position = Vector2( -88, -5 )
-frame = 3
+frame = 1
 
 [node name="Portal" parent="." index="1"]
 position = Vector2( 252, 120 )
+
+[node name="AnimatedSprite" parent="Portal" index="0"]
+frame = 0
 
 [node name="TileMap" parent="." index="2"]
 tile_data = PoolIntArray( 9, 16, 0, 19, 3, 0, 20, 19, 0, 22, 19, 0, 23, 19, 0, 24, 19, 0, 65545, 16, 0, 65555, 3, 0, 65556, 19, 0, 65557, 17, 0, 65558, 19, 0, 65560, 19, 0, 131081, 16, 0, 131091, 3, 0, 131092, 19, 0, 131093, 18, 0, 131094, 19, 0, 131096, 19, 0, 196617, 16, 0, 196627, 3, 0, 196628, 19, 0, 196630, 19, 0, 196632, 19, 0, 262163, 3, 0, 262164, 19, 0, 262165, 19, 0, 262166, 19, 0, 262168, 19, 0, 327699, 6, 0, 327700, 7, 0, 327701, 7, 0, 327702, 10, 0, 327704, 19, 0, 393238, 3, 0, 393240, 19, 0, 458774, 3, 0, 458776, 19, 0, 524310, 3, 0, 524312, 19, 0, 589846, 3, 0, 589848, 19, 0, 655382, 3, 0, 655384, 19, 0, 720914, 13, 0, 720915, 0, 0, 720916, 1, 0, 720917, 1, 0, 720918, 12, 0, 720919, 19, 0, 720920, 19, 0, 786451, 3, 0, 786452, 19, 0, 786453, 19, 0, 786454, 19, 0, 786455, 19, 0, 786456, 19, 0, 851987, 3, 0, 851988, 19, 0, 851989, 17, 0, 851990, 19, 0, 851991, 19, 0, 851992, 19, 0, 851993, 19, 0, 917506, 15, 0, 917523, 3, 0, 917524, 19, 0, 917525, 18, 0, 917526, 19, 0, 917527, 19, 0, 917528, 19, 0, 983059, 3, 0, 983060, 19, 0, 983061, 19, 0, 983062, 19, 0, 983063, 19, 0, 983064, 19, 0, 1048596, 19, 0 )
@@ -119,6 +125,50 @@ position = Vector2( 108, 60 )
 
 [node name="Gem3" parent="." index="17" instance=ExtResource( 11 )]
 position = Vector2( 108, 48 )
+
+[node name="Snow" parent="." index="18" instance=ExtResource( 12 )]
+position = Vector2( 24, -8 )
+script = ExtResource( 13 )
+
+[node name="Snow2" parent="." index="19" instance=ExtResource( 12 )]
+position = Vector2( 81, -13 )
+script = ExtResource( 13 )
+
+[node name="Snow3" parent="." index="20" instance=ExtResource( 12 )]
+position = Vector2( 148, -14 )
+script = ExtResource( 13 )
+
+[node name="Snow4" parent="." index="21" instance=ExtResource( 12 )]
+position = Vector2( 194, -12 )
+script = ExtResource( 13 )
+
+[node name="Snow7" parent="." index="22" instance=ExtResource( 12 )]
+position = Vector2( 43.75, -24.25 )
+script = ExtResource( 13 )
+
+[node name="Snow8" parent="." index="23" instance=ExtResource( 12 )]
+position = Vector2( 100.75, -29.25 )
+script = ExtResource( 13 )
+
+[node name="Snow9" parent="." index="24" instance=ExtResource( 12 )]
+position = Vector2( 167.75, -30.25 )
+script = ExtResource( 13 )
+
+[node name="Snow10" parent="." index="25" instance=ExtResource( 12 )]
+position = Vector2( 216, -23 )
+script = ExtResource( 13 )
+
+[node name="Snow12" parent="." index="26" instance=ExtResource( 12 )]
+position = Vector2( 126, -27 )
+script = ExtResource( 13 )
+
+[node name="Snow13" parent="." index="27" instance=ExtResource( 12 )]
+position = Vector2( 59.75, -38.25 )
+script = ExtResource( 13 )
+
+[node name="Snow14" parent="." index="28" instance=ExtResource( 12 )]
+position = Vector2( 116.75, -43.25 )
+script = ExtResource( 13 )
 
 [editable path="Portal"]
 [editable path="Portal/LevelLoadZone"]
