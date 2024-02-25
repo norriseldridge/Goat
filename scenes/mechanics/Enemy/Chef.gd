@@ -136,7 +136,8 @@ func showFinalExclamation():
 	allowedToMove = false
 	velocity.x = 0
 	inFinalAnimation = true
+	sprite.play("Idle")
 
 func _on_FinalAnimationTimer_timeout():
-	if inFinalAnimation:
+	if inFinalAnimation && !dead:
 		sprite.flip_h = !sprite.flip_h
