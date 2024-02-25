@@ -43,6 +43,7 @@ func _ready():
 	
 	messageBroker.connect("player_entered_portal", self, "on_player_entered_portal")
 	messageBroker.connect("load_level", self, "on_load_level")
+	messageBroker.connect("camera_shake", self, "on_camera_shake")
 
 	pickUpSfx.volume_db = settings.GetSFXVolume()
 	doorUnlockSfx.volume_db = settings.GetSFXVolume()
@@ -210,3 +211,6 @@ func UnlockNextWorldLevel():
 					playerData.lastUnlockedLevel = firstLevelId
 					playerData.Save()
 					return
+
+func on_camera_shake():
+	camera.shake(0.7)

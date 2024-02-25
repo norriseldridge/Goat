@@ -1,12 +1,13 @@
 extends Node2D
 
-onready var knife = preload("res://scenes/mechanics/Knife.tscn")
 onready var timer = $Timer
 var pool = []
 export var max_count = 5
 export var shootLeft = true
+var knife = null
 
 func _ready():
+	knife = preload("res://scenes/mechanics/Knife.tscn") if shootLeft else preload("res://scenes/mechanics/Knife_Right.tscn")
 	timer.connect("timeout", self, "spawn_knife")
 	spawn_knife()
 

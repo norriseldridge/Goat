@@ -1,7 +1,7 @@
 extends Sprite
 
-export var fallSpeedMin = 10
-export var fallSpeedMax = 20
+export var fallSpeedMin = 12
+export var fallSpeedMax = 25
 export var driftSpeedMin = 1
 export var driftSpeedMax = 3
 export var driftAmountMin = 2

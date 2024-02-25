@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/levels/LevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mechanics/Enemy/BackgroundChef.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/mechanics/Enemy/Rat.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/mechanics/Enemy/Birdy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/mechanics/WetFloor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/mechanics/Stove.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/mechanics/Gem.tscn" type="PackedScene" id=7]
@@ -14,10 +13,10 @@
 position = Vector2( 276, 12 )
 
 [node name="AnimatedSprite" parent="Portal" index="0"]
-frame = 1
+frame = 2
 
 [node name="TileMap" parent="." index="1"]
-tile_data = PoolIntArray( -393216, 5, 0, -393192, 3, 0, -327680, 5, 0, -327656, 3, 0, -262144, 5, 0, -262120, 3, 0, -196608, 5, 0, -196584, 3, 0, -131072, 5, 0, -131048, 3, 0, -65536, 5, 0, -65512, 3, 0, 0, 5, 0, 24, 3, 0, 65536, 5, 0, 65560, 3, 0, 131072, 5, 0, 131096, 3, 0, 196608, 5, 0, 196612, 0, 0, 196613, 2, 0, 196618, 0, 0, 196619, 2, 0, 196632, 3, 0, 262144, 5, 0, 262148, 6, 0, 262149, 8, 0, 262154, 6, 0, 262155, 8, 0, 262162, 15, 0, 262168, 3, 0, 327680, 5, 0, 327704, 3, 0, 393216, 5, 0, 393217, 14, 0, 393240, 3, 0, 458752, 5, 0, 458776, 3, 0, 524288, 5, 0, 524312, 3, 0, 589824, 11, 0, 589826, 0, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 2, 0, 589836, 0, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 2, 0, 589848, 3, 0, 655360, 9, 0, 655361, 7, 0, 655362, 7, 0, 655363, 7, 0, 655364, 7, 0, 655365, 7, 0, 655366, 7, 0, 655367, 8, 0, 655372, 6, 0, 655373, 7, 0, 655374, 7, 0, 655375, 7, 0, 655376, 7, 0, 655377, 7, 0, 655378, 7, 0, 655379, 7, 0, 655380, 8, 0, 655384, 3, 0, 720896, 5, 0, 720920, 3, 0, 786432, 5, 0, 786455, 13, 0, 786456, 3, 0, 851968, 5, 0, 851992, 3, 0, 917504, 5, 0, 917505, 20, 0, 917506, 20, 0, 917507, 20, 0, 917508, 20, 0, 917509, 20, 0, 917510, 20, 0, 917511, 20, 0, 917512, 20, 0, 917513, 20, 0, 917514, 20, 0, 917515, 20, 0, 917516, 20, 0, 917517, 20, 0, 917518, 20, 0, 917519, 20, 0, 917520, 20, 0, 917521, 20, 0, 917522, 20, 0, 917523, 20, 0, 917524, 20, 0, 917525, 20, 0, 917526, 20, 0, 917527, 20, 0, 917528, 3, 0, 983040, 11, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 1, 0, 983059, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 12, 0 )
+tile_data = PoolIntArray( -393216, 5, 0, -393192, 3, 0, -327680, 5, 0, -327656, 3, 0, -262144, 5, 0, -262120, 3, 0, -196608, 5, 0, -196584, 3, 0, -131072, 5, 0, -131048, 3, 0, -65536, 5, 0, -65512, 3, 0, 0, 5, 0, 24, 3, 0, 65536, 5, 0, 65560, 3, 0, 131072, 5, 0, 131096, 3, 0, 196608, 5, 0, 196612, 0, 0, 196613, 2, 0, 196618, 0, 0, 196619, 2, 0, 196632, 3, 0, 262144, 5, 0, 262148, 6, 0, 262149, 8, 0, 262154, 6, 0, 262155, 8, 0, 262161, 15, 0, 262162, 15, 0, 262168, 3, 0, 327680, 5, 0, 327704, 3, 0, 393216, 5, 0, 393217, 14, 0, 393240, 3, 0, 458752, 5, 0, 458776, 3, 0, 524288, 5, 0, 524312, 3, 0, 589824, 11, 0, 589826, 0, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 2, 0, 589836, 0, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 2, 0, 589848, 3, 0, 655360, 9, 0, 655361, 7, 0, 655362, 7, 0, 655363, 7, 0, 655364, 7, 0, 655365, 7, 0, 655366, 7, 0, 655367, 8, 0, 655372, 6, 0, 655373, 7, 0, 655374, 7, 0, 655375, 7, 0, 655376, 7, 0, 655377, 7, 0, 655378, 7, 0, 655379, 7, 0, 655380, 8, 0, 655384, 3, 0, 720896, 5, 0, 720920, 3, 0, 786432, 5, 0, 786455, 13, 0, 786456, 3, 0, 851968, 5, 0, 851992, 3, 0, 917504, 5, 0, 917505, 20, 0, 917506, 20, 0, 917507, 20, 0, 917508, 20, 0, 917509, 20, 0, 917510, 20, 0, 917511, 20, 0, 917512, 20, 0, 917513, 20, 0, 917514, 20, 0, 917515, 20, 0, 917516, 20, 0, 917517, 20, 0, 917518, 20, 0, 917519, 20, 0, 917520, 20, 0, 917521, 20, 0, 917522, 20, 0, 917523, 20, 0, 917524, 20, 0, 917525, 20, 0, 917526, 20, 0, 917527, 20, 0, 917528, 3, 0, 983040, 11, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 1, 0, 983059, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 12, 0 )
 
 [node name="BackgroundChef" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 18, 168 )
@@ -25,185 +24,155 @@ position = Vector2( 18, 168 )
 [node name="End" parent="BackgroundChef" index="1"]
 position = Vector2( 264, 0 )
 
+[node name="AnimatedSprite" parent="BackgroundChef/Chef" index="0"]
+frame = 3
+
 [node name="Rat" parent="." index="5" instance=ExtResource( 3 )]
 position = Vector2( 186, 180 )
 
 [node name="Rat2" parent="." index="6" instance=ExtResource( 3 )]
 position = Vector2( 90, 180 )
 
-[node name="Birdy" parent="." index="7" instance=ExtResource( 4 )]
-position = Vector2( 120, 84 )
-
-[node name="EndPoint" parent="Birdy" index="1"]
-position = Vector2( 0, 60 )
-
-[node name="AnimatedSprite" parent="Birdy/KinematicBody2D" index="0"]
-frame = 2
-
-[node name="Birdy2" parent="." index="8" instance=ExtResource( 4 )]
-position = Vector2( 180, 12 )
-
-[node name="EndPoint" parent="Birdy2" index="1"]
-position = Vector2( 0, 60 )
-
-[node name="KinematicBody2D" parent="Birdy2" index="2"]
-position = Vector2( 0, 60 )
-
-[node name="AnimatedSprite" parent="Birdy2/KinematicBody2D" index="0"]
-frame = 2
-
-[node name="Birdy3" parent="." index="9" instance=ExtResource( 4 )]
-position = Vector2( 96, 12 )
-
-[node name="EndPoint" parent="Birdy3" index="1"]
-position = Vector2( 0, 60 )
-
-[node name="AnimatedSprite" parent="Birdy3/KinematicBody2D" index="0"]
-frame = 1
-
-[node name="WetFloor" parent="." index="10" instance=ExtResource( 5 )]
+[node name="WetFloor" parent="." index="7" instance=ExtResource( 5 )]
 position = Vector2( 18, 186 )
 
-[node name="WetFloor2" parent="." index="11" instance=ExtResource( 5 )]
+[node name="WetFloor2" parent="." index="8" instance=ExtResource( 5 )]
 position = Vector2( 30, 186 )
 
-[node name="WetFloor3" parent="." index="12" instance=ExtResource( 5 )]
+[node name="WetFloor3" parent="." index="9" instance=ExtResource( 5 )]
 position = Vector2( 42, 186 )
 
-[node name="WetFloor4" parent="." index="13" instance=ExtResource( 5 )]
+[node name="WetFloor4" parent="." index="10" instance=ExtResource( 5 )]
 position = Vector2( 54, 186 )
 
-[node name="WetFloor5" parent="." index="14" instance=ExtResource( 5 )]
+[node name="WetFloor5" parent="." index="11" instance=ExtResource( 5 )]
 position = Vector2( 66, 186 )
 
-[node name="WetFloor6" parent="." index="15" instance=ExtResource( 5 )]
+[node name="WetFloor6" parent="." index="12" instance=ExtResource( 5 )]
 position = Vector2( 78, 186 )
 
-[node name="WetFloor7" parent="." index="16" instance=ExtResource( 5 )]
+[node name="WetFloor7" parent="." index="13" instance=ExtResource( 5 )]
 position = Vector2( 90, 186 )
 
-[node name="WetFloor8" parent="." index="17" instance=ExtResource( 5 )]
+[node name="WetFloor8" parent="." index="14" instance=ExtResource( 5 )]
 position = Vector2( 102, 186 )
 
-[node name="WetFloor9" parent="." index="18" instance=ExtResource( 5 )]
+[node name="WetFloor9" parent="." index="15" instance=ExtResource( 5 )]
 position = Vector2( 114, 186 )
 
-[node name="WetFloor10" parent="." index="19" instance=ExtResource( 5 )]
+[node name="WetFloor10" parent="." index="16" instance=ExtResource( 5 )]
 position = Vector2( 126, 186 )
 
-[node name="WetFloor11" parent="." index="20" instance=ExtResource( 5 )]
+[node name="WetFloor11" parent="." index="17" instance=ExtResource( 5 )]
 position = Vector2( 138, 186 )
 
-[node name="WetFloor12" parent="." index="21" instance=ExtResource( 5 )]
+[node name="WetFloor12" parent="." index="18" instance=ExtResource( 5 )]
 position = Vector2( 150, 186 )
 
-[node name="WetFloor13" parent="." index="22" instance=ExtResource( 5 )]
+[node name="WetFloor13" parent="." index="19" instance=ExtResource( 5 )]
 position = Vector2( 162, 186 )
 
-[node name="WetFloor14" parent="." index="23" instance=ExtResource( 5 )]
+[node name="WetFloor14" parent="." index="20" instance=ExtResource( 5 )]
 position = Vector2( 174, 186 )
 
-[node name="WetFloor15" parent="." index="24" instance=ExtResource( 5 )]
+[node name="WetFloor15" parent="." index="21" instance=ExtResource( 5 )]
 position = Vector2( 186, 186 )
 
-[node name="WetFloor16" parent="." index="25" instance=ExtResource( 5 )]
+[node name="WetFloor16" parent="." index="22" instance=ExtResource( 5 )]
 position = Vector2( 198, 186 )
 
-[node name="WetFloor17" parent="." index="26" instance=ExtResource( 5 )]
+[node name="WetFloor17" parent="." index="23" instance=ExtResource( 5 )]
 position = Vector2( 210, 186 )
 
-[node name="WetFloor18" parent="." index="27" instance=ExtResource( 5 )]
+[node name="WetFloor18" parent="." index="24" instance=ExtResource( 5 )]
 position = Vector2( 222, 186 )
 
-[node name="WetFloor19" parent="." index="28" instance=ExtResource( 5 )]
+[node name="WetFloor19" parent="." index="25" instance=ExtResource( 5 )]
 position = Vector2( 234, 186 )
 
-[node name="WetFloor20" parent="." index="29" instance=ExtResource( 5 )]
+[node name="WetFloor20" parent="." index="26" instance=ExtResource( 5 )]
 position = Vector2( 246, 186 )
 
-[node name="WetFloor21" parent="." index="30" instance=ExtResource( 5 )]
+[node name="WetFloor21" parent="." index="27" instance=ExtResource( 5 )]
 position = Vector2( 258, 186 )
 
-[node name="WetFloor22" parent="." index="31" instance=ExtResource( 5 )]
+[node name="WetFloor22" parent="." index="28" instance=ExtResource( 5 )]
 position = Vector2( 270, 186 )
 
-[node name="WetFloor23" parent="." index="32" instance=ExtResource( 5 )]
+[node name="WetFloor23" parent="." index="29" instance=ExtResource( 5 )]
 position = Vector2( 282, 186 )
 
-[node name="WetFloor24" parent="." index="33" instance=ExtResource( 5 )]
+[node name="WetFloor24" parent="." index="30" instance=ExtResource( 5 )]
 position = Vector2( 246, 114 )
 
-[node name="WetFloor25" parent="." index="34" instance=ExtResource( 5 )]
+[node name="WetFloor25" parent="." index="31" instance=ExtResource( 5 )]
 position = Vector2( 234, 114 )
 
-[node name="WetFloor26" parent="." index="35" instance=ExtResource( 5 )]
+[node name="WetFloor26" parent="." index="32" instance=ExtResource( 5 )]
 position = Vector2( 222, 114 )
 
-[node name="WetFloor28" parent="." index="36" instance=ExtResource( 5 )]
+[node name="WetFloor28" parent="." index="33" instance=ExtResource( 5 )]
 position = Vector2( 198, 114 )
 
-[node name="WetFloor29" parent="." index="37" instance=ExtResource( 5 )]
+[node name="WetFloor29" parent="." index="34" instance=ExtResource( 5 )]
 position = Vector2( 186, 114 )
 
-[node name="WetFloor30" parent="." index="38" instance=ExtResource( 5 )]
+[node name="WetFloor30" parent="." index="35" instance=ExtResource( 5 )]
 position = Vector2( 174, 114 )
 
-[node name="WetFloor31" parent="." index="39" instance=ExtResource( 5 )]
+[node name="WetFloor31" parent="." index="36" instance=ExtResource( 5 )]
 position = Vector2( 162, 114 )
 
-[node name="WetFloor32" parent="." index="40" instance=ExtResource( 5 )]
+[node name="WetFloor32" parent="." index="37" instance=ExtResource( 5 )]
 position = Vector2( 150, 114 )
 
-[node name="WetFloor33" parent="." index="41" instance=ExtResource( 5 )]
+[node name="WetFloor33" parent="." index="38" instance=ExtResource( 5 )]
 position = Vector2( 90, 114 )
 
-[node name="WetFloor34" parent="." index="42" instance=ExtResource( 5 )]
+[node name="WetFloor34" parent="." index="39" instance=ExtResource( 5 )]
 position = Vector2( 78, 114 )
 
-[node name="WetFloor35" parent="." index="43" instance=ExtResource( 5 )]
+[node name="WetFloor35" parent="." index="40" instance=ExtResource( 5 )]
 position = Vector2( 66, 114 )
 
-[node name="WetFloor36" parent="." index="44" instance=ExtResource( 5 )]
+[node name="WetFloor36" parent="." index="41" instance=ExtResource( 5 )]
 position = Vector2( 54, 114 )
 
-[node name="WetFloor37" parent="." index="45" instance=ExtResource( 5 )]
+[node name="WetFloor37" parent="." index="42" instance=ExtResource( 5 )]
 position = Vector2( 42, 114 )
 
-[node name="WetFloor38" parent="." index="46" instance=ExtResource( 5 )]
+[node name="WetFloor38" parent="." index="43" instance=ExtResource( 5 )]
 position = Vector2( 30, 114 )
 
-[node name="WetFloor39" parent="." index="47" instance=ExtResource( 5 )]
+[node name="WetFloor39" parent="." index="44" instance=ExtResource( 5 )]
 position = Vector2( 66, 42 )
 
-[node name="WetFloor40" parent="." index="48" instance=ExtResource( 5 )]
+[node name="WetFloor40" parent="." index="45" instance=ExtResource( 5 )]
 position = Vector2( 54, 42 )
 
-[node name="WetFloor41" parent="." index="49" instance=ExtResource( 5 )]
+[node name="WetFloor41" parent="." index="46" instance=ExtResource( 5 )]
 position = Vector2( 138, 42 )
 
-[node name="WetFloor42" parent="." index="50" instance=ExtResource( 5 )]
+[node name="WetFloor42" parent="." index="47" instance=ExtResource( 5 )]
 position = Vector2( 126, 42 )
 
-[node name="WetFloor43" parent="." index="51" instance=ExtResource( 5 )]
+[node name="WetFloor43" parent="." index="48" instance=ExtResource( 5 )]
 position = Vector2( 222, 54 )
 
-[node name="Stove" parent="." index="52" instance=ExtResource( 6 )]
+[node name="WetFloor44" parent="." index="49" instance=ExtResource( 5 )]
+position = Vector2( 210, 54 )
+
+[node name="Stove" parent="." index="50" instance=ExtResource( 6 )]
 position = Vector2( 18, 120 )
 
-[node name="Stove2" parent="." index="53" instance=ExtResource( 6 )]
+[node name="Stove2" parent="." index="51" instance=ExtResource( 6 )]
 position = Vector2( 210, 120 )
 state = true
 
-[node name="Gem" parent="." index="54" instance=ExtResource( 7 )]
+[node name="Gem" parent="." index="52" instance=ExtResource( 7 )]
 position = Vector2( 96, 108 )
 
 [editable path="Portal"]
 [editable path="Portal/LevelLoadZone"]
 [editable path="KillZone"]
 [editable path="BackgroundChef"]
-[editable path="Birdy"]
-[editable path="Birdy/KinematicBody2D/KillZone"]
-[editable path="Birdy2"]
-[editable path="Birdy2/KinematicBody2D/KillZone"]
-[editable path="Birdy3"]
-[editable path="Birdy3/KinematicBody2D/KillZone"]

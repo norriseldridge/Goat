@@ -164,7 +164,7 @@
         },
         {
             "id": "15",
-            "name": "Prep Kitchen",
+            "name": "Wet Floor!",
             "scene": "res://scenes/levels/Level15.tscn",
             "next": "16"
         },
@@ -196,6 +196,18 @@
             "id": "20",
             "name": "Seriously Where's that Sign?",
             "scene": "res://scenes/levels/Level20.tscn",
+            "next": "21"
+        },
+        {
+            "id": "21",
+            "name": "Oh, There it is",
+            "scene": "res://scenes/levels/Level21.tscn",
+            "next": "22"
+        },
+        {
+            "id": "22",
+            "name": "Definitely Not OSHA Standards",
+            "scene": "res://scenes/levels/Level22.tscn",
             "next": "1000"
         },
         {
@@ -224,7 +236,7 @@
             "id": "3",
             "prereqid": "2",
             "name": "Kitchen",
-            "levels": ["14", "15", "16", "17", "18", "19", "20"],
+            "levels": ["14", "15", "16", "17", "18", "19", "20", "21", "22"],
             "music": "Goat-gameplay-loop3v2.wav"
         },
         {

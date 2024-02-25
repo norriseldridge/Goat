@@ -1,0 +1,312 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://scenes/mechanics/MovingBelt.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/levels/LevelTemplate.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/MovingBelt.png" type="Texture" id=3]
+[ext_resource path="res://scenes/mechanics/Enemy/BackgroundChef.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/mechanics/Stove.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/mechanics/Pot.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/mechanics/MovingPlatform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/mechanics/WetFloor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/mechanics/Coin.tscn" type="PackedScene" id=9]
+[ext_resource path="res://sprites/GiantMeatball.png" type="Texture" id=10]
+[ext_resource path="res://scenes/levels/Level22.gd" type="Script" id=11]
+[ext_resource path="res://sprites/ExclamationPoint.png" type="Texture" id=12]
+[ext_resource path="res://scenes/mechanics/Gem.tscn" type="PackedScene" id=13]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 12, 0, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 24, 0, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 36, 0, 12, 12 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Level" instance=ExtResource( 2 )]
+script = ExtResource( 11 )
+
+[node name="GiantMeatball" type="Sprite" parent="." index="0"]
+modulate = Color( 0.494118, 0.494118, 0.494118, 1 )
+position = Vector2( 319, 113 )
+texture = ExtResource( 10 )
+
+[node name="BackgroundChef" parent="." index="1" instance=ExtResource( 4 )]
+position = Vector2( 18, 132 )
+
+[node name="End" parent="BackgroundChef" index="1"]
+position = Vector2( 264, 0 )
+
+[node name="AnimatedSprite" parent="BackgroundChef/Chef" index="0"]
+frame = 1
+
+[node name="ExclamationPoint" type="Sprite" parent="BackgroundChef/Chef" index="1"]
+visible = false
+modulate = Color( 0.431373, 0.431373, 0.431373, 1 )
+position = Vector2( 0, -30 )
+z_index = 999
+texture = ExtResource( 12 )
+
+[node name="Timer" parent="BackgroundChef" index="3"]
+wait_time = 2.0
+
+[node name="Portal" parent="." index="2"]
+position = Vector2( 12, 108 )
+
+[node name="AnimatedSprite" parent="Portal" index="0"]
+frame = 1
+
+[node name="TileMap" parent="." index="3"]
+tile_data = PoolIntArray( -262144, 5, 0, -262120, 3, 0, -196608, 5, 0, -196584, 3, 0, -131072, 5, 0, -131048, 3, 0, -65536, 5, 0, -65512, 3, 0, 0, 5, 0, 24, 3, 0, 65536, 5, 0, 65560, 3, 0, 131072, 5, 0, 131096, 3, 0, 196608, 5, 0, 196632, 3, 0, 262144, 5, 0, 262168, 3, 0, 327680, 5, 0, 327704, 3, 0, 393216, 5, 0, 393240, 3, 0, 458752, 5, 0, 458776, 3, 0, 524288, 5, 0, 524310, 15, 0, 524312, 3, 0, 589824, 5, 0, 589848, 3, 0, 655360, 5, 0, 655384, 3, 0, 720896, 5, 0, 720897, 20, 0, 720898, 20, 0, 720899, 20, 0, 720900, 20, 0, 720901, 20, 0, 720902, 20, 0, 720903, 20, 0, 720904, 20, 0, 720905, 20, 0, 720906, 20, 0, 720907, 20, 0, 720908, 20, 0, 720909, 20, 0, 720910, 20, 0, 720911, 20, 0, 720912, 20, 0, 720913, 20, 0, 720914, 20, 0, 720915, 20, 0, 720916, 20, 0, 720917, 20, 0, 720918, 20, 0, 720919, 20, 0, 720920, 3, 0, 786432, 5, 0, 786440, 17, 0, 786448, 17, 0, 786456, 3, 0, 851968, 5, 0, 851969, 14, 0, 851972, 4, 0, 851976, 18, 0, 851984, 18, 0, 851988, 4, 0, 851991, 13, 0, 851992, 3, 0, 917504, 5, 0, 917528, 3, 0, 983040, 11, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 2, 0, 983055, 0, 0, 983056, 1, 0, 983057, 1, 0, 983058, 1, 0, 983059, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 12, 0 )
+
+[node name="Player" parent="." index="4"]
+position = Vector2( 18, 151 )
+
+[node name="MovingBelt" parent="." index="6" instance=ExtResource( 1 )]
+position = Vector2( 18, 186 )
+force = Vector2( 20, 0 )
+
+[node name="CollisionShape2D" parent="MovingBelt/Area2D" index="0"]
+position = Vector2( 48, -3.5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MovingBelt" index="1"]
+position = Vector2( -30, 1 )
+frames = SubResource( 5 )
+frame = 3
+speed_scale = 4.0
+playing = true
+offset = Vector2( 30, -1 )
+flip_h = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="MovingBelt" index="2"]
+position = Vector2( -30, 1 )
+frames = SubResource( 5 )
+frame = 3
+speed_scale = 4.0
+playing = true
+offset = Vector2( 42, -1 )
+flip_h = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="MovingBelt" index="3"]
+position = Vector2( -6, 1 )
+frames = SubResource( 5 )
+frame = 3
+speed_scale = 4.0
+playing = true
+offset = Vector2( 30, -1 )
+flip_h = true
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="MovingBelt" index="4"]
+position = Vector2( -6, 1 )
+frames = SubResource( 5 )
+frame = 3
+speed_scale = 4.0
+playing = true
+offset = Vector2( 42, -1 )
+flip_h = true
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="MovingBelt" index="5"]
+position = Vector2( 18, 1 )
+frames = SubResource( 5 )
+frame = 3
+speed_scale = 4.0
+playing = true
+offset = Vector2( 30, -1 )
+flip_h = true
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="MovingBelt" index="6"]
+position = Vector2( 18, 1 )
+frames = SubResource( 5 )
+frame = 3
+speed_scale = 4.0
+playing = true
+offset = Vector2( 42, -1 )
+flip_h = true
+
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="MovingBelt" index="7"]
+position = Vector2( 42, 1 )
+frames = SubResource( 5 )
+frame = 3
+speed_scale = 4.0
+playing = true
+offset = Vector2( 30, -1 )
+flip_h = true
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="MovingBelt" index="8"]
+position = Vector2( 42, 1 )
+frames = SubResource( 5 )
+frame = 3
+speed_scale = 4.0
+playing = true
+offset = Vector2( 42, -1 )
+flip_h = true
+
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="MovingBelt" index="9"]
+position = Vector2( 54, 1 )
+frames = SubResource( 5 )
+frame = 3
+speed_scale = 4.0
+playing = true
+offset = Vector2( 42, -1 )
+flip_h = true
+
+[node name="MovingBelt2" parent="." index="7" instance=ExtResource( 1 )]
+position = Vector2( 186, 186 )
+force = Vector2( -20, 0 )
+
+[node name="CollisionShape2D" parent="MovingBelt2/Area2D" index="0"]
+position = Vector2( 48, -3.5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MovingBelt2" index="1"]
+position = Vector2( -30, 1 )
+frames = SubResource( 5 )
+frame = 2
+speed_scale = 4.0
+playing = true
+offset = Vector2( 30, -1 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="MovingBelt2" index="2"]
+position = Vector2( -30, 1 )
+frames = SubResource( 5 )
+frame = 2
+speed_scale = 4.0
+playing = true
+offset = Vector2( 42, -1 )
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="MovingBelt2" index="3"]
+position = Vector2( -6, 1 )
+frames = SubResource( 5 )
+frame = 2
+speed_scale = 4.0
+playing = true
+offset = Vector2( 30, -1 )
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="MovingBelt2" index="4"]
+position = Vector2( -6, 1 )
+frames = SubResource( 5 )
+frame = 2
+speed_scale = 4.0
+playing = true
+offset = Vector2( 42, -1 )
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="MovingBelt2" index="5"]
+position = Vector2( 18, 1 )
+frames = SubResource( 5 )
+frame = 2
+speed_scale = 4.0
+playing = true
+offset = Vector2( 30, -1 )
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="MovingBelt2" index="6"]
+position = Vector2( 18, 1 )
+frames = SubResource( 5 )
+frame = 2
+speed_scale = 4.0
+playing = true
+offset = Vector2( 42, -1 )
+
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="MovingBelt2" index="7"]
+position = Vector2( 42, 1 )
+frames = SubResource( 5 )
+frame = 2
+speed_scale = 4.0
+playing = true
+offset = Vector2( 30, -1 )
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="MovingBelt2" index="8"]
+position = Vector2( 42, 1 )
+frames = SubResource( 5 )
+frame = 2
+speed_scale = 4.0
+playing = true
+offset = Vector2( 42, -1 )
+
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="MovingBelt2" index="9"]
+position = Vector2( 54, 1 )
+frames = SubResource( 5 )
+frame = 2
+speed_scale = 4.0
+playing = true
+offset = Vector2( 42, -1 )
+
+[node name="Stove" parent="." index="8" instance=ExtResource( 5 )]
+position = Vector2( 150, 192 )
+
+[node name="Pot" parent="." index="9" instance=ExtResource( 6 )]
+position = Vector2( 282, 150 )
+initialDelay = 2.0
+
+[node name="Pot2" parent="." index="10" instance=ExtResource( 6 )]
+position = Vector2( 270, 90 )
+
+[node name="MovingPlatform" parent="." index="11" instance=ExtResource( 7 )]
+position = Vector2( 228, 36 )
+
+[node name="WetFloor" parent="MovingPlatform/Platform" index="2" instance=ExtResource( 8 )]
+position = Vector2( 6, 6 )
+
+[node name="End" parent="MovingPlatform" index="2"]
+position = Vector2( -36, 0 )
+
+[node name="MovingPlatform3" parent="." index="12" instance=ExtResource( 7 )]
+position = Vector2( 60, 36 )
+speed = 15
+
+[node name="WetFloor" parent="MovingPlatform3/Platform" index="2" instance=ExtResource( 8 )]
+position = Vector2( 6, 6 )
+
+[node name="End" parent="MovingPlatform3" index="2"]
+position = Vector2( -48, 0 )
+
+[node name="MovingPlatform2" parent="." index="13" instance=ExtResource( 7 )]
+position = Vector2( 132, 36 )
+speed = 10
+
+[node name="Platform" parent="MovingPlatform2" index="0"]
+position = Vector2( -36, 0 )
+
+[node name="WetFloor" parent="MovingPlatform2/Platform" index="2" instance=ExtResource( 8 )]
+position = Vector2( 6, 6 )
+
+[node name="Coin" parent="MovingPlatform2/Platform" index="3" instance=ExtResource( 9 )]
+position = Vector2( 0, -12 )
+
+[node name="End" parent="MovingPlatform2" index="2"]
+position = Vector2( -36, 0 )
+
+[node name="ChefLookTimer" type="Timer" parent="." index="14"]
+one_shot = true
+
+[node name="ChefRunTimer" type="Timer" parent="." index="15"]
+one_shot = true
+
+[node name="Gem" parent="." index="16" instance=ExtResource( 13 )]
+position = Vector2( 144, 167 )
+
+[node name="Gem2" parent="." index="17" instance=ExtResource( 13 )]
+position = Vector2( 12, 24 )
+
+[editable path="BackgroundChef"]
+[editable path="Portal"]
+[editable path="Portal/LevelLoadZone"]
+[editable path="KillZone"]
+[editable path="MovingBelt"]
+[editable path="MovingBelt2"]
+[editable path="MovingPlatform"]
+[editable path="MovingPlatform3"]
+[editable path="MovingPlatform2"]
