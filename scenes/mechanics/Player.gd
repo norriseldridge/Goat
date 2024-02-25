@@ -6,8 +6,8 @@ const MAX_AIR_GRAVITY = 80
 const GRAVITY = 300
 const MAX_GRAVITY = 150
 const FRICTION = 400
-const IN_AIR_FRICTION_MOD = 0.4
-const IN_AIR_ACCEL_MOD = 0.6
+const IN_AIR_FRICTION_MOD = 0.7
+const IN_AIR_ACCEL_MOD = 0.8
 const SLIPPERY_SURFACE_MOD = 0.01
 const SLIPPERY_SURFACE_ACCEL_MOD = 0.3
 
@@ -21,6 +21,7 @@ var grounded = false
 var ladderCount = 0
 var slipperyFloorCount = 0
 var is_dead = false
+var allowedToMove = true
 
 onready var animatedSprite = $AnimatedSprite
 onready var deathSprite = $DeathAnimation
@@ -52,7 +53,9 @@ func _process(delta):
 		accelMod = SLIPPERY_SURFACE_ACCEL_MOD
 		
 	var input_dir = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	
+	if !allowedToMove:
+		input_dir = 0
+		
 	if input_dir == 0:
 		velocity.x = move_toward(velocity.x, 0, frictionMod * FRICTION * delta)
 		animatedSprite.play("idle")

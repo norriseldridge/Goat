@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://sprites/Chef.png" type="Texture" id=1]
 [ext_resource path="res://scenes/mechanics/KillZone.tscn" type="PackedScene" id=2]
@@ -24,6 +24,14 @@ region = Rect2( 84, 0, 12, 24 )
 atlas = ExtResource( 1 )
 region = Rect2( 96, 0, 12, 24 )
 
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 1 )
+region = Rect2( 108, 0, 12, 24 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 1 )
+region = Rect2( 120, 0, 12, 24 )
+
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 12, 24 )
@@ -47,9 +55,14 @@ animations = [ {
 "name": "Burn",
 "speed": 10.0
 }, {
+"frames": [ SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
-"name": "default",
+"name": "Run",
 "speed": 5.0
 } ]
 
@@ -74,6 +87,8 @@ speed = 15
 position = Vector2( 0, -24 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 5 )
+animation = "Idle"
+frame = 1
 playing = true
 
 [node name="KillZone" parent="." instance=ExtResource( 2 )]

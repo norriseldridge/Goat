@@ -23,3 +23,5 @@ signal open_world_select
 signal play_music(music)
 
 signal changed_music_volume(volume)
+
+signal dialogue_complete

@@ -11,6 +11,7 @@ export var facingRight = true
 var velocity = Vector2.ZERO
 var grounded = false
 var dead = false
+var allowedToMove = true
 
 
 var pool = []
@@ -21,11 +22,17 @@ onready var right_knife = preload("res://scenes/mechanics/Knife_Right.tscn")
 var phase = 0
 var shotIndex = 0
 
+onready var meatball = preload("res://scenes/mechanics/Enemy/Meatball.tscn")
+var meatballs = []
+
 func _process(delta):
 	if dead:
 		return
 
 	sprite.flip_h = !facingRight
+
+	if !allowedToMove:
+		return
 
 	if facingRight:
 		velocity.x = speed
@@ -61,9 +68,10 @@ func _on_GroundDetector_body_entered(_body:Node):
 
 
 func _on_Timer_timeout():
-	if dead:
+	if dead or !allowedToMove:
 		return
-		
+
+	# shoot a knife
 	shotIndex += 1
 	if pool.size() >= max_count:
 		var temp = pool.pop_front()
@@ -83,7 +91,23 @@ func _on_Timer_timeout():
 	pool.append(new_knife)
 
 
+	# also shot a meatball
+	if meatballs.size() < 5:
+		var temp = meatball.instance()
+		temp.position = position - Vector2(0, 12)
+		get_parent().add_child(temp)
+		meatballs.append(temp)
+	else:
+		var temp = meatballs.pop_front()
+		temp.reset()
+		temp.position = position - Vector2(0, 12)
+		meatballs.append(temp)
+
+
 func kill():
 	dead = true
+	$KillZone.set_deferred("monitorable", false)
+	$KillZone.set_deferred("monitoring", false)
 	velocity = Vector2.ZERO
 	sprite.play("Burn")
+	$CollisionShape2D.set_deferred("disabled", true)
