@@ -15,10 +15,10 @@
 script = ExtResource( 8 )
 
 [node name="Portal" parent="." index="0"]
-position = Vector2( 264, 108 )
+position = Vector2( 144, 132 )
 
 [node name="TileMap" parent="." index="1"]
-tile_data = PoolIntArray( -458752, 5, 0, -458728, 3, 0, -393216, 5, 0, -393192, 3, 0, -327680, 5, 0, -327656, 3, 0, -262144, 5, 0, -262120, 3, 0, -196608, 5, 0, -196584, 3, 0, -131072, 5, 0, -131048, 3, 0, -65536, 5, 0, -65512, 3, 0, 0, 5, 0, 24, 3, 0, 65536, 5, 0, 65560, 3, 0, 131072, 5, 0, 131075, 4, 0, 131096, 3, 0, 196608, 5, 0, 196632, 3, 0, 262144, 5, 0, 262153, 17, 0, 262159, 17, 0, 262168, 3, 0, 327680, 5, 0, 327689, 18, 0, 327695, 18, 0, 327704, 3, 0, 393216, 5, 0, 393240, 3, 0, 458752, 5, 0, 458776, 3, 0, 524288, 5, 0, 524312, 3, 0, 589824, 5, 0, 589848, 3, 0, 655360, 11, 0, 655361, 1, 0, 655362, 1, 0, 655363, 2, 0, 655376, 4, 0, 655381, 0, 0, 655382, 1, 0, 655383, 1, 0, 655384, 12, 0, 720899, 5, 0, 720917, 3, 0, 786435, 5, 0, 786453, 3, 0, 851971, 11, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 1, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0, 851985, 1, 0, 851986, 1, 0, 851987, 1, 0, 851988, 1, 0, 851989, 12, 0 )
+tile_data = PoolIntArray( -458752, 5, 0, -458728, 3, 0, -393216, 5, 0, -393192, 3, 0, -327680, 5, 0, -327656, 3, 0, -262144, 5, 0, -262120, 3, 0, -196608, 5, 0, -196584, 3, 0, -131072, 5, 0, -131048, 3, 0, -65536, 5, 0, -65512, 3, 0, 0, 5, 0, 24, 3, 0, 65536, 5, 0, 65560, 3, 0, 131072, 5, 0, 131075, 4, 0, 131096, 3, 0, 196608, 5, 0, 196632, 3, 0, 262144, 5, 0, 262153, 17, 0, 262159, 17, 0, 262168, 3, 0, 327680, 5, 0, 327689, 18, 0, 327695, 18, 0, 327704, 3, 0, 393216, 5, 0, 393240, 3, 0, 458752, 5, 0, 458776, 3, 0, 524288, 5, 0, 524312, 3, 0, 589824, 5, 0, 589848, 3, 0, 655360, 11, 0, 655361, 1, 0, 655363, 2, 0, 655376, 4, 0, 655381, 0, 0, 655383, 1, 0, 655384, 12, 0, 720899, 5, 0, 720917, 3, 0, 786435, 5, 0, 786453, 3, 0, 851971, 11, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 1, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0, 851985, 1, 0, 851986, 1, 0, 851987, 1, 0, 851988, 1, 0, 851989, 12, 0 )
 
 [node name="Player" parent="." index="2"]
 position = Vector2( 30, 115 )
@@ -32,7 +32,25 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove2" parent="." index="5" instance=ExtResource( 2 )]
+[node name="Stove18" parent="." index="5" instance=ExtResource( 2 )]
+position = Vector2( 30, 132 )
+state = true
+
+[node name="Timer" parent="Stove18" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove19" parent="." index="6" instance=ExtResource( 2 )]
+position = Vector2( 270, 132 )
+state = true
+
+[node name="Timer" parent="Stove19" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove2" parent="." index="7" instance=ExtResource( 2 )]
 position = Vector2( 66, 156 )
 state = true
 
@@ -41,7 +59,7 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove3" parent="." index="6" instance=ExtResource( 2 )]
+[node name="Stove3" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 78, 156 )
 state = true
 
@@ -50,7 +68,7 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove4" parent="." index="7" instance=ExtResource( 2 )]
+[node name="Stove4" parent="." index="9" instance=ExtResource( 2 )]
 position = Vector2( 90, 156 )
 state = true
 
@@ -59,7 +77,7 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove5" parent="." index="8" instance=ExtResource( 2 )]
+[node name="Stove5" parent="." index="10" instance=ExtResource( 2 )]
 position = Vector2( 102, 156 )
 state = true
 
@@ -68,7 +86,7 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove6" parent="." index="9" instance=ExtResource( 2 )]
+[node name="Stove6" parent="." index="11" instance=ExtResource( 2 )]
 position = Vector2( 114, 156 )
 state = true
 
@@ -77,7 +95,7 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove7" parent="." index="10" instance=ExtResource( 2 )]
+[node name="Stove7" parent="." index="12" instance=ExtResource( 2 )]
 position = Vector2( 126, 156 )
 state = true
 
@@ -86,7 +104,7 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove8" parent="." index="11" instance=ExtResource( 2 )]
+[node name="Stove8" parent="." index="13" instance=ExtResource( 2 )]
 position = Vector2( 138, 156 )
 state = true
 
@@ -95,7 +113,7 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove9" parent="." index="12" instance=ExtResource( 2 )]
+[node name="Stove9" parent="." index="14" instance=ExtResource( 2 )]
 position = Vector2( 150, 156 )
 state = true
 
@@ -104,7 +122,7 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove10" parent="." index="13" instance=ExtResource( 2 )]
+[node name="Stove10" parent="." index="15" instance=ExtResource( 2 )]
 position = Vector2( 162, 156 )
 state = true
 
@@ -113,7 +131,7 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove11" parent="." index="14" instance=ExtResource( 2 )]
+[node name="Stove11" parent="." index="16" instance=ExtResource( 2 )]
 position = Vector2( 174, 156 )
 state = true
 
@@ -122,7 +140,7 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove12" parent="." index="15" instance=ExtResource( 2 )]
+[node name="Stove12" parent="." index="17" instance=ExtResource( 2 )]
 position = Vector2( 186, 156 )
 state = true
 
@@ -131,7 +149,7 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove13" parent="." index="16" instance=ExtResource( 2 )]
+[node name="Stove13" parent="." index="18" instance=ExtResource( 2 )]
 position = Vector2( 198, 156 )
 state = true
 
@@ -140,7 +158,7 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove14" parent="." index="17" instance=ExtResource( 2 )]
+[node name="Stove14" parent="." index="19" instance=ExtResource( 2 )]
 position = Vector2( 210, 156 )
 state = true
 
@@ -149,7 +167,7 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove15" parent="." index="18" instance=ExtResource( 2 )]
+[node name="Stove15" parent="." index="20" instance=ExtResource( 2 )]
 position = Vector2( 222, 156 )
 state = true
 
@@ -158,7 +176,7 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove16" parent="." index="19" instance=ExtResource( 2 )]
+[node name="Stove16" parent="." index="21" instance=ExtResource( 2 )]
 position = Vector2( 234, 156 )
 state = true
 
@@ -167,7 +185,7 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Stove17" parent="." index="20" instance=ExtResource( 2 )]
+[node name="Stove17" parent="." index="22" instance=ExtResource( 2 )]
 position = Vector2( 246, 156 )
 state = true
 
@@ -176,23 +194,26 @@ wait_time = 0.001
 one_shot = true
 autostart = false
 
-[node name="Chef" parent="." index="21" instance=ExtResource( 3 )]
+[node name="Chef" parent="." index="23" instance=ExtResource( 3 )]
 position = Vector2( 264, 120 )
 facingRight = false
 
-[node name="Pot" parent="." index="22" instance=ExtResource( 4 )]
+[node name="AnimatedSprite" parent="Chef" index="0"]
+frame = 0
+
+[node name="Pot" parent="." index="24" instance=ExtResource( 4 )]
 position = Vector2( 18, 114 )
 
 [node name="Timer" parent="Pot" index="1"]
 wait_time = 2.0
 
-[node name="Pot2" parent="." index="23" instance=ExtResource( 4 )]
+[node name="Pot2" parent="." index="25" instance=ExtResource( 4 )]
 position = Vector2( 282, 114 )
 
 [node name="Timer" parent="Pot2" index="1"]
 wait_time = 2.0
 
-[node name="MovingPlatform" parent="." index="24" instance=ExtResource( 5 )]
+[node name="MovingPlatform" parent="." index="26" instance=ExtResource( 5 )]
 position = Vector2( 48, 48 )
 
 [node name="WetFloor" parent="MovingPlatform/Platform" index="2" instance=ExtResource( 6 )]
@@ -201,7 +222,7 @@ position = Vector2( 6, 6 )
 [node name="End" parent="MovingPlatform" index="2"]
 position = Vector2( 60, 0 )
 
-[node name="MovingPlatform3" parent="." index="25" instance=ExtResource( 5 )]
+[node name="MovingPlatform3" parent="." index="27" instance=ExtResource( 5 )]
 position = Vector2( 240, 48 )
 
 [node name="WetFloor" parent="MovingPlatform3/Platform" index="2" instance=ExtResource( 6 )]
@@ -210,7 +231,7 @@ position = Vector2( 6, 6 )
 [node name="End" parent="MovingPlatform3" index="2"]
 position = Vector2( -60, 0 )
 
-[node name="MovingPlatform2" parent="." index="26" instance=ExtResource( 5 )]
+[node name="MovingPlatform2" parent="." index="28" instance=ExtResource( 5 )]
 position = Vector2( 144, 48 )
 
 [node name="WetFloor" parent="MovingPlatform2/Platform" index="2" instance=ExtResource( 6 )]
@@ -219,16 +240,26 @@ position = Vector2( 6, 6 )
 [node name="End" parent="MovingPlatform2" index="2"]
 position = Vector2( 0, 36 )
 
-[node name="Coin" parent="." index="27" instance=ExtResource( 7 )]
+[node name="Coin" parent="." index="29" instance=ExtResource( 7 )]
 position = Vector2( 276, 60 )
 
-[node name="Coin2" parent="." index="28" instance=ExtResource( 7 )]
+[node name="Coin2" parent="." index="30" instance=ExtResource( 7 )]
 position = Vector2( 144, 12 )
 
-[node name="Coin3" parent="." index="29" instance=ExtResource( 7 )]
+[node name="Coin3" parent="." index="31" instance=ExtResource( 7 )]
 position = Vector2( 48, 72 )
 
-[node name="Dialogue" parent="." index="30" instance=ExtResource( 9 )]
+[node name="Coin4" parent="." index="32" instance=ExtResource( 7 )]
+position = Vector2( 144, 132 )
+
+[node name="Coin5" parent="." index="33" instance=ExtResource( 7 )]
+position = Vector2( 264, 96 )
+
+[node name="Coin6" parent="." index="34" instance=ExtResource( 7 )]
+position = Vector2( 24, 96 )
+
+[node name="Dialogue" parent="." index="35" instance=ExtResource( 9 )]
+visible = false
 id = "chef"
 
 [node name="Border" parent="Dialogue" index="0"]
@@ -237,7 +268,7 @@ margin_bottom = -2.0
 [node name="TextureRect" parent="Dialogue/Border/ColorRect" index="0"]
 texture = ExtResource( 10 )
 
-[node name="Timer" type="Timer" parent="." index="31"]
+[node name="Timer" type="Timer" parent="." index="36"]
 wait_time = 2.0
 one_shot = true
 
@@ -248,6 +279,10 @@ one_shot = true
 [editable path="KillZone"]
 [editable path="Stove"]
 [editable path="Stove/KillZone"]
+[editable path="Stove18"]
+[editable path="Stove18/KillZone"]
+[editable path="Stove19"]
+[editable path="Stove19/KillZone"]
 [editable path="Stove2"]
 [editable path="Stove2/KillZone"]
 [editable path="Stove3"]

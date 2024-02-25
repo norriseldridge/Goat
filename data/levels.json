@@ -232,6 +232,12 @@
             "id": "26",
             "name": "The Head Chef",
             "scene": "res://scenes/levels/Level26.tscn",
+            "next": "-1"
+        },
+        {
+            "id": "27",
+            "name": "Dock",
+            "scene": "res://scenes/levels/Level27.tscn",
             "next": "1000"
         },
         {
@@ -267,7 +273,7 @@
             "id": "4",
             "prereqid": "3",
             "name": "Dock",
-            "levels": ["1000"],
+            "levels": ["27"],
             "music": "Goat-gameplay-loop.wav"
         },
         {

@@ -25,6 +25,9 @@ var shotIndex = 0
 onready var meatball = preload("res://scenes/mechanics/Enemy/Meatball.tscn")
 var meatballs = []
 
+onready var exclamationPoint = $ExclamationPoint
+onready var hideExclamationTimer = $HideExclamationTimer
+
 func _process(delta):
 	if dead:
 		return
@@ -71,37 +74,38 @@ func _on_Timer_timeout():
 	if dead or !allowedToMove:
 		return
 
-	# shoot a knife
-	shotIndex += 1
-	if pool.size() >= max_count:
-		var temp = pool.pop_front()
-		get_parent().call_deferred("remove_child", temp)
+	if phase > 0:
+		# shoot a knife
+		shotIndex += 1
+		if pool.size() >= max_count:
+			var temp = pool.pop_front()
+			get_parent().call_deferred("remove_child", temp)
 
-	var knife = right_knife if facingRight else left_knife
-	var new_knife = knife.instance()
-	new_knife.position = position
+		var knife = right_knife if facingRight else left_knife
+		var new_knife = knife.instance()
+		new_knife.position = position
 
-	if facingRight:
-		new_knife.position += Vector2(24, -12 if phase == 0 else -30 if (shotIndex % 2 == 0) else -12)
-	else:
-		new_knife.position += Vector2(-36, -12 if phase == 0 else -30 if (shotIndex % 2 == 0) else -12)
+		if facingRight:
+			new_knife.position += Vector2(24, -12 if phase == 0 else -30 if (shotIndex % 2 == 0) else -12)
+		else:
+			new_knife.position += Vector2(-36, -12 if phase == 0 else -30 if (shotIndex % 2 == 0) else -12)
 
-	new_knife.movement = Vector2.RIGHT if facingRight else Vector2.LEFT
-	get_parent().call_deferred("add_child", new_knife)
-	pool.append(new_knife)
+		new_knife.movement = Vector2.RIGHT if facingRight else Vector2.LEFT
+		get_parent().call_deferred("add_child", new_knife)
+		pool.append(new_knife)
 
-
-	# also shot a meatball
-	if meatballs.size() < 5:
-		var temp = meatball.instance()
-		temp.position = position - Vector2(0, 12)
-		get_parent().add_child(temp)
-		meatballs.append(temp)
-	else:
-		var temp = meatballs.pop_front()
-		temp.reset()
-		temp.position = position - Vector2(0, 12)
-		meatballs.append(temp)
+	if phase > 1:
+		# also shot a meatball
+		if meatballs.size() < 5:
+			var temp = meatball.instance()
+			temp.position = position - Vector2(0, 12)
+			get_parent().add_child(temp)
+			meatballs.append(temp)
+		else:
+			var temp = meatballs.pop_front()
+			temp.reset()
+			temp.position = position - Vector2(0, 12)
+			meatballs.append(temp)
 
 
 func kill():
@@ -111,3 +115,13 @@ func kill():
 	velocity = Vector2.ZERO
 	sprite.play("Burn")
 	$CollisionShape2D.set_deferred("disabled", true)
+
+func showExclamation():
+	hideExclamationTimer.start()
+	exclamationPoint.visible = true
+	allowedToMove = false
+	velocity.x = 0
+
+func _on_HideExclamationTimer_timeout():
+	exclamationPoint.visible = false
+	allowedToMove = true

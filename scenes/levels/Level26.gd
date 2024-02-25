@@ -6,10 +6,16 @@ onready var player = $Player
 onready var chef = $Chef
 onready var coin2 = $Coin2
 onready var coin3 = $Coin3
+onready var coin4 = $Coin4
+onready var coin5 = $Coin5
+onready var coin6 = $Coin6
 onready var portal = $Portal
 onready var levelLoadZone = $Portal/LevelLoadZone
 onready var dialogue = $Dialogue
 onready var timer = $Timer
+
+onready var stove18 = $Stove18
+onready var stove19 = $Stove19
 
 var nodeNames = ["Stove", "Stove2", "Stove3", "Stove4",
 	"Stove5", "Stove6", "Stove7", "Stove8",
@@ -27,6 +33,9 @@ func _ready():
 
 	SetCoinActive(coin2, false)
 	SetCoinActive(coin3, false)
+	SetCoinActive(coin4, false)
+	SetCoinActive(coin5, false)
+	SetCoinActive(coin6, false)
 	SetPortalActive(false)
 	messageBroker.connect("dialogue_complete", self, "on_dialogue_complete")
 	messageBroker.connect("player_picked_up_coin", self, "on_player_picked_up_coin")
@@ -42,10 +51,24 @@ func on_player_picked_up_coin():
 	coinIndex += 1
 	if coinIndex == 1:
 		SetCoinActive(coin2, true)
+		chef.phase = 1
+		chef.showExclamation()
 	if coinIndex == 2:
 		SetCoinActive(coin3, true)
-		chef.phase = 1
+		chef.phase = 2
+		chef.showExclamation()
 	if coinIndex == 3:
+		SetCoinActive(coin4, true)
+		chef.showExclamation()
+	if coinIndex == 4:
+		SetCoinActive(coin5, true)
+		$Chef/Timer.wait_time = 2
+		chef.showExclamation()
+		activateSideStoves()
+	if coinIndex == 5:
+		SetCoinActive(coin6, true)
+		chef.showExclamation()
+	if coinIndex == 6:
 		TurnOnStoves()
 		chef.kill()
 		SetPortalActive(true)
@@ -67,3 +90,16 @@ func TurnOnStoves():
 
 func _on_Timer_timeout():
 	TurnOnStoves()
+	deactivateSideStoves()
+
+func activateSideStoves():
+	stove18.timer.one_shot = false
+	stove19.timer.one_shot = false
+	stove18.timer.start(1)
+	stove19.timer.start(1)
+
+func deactivateSideStoves():
+	stove18.timer.one_shot = true
+	stove19.timer.one_shot = true
+	stove18.timer.stop()
+	stove19.timer.stop()
