@@ -206,8 +206,32 @@
         },
         {
             "id": "22",
-            "name": "Definitely Not OSHA Standards",
+            "name": "This is a Bad Kitchen",
             "scene": "res://scenes/levels/Level22.tscn",
+            "next": "23"
+        },
+        {
+            "id": "23",
+            "name": "Definitely Not OSHA Standards",
+            "scene": "res://scenes/levels/Level23.tscn",
+            "next": "24"
+        },
+        {
+            "id": "24",
+            "name": "A Goat to a Knife Flight",
+            "scene": "res://scenes/levels/Level24.tscn",
+            "next": "25"
+        },
+        {
+            "id": "25",
+            "name": "Rats n' Bats",
+            "scene": "res://scenes/levels/Level25.tscn",
+            "next": "26"
+        },
+        {
+            "id": "26",
+            "name": "The Head Chef",
+            "scene": "res://scenes/levels/Level26.tscn",
             "next": "1000"
         },
         {
@@ -236,7 +260,7 @@
             "id": "3",
             "prereqid": "2",
             "name": "Kitchen",
-            "levels": ["14", "15", "16", "17", "18", "19", "20", "21", "22"],
+            "levels": ["14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26"],
             "music": "Goat-gameplay-loop3v2.wav"
         },
         {

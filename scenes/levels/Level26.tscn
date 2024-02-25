@@ -1,0 +1,265 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/levels/LevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/mechanics/Stove.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/mechanics/Enemy/Chef.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/mechanics/Pot.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/mechanics/MovingPlatform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/mechanics/WetFloor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/mechanics/Coin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/levels/Level26.gd" type="Script" id=8]
+
+[node name="Level" instance=ExtResource( 1 )]
+script = ExtResource( 8 )
+
+[node name="Portal" parent="." index="0"]
+position = Vector2( 264, 144 )
+
+[node name="AnimatedSprite" parent="Portal" index="0"]
+frame = 1
+
+[node name="TileMap" parent="." index="1"]
+tile_data = PoolIntArray( 0, 5, 0, 24, 3, 0, 65536, 5, 0, 65560, 3, 0, 131072, 5, 0, 131096, 3, 0, 196608, 5, 0, 196632, 3, 0, 262144, 5, 0, 262168, 3, 0, 327680, 5, 0, 327704, 3, 0, 393216, 5, 0, 393240, 3, 0, 458752, 5, 0, 458776, 3, 0, 524288, 5, 0, 524312, 3, 0, 589824, 5, 0, 589848, 3, 0, 655360, 5, 0, 655384, 3, 0, 720896, 5, 0, 720920, 3, 0, 786432, 5, 0, 786456, 3, 0, 851968, 11, 0, 851969, 1, 0, 851970, 1, 0, 851971, 2, 0, 851989, 0, 0, 851990, 1, 0, 851991, 1, 0, 851992, 12, 0, 917507, 5, 0, 917525, 3, 0, 983043, 5, 0, 983061, 3, 0 )
+
+[node name="Player" parent="." index="2"]
+position = Vector2( 30, 151 )
+
+[node name="Stove" parent="." index="4" instance=ExtResource( 2 )]
+position = Vector2( 54, 192 )
+state = true
+
+[node name="Timer" parent="Stove" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove2" parent="." index="5" instance=ExtResource( 2 )]
+position = Vector2( 66, 192 )
+state = true
+
+[node name="Timer" parent="Stove2" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove3" parent="." index="6" instance=ExtResource( 2 )]
+position = Vector2( 78, 192 )
+state = true
+
+[node name="Timer" parent="Stove3" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove4" parent="." index="7" instance=ExtResource( 2 )]
+position = Vector2( 90, 192 )
+state = true
+
+[node name="Timer" parent="Stove4" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove5" parent="." index="8" instance=ExtResource( 2 )]
+position = Vector2( 102, 192 )
+state = true
+
+[node name="Timer" parent="Stove5" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove6" parent="." index="9" instance=ExtResource( 2 )]
+position = Vector2( 114, 192 )
+state = true
+
+[node name="Timer" parent="Stove6" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove7" parent="." index="10" instance=ExtResource( 2 )]
+position = Vector2( 126, 192 )
+state = true
+
+[node name="Timer" parent="Stove7" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove8" parent="." index="11" instance=ExtResource( 2 )]
+position = Vector2( 138, 192 )
+state = true
+
+[node name="Timer" parent="Stove8" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove9" parent="." index="12" instance=ExtResource( 2 )]
+position = Vector2( 150, 192 )
+state = true
+
+[node name="Timer" parent="Stove9" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove10" parent="." index="13" instance=ExtResource( 2 )]
+position = Vector2( 162, 192 )
+state = true
+
+[node name="Timer" parent="Stove10" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove11" parent="." index="14" instance=ExtResource( 2 )]
+position = Vector2( 174, 192 )
+state = true
+
+[node name="Timer" parent="Stove11" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove12" parent="." index="15" instance=ExtResource( 2 )]
+position = Vector2( 186, 192 )
+state = true
+
+[node name="Timer" parent="Stove12" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove13" parent="." index="16" instance=ExtResource( 2 )]
+position = Vector2( 198, 192 )
+state = true
+
+[node name="Timer" parent="Stove13" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove14" parent="." index="17" instance=ExtResource( 2 )]
+position = Vector2( 210, 192 )
+state = true
+
+[node name="Timer" parent="Stove14" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove15" parent="." index="18" instance=ExtResource( 2 )]
+position = Vector2( 222, 192 )
+state = true
+
+[node name="Timer" parent="Stove15" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove16" parent="." index="19" instance=ExtResource( 2 )]
+position = Vector2( 234, 192 )
+state = true
+
+[node name="Timer" parent="Stove16" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Stove17" parent="." index="20" instance=ExtResource( 2 )]
+position = Vector2( 246, 192 )
+state = true
+
+[node name="Timer" parent="Stove17" index="3"]
+wait_time = 0.001
+one_shot = true
+autostart = false
+
+[node name="Chef" parent="." index="21" instance=ExtResource( 3 )]
+position = Vector2( 150, 180 )
+facingRight = false
+
+[node name="Pot" parent="." index="22" instance=ExtResource( 4 )]
+position = Vector2( 18, 150 )
+
+[node name="Pot2" parent="." index="23" instance=ExtResource( 4 )]
+position = Vector2( 282, 150 )
+
+[node name="MovingPlatform" parent="." index="24" instance=ExtResource( 5 )]
+position = Vector2( 48, 108 )
+
+[node name="WetFloor" parent="MovingPlatform/Platform" index="2" instance=ExtResource( 6 )]
+position = Vector2( 6, 6 )
+
+[node name="End" parent="MovingPlatform" index="2"]
+position = Vector2( 60, 0 )
+
+[node name="MovingPlatform3" parent="." index="25" instance=ExtResource( 5 )]
+position = Vector2( 240, 108 )
+
+[node name="WetFloor" parent="MovingPlatform3/Platform" index="2" instance=ExtResource( 6 )]
+position = Vector2( 6, 6 )
+
+[node name="End" parent="MovingPlatform3" index="2"]
+position = Vector2( -60, 0 )
+
+[node name="MovingPlatform2" parent="." index="26" instance=ExtResource( 5 )]
+position = Vector2( 144, 108 )
+
+[node name="WetFloor" parent="MovingPlatform2/Platform" index="2" instance=ExtResource( 6 )]
+position = Vector2( 6, 6 )
+
+[node name="End" parent="MovingPlatform2" index="2"]
+position = Vector2( 0, -72 )
+
+[node name="Coin" parent="." index="27" instance=ExtResource( 7 )]
+position = Vector2( 240, 72 )
+
+[node name="Coin2" parent="." index="28" instance=ExtResource( 7 )]
+position = Vector2( 144, 0 )
+
+[node name="Coin3" parent="." index="29" instance=ExtResource( 7 )]
+position = Vector2( 48, 72 )
+
+[editable path="Portal"]
+[editable path="Portal/LevelLoadZone"]
+[editable path="KillZone"]
+[editable path="Stove"]
+[editable path="Stove/KillZone"]
+[editable path="Stove2"]
+[editable path="Stove2/KillZone"]
+[editable path="Stove3"]
+[editable path="Stove3/KillZone"]
+[editable path="Stove4"]
+[editable path="Stove4/KillZone"]
+[editable path="Stove5"]
+[editable path="Stove5/KillZone"]
+[editable path="Stove6"]
+[editable path="Stove6/KillZone"]
+[editable path="Stove7"]
+[editable path="Stove7/KillZone"]
+[editable path="Stove8"]
+[editable path="Stove8/KillZone"]
+[editable path="Stove9"]
+[editable path="Stove9/KillZone"]
+[editable path="Stove10"]
+[editable path="Stove10/KillZone"]
+[editable path="Stove11"]
+[editable path="Stove11/KillZone"]
+[editable path="Stove12"]
+[editable path="Stove12/KillZone"]
+[editable path="Stove13"]
+[editable path="Stove13/KillZone"]
+[editable path="Stove14"]
+[editable path="Stove14/KillZone"]
+[editable path="Stove15"]
+[editable path="Stove15/KillZone"]
+[editable path="Stove16"]
+[editable path="Stove16/KillZone"]
+[editable path="Stove17"]
+[editable path="Stove17/KillZone"]
+[editable path="MovingPlatform"]
+[editable path="MovingPlatform3"]
+[editable path="MovingPlatform2"]

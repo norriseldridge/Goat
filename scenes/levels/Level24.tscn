@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/levels/LevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/mechanics/Pot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/mechanics/KnifeSpawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/mechanics/Stove.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/mechanics/Coin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/levels/Level24.gd" type="Script" id=6]
+[ext_resource path="res://scenes/mechanics/Gem.tscn" type="PackedScene" id=7]
+
+[node name="Level" instance=ExtResource( 1 )]
+script = ExtResource( 6 )
+
+[node name="Portal" parent="." index="0"]
+position = Vector2( 276, 24 )
+
+[node name="TileMap" parent="." index="1"]
+tile_data = PoolIntArray( 0, 5, 0, 24, 3, 0, 65536, 5, 0, 65542, 17, 0, 65554, 17, 0, 65560, 3, 0, 131072, 5, 0, 131078, 18, 0, 131090, 18, 0, 131096, 3, 0, 196608, 5, 0, 196632, 3, 0, 262144, 5, 0, 262168, 3, 0, 327683, 17, 0, 327701, 17, 0, 393216, 5, 0, 393219, 18, 0, 393237, 18, 0, 393240, 3, 0, 458752, 5, 0, 458776, 3, 0, 524288, 5, 0, 524312, 3, 0, 589824, 5, 0, 589848, 3, 0, 720896, 5, 0, 720920, 3, 0, 786432, 5, 0, 786456, 3, 0, 851968, 5, 0, 851992, 3, 0, 917504, 5, 0, 917528, 3, 0, 983040, 11, 0, 983041, 1, 0, 983042, 1, 0, 983043, 2, 0, 983064, 3, 0 )
+
+[node name="Player" parent="." index="2"]
+position = Vector2( 18, 175 )
+
+[node name="Pot" parent="." index="4" instance=ExtResource( 2 )]
+position = Vector2( 42, 174 )
+
+[node name="KnifeSpawner" parent="." index="5" instance=ExtResource( 3 )]
+position = Vector2( -24, 96 )
+shootLeft = false
+
+[node name="KnifeSpawner4" parent="." index="6" instance=ExtResource( 3 )]
+position = Vector2( -48, 36 )
+shootLeft = false
+
+[node name="KnifeSpawner2" parent="." index="7" instance=ExtResource( 3 )]
+position = Vector2( 300, 72 )
+
+[node name="KnifeSpawner3" parent="." index="8" instance=ExtResource( 3 )]
+position = Vector2( 324, 120 )
+
+[node name="Stove" parent="." index="9" instance=ExtResource( 4 )]
+position = Vector2( 0, 66 )
+rotation = 1.57079
+
+[node name="Stove3" parent="." index="10" instance=ExtResource( 4 )]
+position = Vector2( 0, 126 )
+rotation = 1.57079
+state = true
+
+[node name="Stove2" parent="." index="11" instance=ExtResource( 4 )]
+position = Vector2( 300, 66 )
+rotation = 4.71238
+state = true
+
+[node name="Stove4" parent="." index="12" instance=ExtResource( 4 )]
+position = Vector2( 300, 126 )
+rotation = 4.71238
+
+[node name="Coin" parent="." index="13" instance=ExtResource( 5 )]
+position = Vector2( 144, 108 )
+
+[node name="Coin2" parent="." index="14" instance=ExtResource( 5 )]
+position = Vector2( 240, 72 )
+
+[node name="Coin3" parent="." index="15" instance=ExtResource( 5 )]
+position = Vector2( 84, 24 )
+
+[node name="Gem" parent="." index="16" instance=ExtResource( 7 )]
+position = Vector2( 48, 72 )
+
+[editable path="Portal"]
+[editable path="Portal/LevelLoadZone"]
+[editable path="KillZone"]
