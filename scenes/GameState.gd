@@ -17,6 +17,7 @@ func _ready():
 	messageBroker.connect("selected_user_file", self, "_on_selected_user_file")
 	messageBroker.connect("load_main_menu", self, "_on_load_main_menu")
 	messageBroker.connect("play_music", self, "_on_play_music")
+	messageBroker.connect("stop_music", self, "_on_stop_music")
 
 	settings.Load()
 
@@ -54,3 +55,7 @@ func _on_selected_user_file(userFile):
 func _on_play_music(song):
 	if nextMusic != song:
 		nextMusic = song
+
+func _on_stop_music():
+	nextMusic = ""
+	music.stop()

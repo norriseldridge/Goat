@@ -1,9 +1,8 @@
 Ideas
 
 TODO:
-- boiling pot sfx
-- Plates? Forks? Spoons?
-- Chef in the background cooking, throws meatballs over his shoulder, meatballs fall from top of screen
+- stoves need fire sfx
+- kitchen levels need new music
 
 
 Gate level

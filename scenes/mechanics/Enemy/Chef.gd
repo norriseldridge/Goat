@@ -27,12 +27,14 @@ var meatballs = []
 
 onready var exclamationPoint = $ExclamationPoint
 onready var hideExclamationTimer = $HideExclamationTimer
+var inFinalAnimation = false
 
 func _process(delta):
 	if dead:
 		return
 
-	sprite.flip_h = !facingRight
+	if !inFinalAnimation:
+		sprite.flip_h = !facingRight
 
 	if !allowedToMove:
 		return
@@ -115,6 +117,7 @@ func kill():
 	velocity = Vector2.ZERO
 	sprite.play("Burn")
 	$CollisionShape2D.set_deferred("disabled", true)
+	exclamationPoint.visible = false
 
 func showExclamation():
 	hideExclamationTimer.start()
@@ -122,6 +125,18 @@ func showExclamation():
 	allowedToMove = false
 	velocity.x = 0
 
+
 func _on_HideExclamationTimer_timeout():
 	exclamationPoint.visible = false
 	allowedToMove = true
+
+
+func showFinalExclamation():
+	exclamationPoint.visible = true
+	allowedToMove = false
+	velocity.x = 0
+	inFinalAnimation = true
+
+func _on_FinalAnimationTimer_timeout():
+	if inFinalAnimation:
+		sprite.flip_h = !sprite.flip_h

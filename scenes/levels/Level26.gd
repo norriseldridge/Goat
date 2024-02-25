@@ -13,6 +13,7 @@ onready var portal = $Portal
 onready var levelLoadZone = $Portal/LevelLoadZone
 onready var dialogue = $Dialogue
 onready var timer = $Timer
+onready var endingTimer = $EndingTimer
 
 onready var stove18 = $Stove18
 onready var stove19 = $Stove19
@@ -69,10 +70,10 @@ func on_player_picked_up_coin():
 		SetCoinActive(coin6, true)
 		chef.showExclamation()
 	if coinIndex == 6:
-		TurnOnStoves()
-		chef.kill()
-		SetPortalActive(true)
-		timer.start()
+		chef.showFinalExclamation()
+		endingTimer.start()
+		deactivateSideStoves()
+		messageBroker.emit_signal("stop_music")
 
 func SetCoinActive(coin, state):
 	coin.visible = state
@@ -90,7 +91,6 @@ func TurnOnStoves():
 
 func _on_Timer_timeout():
 	TurnOnStoves()
-	deactivateSideStoves()
 
 func activateSideStoves():
 	stove18.timer.one_shot = false
@@ -103,3 +103,10 @@ func deactivateSideStoves():
 	stove19.timer.one_shot = true
 	stove18.timer.stop()
 	stove19.timer.stop()
+
+
+func _on_EndingTimer_timeout():
+	TurnOnStoves()
+	chef.kill()
+	SetPortalActive(true)
+	timer.start()

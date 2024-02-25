@@ -137,11 +137,16 @@ texture = ExtResource( 4 )
 [node name="HideExclamationTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="FinalAnimationTimer" type="Timer" parent="."]
+wait_time = 0.75
+autostart = true
+
 [connection signal="body_entered" from="RightSideDetector" to="." method="_on_RightSideDetector_body_entered"]
 [connection signal="body_entered" from="LeftSideDetector" to="." method="_on_LeftSideDetector_body_entered"]
 [connection signal="body_entered" from="GroundDetector" to="." method="_on_GroundDetector_body_entered"]
 [connection signal="body_exited" from="GroundDetector" to="." method="_on_GroundDetector_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="HideExclamationTimer" to="." method="_on_HideExclamationTimer_timeout"]
+[connection signal="timeout" from="FinalAnimationTimer" to="." method="_on_FinalAnimationTimer_timeout"]
 
 [editable path="KillZone"]
