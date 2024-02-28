@@ -17,6 +17,7 @@ var charDelay = 0
 var maxCharDelay = 0.01
 
 var colorPushMap = {}
+var waitMap = {}
 
 var rng = RandomNumberGenerator.new()
 
@@ -52,11 +53,16 @@ func _process(delta):
 				if colorPushMap.has(charIndex):
 					text.push_color(colorPushMap[charIndex])
 
+				if waitMap.has(charIndex):
+					print("wait for " + str(waitMap[charIndex]) + " seconds!")
+					charDelay = -waitMap[charIndex]
+
 				text.append_bbcode(nextText[charIndex])
 				charIndex += 1
 			else:
 				nextText = null
 				colorPushMap.clear()
+				waitMap.clear()
 
 	if Input.is_action_just_pressed("ui_accept"):
 		if nextText != null:
@@ -83,12 +89,27 @@ func _process(delta):
 func set_next_text():
 	nextText = currentDialogue[index]
 
-	var i = nextText.findn("[color=blue]")
-	if i >= 0:
-		colorPushMap[i] = Color.blue
-		nextText = nextText.replace("[color=blue]", "")
+	while true:
+		var i = nextText.findn("[color=blue]")
+		if i >= 0:
+			colorPushMap[i] = Color.blue
+			nextText = nextText.replace("[color=blue]", "")
+		else:
+			break
 
-	i = nextText.findn("[/color]", i)
-	if i >= 0:
-		colorPushMap[i] = Color.white
-		nextText = nextText.replace("[/color]", "")
+		i = nextText.findn("[/color]", i)
+		if i >= 0:
+			colorPushMap[i] = Color.white
+			nextText = nextText.replace("[/color]", "")
+
+	while true:
+		var i = nextText.findn("[wait=")
+		if i >= 0:
+			var endI = nextText.findn("]", i)
+			var length = (endI - i) - 6
+			var value = nextText.substr(i + 6, length)
+			waitMap[i] = float(value)
+			print("adding to waitMap at " + str(i))
+			nextText.erase(i, length + 7)
+		else:
+			break

@@ -194,12 +194,16 @@ func on_load_level(nextLevel, retry = false):
 	levelNameLabel.text = levelData.name
 	var levelScene = levelData.scene
 	current_level = load(levelScene).instance()
+	current_level.set_pause_mode(Node.PAUSE_MODE_STOP)
 	add_child(current_level)
 	levelTimeSeconds = 0
 	levelStartDisplay.visible = !retry
 
 	var worldData = levelUtility.GetWorldDataForLevel(nextLevel)
-	messageBroker.emit_signal("play_music", worldData.music)
+	var music = worldData.music
+	if levelData.has("music"):
+		music = levelData.music
+	messageBroker.emit_signal("play_music", music)
 
 func UnlockNextWorldLevel():
 	var worldData = levelUtility.GetWorldData()

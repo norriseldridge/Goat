@@ -125,7 +125,7 @@ position = Vector2( 0, -19.5 )
 shape = SubResource( 9 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.5
+wait_time = 2.0
 autostart = true
 
 [node name="ExclamationPoint" type="Sprite" parent="."]

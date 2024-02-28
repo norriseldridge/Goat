@@ -12,13 +12,14 @@
 extents = Vector2( 308, 8 )
 
 [node name="Level2" type="Node2D"]
+pause_mode = 1
 script = ExtResource( 6 )
 
 [node name="Portal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 162, 130 )
 
 [node name="AnimatedSprite" parent="Portal" index="0"]
-frame = 2
+frame = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )

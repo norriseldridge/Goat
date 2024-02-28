@@ -63,7 +63,7 @@ func on_player_picked_up_coin():
 		chef.showExclamation()
 	if coinIndex == 4:
 		SetCoinActive(coin5, true)
-		$Chef/Timer.wait_time = 2
+		$Chef/Timer.wait_time = 1.5
 		chef.showExclamation()
 		activateSideStoves()
 	if coinIndex == 5:

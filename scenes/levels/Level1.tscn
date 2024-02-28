@@ -10,9 +10,13 @@
 extents = Vector2( 384, 13.75 )
 
 [node name="Level1" type="Node2D"]
+pause_mode = 1
 
 [node name="Portal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 216, 84 )
+
+[node name="AnimatedSprite" parent="Portal" index="0"]
+frame = 3
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
