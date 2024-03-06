@@ -19,6 +19,8 @@ signal player_entered_portal()
 signal load_level(nextLevel)
 
 signal open_world_select
+signal change_world_select_index(index)
+signal world_select_clicked
 
 signal play_music(music)
 signal stop_music

@@ -281,6 +281,7 @@ texture = ExtResource( 3 )
 material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 texture = ExtResource( 2 )
 expand = true
 flip_v = true

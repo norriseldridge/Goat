@@ -12,6 +12,8 @@ var activeIndex = 0
 var worldPaths = []
 
 func _ready():
+	messageBroker.connect("change_world_select_index", self, "SetIndex")
+	messageBroker.connect("world_select_clicked", self, "SelectWorld")
 	camera.current = true
 	
 	levelNodes = [
@@ -36,11 +38,14 @@ func _ready():
 	var pathIndex = -1
 	worldData = levelUtility.GetWorldData()
 	for index in worldData.size():
+		levelNodes[index].index = index
 		levelNodes[index].SetWorldData(worldData[index])
 		
 		var unlocked = levelUtility.GetWorldUnlocked(worldData[index], playerData)
 		if unlocked:
 			activeIndex = index
+		else:
+			levelNodes[index].visible = false
 	
 		pathIndex = index - 1
 		if pathIndex >= 0:
@@ -50,7 +55,7 @@ func _ready():
 
 func SetActive(index):
 	for i in levelNodes.size():
-		levelNodes[i].visible = i == index
+		levelNodes[i].SetActiveState(i == index)
 	
 func _process(_delta):
 	if levelSelect.visible:
@@ -73,6 +78,19 @@ func _process(_delta):
 func ChangeIndex(amount):
 	var previousIndex = activeIndex
 	activeIndex = activeIndex + amount
+	if activeIndex < 0:
+		activeIndex = 0
+	
+	if activeIndex >= levelNodes.size():
+		activeIndex = levelNodes.size() - 1
+	
+	if !levelUtility.GetWorldUnlocked(worldData[activeIndex], playerData):
+		activeIndex = previousIndex
+	SetActive(activeIndex)
+
+func SetIndex(newIndex):
+	var previousIndex = activeIndex
+	activeIndex = newIndex
 	if activeIndex < 0:
 		activeIndex = 0
 	

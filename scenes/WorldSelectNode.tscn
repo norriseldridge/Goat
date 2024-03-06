@@ -1,24 +1,26 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/ThaleahFat.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://sprites/FlashCycle.png" type="Texture" id=2]
 [ext_resource path="res://scenes/WorldSelectNode.gd" type="Script" id=3]
+[ext_resource path="res://sprites/blue.png" type="Texture" id=4]
+[ext_resource path="res://sprites/white.png" type="Texture" id=5]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 3, 3 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
 region = Rect2( 3, 0, 3, 3 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
 region = Rect2( 6, 0, 3, 3 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -33,15 +35,28 @@ font_data = ExtResource( 1 )
 [sub_resource type="Theme" id=6]
 default_font = SubResource( 5 )
 
-[node name="WorldSelectNode" type="AnimatedSprite"]
-position = Vector2( 70.005, 77.005 )
-scale = Vector2( 0.67, 0.67 )
-frames = SubResource( 4 )
-frame = 1
-playing = true
+[node name="WorldSelectNode" type="TextureButton"]
+margin_right = 6.0
+margin_bottom = 6.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 5 )
 script = ExtResource( 3 )
 
+[node name="DefaultSprite" type="Sprite" parent="."]
+position = Vector2( 3, 3 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 3, 3 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 10 )
+playing = true
+
 [node name="Label" type="Label" parent="."]
+margin_top = 6.0
+margin_right = 19.0
+margin_bottom = 15.0
 theme = SubResource( 6 )
 text = "Gate"
 align = 1

@@ -20,15 +20,12 @@ position = Vector2( 120, 60 )
 texture = ExtResource( 3 )
 
 [node name="Castle_gate_bridge" type="Sprite" parent="Castle"]
-visible = false
 texture = ExtResource( 6 )
 
 [node name="Castle_bridge_kitchen" type="Sprite" parent="Castle"]
-visible = false
 texture = ExtResource( 7 )
 
 [node name="Castle_kitchen_dock" type="Sprite" parent="Castle"]
-visible = false
 texture = ExtResource( 8 )
 
 [node name="Castle_dock_conservatory" type="Sprite" parent="Castle"]
@@ -48,28 +45,46 @@ position = Vector2( 105, 64 )
 zoom = Vector2( 0.6, 0.6 )
 
 [node name="CastleEntrance" parent="." instance=ExtResource( 5 )]
-frame = 2
+margin_left = 69.0
+margin_top = 75.0
+margin_right = 75.0
+margin_bottom = 81.0
 
 [node name="CastleEntrance2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 85, 68 )
-frame = 2
+margin_left = 84.0
+margin_top = 67.0
+margin_right = 90.0
+margin_bottom = 73.0
 
 [node name="CastleEntrance3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 95, 78 )
-frame = 2
+margin_left = 95.0
+margin_top = 76.0
+margin_right = 101.0
+margin_bottom = 82.0
 
 [node name="CastleEntrance4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 99, 90 )
-frame = 2
+margin_left = 97.0
+margin_top = 88.0
+margin_right = 103.0
+margin_bottom = 94.0
 
 [node name="CastleEntrance5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 107, 65 )
+margin_left = 105.0
+margin_top = 64.0
+margin_right = 111.0
+margin_bottom = 70.0
 
 [node name="CastleEntrance6" parent="." instance=ExtResource( 5 )]
-position = Vector2( 109, 34 )
+margin_left = 108.0
+margin_top = 32.0
+margin_right = 114.0
+margin_bottom = 38.0
 
 [node name="CastleEntrance7" parent="." instance=ExtResource( 5 )]
-position = Vector2( 135, 83 )
+margin_left = 134.0
+margin_top = 81.0
+margin_right = 140.0
+margin_bottom = 87.0
 
 [node name="BlinkingStar" parent="." instance=ExtResource( 1 )]
 position = Vector2( 38, 32 )

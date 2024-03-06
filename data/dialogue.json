@@ -1,13 +1,13 @@
 {
     "kitchen": [
         "Hey! Don't just go eating any old food you find lay'n about! That could be a clue to track down that foul beast...",
-        "What's that? The beast took captive your friends...? That's horrible!",
+        "What's that? The beast took captive your friends...?[wait=.3]\nThat's horrible!",
         "It's settled! We shall work together!",
         "I'm Hans. Should we cross paths again, I will come to your aid, little [color=blue]goat friend[/color]!"
     ],
     "chef": [
         "A Goat! In the Kitchen! Unacceptable!",
         "I've had enough of your mucking about!",
-        "Tonight's special... Roasted [color=blue]Blue Goat[/color]!\n\n...and a side of[wait=.1].[wait=.1].[wait=.1].[wait=.7] spiced roasted parsnips with[wait=.1].[wait=.1].[wait=.1].[wait=.7] saffron cauliflower puree!"
+        "Tonight's special... Roasted [color=blue]Blue Goat[/color]!\n\n...with[wait=.1].[wait=.1].[wait=.1].[wait=.7] spiced parsnips and a[wait=.1].[wait=.1].[wait=.1].[wait=.7] saffron cauliflower puree!"
     ]
 }

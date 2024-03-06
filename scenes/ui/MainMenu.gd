@@ -3,6 +3,8 @@ extends CanvasLayer
 onready var messageBroker = MessageBroker
 onready var settings = PlayerSettings
 
+onready var changeSfx = $AudioStreamPlayer2D
+
 # Main menu items
 onready var playPopup = $PlayPopup
 onready var settingsPopup = $SettingsPopup
@@ -11,28 +13,42 @@ onready var settingsButton = $VBoxContainer/SettingsButton
 onready var quitButton = $VBoxContainer/QuitButton
 
 # Save game select
+onready var playBackButton = $PlayPopup/BackButton
 var slots = {}
 
 # Settings
 onready var settingsBackButton = $SettingsPopup/BackButton
 onready var musicVolumeLabel = $SettingsPopup/ColorRect/Control/Music/HFlowContainer/VolumeLabel
 onready var musicMinusButton = $SettingsPopup/ColorRect/Control/Music/HFlowContainer/MinusButton
+onready var musicPlusButton = $SettingsPopup/ColorRect/Control/Music/HFlowContainer/PlusButton
 onready var sfxVolumeLabel = $SettingsPopup/ColorRect/Control/SFX/HFlowContainer/VolumeLabel
 onready var sfxMinusButton = $SettingsPopup/ColorRect/Control/SFX/HFlowContainer/MinusButton
+onready var sfxPlusButton = $SettingsPopup/ColorRect/Control/SFX/HFlowContainer/PlusButton
 onready var autoRetryCheckbox = $SettingsPopup/ColorRect/Control/AutoRetry/CheckBox
 onready var autoRetryBorder = $SettingsPopup/ColorRect/Control/AutoRetry/ActiveBorder
 
 func _ready():
 	playButton.grab_focus()
-	
+
+	for tempButton in [playButton, settingsButton, quitButton]:
+		tempButton.connect("focus_entered", self, "_on_focus", [tempButton])
+
+	for tempButton in [playButton, settingsButton, quitButton, playBackButton, settingsBackButton,
+		musicMinusButton, musicPlusButton, sfxMinusButton, sfxPlusButton, autoRetryCheckbox]:
+		tempButton.connect("mouse_entered", self, "_on_mouse_enter", [tempButton])
+
 	# set up the play popup
-	$PlayPopup/BackButton.focus_neighbour_right = $PlayPopup/BackButton.get_path_to($PlayPopup/ColorRect/Control/PlaySlots/Slot1)
+	playBackButton.focus_neighbour_right = playBackButton.get_path_to($PlayPopup/ColorRect/Control/PlaySlots/Slot1)
 	for saveSlot in [
 		{ "file": "player1", "button": "PlayPopup/ColorRect/Control/PlaySlots/Slot1" },
 		{ "file": "player2", "button": "PlayPopup/ColorRect/Control/PlaySlots/Slot2" },
 		{ "file": "player3", "button": "PlayPopup/ColorRect/Control/PlaySlots/Slot3" }]:
 		var button = get_node(saveSlot.button)
 		button.focus_neighbour_left = button.get_path_to($PlayPopup/BackButton)
+		
+		button.connect("mouse_entered", self, "_on_mouse_enter", [button])
+		button.connect("focus_entered", self, "_on_focus", [button])
+
 		var playerFile = File.new()
 		var playerFilePath = "user://" + saveSlot.file + ".json"
 		
@@ -52,6 +68,15 @@ func _ready():
 	sfxMinusButton.focus_neighbour_left = sfxMinusButton.get_path_to(settingsBackButton)
 	autoRetryCheckbox.focus_neighbour_left = autoRetryCheckbox.get_path_to(settingsBackButton)
 	autoRetryBorder.visible = false
+
+
+func _on_mouse_enter(button):
+	button.grab_focus()
+
+
+func _on_focus(button):
+	changeSfx.volume_db = settings.GetSFXVolume()
+	changeSfx.play()
 
 
 func _on_PlayButton_pressed():
