@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://fonts/title_theme.tres" type="Theme" id=1]
 [ext_resource path="res://fonts/prompt_theme.tres" type="Theme" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://fonts/ThaleahFat.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://scenes/ui/GameSaveSlot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sfx/Blip.wav" type="AudioStream" id=8]
+[ext_resource path="res://sprites/Checkbox_unchecked.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=4]
 size = 22
@@ -264,23 +265,28 @@ text = "Auto Retry"
 align = 1
 valign = 1
 
-[node name="ActiveBorder" type="ColorRect" parent="SettingsPopup/ColorRect/Control/AutoRetry"]
+[node name="Container" type="Control" parent="SettingsPopup/ColorRect/Control/AutoRetry"]
+anchor_right = 1.0
 margin_left = 109.0
-margin_right = 117.0
+margin_right = -3.0
 margin_bottom = 8.0
+mouse_filter = 2
+
+[node name="ActiveBorder" type="ColorRect" parent="SettingsPopup/ColorRect/Control/AutoRetry/Container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 0.0901961, 0.368627, 0.996078, 1 )
 
-[node name="CheckBox" type="CheckBox" parent="SettingsPopup/ColorRect/Control/AutoRetry"]
-anchor_left = 1.0
+[node name="CheckBoxButton" type="TextureButton" parent="SettingsPopup/ColorRect/Control/AutoRetry/Container"]
 anchor_right = 1.0
-margin_left = -10.0
+anchor_bottom = 1.0
+margin_left = 1.0
 margin_top = 1.0
-margin_right = 6.0
-margin_bottom = 17.0
-rect_scale = Vector2( 0.38, 0.38 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource( 2 )
+margin_right = -1.0
+margin_bottom = -1.0
+texture_normal = ExtResource( 9 )
+expand = true
 
 [node name="BackButton" type="Button" parent="SettingsPopup"]
 anchor_top = 1.0
@@ -314,6 +320,7 @@ pitch_scale = 2.0
 [connection signal="pressed" from="SettingsPopup/ColorRect/Control/Music/HFlowContainer/PlusButton" to="." method="_on_Volume_PlusButton_pressed"]
 [connection signal="pressed" from="SettingsPopup/ColorRect/Control/SFX/HFlowContainer/MinusButton" to="." method="_on_SFX_MinusButton_pressed"]
 [connection signal="pressed" from="SettingsPopup/ColorRect/Control/SFX/HFlowContainer/PlusButton" to="." method="_on_SFX_PlusButton_pressed"]
-[connection signal="focus_entered" from="SettingsPopup/ColorRect/Control/AutoRetry/CheckBox" to="." method="_on_AutoRetry_focus_entered"]
-[connection signal="focus_exited" from="SettingsPopup/ColorRect/Control/AutoRetry/CheckBox" to="." method="_on_AutoRetry_focus_exited"]
+[connection signal="focus_entered" from="SettingsPopup/ColorRect/Control/AutoRetry/Container/CheckBoxButton" to="." method="_on_AutoRetry_focus_entered"]
+[connection signal="focus_exited" from="SettingsPopup/ColorRect/Control/AutoRetry/Container/CheckBoxButton" to="." method="_on_AutoRetry_focus_exited"]
+[connection signal="pressed" from="SettingsPopup/ColorRect/Control/AutoRetry/Container/CheckBoxButton" to="." method="_on_CheckBoxButton_pressed"]
 [connection signal="pressed" from="SettingsPopup/BackButton" to="." method="_on_BackButton_pressed"]

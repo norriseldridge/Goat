@@ -24,18 +24,26 @@ onready var musicPlusButton = $SettingsPopup/ColorRect/Control/Music/HFlowContai
 onready var sfxVolumeLabel = $SettingsPopup/ColorRect/Control/SFX/HFlowContainer/VolumeLabel
 onready var sfxMinusButton = $SettingsPopup/ColorRect/Control/SFX/HFlowContainer/MinusButton
 onready var sfxPlusButton = $SettingsPopup/ColorRect/Control/SFX/HFlowContainer/PlusButton
-onready var autoRetryCheckbox = $SettingsPopup/ColorRect/Control/AutoRetry/CheckBox
-onready var autoRetryBorder = $SettingsPopup/ColorRect/Control/AutoRetry/ActiveBorder
+onready var autoRetryCheckboxButton = $SettingsPopup/ColorRect/Control/AutoRetry/Container/CheckBoxButton
+onready var autoRetryBorder = $SettingsPopup/ColorRect/Control/AutoRetry/Container/ActiveBorder
+
+onready var notCheckedTexture = load("res://sprites/Checkbox_unchecked.png")
+onready var checkedTexture = load("res://sprites/Checkbox_checked.png")
+
+var previousButton = null
+var activeButton = null
+var activeButtonScaleAmount = 0.02
+var activeButtonScaleSpeed = 4.5
+var activeButtonScale = 0.0
 
 func _ready():
-	playButton.grab_focus()
-
-	for tempButton in [playButton, settingsButton, quitButton]:
+	
+	for tempButton in [playButton, settingsButton, quitButton, playBackButton, settingsBackButton,
+		musicMinusButton, musicPlusButton, sfxMinusButton, sfxPlusButton, autoRetryCheckboxButton]:
+		tempButton.connect("mouse_entered", self, "_on_mouse_enter", [tempButton])
 		tempButton.connect("focus_entered", self, "_on_focus", [tempButton])
 
-	for tempButton in [playButton, settingsButton, quitButton, playBackButton, settingsBackButton,
-		musicMinusButton, musicPlusButton, sfxMinusButton, sfxPlusButton, autoRetryCheckbox]:
-		tempButton.connect("mouse_entered", self, "_on_mouse_enter", [tempButton])
+	playButton.grab_focus()
 
 	# set up the play popup
 	playBackButton.focus_neighbour_right = playBackButton.get_path_to($PlayPopup/ColorRect/Control/PlaySlots/Slot1)
@@ -66,8 +74,14 @@ func _ready():
 	settingsBackButton.focus_neighbour_right = settingsBackButton.get_path_to(musicMinusButton)
 	musicMinusButton.focus_neighbour_left = musicMinusButton.get_path_to(settingsBackButton)
 	sfxMinusButton.focus_neighbour_left = sfxMinusButton.get_path_to(settingsBackButton)
-	autoRetryCheckbox.focus_neighbour_left = autoRetryCheckbox.get_path_to(settingsBackButton)
+	autoRetryCheckboxButton.focus_neighbour_left = autoRetryCheckboxButton.get_path_to(settingsBackButton)
 	autoRetryBorder.visible = false
+
+
+func _process(delta):
+	if activeButton != null:
+		activeButtonScale += delta
+		activeButton.rect_scale = Vector2.ONE * (1.0 + activeButtonScaleAmount + (activeButtonScaleAmount * sin(activeButtonScale * activeButtonScaleSpeed)))
 
 
 func _on_mouse_enter(button):
@@ -75,8 +89,15 @@ func _on_mouse_enter(button):
 
 
 func _on_focus(button):
-	changeSfx.volume_db = settings.GetSFXVolume()
-	changeSfx.play()
+	if activeButton != button:
+
+		if previousButton != activeButton:
+			previousButton = activeButton
+			if previousButton != null:
+				previousButton.rect_scale = Vector2.ONE
+		
+		activeButton = button
+		activeButton.rect_pivot_offset = activeButton.rect_size / 2.0
 
 
 func _on_PlayButton_pressed():
@@ -90,7 +111,8 @@ func _on_UserSlotSelected(userFile):
 func _on_SettingsButton_pressed():
 	musicVolumeLabel.text = str(int(settings.musicVolume))
 	sfxVolumeLabel.text = str(int(settings.sfxVolume))
-	autoRetryCheckbox.pressed = settings.autoRetry
+	# autoRetryCheckbox.pressed = settings.autoRetry
+	set_checkbox_state(settings.autoRetry)
 	settingsPopup.popup()
 
 
@@ -99,7 +121,7 @@ func _on_QuitButton_pressed():
 
 
 func _on_BackButton_pressed():
-	settings.autoRetry = autoRetryCheckbox.pressed
+	# settings.autoRetry = autoRetryCheckbox.pressed
 	settings.Save()
 	playPopup.hide()
 	settingsPopup.hide()
@@ -138,6 +160,12 @@ func _on_SFX_PlusButton_pressed():
 func _on_AutoRetry_focus_entered():
 	autoRetryBorder.visible = true
 
-
 func _on_AutoRetry_focus_exited():
 	autoRetryBorder.visible = false
+
+func set_checkbox_state(checked: bool):
+	autoRetryCheckboxButton.texture_normal = checkedTexture if checked else notCheckedTexture
+
+func _on_CheckBoxButton_pressed():
+	settings.autoRetry = !settings.autoRetry
+	set_checkbox_state(settings.autoRetry)

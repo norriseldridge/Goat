@@ -34,6 +34,8 @@ onready var globals = Globals
 
 var rng = RandomNumberGenerator.new()
 
+var dustKickSource = preload("res://scenes/polish/DustKick.tscn")
+
 func _ready():
 	rng.randomize()
 	jumpSfx.volume_db = settings.GetSFXVolume()
@@ -104,10 +106,11 @@ func _physics_process(_delta):
 func _on_Area2D_body_entered(_body):
 	if velocity.y >= 0:
 		jumpCount = 0
-		velocity.y = 5
+		velocity.y = 10
 
 func _on_Area2D_body_exited(_body):
 	pass
+
 
 func kill():
 	deathSprite.visible = true
@@ -119,3 +122,13 @@ func kill():
 func _on_DeathAnimation_animation_finished():
 	messageBroker.emit_signal("show_gameover_screen")
 	queue_free()
+
+
+func _on_DustTimer_timeout():
+	if grounded && velocity.x != 0:
+		spawn_dust()
+
+func spawn_dust():
+	var kick = dustKickSource.instance()
+	kick.position = position
+	get_parent().add_child(kick)

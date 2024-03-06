@@ -38,7 +38,7 @@ func GetSettingsFilePath():
 	return "user://" + fileName + ".json"
 
 func GetMusicVolume():
-	return linear2db(musicVolume / 1000.0)
+	return 10 * log(musicVolume/100.0) / log(10)
 
 func GetSFXVolume():
-	return linear2db(sfxVolume / 1000.0)
+	return 10 * log(sfxVolume/100.0) / log(10)
