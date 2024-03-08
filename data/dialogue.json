@@ -8,7 +8,7 @@
     "chef": [
         "A Goat! In the Kitchen?![speed=10]\n\nUnacceptable!",
         "[speed=100]I've had enough of your mucking about!",
-        "[speed=30]Tonight's special...[speed=200] Roasted [color=blue]Blue Goat[/color]![speed=100]\n\n(...with spiced parsnips and a cauliflower puree)"
+        "[speed=30]Tonight's special...[speed=200][wait=50] Roasted [color=blue]Blue Goat[/color]![speed=100]\n\n(...with spiced parsnips and a cauliflower puree)"
     ],
     "hunter-chef": [
         "Fear not little [color=blue]goat friend[/color], I, Hans, have come to your aid!",
