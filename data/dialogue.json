@@ -1,13 +1,20 @@
 {
     "kitchen": [
         "Hey! Don't just go eating any old food you find lay'n about! That could be a clue to track down that foul beast...",
-        "What's that? The beast took captive your friends...?[wait=.3]\nThat's horrible!",
-        "It's settled! We shall work together!",
+        "What's that[wait=40]? The beast took captive your friends...?[wait=20]\n\n[speed=20]...That's...[speed=80] that's horrible!",
+        "[speed=100]It's settled! We shall work together!",
         "I'm Hans. Should we cross paths again, I will come to your aid, little [color=blue]goat friend[/color]!"
     ],
     "chef": [
-        "A Goat! In the Kitchen! Unacceptable!",
-        "I've had enough of your mucking about!",
-        "Tonight's special... Roasted [color=blue]Blue Goat[/color]!\n\n[wait=.3].[wait=.3].[wait=.3].with spiced parsnips and a saffron cauliflower puree!"
+        "A Goat! In the Kitchen?![speed=10]\n\nUnacceptable!",
+        "[speed=100]I've had enough of your mucking about!",
+        "[speed=30]Tonight's special...[speed=200] Roasted [color=blue]Blue Goat[/color]![speed=100]\n\n(...with spiced parsnips and a cauliflower puree)"
+    ],
+    "hunter-chef": [
+        "Fear not little [color=blue]goat friend[/color], I, Hans, have come to your aid!",
+        "[wait=3].[wait=3].[wait=3].[wait=3]where'd he go?",
+        "I must have scared him off!\n\nNo need to thank me, little [color=blue]goat friend[/color]!",
+        "But still, you'd best keep a watchful eye...",
+        "Lest ye' be served with a side of parsnips...[wait=40][speed=200]\n\n...and some kind of delightful cauliflower puree?"
     ]
 }

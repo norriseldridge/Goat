@@ -32,9 +32,10 @@ onready var checkedTexture = load("res://sprites/Checkbox_checked.png")
 
 var previousButton = null
 var activeButton = null
-var activeButtonScaleAmount = 0.02
-var activeButtonScaleSpeed = 4.5
+var activeButtonScaleAmount = 0.015
+var activeButtonScaleSpeed = 8 # 4.5
 var activeButtonScale = 0.0
+var shouldMakeSound = false
 
 func _ready():
 	
@@ -79,6 +80,7 @@ func _ready():
 
 
 func _process(delta):
+	shouldMakeSound = true
 	if activeButton != null:
 		activeButtonScale += delta
 		activeButton.rect_scale = Vector2.ONE * (1.0 + activeButtonScaleAmount + (activeButtonScaleAmount * sin(activeButtonScale * activeButtonScaleSpeed)))
@@ -89,6 +91,10 @@ func _on_mouse_enter(button):
 
 
 func _on_focus(button):
+	if shouldMakeSound:
+		changeSfx.volume_db = settings.GetSFXVolume()
+		changeSfx.play()
+
 	if activeButton != button:
 
 		if previousButton != activeButton:
@@ -132,6 +138,7 @@ func _on_Volume_MinusButton_pressed():
 	if settings.musicVolume < 0:
 		settings.musicVolume = 0
 	musicVolumeLabel.text = str(int(settings.musicVolume))
+	changeSfx.play()
 
 
 func _on_Volume_PlusButton_pressed():
@@ -139,6 +146,7 @@ func _on_Volume_PlusButton_pressed():
 	if settings.musicVolume > 100:
 		settings.musicVolume = 100
 	musicVolumeLabel.text = str(int(settings.musicVolume))
+	changeSfx.play()
 
 
 func _on_SFX_MinusButton_pressed():
@@ -146,7 +154,8 @@ func _on_SFX_MinusButton_pressed():
 	if settings.sfxVolume < 0:
 		settings.sfxVolume = 0
 	sfxVolumeLabel.text = str(int(settings.sfxVolume))
-	settings.TestSfx()
+	changeSfx.volume_db = settings.GetSFXVolume()
+	changeSfx.play()
 
 
 func _on_SFX_PlusButton_pressed():
@@ -154,7 +163,8 @@ func _on_SFX_PlusButton_pressed():
 	if settings.sfxVolume > 100:
 		settings.sfxVolume = 100
 	sfxVolumeLabel.text = str(int(settings.sfxVolume))
-	settings.TestSfx()
+	changeSfx.volume_db = settings.GetSFXVolume()
+	changeSfx.play()
 
 
 func _on_AutoRetry_focus_entered():

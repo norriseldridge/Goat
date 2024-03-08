@@ -16,6 +16,7 @@ export var acceleration = 70
 export var jumpForce = 50
 export var maxJumpCount = 2
 var velocity = Vector2.ZERO
+var input_dir = 0.0
 var jumpCount = 0
 var grounded = false
 var ladderCount = 0
@@ -39,7 +40,7 @@ var dustKickSource = preload("res://scenes/polish/DustKick.tscn")
 func _ready():
 	rng.randomize()
 	jumpSfx.volume_db = settings.GetSFXVolume()
-	runSfx.volume_db = settings.GetSFXVolume()
+	runSfx.volume_db = settings.GetSFXVolume(6)
 
 func _process(delta):
 	if globals.paused or is_dead:
@@ -54,7 +55,7 @@ func _process(delta):
 		frictionMod = SLIPPERY_SURFACE_MOD
 		accelMod = SLIPPERY_SURFACE_ACCEL_MOD
 		
-	var input_dir = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	input_dir = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	if !allowedToMove:
 		input_dir = 0
 		
@@ -82,11 +83,6 @@ func _process(delta):
 
 			if velocity.y > MAX_AIR_GRAVITY:
 				velocity.y -= 1.25 * AIR_FORCE * delta
-	else:
-		if velocity.x != 0:
-			if !runSfx.playing:
-				runSfx.pitch_scale = rng.randf_range(0.95, 1)
-				runSfx.play()
 	
 	if Input.is_action_just_pressed("jump") && jumpCount < maxJumpCount:
 		velocity.y = -jumpForce
@@ -111,7 +107,6 @@ func _on_Area2D_body_entered(_body):
 func _on_Area2D_body_exited(_body):
 	pass
 
-
 func kill():
 	deathSprite.visible = true
 	deathSprite.play()
@@ -125,10 +120,16 @@ func _on_DeathAnimation_animation_finished():
 
 
 func _on_DustTimer_timeout():
-	if grounded && velocity.x != 0:
+	if grounded && velocity.x != 0 && input_dir != 0:
 		spawn_dust()
 
+		runSfx.pitch_scale = rng.randf_range(0.95, 1)
+		runSfx.play()
+
 func spawn_dust():
+	if is_dead:
+		return
+		
 	var kick = dustKickSource.instance()
 	kick.position = position
 	get_parent().add_child(kick)

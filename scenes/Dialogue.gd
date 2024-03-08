@@ -14,10 +14,12 @@ var index = 0
 var charIndex = 0
 var nextText = null
 var charDelay = 0
-var maxCharDelay = 0.01
+var maxCharDelay = 1.0
+var speed = 100.0
 
 var colorPushMap = {}
 var waitMap = {}
+var speedMap = {}
 
 var rng = RandomNumberGenerator.new()
 
@@ -33,36 +35,42 @@ func _ready():
 	currentDialogue = data[id]
 
 func Show():
-	visible = true
 	text.text = ""
 	set_next_text()
+	visible = true
 
 func _process(delta):
 	if !visible:
 		return
 
 	if nextText != null:
-		charDelay += delta
+		charDelay += speed * delta
 		if charDelay >= maxCharDelay:
-			charDelay = 0
+			charDelay = 0.0
 			if charIndex < nextText.length():
 				if !sound.playing && nextText[charIndex] != ' ':
 					sound.pitch_scale = rng.randf_range(1.0, 1.1)
 					sound.play()
 
 				if colorPushMap.has(charIndex):
+					# print(text.text)
 					text.push_color(colorPushMap[charIndex])
+					# print("changing color")
 
 				if waitMap.has(charIndex):
-					print("wait for " + str(waitMap[charIndex]) + " seconds!")
+					# print(text.text)
+					# print("wait for " + str(waitMap[charIndex]) + " seconds!")
 					charDelay = -waitMap[charIndex]
+
+				if speedMap.has(charIndex):
+					# print(text.text)
+					# print("index " + str(charIndex) + " set speed to " + str(speedMap[charIndex]) + ", text: " + text.text)
+					speed = float(speedMap[charIndex])
 
 				text.append_bbcode(nextText[charIndex])
 				charIndex += 1
 			else:
 				nextText = null
-				colorPushMap.clear()
-				waitMap.clear()
 
 	if Input.is_action_just_pressed("ui_accept"):
 		if nextText != null:
@@ -88,28 +96,57 @@ func _process(delta):
 
 func set_next_text():
 	nextText = currentDialogue[index]
+	colorPushMap.clear()
+	waitMap.clear()
+	speedMap.clear()
 
-	while true:
-		var i = nextText.findn("[color=blue]")
-		if i >= 0:
-			colorPushMap[i] = Color.blue
-			nextText = nextText.replace("[color=blue]", "")
-		else:
+	var checkCount = 1000
+	while checkCount > 0:
+		checkCount -= 1 # ensure we don't loop forever
+
+		var waitIndex = nextText.findn("[wait=")
+		var speedIndex = nextText.findn("[speed=")
+		var colorIndex = nextText.findn("[color=blue]")
+		var colorEndIndex = nextText.findn("[/color]")
+
+		if waitIndex == -1 && speedIndex == -1 && colorIndex == -1 && colorEndIndex == -1:
 			break
 
-		i = nextText.findn("[/color]", i)
-		if i >= 0:
-			colorPushMap[i] = Color.white
-			nextText = nextText.replace("[/color]", "")
+		var allIndexes = [waitIndex, speedIndex, colorIndex, colorEndIndex]
 
-	while true:
-		var i = nextText.findn("[wait=")
-		if i >= 0:
+		if is_smallest_positive_number(waitIndex, allIndexes):
+			var i = waitIndex
 			var endI = nextText.findn("]", i)
 			var length = (endI - i) - 6
 			var value = nextText.substr(i + 6, length)
 			waitMap[i] = float(value)
-			print("adding to waitMap at " + str(i))
 			nextText.erase(i, length + 7)
+		elif is_smallest_positive_number(speedIndex, allIndexes):
+			var i = speedIndex
+			var endI = nextText.findn("]", i)
+			var length = (endI - i) - 7
+			var value = nextText.substr(i + 7, length)
+			speedMap[i] = float(value)
+			nextText.erase(i, length + 8)
+		elif is_smallest_positive_number(colorIndex, allIndexes):
+			var i = colorIndex
+			colorPushMap[i] = Color.blue
+			nextText.erase(i, 12)
+		elif is_smallest_positive_number(colorEndIndex, allIndexes):
+			var i = colorEndIndex
+			colorPushMap[i] = Color.white
+			nextText.erase(i, 8)
 		else:
 			break
+
+func is_smallest_positive_number(number: int, numbers: Array):
+	if number < 0:
+		return false
+
+	for temp in numbers:
+		if temp < 0:
+			continue
+
+		if number > temp:
+			return false
+	return true

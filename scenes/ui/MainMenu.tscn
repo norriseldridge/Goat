@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/levels/LevelTileMap.tres" type="TileSet" id=5]
 [ext_resource path="res://fonts/ThaleahFat.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://scenes/ui/GameSaveSlot.tscn" type="PackedScene" id=7]
-[ext_resource path="res://sfx/Blip.wav" type="AudioStream" id=8]
+[ext_resource path="res://sfx/MI_SFX 18.wav" type="AudioStream" id=8]
 [ext_resource path="res://sprites/Checkbox_unchecked.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=4]
@@ -310,7 +310,6 @@ tile_data = PoolIntArray( 9, 16, 0, 15, 16, 0, 65545, 16, 0, 65551, 16, 0, 13108
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
-pitch_scale = 2.0
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]

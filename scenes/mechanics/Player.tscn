@@ -94,6 +94,7 @@ position = Vector2( 0, -1 )
 z_index = 1000
 frames = SubResource( 17 )
 animation = "run"
+frame = 1
 speed_scale = 0.7
 playing = true
 
@@ -123,7 +124,7 @@ visible = false
 frames = SubResource( 32 )
 
 [node name="DustTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.3
 autostart = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

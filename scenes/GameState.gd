@@ -57,5 +57,4 @@ func _on_play_music(song):
 		nextMusic = song
 
 func _on_stop_music():
-	nextMusic = ""
 	music.stop()
