@@ -84,7 +84,7 @@ func on_dialogue_complete():
 
 func on_player_picked_up_coin():
 	coinIndex += 1
-	"""if coinIndex == 1:
+	if coinIndex == 1:
 		SetCoinActive(coin2, true)
 		chef.phase = 1
 		chef.showExclamation()
@@ -102,8 +102,8 @@ func on_player_picked_up_coin():
 		activateSideStoves()
 	if coinIndex == 5:
 		SetCoinActive(coin6, true)
-		chef.showExclamation()"""
-	if coinIndex == 1: #6:
+		chef.showExclamation()
+	if coinIndex == 6:
 		chef.showFinalExclamation()
 		endingTimer.start()
 		deactivateSideStoves()

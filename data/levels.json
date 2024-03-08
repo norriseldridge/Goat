@@ -274,7 +274,7 @@
             "id": "4",
             "prereqid": "3",
             "name": "Dock",
-            "levels": ["27"],
+            "levels": ["1000"],
             "music": "Goat-gameplay-loop4.wav"
         },
         {

@@ -246,22 +246,22 @@ shader_param/scanlines_opacity = 0.0
 shader_param/scanlines_width = 0.0
 shader_param/grille_opacity = 0.0
 shader_param/resolution = Vector2( 1200, 752 )
-shader_param/pixelate = true
-shader_param/roll = false
+shader_param/pixelate = false
+shader_param/roll = true
 shader_param/roll_speed = 0.6
-shader_param/roll_size = 0.3
-shader_param/roll_variation = 0.1
+shader_param/roll_size = 4.0
+shader_param/roll_variation = 4.8
 shader_param/distort_intensity = 0.0
 shader_param/noise_opacity = 0.0
 shader_param/noise_speed = 1.0
-shader_param/static_noise_intensity = 0.0
+shader_param/static_noise_intensity = 0.03
 shader_param/aberration = 0.0
 shader_param/brightness = 1.0
 shader_param/discolor = false
 shader_param/warp_amount = 0.0
 shader_param/clip_warp = false
-shader_param/vignette_intensity = 1.0
-shader_param/vignette_opacity = 0.05
+shader_param/vignette_intensity = 0.8
+shader_param/vignette_opacity = 0.1
 
 [sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
@@ -349,7 +349,6 @@ position = Vector2( 149, 93 )
 texture = ExtResource( 3 )
 
 [node name="VHSOverlay" type="TextureRect" parent="CanvasLayer"]
-visible = false
 material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
