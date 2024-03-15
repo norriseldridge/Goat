@@ -1,0 +1,178 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://scenes/new_levels/NewLevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/polish/Cage.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/polish/ScrollingParallax.gd" type="Script" id=3]
+[ext_resource path="res://sprites/backing3.png" type="Texture" id=4]
+[ext_resource path="res://sprites/backing3-1.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Clouds.png" type="Texture" id=6]
+[ext_resource path="res://sprites/night-sky.png" type="Texture" id=7]
+[ext_resource path="res://sprites/backing3-3.png" type="Texture" id=8]
+[ext_resource path="res://sprites/moon.png" type="Texture" id=9]
+[ext_resource path="res://sprites/backing3-2.png" type="Texture" id=10]
+[ext_resource path="res://scenes/polish/BlinkingStar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sprites/GoatFriend.png" type="Texture" id=12]
+[ext_resource path="res://scenes/new_levels/Level0.6.gd" type="Script" id=13]
+[ext_resource path="res://scenes/Dialogue.tscn" type="PackedScene" id=14]
+[ext_resource path="res://sprites/GoatHead.png" type="Texture" id=15]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 12, 12 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 12 )
+region = Rect2( 12, 0, 12, 12 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 6, 35 )
+
+[node name="Level" instance=ExtResource( 1 )]
+script = ExtResource( 13 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
+
+[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+motion_scale = Vector2( 0, 1 )
+motion_mirroring = Vector2( 600, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Stars" index="0"]
+position = Vector2( 1, 150 )
+texture = ExtResource( 7 )
+
+[node name="BlinkingStars" type="Node2D" parent="ParallaxBackground/Stars" index="1"]
+
+[node name="BlinkingStar" parent="ParallaxBackground/Stars/BlinkingStars" index="0" instance=ExtResource( 11 )]
+position = Vector2( 66.5, 42.5 )
+frame = 3
+
+[node name="BlinkingStar2" parent="ParallaxBackground/Stars/BlinkingStars" index="1" instance=ExtResource( 11 )]
+position = Vector2( 140.5, 23.5 )
+frame = 2
+
+[node name="BlinkingStar3" parent="ParallaxBackground/Stars/BlinkingStars" index="2" instance=ExtResource( 11 )]
+position = Vector2( 227.5, 24.5 )
+frame = 1
+
+[node name="BlinkingStar4" parent="ParallaxBackground/Stars/BlinkingStars" index="3" instance=ExtResource( 11 )]
+position = Vector2( 264.5, 48.5 )
+frame = 1
+
+[node name="BlinkingStar5" parent="ParallaxBackground/Stars/BlinkingStars" index="4" instance=ExtResource( 11 )]
+position = Vector2( 370.5, 25.5 )
+
+[node name="BlinkingStar6" parent="ParallaxBackground/Stars/BlinkingStars" index="5" instance=ExtResource( 11 )]
+position = Vector2( 467.5, -9.5 )
+
+[node name="BlinkingStar7" parent="ParallaxBackground/Stars/BlinkingStars" index="6" instance=ExtResource( 11 )]
+position = Vector2( 575.5, 19.5 )
+frame = 4
+
+[node name="BlinkingStar8" parent="ParallaxBackground/Stars/BlinkingStars" index="7" instance=ExtResource( 11 )]
+position = Vector2( 660.5, -0.5 )
+frame = 4
+
+[node name="BlinkingStar9" parent="ParallaxBackground/Stars/BlinkingStars" index="8" instance=ExtResource( 11 )]
+position = Vector2( 743.5, -14.5 )
+frame = 3
+
+[node name="BlinkingStar10" parent="ParallaxBackground/Stars/BlinkingStars" index="9" instance=ExtResource( 11 )]
+position = Vector2( 801.5, 14.5 )
+frame = 2
+
+[node name="Moon" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
+motion_scale = Vector2( 0, 1 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Moon" index="0"]
+position = Vector2( 301, 113 )
+texture = ExtResource( 9 )
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
+motion_scale = Vector2( 0.05, 1 )
+motion_mirroring = Vector2( 600, 0 )
+script = ExtResource( 3 )
+speed = 0.8
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Clouds" index="0"]
+position = Vector2( 160, 97 )
+texture = ExtResource( 6 )
+
+[node name="BackMountains" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 480, 0 )
+
+[node name="Backing3" type="Sprite" parent="ParallaxBackground/BackMountains" index="0"]
+position = Vector2( 60, 146 )
+texture = ExtResource( 4 )
+
+[node name="Fog1" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 480, 0 )
+script = ExtResource( 3 )
+
+[node name="Backing3" type="Sprite" parent="ParallaxBackground/Fog1" index="0"]
+position = Vector2( 60, 135 )
+texture = ExtResource( 5 )
+
+[node name="FrontMountains" type="ParallaxLayer" parent="ParallaxBackground" index="5"]
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 480, 0 )
+
+[node name="Backing3" type="Sprite" parent="ParallaxBackground/FrontMountains" index="0"]
+position = Vector2( 60, 153 )
+texture = ExtResource( 10 )
+
+[node name="Fog2" type="ParallaxLayer" parent="ParallaxBackground" index="6"]
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 480, 0 )
+script = ExtResource( 3 )
+speed = 3.0
+
+[node name="Backing3" type="Sprite" parent="ParallaxBackground/Fog2" index="0"]
+position = Vector2( 60, 138 )
+texture = ExtResource( 8 )
+
+[node name="BackingSprite" parent="." index="2"]
+visible = false
+
+[node name="TileMap" parent="." index="3"]
+tile_data = PoolIntArray( 393217, 0, 0, 393218, 2, 0, 393238, 0, 0, 393239, 2, 0, 458752, 1, 0, 458753, 12, 0, 458754, 5, 0, 458774, 3, 0, 458775, 11, 0, 458776, 1, 0, 524288, 19, 0, 524289, 19, 0, 524290, 5, 0, 524310, 3, 0, 524311, 19, 0, 524312, 19, 0, 589824, 19, 0, 589825, 19, 0, 589826, 5, 0, 589846, 3, 0, 589847, 19, 0, 589848, 19, 0, 655360, 19, 0, 655361, 19, 0, 655362, 5, 0, 655382, 3, 0, 655383, 19, 0, 655384, 19, 0, 720896, 19, 0, 720897, 19, 0, 720898, 5, 0, 720918, 3, 0, 720919, 19, 0, 720920, 19, 0, 786432, 7, 0, 786433, 7, 0, 786434, 8, 0, 786454, 6, 0, 786455, 7, 0, 786456, 7, 0, 786457, 7, 0, 917503, 5, 0, 851968, 21, 0, 851969, 17, 0, 851970, 21, 0, 851990, 21, 0, 851991, 17, 0, 851992, 21, 0, 851993, 21, 0, 851994, 3, 0, 983039, 5, 0, 917504, 21, 0, 917505, 18, 0, 917506, 21, 0, 917526, 21, 0, 917527, 18, 0, 917528, 21, 0, 917529, 21, 0, 917530, 3, 0, 983040, 1, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 1, 0, 983059, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 1, 0, 983065, 1, 0 )
+
+[node name="Cage" parent="." index="6" instance=ExtResource( 2 )]
+position = Vector2( 251, 168 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Cage" index="2"]
+modulate = Color( 0.709804, 0.486275, 0.486275, 1 )
+position = Vector2( -4, 6 )
+z_index = -1
+frames = SubResource( 3 )
+playing = true
+flip_h = true
+
+[node name="GoatDialogueTrigger" type="Area2D" parent="." index="7"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoatDialogueTrigger" index="0"]
+position = Vector2( 234, 145 )
+shape = SubResource( 4 )
+
+[node name="GoatDialogue" parent="." index="8" instance=ExtResource( 14 )]
+visible = false
+id = "tower-top-goat"
+
+[node name="TextureRect" parent="GoatDialogue/Border/ColorRect" index="0"]
+texture = ExtResource( 15 )
+
+[connection signal="body_entered" from="GoatDialogueTrigger" to="." method="_on_GoatDialogueTrigger_body_entered"]
+
+[editable path="KillZone"]
+[editable path="GoatDialogue"]

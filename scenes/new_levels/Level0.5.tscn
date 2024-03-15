@@ -150,11 +150,17 @@ position = Vector2( 264, 24 )
 [node name="EndPoint" parent="Hazards/Birdy" index="1"]
 position = Vector2( 0, 121 )
 
+[node name="AnimatedSprite" parent="Hazards/Birdy/KinematicBody2D" index="0"]
+frame = 2
+
 [node name="Birdy2" parent="Hazards" index="29" instance=ExtResource( 7 )]
 position = Vector2( 42, -180 )
 
 [node name="EndPoint" parent="Hazards/Birdy2" index="1"]
 position = Vector2( 0, 121 )
+
+[node name="AnimatedSprite" parent="Hazards/Birdy2/KinematicBody2D" index="0"]
+frame = 2
 
 [node name="Key" parent="." index="8" instance=ExtResource( 5 )]
 position = Vector2( 276, -84 )

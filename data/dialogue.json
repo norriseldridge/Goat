@@ -1,4 +1,11 @@
 {
+    "sign": [
+        "Evil Castle ->\n<- Peaceful Meadow"
+    ],
+    "tower-top-goat": [
+        "[color=blue]Blue[/color]! I can't believe it's really you!",
+        "Please hurry! Before they come back!"
+    ],
     "kitchen": [
         "Hey! Don't just go eating any old food you find lay'n about! That could be a clue to track down that foul beast...",
         "What's that[wait=40]? The beast took captive your friends...?[wait=20]\n\n[speed=20]...That's...[speed=80] that's horrible!",

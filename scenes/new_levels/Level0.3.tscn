@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/new_levels/NewLevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/mechanics/Enemy/Rat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/mechanics/MovingPlatform.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/mechanics/Enemy/Slug.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/mechanics/LevelLoadZone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/mechanics/Door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/mechanics/Key.tscn" type="PackedScene" id=7]
@@ -35,6 +35,9 @@ position = Vector2( 0, -36 )
 [node name="MovingPlatform6" parent="MovingPlatforms" index="1" instance=ExtResource( 3 )]
 position = Vector2( 384, 48 )
 
+[node name="Platform" parent="MovingPlatforms/MovingPlatform6" index="0"]
+position = Vector2( 0, -36 )
+
 [node name="End" parent="MovingPlatforms/MovingPlatform6" index="2"]
 position = Vector2( 0, -72 )
 
@@ -64,17 +67,14 @@ position = Vector2( 48, 0 )
 
 [node name="Hazards" type="Node2D" parent="." index="6"]
 
-[node name="Slug" parent="Hazards" index="0" instance=ExtResource( 4 )]
-position = Vector2( 222, -12 )
+[node name="Rat" parent="Hazards" index="0" instance=ExtResource( 2 )]
+position = Vector2( 228, -12 )
 
-[node name="Slug2" parent="Hazards" index="1" instance=ExtResource( 4 )]
-position = Vector2( 264, -12 )
+[node name="Rat3" parent="Hazards" index="1" instance=ExtResource( 2 )]
+position = Vector2( 444, 132 )
 
-[node name="Slug3" parent="Hazards" index="2" instance=ExtResource( 4 )]
-position = Vector2( 306, -12 )
-
-[node name="Slug5" parent="Hazards" index="3" instance=ExtResource( 4 )]
-position = Vector2( 438, 132 )
+[node name="Rat2" parent="Hazards" index="2" instance=ExtResource( 2 )]
+position = Vector2( 300, -12 )
 
 [node name="LevelLoadZone" parent="." index="7" instance=ExtResource( 5 )]
 position = Vector2( 608, 138 )

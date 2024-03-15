@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/mechanics/Gem.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/mechanics/Coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/mechanics/Spikes.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/mechanics/Enemy/Slug.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/mechanics/Enemy/Rat.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/mechanics/LevelLoadZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/new_levels/Level0.2.gd" type="Script" id=8]
 [ext_resource path="res://sprites/BackgroundDetails-top.png" type="Texture" id=9]
@@ -137,20 +137,14 @@ position = Vector2( 264, 168 )
 [node name="Spikes15" parent="Hazards" index="14" instance=ExtResource( 5 )]
 position = Vector2( 276, 168 )
 
-[node name="Slug" parent="Hazards" index="15" instance=ExtResource( 6 )]
-position = Vector2( 396, 180 )
-
-[node name="Slug2" parent="Hazards" index="16" instance=ExtResource( 6 )]
-position = Vector2( 517, 180 )
-facingRight = false
-
-[node name="Slug3" parent="Hazards" index="17" instance=ExtResource( 6 )]
-position = Vector2( 864, 72 )
-facingRight = false
-
-[node name="Slug4" parent="Hazards" index="18" instance=ExtResource( 6 )]
+[node name="Rat" parent="Hazards" index="15" instance=ExtResource( 6 )]
 position = Vector2( 462, 72 )
-facingRight = false
+
+[node name="Rat2" parent="Hazards" index="16" instance=ExtResource( 6 )]
+position = Vector2( 384, 180 )
+
+[node name="Rat3" parent="Hazards" index="17" instance=ExtResource( 6 )]
+position = Vector2( 864, 72 )
 
 [node name="LevelLoadZone" parent="." index="11" instance=ExtResource( 7 )]
 position = Vector2( 1100, 24 )

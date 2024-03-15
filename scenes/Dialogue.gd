@@ -36,6 +36,7 @@ func _ready():
 
 func Show():
 	text.text = ""
+	index = 0
 	set_next_text()
 	visible = true
 
