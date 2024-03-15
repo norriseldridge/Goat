@@ -2,8 +2,8 @@ extends Node
 
 # permanent data
 export(String) var playerFileName = "player1"
-export(String) var currentLevel = "0"
-export(String) var lastUnlockedLevel = "0"
+export(String) var currentLevel = "0.0"
+export(String) var lastUnlockedLevel = "0.0"
 var completedLevels = []
 var levelHighScores = {}
 var levelFastestTimes = {}

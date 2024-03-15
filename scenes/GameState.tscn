@@ -252,7 +252,7 @@ shader_param/roll_speed = 0.6
 shader_param/roll_size = 3.0
 shader_param/roll_variation = 0.629
 shader_param/distort_intensity = 0.0
-shader_param/noise_opacity = 0.04
+shader_param/noise_opacity = 0.01
 shader_param/noise_speed = 0.1
 shader_param/static_noise_intensity = 0.01
 shader_param/aberration = 0.0
@@ -349,6 +349,7 @@ position = Vector2( 149, 93 )
 texture = ExtResource( 3 )
 
 [node name="VHSOverlay" type="TextureRect" parent="CanvasLayer"]
+visible = false
 material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0

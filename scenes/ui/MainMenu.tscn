@@ -72,6 +72,7 @@ theme = ExtResource( 2 )
 text = "Quit"
 
 [node name="PlayPopup" type="Popup" parent="."]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -89,30 +90,30 @@ align = 1
 valign = 2
 
 [node name="Control" type="Control" parent="PlayPopup/ColorRect"]
-anchor_left = 0.25
+anchor_left = 0.2
 anchor_top = 0.45
-anchor_right = 0.75
+anchor_right = 0.8
 anchor_bottom = 1.0
 
 [node name="PlaySlots" type="VBoxContainer" parent="PlayPopup/ColorRect/Control"]
 anchor_right = 1.0
-anchor_bottom = 0.7
+anchor_bottom = 0.8
 grow_vertical = 2
 custom_constants/separation = 4
 
 [node name="Slot1" parent="PlayPopup/ColorRect/Control/PlaySlots" instance=ExtResource( 7 )]
-margin_right = 150.0
-margin_bottom = 21.0
+margin_right = 180.0
+margin_bottom = 24.0
 
 [node name="Slot2" parent="PlayPopup/ColorRect/Control/PlaySlots" instance=ExtResource( 7 )]
-margin_top = 25.0
-margin_right = 150.0
-margin_bottom = 46.0
+margin_top = 28.0
+margin_right = 180.0
+margin_bottom = 53.0
 
 [node name="Slot3" parent="PlayPopup/ColorRect/Control/PlaySlots" instance=ExtResource( 7 )]
-margin_top = 50.0
-margin_right = 150.0
-margin_bottom = 72.0
+margin_top = 57.0
+margin_right = 180.0
+margin_bottom = 82.0
 
 [node name="BackButton" type="Button" parent="PlayPopup"]
 anchor_top = 1.0
@@ -299,7 +300,6 @@ text = "< Back"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 110, 126 )
 frames = SubResource( 3 )
-frame = 1
 speed_scale = 0.8
 playing = true
 

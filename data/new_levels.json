@@ -1,0 +1,103 @@
+{
+    "levels": [
+        {
+            "id": "0.0",
+            "name": "Adventure Begins!",
+            "scene": "res://scenes/new_levels/Level0.0.tscn",
+            "next": "0.0.1"
+        },
+        {
+            "id": "0.0.1",
+            "name": "Field Crossing",
+            "scene": "res://scenes/new_levels/Level0.0.1.tscn",
+            "next": "0.1"
+        },
+        {
+            "id": "0.1",
+            "name": "The Snail Trail",
+            "scene": "res://scenes/new_levels/Level0.1.tscn",
+            "next": "0.2"
+        },
+        {
+            "id": "0.2",
+            "name": "The Old Cavern",
+            "scene": "res://scenes/new_levels/Level0.2.tscn",
+            "next": "0.3"
+        },
+        {
+            "id": "0.3",
+            "name": "First Outpost",
+            "scene": "res://scenes/new_levels/Level0.3.tscn",
+            "next": "0.4"
+        },
+        {
+            "id": "0.4",
+            "name": "Gate House",
+            "scene": "res://scenes/new_levels/Level0.4.tscn",
+            "next": "0.5"
+        },
+        {
+            "id": "0.5",
+            "name": "First Tower",
+            "scene": "res://scenes/new_levels/Level0.5.tscn",
+            "next": "-1"
+        },
+        {
+            "id": "1000",
+            "name": "Thanks for Play'n",
+            "scene": "res://scenes/levels/ThanksForPlayingLevel.tscn",
+            "next": "-1"
+        }
+    ],
+    "worlds": [
+        {
+            "id": "1",
+            "prereqid": "-1",
+            "name": "Gate",
+            "levels": ["0.0", "0.0.1", "0.1", "0.2", "0.3", "0.4", "0.5"],
+            "music": "Goat-gameplay-loop.wav"
+        },
+        {
+            "id": "2",
+            "prereqid": "1",
+            "name": "Bridge",
+            "levels": ["1000"],
+            "music": "Goat-gameplay-loop3v2.wav"
+        },
+        {
+            "id": "3",
+            "prereqid": "2",
+            "name": "Kitchen",
+            "levels": ["1000"],
+            "music": "Goat-gameplay-loop5v2.wav"
+        },
+        {
+            "id": "4",
+            "prereqid": "3",
+            "name": "Dock",
+            "levels": ["1000"],
+            "music": "Goat-gameplay-loop4.wav"
+        },
+        {
+            "id": "5",
+            "prereqid": "4",
+            "name": "Conservatory",
+            "levels": ["1000"],
+            "music": "Goat-gameplay-loop.wav"
+        },
+        {
+            "id": "6",
+            "prereqid": "5",
+            "name": "Tower",
+            "levels": ["1000"],
+            "music": "Goat-gameplay-loop.wav"
+        },
+        {
+            "id": "7",
+            "prereqid": "6",
+            "name": "Dungeon",
+            "levels": ["1000"],
+            "music": "Goat-gameplay-loop.wav"
+        }
+    ]
+}

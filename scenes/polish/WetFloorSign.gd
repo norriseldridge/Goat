@@ -18,9 +18,6 @@ func _process(delta):
 		velocity.y += GRAVITY * delta
 		if velocity.y > MAX_GRAVITY:
 			velocity.y = MAX_GRAVITY
-	else:
-		for body in groundedCheckbox.get_overlapping_bodies():
-			print("body: " + body.name)
 
 
 func _physics_process(_delta):

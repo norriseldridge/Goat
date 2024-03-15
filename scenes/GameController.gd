@@ -75,7 +75,7 @@ func _process(delta):
 		levelTimeSeconds += delta
 		hud.set_time(levelTimeSeconds)
 
-	if levelStartDisplay.visible && levelTimeSeconds > 1.5:
+	if levelStartDisplay.visible && levelTimeSeconds > 3:
 		levelStartDisplay.visible = false
 		
 	if Input.is_action_just_pressed("escape"):
@@ -191,7 +191,7 @@ func on_load_level(nextLevel, retry = false):
 	playerData.Save()
 
 	var levelData = levelUtility.GetLevelData(playerData.currentLevel)
-	levelNameLabel.text = levelData.name
+	levelNameLabel.text = "- " + levelData.name + " -"
 	var levelScene = levelData.scene
 	current_level = load(levelScene).instance()
 	current_level.set_pause_mode(Node.PAUSE_MODE_STOP)

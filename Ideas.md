@@ -1,10 +1,15 @@
 Ideas
 
 TODO:
-- stoves need fire sfx
-- kitchen levels need new music
+- slugs should be rats in the inside intro levels
 
 
+
+
+
+
+
+OLD TODO
 Gate level
 - intro: we establish that our goat friends have gone missing in the castle
 

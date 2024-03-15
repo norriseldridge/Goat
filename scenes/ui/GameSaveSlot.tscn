@@ -20,8 +20,8 @@ valign = 1
 [node name="SaveData" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.0
-margin_right = -1.0
+margin_left = 5.0
+margin_right = -5.0
 mouse_filter = 2
 
 [node name="WorldLabel" type="Label" parent="SaveData"]
@@ -31,7 +31,6 @@ text = "World 1"
 valign = 1
 
 [node name="LastPlayedLabel" type="Label" parent="SaveData"]
-anchor_left = 0.4
 anchor_right = 1.0
 anchor_bottom = 0.5
 text = "00/00/00 00:00:00"
@@ -49,7 +48,7 @@ valign = 1
 
 [node name="DeathsLabel" type="Label" parent="SaveData"]
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.45
 anchor_bottom = 1.0
-text = "Deaths: ##"
+text = "Deaths: ####"
 valign = 1

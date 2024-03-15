@@ -4,36 +4,24 @@
             "id": "0",
             "name": "First Gate",
             "scene": "res://scenes/levels/Level0.tscn",
-            "next": "1"
+            "next": "0.1"
         },
         {
-            "id": "1",
+            "id": "0.1",
             "name": "Hoof in the Door",
-            "scene": "res://scenes/levels/Level1.tscn",
-            "next": "1.1"
+            "scene": "res://scenes/levels/Level0.1.tscn",
+            "next": "0.2"
         },
         {
-            "id": "1.1",
+            "id": "0.2",
             "name": "Raise the Hoof",
-            "scene": "res://scenes/levels/Level1.1.tscn",
-            "next": "2"
+            "scene": "res://scenes/levels/Level0.2.tscn",
+            "next": "0.3"
         },
         {
-            "id": "2",
+            "id": "0.3",
             "name": "Double Back",
-            "scene": "res://scenes/levels/Level2.tscn",
-            "next": "3"
-        },
-        {
-            "id": "3",
-            "name": "Block Hop",
-            "scene": "res://scenes/levels/Level3.tscn",
-            "next": "4"
-        },
-        {
-            "id": "4",
-            "name": "Key to Success",
-            "scene": "res://scenes/levels/Level4.tscn",
+            "scene": "res://scenes/levels/Level0.3.tscn",
             "next": "5"
         },
         {
@@ -52,12 +40,6 @@
             "id": "6",
             "name": "High Life",
             "scene": "res://scenes/levels/Level6.tscn",
-            "next": "6.2"
-        },
-        {
-            "id": "6.2",
-            "name": "Bat Out of Hell",
-            "scene": "res://scenes/levels/Level6.2.tscn",
             "next": "6.3"
         },
         {
@@ -253,7 +235,7 @@
             "id": "1",
             "prereqid": "-1",
             "name": "Gate",
-            "levels": ["0", "1", "1.1", "2", "3", "4", "5", "5.2", "6", "6.2", "6.3", "7", "8"],
+            "levels": ["0", "0.1", "0.2", "0.3", "5", "5.2", "6", "6.3", "7", "8"],
             "music": "Goat-gameplay-loop.wav"
         },
         {

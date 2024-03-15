@@ -5,7 +5,7 @@ var nodes = []
 
 func _ready():
 	for nodeName in nodeNames.rsplit("\n"):
-		print("Finding node " + nodeName + " ...")
+		# print("Finding node " + nodeName + " ...")
 		var node = get_tree().get_root().find_node(nodeName, true, false)
 		if node != null:
 			nodes.append(node)

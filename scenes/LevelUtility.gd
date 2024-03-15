@@ -1,6 +1,6 @@
 extends Node
 
-export(String) var levelFile = "res://data/levels.json"
+export(String) var levelFile = "res://data/new_levels.json"
 var level_data = null
 
 func _ready():

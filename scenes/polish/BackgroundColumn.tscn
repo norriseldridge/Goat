@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/BackgroundDetails-top.png" type="Texture" id=1]
+[ext_resource path="res://sprites/BackgroundDetails-column.png" type="Texture" id=2]
+[ext_resource path="res://sprites/BackgroundDetails.png" type="Texture" id=3]
+
+[node name="BackgroundColumn" type="Node2D"]
+
+[node name="BackgroundDetails" type="Sprite" parent="."]
+z_index = -300
+texture = ExtResource( 3 )
+
+[node name="BackgroundDetails-column" type="Sprite" parent="."]
+position = Vector2( 0, 12 )
+z_index = -300
+texture = ExtResource( 2 )
+
+[node name="BackgroundDetails-top" type="Sprite" parent="."]
+position = Vector2( 24, 0 )
+z_index = -300
+texture = ExtResource( 1 )
