@@ -21,7 +21,7 @@ script = ExtResource( 7 )
 limit_top = -376
 
 [node name="TileMap" parent="." index="2"]
-tile_data = PoolIntArray( -1966078, 9, 0, -1966077, 7, 0, -1966076, 7, 0, -1966075, 7, 0, -1966074, 7, 0, -1966073, 7, 0, -1966072, 7, 0, -1966071, 7, 0, -1966070, 7, 0, -1966069, 7, 0, -1966068, 7, 0, -1966067, 7, 0, -1966066, 7, 0, -1966065, 7, 0, -1966064, 7, 0, -1966063, 7, 0, -1966062, 7, 0, -1966061, 7, 0, -1966060, 7, 0, -1966059, 10, 0, -1900542, 5, 0, -1900523, 3, 0, -1835006, 5, 0, -1835004, 4, 0, -1834987, 3, 0, -1769470, 5, 0, -1769451, 3, 0, -1703934, 5, 0, -1703930, 17, 0, -1703919, 17, 0, -1703915, 3, 0, -1638398, 5, 0, -1638394, 18, 0, -1638383, 18, 0, -1638379, 3, 0, -1572862, 5, 0, -1572843, 3, 0, -1507326, 5, 0, -1507307, 3, 0, -1441790, 5, 0, -1441786, 0, 0, -1441785, 1, 0, -1441784, 1, 0, -1441783, 1, 0, -1441782, 1, 0, -1441781, 1, 0, -1441780, 1, 0, -1441779, 1, 0, -1441778, 1, 0, -1441777, 1, 0, -1441776, 1, 0, -1441775, 1, 0, -1441774, 1, 0, -1441773, 1, 0, -1441772, 1, 0, -1441771, 12, 0, -1376254, 5, 0, -1376250, 6, 0, -1376249, 7, 0, -1376248, 7, 0, -1376247, 7, 0, -1376246, 7, 0, -1376245, 7, 0, -1376244, 7, 0, -1376243, 7, 0, -1376242, 7, 0, -1376241, 7, 0, -1376240, 7, 0, -1376239, 7, 0, -1376238, 7, 0, -1376237, 7, 0, -1376236, 7, 0, -1376235, 10, 0, -1310718, 5, 0, -1310699, 3, 0, -1245182, 5, 0, -1245163, 3, 0, -1179646, 5, 0, -1179627, 3, 0, -1114110, 5, 0, -1114094, 4, 0, -1114091, 3, 0, -1048574, 5, 0, -1048556, 13, 0, -1048555, 3, 0, -983038, 5, 0, -983019, 3, 0, -917502, 5, 0, -917483, 3, 0, -851966, 5, 0, -851950, 0, 0, -851949, 1, 0, -851948, 1, 0, -851947, 12, 0, -786430, 5, 0, -786421, 4, 0, -786414, 6, 0, -786413, 7, 0, -786412, 7, 0, -786411, 10, 0, -720894, 5, 0, -720875, 3, 0, -655358, 5, 0, -655339, 3, 0, -589822, 5, 0, -589817, 17, 0, -589808, 17, 0, -589803, 3, 0, -524286, 5, 0, -524281, 18, 0, -524272, 18, 0, -524267, 3, 0, -458750, 5, 0, -458731, 3, 0, -393214, 5, 0, -393195, 3, 0, -327678, 5, 0, -327675, 0, 0, -327674, 1, 0, -327673, 1, 0, -327672, 1, 0, -327671, 1, 0, -327670, 1, 0, -327669, 1, 0, -327668, 1, 0, -327667, 1, 0, -327666, 1, 0, -327665, 1, 0, -327664, 1, 0, -327663, 1, 0, -327662, 2, 0, -327659, 3, 0, -262142, 5, 0, -262139, 6, 0, -262138, 7, 0, -262137, 7, 0, -262136, 7, 0, -262135, 7, 0, -262134, 7, 0, -262133, 7, 0, -262132, 7, 0, -262131, 7, 0, -262130, 7, 0, -262129, 7, 0, -262128, 7, 0, -262127, 7, 0, -262126, 8, 0, -262123, 3, 0, -196606, 5, 0, -196603, 16, 0, -196587, 3, 0, -131070, 5, 0, -131067, 16, 0, -131051, 3, 0, -65534, 5, 0, -65531, 16, 0, -65515, 3, 0, 2, 5, 0, 5, 16, 0, 21, 3, 0, 65538, 5, 0, 65539, 15, 0, 65540, 15, 0, 65541, 15, 0, 65543, 17, 0, 65552, 17, 0, 65557, 3, 0, 131074, 5, 0, 131079, 18, 0, 131088, 18, 0, 131093, 3, 0, 196610, 5, 0, 196629, 3, 0, 262146, 5, 0, 262148, 4, 0, 262165, 3, 0, 327682, 5, 0, 327701, 3, 0, 393218, 5, 0, 393237, 3, 0, 458754, 5, 0, 458770, 15, 0, 458771, 15, 0, 458772, 15, 0, 458773, 3, 0, 524290, 5, 0, 524309, 3, 0, 524310, 9, 0, 524311, 7, 0, 524312, 10, 0, 589826, 5, 0, 589845, 3, 0, 589846, 5, 0, 589847, 16, 0, 589848, 3, 0, 655362, 5, 0, 655381, 3, 0, 655382, 5, 0, 655383, 16, 0, 655384, 3, 0, 720898, 5, 0, 720917, 3, 0, 720918, 5, 0, 720919, 16, 0, 720920, 3, 0, 786432, 7, 0, 786433, 7, 0, 786434, 8, 0, 786450, 4, 0, 786453, 6, 0, 786454, 8, 0, 786455, 16, 0, 786456, 6, 0, 786457, 1, 0, 917503, 5, 0, 851968, 4, 0, 851969, 17, 0, 851970, 21, 0, 851989, 21, 0, 851990, 17, 0, 851991, 21, 0, 851992, 4, 0, 851994, 1, 0, 983039, 5, 0, 917504, 21, 0, 917505, 18, 0, 917506, 21, 0, 917525, 21, 0, 917526, 18, 0, 917527, 21, 0, 917528, 21, 0, 917530, 1, 0, 983040, 1, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 1, 0, 983059, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 1, 0, 983065, 1, 0 )
+tile_data = PoolIntArray( -1966078, 9, 0, -1966077, 7, 0, -1966076, 7, 0, -1966075, 7, 0, -1966074, 7, 0, -1966073, 7, 0, -1966072, 7, 0, -1966071, 7, 0, -1966070, 7, 0, -1966069, 7, 0, -1966068, 7, 0, -1966067, 7, 0, -1966066, 7, 0, -1966065, 7, 0, -1966064, 7, 0, -1966063, 7, 0, -1966062, 7, 0, -1966061, 7, 0, -1966060, 7, 0, -1966059, 10, 0, -1900542, 5, 0, -1900523, 3, 0, -1835006, 5, 0, -1835004, 4, 0, -1834987, 3, 0, -1769470, 5, 0, -1769451, 3, 0, -1703934, 5, 0, -1703930, 17, 0, -1703919, 17, 0, -1703915, 3, 0, -1638398, 5, 0, -1638394, 18, 0, -1638383, 18, 0, -1638379, 3, 0, -1572862, 5, 0, -1572843, 3, 0, -1507326, 5, 0, -1507307, 3, 0, -1441790, 5, 0, -1441786, 0, 0, -1441785, 1, 0, -1441784, 1, 0, -1441783, 1, 0, -1441782, 1, 0, -1441781, 1, 0, -1441780, 1, 0, -1441779, 1, 0, -1441778, 1, 0, -1441777, 1, 0, -1441776, 1, 0, -1441775, 1, 0, -1441774, 1, 0, -1441773, 1, 0, -1441772, 1, 0, -1441771, 12, 0, -1376254, 5, 0, -1376250, 6, 0, -1376249, 7, 0, -1376248, 7, 0, -1376247, 7, 0, -1376246, 7, 0, -1376245, 7, 0, -1376244, 7, 0, -1376243, 7, 0, -1376242, 7, 0, -1376241, 7, 0, -1376240, 7, 0, -1376239, 7, 0, -1376238, 7, 0, -1376237, 7, 0, -1376236, 7, 0, -1376235, 10, 0, -1310718, 5, 0, -1310709, 16, 0, -1310707, 16, 0, -1310699, 3, 0, -1245182, 5, 0, -1245173, 16, 0, -1245171, 16, 0, -1245163, 3, 0, -1179646, 5, 0, -1179637, 16, 0, -1179635, 16, 0, -1179627, 3, 0, -1114110, 5, 0, -1114101, 15, 0, -1114100, 15, 0, -1114099, 15, 0, -1114094, 4, 0, -1114091, 3, 0, -1048574, 5, 0, -1048556, 13, 0, -1048555, 3, 0, -983038, 5, 0, -983019, 3, 0, -917502, 5, 0, -917483, 3, 0, -851966, 5, 0, -851950, 0, 0, -851949, 1, 0, -851948, 1, 0, -851947, 12, 0, -786430, 5, 0, -786421, 4, 0, -786414, 6, 0, -786413, 7, 0, -786412, 7, 0, -786411, 10, 0, -720894, 5, 0, -720875, 3, 0, -655358, 5, 0, -655339, 3, 0, -589822, 5, 0, -589817, 17, 0, -589808, 17, 0, -589803, 3, 0, -524286, 5, 0, -524281, 18, 0, -524272, 18, 0, -524267, 3, 0, -458750, 5, 0, -458747, 0, 0, -458746, 2, 0, -458731, 3, 0, -393214, 5, 0, -393211, 3, 0, -393210, 5, 0, -393195, 3, 0, -327678, 5, 0, -327675, 3, 0, -327674, 11, 0, -327673, 1, 0, -327672, 1, 0, -327671, 1, 0, -327670, 1, 0, -327669, 1, 0, -327668, 1, 0, -327667, 1, 0, -327666, 1, 0, -327665, 1, 0, -327664, 1, 0, -327663, 1, 0, -327662, 2, 0, -327659, 3, 0, -262142, 5, 0, -262139, 6, 0, -262138, 7, 0, -262137, 7, 0, -262136, 7, 0, -262135, 7, 0, -262134, 7, 0, -262133, 7, 0, -262132, 7, 0, -262131, 7, 0, -262130, 7, 0, -262129, 7, 0, -262128, 7, 0, -262127, 7, 0, -262126, 8, 0, -262123, 3, 0, -196606, 5, 0, -196603, 16, 0, -196587, 3, 0, -131070, 5, 0, -131067, 16, 0, -131051, 3, 0, -65534, 5, 0, -65531, 16, 0, -65515, 3, 0, 2, 5, 0, 5, 16, 0, 21, 3, 0, 65538, 5, 0, 65539, 15, 0, 65540, 15, 0, 65541, 15, 0, 65543, 17, 0, 65552, 17, 0, 65557, 3, 0, 131074, 5, 0, 131079, 18, 0, 131088, 18, 0, 131093, 3, 0, 196610, 5, 0, 196629, 3, 0, 262146, 5, 0, 262148, 4, 0, 262165, 3, 0, 327682, 5, 0, 327701, 3, 0, 393218, 5, 0, 393237, 3, 0, 458754, 5, 0, 458755, 15, 0, 458756, 15, 0, 458757, 15, 0, 458770, 15, 0, 458771, 15, 0, 458772, 15, 0, 458773, 3, 0, 524290, 5, 0, 524309, 3, 0, 524310, 9, 0, 524311, 7, 0, 524312, 10, 0, 589826, 5, 0, 589845, 3, 0, 589846, 5, 0, 589847, 16, 0, 589848, 3, 0, 655362, 5, 0, 655381, 3, 0, 655382, 5, 0, 655383, 16, 0, 655384, 3, 0, 720898, 5, 0, 720917, 3, 0, 720918, 5, 0, 720919, 16, 0, 720920, 3, 0, 786432, 7, 0, 786433, 7, 0, 786434, 8, 0, 786450, 4, 0, 786453, 6, 0, 786454, 8, 0, 786455, 16, 0, 786456, 6, 0, 786457, 1, 0, 917503, 5, 0, 851968, 4, 0, 851969, 17, 0, 851970, 21, 0, 851989, 21, 0, 851990, 17, 0, 851991, 21, 0, 851992, 4, 0, 851994, 1, 0, 983039, 5, 0, 917504, 21, 0, 917505, 18, 0, 917506, 21, 0, 917525, 21, 0, 917526, 18, 0, 917527, 21, 0, 917528, 21, 0, 917530, 1, 0, 983040, 1, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 1, 0, 983059, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 1, 0, 983065, 1, 0 )
 
 [node name="Background" type="Node2D" parent="." index="5"]
 
@@ -123,14 +123,8 @@ shape = SubResource( 1 )
 
 [node name="MovingPlatform" type="Node2D" parent="." index="7"]
 
-[node name="MovingPlatform" parent="MovingPlatform" index="0" instance=ExtResource( 4 )]
+[node name="MovingPlatform7" parent="MovingPlatform" index="0" instance=ExtResource( 4 )]
 position = Vector2( 84, 156 )
-
-[node name="End" parent="MovingPlatform/MovingPlatform" index="2"]
-position = Vector2( 0, -36 )
-
-[node name="MovingPlatform7" parent="MovingPlatform" index="1" instance=ExtResource( 4 )]
-position = Vector2( 180, 156 )
 speed = 15
 
 [node name="Platform" parent="MovingPlatform/MovingPlatform7" index="0"]
@@ -139,91 +133,84 @@ position = Vector2( 0, -48 )
 [node name="End" parent="MovingPlatform/MovingPlatform7" index="2"]
 position = Vector2( 0, -48 )
 
-[node name="MovingPlatform2" parent="MovingPlatform" index="2" instance=ExtResource( 4 )]
-position = Vector2( 60, 120 )
-speed = 15
-
-[node name="End" parent="MovingPlatform/MovingPlatform2" index="2"]
-position = Vector2( 0, -36 )
-
-[node name="MovingPlatform3" parent="MovingPlatform" index="3" instance=ExtResource( 4 )]
-position = Vector2( 96, 84 )
-speed = 10
-
-[node name="End" parent="MovingPlatform/MovingPlatform3" index="2"]
-position = Vector2( 0, -36 )
-
-[node name="MovingPlatform4" parent="MovingPlatform" index="4" instance=ExtResource( 4 )]
-position = Vector2( 138, 84 )
+[node name="MovingPlatform4" parent="MovingPlatform" index="1" instance=ExtResource( 4 )]
+position = Vector2( 120, 84 )
 
 [node name="End" parent="MovingPlatform/MovingPlatform4" index="2"]
 position = Vector2( 0, -36 )
 
-[node name="MovingPlatform6" parent="MovingPlatform" index="5" instance=ExtResource( 4 )]
-position = Vector2( 240, 24 )
+[node name="MovingPlatform6" parent="MovingPlatform" index="2" instance=ExtResource( 4 )]
+position = Vector2( 228, 59 )
 
 [node name="End" parent="MovingPlatform/MovingPlatform6" index="2"]
-position = Vector2( 0, -72 )
+position = Vector2( 0, -47 )
 
-[node name="MovingPlatform5" parent="MovingPlatform" index="6" instance=ExtResource( 4 )]
-position = Vector2( 216, 36 )
+[node name="MovingPlatform5" parent="MovingPlatform" index="3" instance=ExtResource( 4 )]
+position = Vector2( 240, 12 )
 
 [node name="End" parent="MovingPlatform/MovingPlatform5" index="2"]
-position = Vector2( -36, 0 )
+position = Vector2( 0, -72 )
 
-[node name="MovingPlatform8" parent="MovingPlatform" index="7" instance=ExtResource( 4 )]
+[node name="MovingPlatform8" parent="MovingPlatform" index="4" instance=ExtResource( 4 )]
 position = Vector2( 156, -84 )
 speed = 12
 
 [node name="End" parent="MovingPlatform/MovingPlatform8" index="2"]
 position = Vector2( 0, -72 )
 
-[node name="MovingPlatform11" parent="MovingPlatform" index="8" instance=ExtResource( 4 )]
+[node name="MovingPlatform11" parent="MovingPlatform" index="5" instance=ExtResource( 4 )]
 position = Vector2( 48, -180 )
 speed = 15
 
 [node name="End" parent="MovingPlatform/MovingPlatform11" index="2"]
 position = Vector2( 0, -72 )
 
-[node name="MovingPlatform13" parent="MovingPlatform" index="9" instance=ExtResource( 4 )]
+[node name="MovingPlatform13" parent="MovingPlatform" index="6" instance=ExtResource( 4 )]
 position = Vector2( 84, -168 )
 
 [node name="End" parent="MovingPlatform/MovingPlatform13" index="2"]
 position = Vector2( 0, -36 )
 
-[node name="MovingPlatform9" parent="MovingPlatform" index="10" instance=ExtResource( 4 )]
+[node name="MovingPlatform9" parent="MovingPlatform" index="7" instance=ExtResource( 4 )]
 position = Vector2( 36, -144 )
 speed = 10
 
 [node name="End" parent="MovingPlatform/MovingPlatform9" index="2"]
 position = Vector2( 60, 0 )
 
-[node name="MovingPlatform12" parent="MovingPlatform" index="11" instance=ExtResource( 4 )]
+[node name="MovingPlatform12" parent="MovingPlatform" index="8" instance=ExtResource( 4 )]
 position = Vector2( 180, -180 )
 speed = 10
 
 [node name="End" parent="MovingPlatform/MovingPlatform12" index="2"]
 position = Vector2( 48, 0 )
 
+[node name="MovingPlatform14" parent="MovingPlatform" index="9" instance=ExtResource( 4 )]
+position = Vector2( 108, 12 )
+speed = 10
+
+[node name="End" parent="MovingPlatform/MovingPlatform14" index="2"]
+position = Vector2( 48, 0 )
+
 [node name="Gem" parent="." index="8" instance=ExtResource( 5 )]
 position = Vector2( 36, -24 )
 
 [node name="Gem2" parent="." index="9" instance=ExtResource( 5 )]
-position = Vector2( 180, -228 )
+position = Vector2( 144, -216 )
 
 [node name="Coins" type="Node2D" parent="." index="10"]
 
 [node name="Coin" parent="Coins" index="0" instance=ExtResource( 6 )]
-position = Vector2( 180, 96 )
+position = Vector2( 216, 72 )
 
 [node name="Coin2" parent="Coins" index="1" instance=ExtResource( 6 )]
-position = Vector2( 216, 0 )
+position = Vector2( 228, -12 )
 
 [node name="Coin3" parent="Coins" index="2" instance=ExtResource( 6 )]
 position = Vector2( 240, -72 )
 
 [node name="Coin4" parent="Coins" index="3" instance=ExtResource( 6 )]
-position = Vector2( 138, -72 )
+position = Vector2( 132, -72 )
 
 [node name="Coin5" parent="Coins" index="4" instance=ExtResource( 6 )]
 position = Vector2( 36, -156 )
@@ -246,62 +233,41 @@ position = Vector2( 308, 167 )
 
 [node name="Hazards" type="Node2D" parent="." index="14"]
 
-[node name="Birdy" parent="Hazards" index="0" instance=ExtResource( 10 )]
-position = Vector2( 66, 36 )
-
-[node name="EndPoint" parent="Hazards/Birdy" index="1"]
-position = Vector2( 36, 0 )
-
-[node name="AnimatedSprite" parent="Hazards/Birdy/KinematicBody2D" index="0"]
-frame = 1
-
-[node name="Birdy2" parent="Hazards" index="1" instance=ExtResource( 10 )]
-position = Vector2( 144, 36 )
+[node name="Birdy2" parent="Hazards" index="0" instance=ExtResource( 10 )]
+position = Vector2( 144, 96 )
 
 [node name="EndPoint" parent="Hazards/Birdy2" index="1"]
 position = Vector2( 0, -60 )
 
-[node name="AnimatedSprite" parent="Hazards/Birdy2/KinematicBody2D" index="0"]
-frame = 1
-
-[node name="Birdy3" parent="Hazards" index="2" instance=ExtResource( 10 )]
-position = Vector2( 120, -68 )
+[node name="Birdy3" parent="Hazards" index="1" instance=ExtResource( 10 )]
+position = Vector2( 96, -68 )
 
 [node name="EndPoint" parent="Hazards/Birdy3" index="1"]
 position = Vector2( 48, 0 )
 
-[node name="AnimatedSprite" parent="Hazards/Birdy3/KinematicBody2D" index="0"]
-frame = 1
-
-[node name="Birdy4" parent="Hazards" index="3" instance=ExtResource( 10 )]
+[node name="Birdy4" parent="Hazards" index="2" instance=ExtResource( 10 )]
 position = Vector2( 162, -168 )
 
 [node name="EndPoint" parent="Hazards/Birdy4" index="1"]
 position = Vector2( 48, 0 )
 
-[node name="AnimatedSprite" parent="Hazards/Birdy4/KinematicBody2D" index="0"]
-frame = 1
-
-[node name="Birdy5" parent="Hazards" index="4" instance=ExtResource( 10 )]
-position = Vector2( 210, -233 )
-
-[node name="EndPoint" parent="Hazards/Birdy5" index="1"]
-position = Vector2( -48, 0 )
-
-[node name="Birdy6" parent="Hazards" index="5" instance=ExtResource( 10 )]
+[node name="Birdy6" parent="Hazards" index="3" instance=ExtResource( 10 )]
 position = Vector2( 127, -271 )
 
 [node name="EndPoint" parent="Hazards/Birdy6" index="1"]
 position = Vector2( 0, -70 )
 
-[node name="Birdy7" parent="Hazards" index="6" instance=ExtResource( 10 )]
+[node name="AnimatedSprite" parent="Hazards/Birdy6/KinematicBody2D" index="0"]
+frame = 2
+
+[node name="Birdy7" parent="Hazards" index="4" instance=ExtResource( 10 )]
 position = Vector2( 102, -341 )
 
 [node name="EndPoint" parent="Hazards/Birdy7" index="1"]
 position = Vector2( 0, 71 )
 
 [node name="AnimatedSprite" parent="Hazards/Birdy7/KinematicBody2D" index="0"]
-frame = 2
+frame = 1
 
 [editable path="KillZone"]
 [editable path="Background/BackgroundColumn"]
@@ -310,10 +276,7 @@ frame = 2
 [editable path="Background/BackgroundColumn2"]
 [editable path="Background/BackgroundColumn4"]
 [editable path="Background/BackgroundColumn6"]
-[editable path="MovingPlatform/MovingPlatform"]
 [editable path="MovingPlatform/MovingPlatform7"]
-[editable path="MovingPlatform/MovingPlatform2"]
-[editable path="MovingPlatform/MovingPlatform3"]
 [editable path="MovingPlatform/MovingPlatform4"]
 [editable path="MovingPlatform/MovingPlatform6"]
 [editable path="MovingPlatform/MovingPlatform5"]
@@ -322,16 +285,13 @@ frame = 2
 [editable path="MovingPlatform/MovingPlatform13"]
 [editable path="MovingPlatform/MovingPlatform9"]
 [editable path="MovingPlatform/MovingPlatform12"]
-[editable path="Hazards/Birdy"]
-[editable path="Hazards/Birdy/KinematicBody2D/KillZone"]
+[editable path="MovingPlatform/MovingPlatform14"]
 [editable path="Hazards/Birdy2"]
 [editable path="Hazards/Birdy2/KinematicBody2D/KillZone"]
 [editable path="Hazards/Birdy3"]
 [editable path="Hazards/Birdy3/KinematicBody2D/KillZone"]
 [editable path="Hazards/Birdy4"]
 [editable path="Hazards/Birdy4/KinematicBody2D/KillZone"]
-[editable path="Hazards/Birdy5"]
-[editable path="Hazards/Birdy5/KinematicBody2D/KillZone"]
 [editable path="Hazards/Birdy6"]
 [editable path="Hazards/Birdy6/KinematicBody2D/KillZone"]
 [editable path="Hazards/Birdy7"]

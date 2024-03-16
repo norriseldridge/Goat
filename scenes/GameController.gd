@@ -113,7 +113,7 @@ func on_player_died():
 	playerDiedSfx.play()
 	playerData.totalDeaths += 1
 	playerData.Save()
-	camera.shake(0.7)
+	messageBroker.emit_signal("camera_shake")
 
 func on_show_gameover_screen():
 	globals.paused = false

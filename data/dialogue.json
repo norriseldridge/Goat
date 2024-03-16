@@ -6,6 +6,16 @@
         "[color=blue]Blue[/color]! I can't believe it's really you!",
         "Please hurry! Before they come back!"
     ],
+    "tower-top-knight": [
+        "Stop right there, [color=blue]thief[/color]!\n\n[speed=30]...wait...[speed=100] what's this?",
+        "Another goat has wondered into the castle? Come to save your little friends, have you?",
+        "Well...[wait=50] our king kidnapped these goats fair and square!\n\nBut you can join your friend for target practice!\n([speed=30]...and boy do we need it...)",
+        "[speed=100]Nevertheless! If you want your friend back, you'll have to go through me!\n\nGuards, open fire!"
+    ],
+    "tower-top-goat-end": [
+        "Thank you, [color=blue]Blue[/color]! I owe you my life!",
+        "Please, save the rest of our friends!"
+    ],
     "kitchen": [
         "Hey! Don't just go eating any old food you find lay'n about! That could be a clue to track down that foul beast...",
         "What's that[wait=40]? The beast took captive your friends...?[wait=20]\n\n[speed=20]...That's...[speed=80] that's horrible!",
