@@ -34,41 +34,41 @@ texture = ExtResource( 10 )
 
 [node name="BlinkingStar" parent="ParallaxBackground/Stars/BlinkingStars" index="0" instance=ExtResource( 12 )]
 position = Vector2( 66.5, 42.5 )
+frame = 4
 
 [node name="BlinkingStar2" parent="ParallaxBackground/Stars/BlinkingStars" index="1" instance=ExtResource( 12 )]
 position = Vector2( 140.5, 23.5 )
-frame = 4
+frame = 3
 
 [node name="BlinkingStar3" parent="ParallaxBackground/Stars/BlinkingStars" index="2" instance=ExtResource( 12 )]
 position = Vector2( 227.5, 24.5 )
-frame = 3
+frame = 2
 
 [node name="BlinkingStar4" parent="ParallaxBackground/Stars/BlinkingStars" index="3" instance=ExtResource( 12 )]
 position = Vector2( 264.5, 48.5 )
-frame = 3
+frame = 2
 
 [node name="BlinkingStar5" parent="ParallaxBackground/Stars/BlinkingStars" index="4" instance=ExtResource( 12 )]
 position = Vector2( 370.5, 25.5 )
-frame = 2
+frame = 1
 
 [node name="BlinkingStar6" parent="ParallaxBackground/Stars/BlinkingStars" index="5" instance=ExtResource( 12 )]
 position = Vector2( 467.5, -9.5 )
-frame = 2
+frame = 1
 
 [node name="BlinkingStar7" parent="ParallaxBackground/Stars/BlinkingStars" index="6" instance=ExtResource( 12 )]
 position = Vector2( 575.5, 19.5 )
-frame = 1
 
 [node name="BlinkingStar8" parent="ParallaxBackground/Stars/BlinkingStars" index="7" instance=ExtResource( 12 )]
 position = Vector2( 660.5, -0.5 )
-frame = 1
 
 [node name="BlinkingStar9" parent="ParallaxBackground/Stars/BlinkingStars" index="8" instance=ExtResource( 12 )]
 position = Vector2( 743.5, -14.5 )
+frame = 4
 
 [node name="BlinkingStar10" parent="ParallaxBackground/Stars/BlinkingStars" index="9" instance=ExtResource( 12 )]
 position = Vector2( 801.5, 14.5 )
-frame = 4
+frame = 3
 
 [node name="Moon" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
 motion_scale = Vector2( 0, 1 )

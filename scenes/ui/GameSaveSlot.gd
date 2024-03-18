@@ -10,6 +10,7 @@ onready var deathsLabel = $SaveData/DeathsLabel
 
 func SetUp(playerData):
 	if playerData == null:
+		newGameLabel.visible = true
 		saveData.visible = false
 		return
 	

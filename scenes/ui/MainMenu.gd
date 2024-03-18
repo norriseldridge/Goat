@@ -78,6 +78,22 @@ func _ready():
 	autoRetryCheckboxButton.focus_neighbour_left = autoRetryCheckboxButton.get_path_to(settingsBackButton)
 	autoRetryBorder.visible = false
 
+func resetPlayerSlots():
+	for saveSlot in [
+		{ "file": "player1", "button": "PlayPopup/ColorRect/Control/PlaySlots/Slot1" },
+		{ "file": "player2", "button": "PlayPopup/ColorRect/Control/PlaySlots/Slot2" },
+		{ "file": "player3", "button": "PlayPopup/ColorRect/Control/PlaySlots/Slot3" }]:
+		var button = get_node(saveSlot.button)
+		var playerFile = File.new()
+		var playerFilePath = "user://" + saveSlot.file + ".json"
+		
+		if playerFile.file_exists(playerFilePath):
+			playerFile.open(playerFilePath, File.READ)
+			var data = parse_json(playerFile.get_as_text())
+			playerFile.close()
+			button.SetUp(data)
+		else:
+			button.SetUp(null)
 
 func _process(delta):
 	shouldMakeSound = true
@@ -124,6 +140,15 @@ func _on_SettingsButton_pressed():
 
 func _on_QuitButton_pressed():
 	get_tree().quit()
+
+func _on_ClearDataButton_pressed():
+	var dir = Directory.new()
+	var playerFile = File.new()
+	for file in ["player1", "player2", "player3"]:
+		var playerFilePath = "user://" + file + ".json"
+		if playerFile.file_exists(playerFilePath):
+			dir.remove(playerFilePath)
+	resetPlayerSlots()
 
 
 func _on_BackButton_pressed():

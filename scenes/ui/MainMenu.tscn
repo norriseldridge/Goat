@@ -71,8 +71,14 @@ margin_bottom = 29.0
 theme = ExtResource( 2 )
 text = "Quit"
 
+[node name="ClearDataButton" type="Button" parent="VBoxContainer"]
+margin_top = 30.0
+margin_right = 96.0
+margin_bottom = 39.0
+theme = ExtResource( 2 )
+text = "[Demo] Clear Data"
+
 [node name="PlayPopup" type="Popup" parent="."]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -300,6 +306,7 @@ text = "< Back"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 110, 126 )
 frames = SubResource( 3 )
+frame = 1
 speed_scale = 0.8
 playing = true
 
@@ -315,6 +322,7 @@ stream = ExtResource( 8 )
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ClearDataButton" to="." method="_on_ClearDataButton_pressed"]
 [connection signal="pressed" from="PlayPopup/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="SettingsPopup/ColorRect/Control/Music/HFlowContainer/MinusButton" to="." method="_on_Volume_MinusButton_pressed"]
 [connection signal="pressed" from="SettingsPopup/ColorRect/Control/Music/HFlowContainer/PlusButton" to="." method="_on_Volume_PlusButton_pressed"]
