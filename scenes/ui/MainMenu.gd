@@ -7,8 +7,10 @@ onready var changeSfx = $AudioStreamPlayer2D
 
 # Main menu items
 onready var playPopup = $PlayPopup
+onready var controlsPopup = $ControlsPopup
 onready var settingsPopup = $SettingsPopup
 onready var playButton = $VBoxContainer/PlayButton
+onready var controlsButton = $VBoxContainer/ControlsButton
 onready var settingsButton = $VBoxContainer/SettingsButton
 onready var quitButton = $VBoxContainer/QuitButton
 
@@ -39,7 +41,7 @@ var shouldMakeSound = false
 
 func _ready():
 	
-	for tempButton in [playButton, settingsButton, quitButton, playBackButton, settingsBackButton,
+	for tempButton in [playButton, controlsButton, settingsButton, quitButton, playBackButton, settingsBackButton,
 		musicMinusButton, musicPlusButton, sfxMinusButton, sfxPlusButton, autoRetryCheckboxButton]:
 		tempButton.connect("mouse_entered", self, "_on_mouse_enter", [tempButton])
 		tempButton.connect("focus_entered", self, "_on_focus", [tempButton])
@@ -125,6 +127,8 @@ func _on_focus(button):
 func _on_PlayButton_pressed():
 	playPopup.popup()
 
+func _on_ControlsButton_pressed():
+	controlsPopup.popup()
 
 func _on_UserSlotSelected(userFile):
 	messageBroker.emit_signal("selected_user_file", userFile)
@@ -155,6 +159,7 @@ func _on_BackButton_pressed():
 	# settings.autoRetry = autoRetryCheckbox.pressed
 	settings.Save()
 	playPopup.hide()
+	controlsPopup.hide()
 	settingsPopup.hide()
 
 

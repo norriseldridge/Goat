@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://fonts/title_theme.tres" type="Theme" id=1]
 [ext_resource path="res://fonts/prompt_theme.tres" type="Theme" id=2]
@@ -9,6 +9,18 @@
 [ext_resource path="res://scenes/ui/GameSaveSlot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sfx/MI_SFX 18.wav" type="AudioStream" id=8]
 [ext_resource path="res://sprites/Checkbox_unchecked.png" type="Texture" id=9]
+[ext_resource path="res://sprites/Inputs/KEY_A.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Inputs/D.png" type="Texture" id=11]
+[ext_resource path="res://sprites/Inputs/CONTROLPAD.png" type="Texture" id=12]
+[ext_resource path="res://sprites/Inputs/A.png" type="Texture" id=13]
+[ext_resource path="res://sprites/Inputs/SPACE.png" type="Texture" id=14]
+[ext_resource path="res://sprites/Inputs/B.png" type="Texture" id=15]
+[ext_resource path="res://sprites/Inputs/SHIFT.png" type="Texture" id=16]
+[ext_resource path="res://sprites/Inputs/CIRCLE.png" type="Texture" id=17]
+[ext_resource path="res://sprites/Inputs/X.png" type="Texture" id=18]
+[ext_resource path="res://sprites/Inputs/ESC.png" type="Texture" id=19]
+[ext_resource path="res://sprites/Inputs/XB_START.png" type="Texture" id=20]
+[ext_resource path="res://sprites/Inputs/START.png" type="Texture" id=21]
 
 [sub_resource type="DynamicFont" id=4]
 size = 22
@@ -46,7 +58,7 @@ valign = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.34
-anchor_top = 0.45
+anchor_top = 0.4
 anchor_right = 0.66
 anchor_bottom = 1.0
 custom_constants/separation = 1
@@ -57,24 +69,31 @@ margin_bottom = 9.0
 theme = ExtResource( 2 )
 text = "Play"
 
-[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+[node name="ControlsButton" type="Button" parent="VBoxContainer"]
 margin_top = 10.0
 margin_right = 96.0
 margin_bottom = 19.0
 theme = ExtResource( 2 )
-text = "Settings"
+text = "Controls"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
 margin_top = 20.0
 margin_right = 96.0
 margin_bottom = 29.0
 theme = ExtResource( 2 )
-text = "Quit"
+text = "Settings"
 
-[node name="ClearDataButton" type="Button" parent="VBoxContainer"]
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
 margin_top = 30.0
 margin_right = 96.0
 margin_bottom = 39.0
+theme = ExtResource( 2 )
+text = "Quit"
+
+[node name="ClearDataButton" type="Button" parent="VBoxContainer"]
+margin_top = 40.0
+margin_right = 96.0
+margin_bottom = 49.0
 theme = ExtResource( 2 )
 text = "[Demo] Clear Data"
 
@@ -122,6 +141,228 @@ margin_right = 180.0
 margin_bottom = 82.0
 
 [node name="BackButton" type="Button" parent="PlayPopup"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = -10.0
+theme = ExtResource( 2 )
+text = "< Back"
+
+[node name="ControlsPopup" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="ControlsPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="ControlsPopup/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 0.4
+theme = ExtResource( 1 )
+text = "Controls"
+align = 1
+valign = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlsPopup/ColorRect"]
+anchor_left = 0.2
+anchor_top = 0.4
+anchor_right = 0.8
+anchor_bottom = 1.0
+
+[node name="Move" type="HBoxContainer" parent="ControlsPopup/ColorRect/VBoxContainer"]
+margin_right = 186.0
+margin_bottom = 16.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ControlsPopup/ColorRect/VBoxContainer/Move"]
+margin_top = 3.0
+margin_right = 54.0
+margin_bottom = 12.0
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+text = "Move -"
+
+[node name="PC_A" type="TextureRect" parent="ControlsPopup/ColorRect/VBoxContainer/Move"]
+margin_left = 58.0
+margin_right = 74.0
+margin_bottom = 16.0
+texture = ExtResource( 10 )
+
+[node name="Label2" type="Label" parent="ControlsPopup/ColorRect/VBoxContainer/Move"]
+margin_left = 78.0
+margin_top = 3.0
+margin_right = 80.0
+margin_bottom = 12.0
+theme = ExtResource( 2 )
+text = "/"
+
+[node name="PC_D" type="TextureRect" parent="ControlsPopup/ColorRect/VBoxContainer/Move"]
+margin_left = 84.0
+margin_right = 100.0
+margin_bottom = 16.0
+texture = ExtResource( 11 )
+
+[node name="Label3" type="Label" parent="ControlsPopup/ColorRect/VBoxContainer/Move"]
+margin_left = 104.0
+margin_top = 3.0
+margin_right = 166.0
+margin_bottom = 12.0
+theme = ExtResource( 2 )
+text = "     Xbox / Sony"
+
+[node name="Xbox" type="TextureRect" parent="ControlsPopup/ColorRect/VBoxContainer/Move"]
+margin_left = 170.0
+margin_right = 186.0
+margin_bottom = 16.0
+texture = ExtResource( 12 )
+
+[node name="Jump" type="HBoxContainer" parent="ControlsPopup/ColorRect/VBoxContainer"]
+margin_top = 20.0
+margin_right = 186.0
+margin_bottom = 36.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ControlsPopup/ColorRect/VBoxContainer/Jump"]
+margin_top = 3.0
+margin_right = 63.0
+margin_bottom = 12.0
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+text = "Jump / Accept -"
+
+[node name="PC" type="TextureRect" parent="ControlsPopup/ColorRect/VBoxContainer/Jump"]
+margin_left = 67.0
+margin_right = 99.0
+margin_bottom = 16.0
+texture = ExtResource( 14 )
+
+[node name="Label3" type="Label" parent="ControlsPopup/ColorRect/VBoxContainer/Jump"]
+margin_left = 103.0
+margin_top = 3.0
+margin_right = 123.0
+margin_bottom = 12.0
+theme = ExtResource( 2 )
+text = "Xbox"
+
+[node name="Xbox" type="TextureRect" parent="ControlsPopup/ColorRect/VBoxContainer/Jump"]
+margin_left = 127.0
+margin_right = 143.0
+margin_bottom = 16.0
+texture = ExtResource( 13 )
+
+[node name="Label4" type="Label" parent="ControlsPopup/ColorRect/VBoxContainer/Jump"]
+margin_left = 147.0
+margin_top = 3.0
+margin_right = 166.0
+margin_bottom = 12.0
+theme = ExtResource( 2 )
+text = "Sony"
+
+[node name="Sony" type="TextureRect" parent="ControlsPopup/ColorRect/VBoxContainer/Jump"]
+margin_left = 170.0
+margin_right = 186.0
+margin_bottom = 16.0
+texture = ExtResource( 18 )
+
+[node name="Dash" type="HBoxContainer" parent="ControlsPopup/ColorRect/VBoxContainer"]
+margin_top = 40.0
+margin_right = 186.0
+margin_bottom = 56.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ControlsPopup/ColorRect/VBoxContainer/Dash"]
+margin_top = 3.0
+margin_right = 63.0
+margin_bottom = 12.0
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+text = "Dash -"
+
+[node name="PC" type="TextureRect" parent="ControlsPopup/ColorRect/VBoxContainer/Dash"]
+margin_left = 67.0
+margin_right = 99.0
+margin_bottom = 16.0
+texture = ExtResource( 16 )
+
+[node name="Label3" type="Label" parent="ControlsPopup/ColorRect/VBoxContainer/Dash"]
+margin_left = 103.0
+margin_top = 3.0
+margin_right = 123.0
+margin_bottom = 12.0
+theme = ExtResource( 2 )
+text = "Xbox"
+
+[node name="Xbox" type="TextureRect" parent="ControlsPopup/ColorRect/VBoxContainer/Dash"]
+margin_left = 127.0
+margin_right = 143.0
+margin_bottom = 16.0
+texture = ExtResource( 15 )
+
+[node name="Label4" type="Label" parent="ControlsPopup/ColorRect/VBoxContainer/Dash"]
+margin_left = 147.0
+margin_top = 3.0
+margin_right = 166.0
+margin_bottom = 12.0
+theme = ExtResource( 2 )
+text = "Sony"
+
+[node name="Sony" type="TextureRect" parent="ControlsPopup/ColorRect/VBoxContainer/Dash"]
+margin_left = 170.0
+margin_right = 186.0
+margin_bottom = 16.0
+texture = ExtResource( 17 )
+
+[node name="Pause" type="HBoxContainer" parent="ControlsPopup/ColorRect/VBoxContainer"]
+margin_top = 60.0
+margin_right = 186.0
+margin_bottom = 76.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ControlsPopup/ColorRect/VBoxContainer/Pause"]
+margin_top = 3.0
+margin_right = 79.0
+margin_bottom = 12.0
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+text = "Pause -"
+
+[node name="PC" type="TextureRect" parent="ControlsPopup/ColorRect/VBoxContainer/Pause"]
+margin_left = 83.0
+margin_right = 99.0
+margin_bottom = 16.0
+texture = ExtResource( 19 )
+
+[node name="Label3" type="Label" parent="ControlsPopup/ColorRect/VBoxContainer/Pause"]
+margin_left = 103.0
+margin_top = 3.0
+margin_right = 123.0
+margin_bottom = 12.0
+theme = ExtResource( 2 )
+text = "Xbox"
+
+[node name="Xbox" type="TextureRect" parent="ControlsPopup/ColorRect/VBoxContainer/Pause"]
+margin_left = 127.0
+margin_right = 143.0
+margin_bottom = 16.0
+texture = ExtResource( 20 )
+
+[node name="Label4" type="Label" parent="ControlsPopup/ColorRect/VBoxContainer/Pause"]
+margin_left = 147.0
+margin_top = 3.0
+margin_right = 166.0
+margin_bottom = 12.0
+theme = ExtResource( 2 )
+text = "Sony"
+
+[node name="Sony" type="TextureRect" parent="ControlsPopup/ColorRect/VBoxContainer/Pause"]
+margin_left = 170.0
+margin_right = 186.0
+margin_bottom = 16.0
+texture = ExtResource( 21 )
+
+[node name="BackButton" type="Button" parent="ControlsPopup"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
@@ -320,10 +561,12 @@ tile_data = PoolIntArray( 9, 16, 0, 15, 16, 0, 65545, 16, 0, 65551, 16, 0, 13108
 stream = ExtResource( 8 )
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_ControlsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/ClearDataButton" to="." method="_on_ClearDataButton_pressed"]
 [connection signal="pressed" from="PlayPopup/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="ControlsPopup/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="SettingsPopup/ColorRect/Control/Music/HFlowContainer/MinusButton" to="." method="_on_Volume_MinusButton_pressed"]
 [connection signal="pressed" from="SettingsPopup/ColorRect/Control/Music/HFlowContainer/PlusButton" to="." method="_on_Volume_PlusButton_pressed"]
 [connection signal="pressed" from="SettingsPopup/ColorRect/Control/SFX/HFlowContainer/MinusButton" to="." method="_on_SFX_MinusButton_pressed"]

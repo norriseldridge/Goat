@@ -148,7 +148,7 @@ func _physics_process(_delta):
 func _on_Area2D_body_entered(_body):
 	if velocity.y >= 0:
 		jumpCount = 0
-		velocity.y = 2
+		velocity.y = 5
 
 func _on_Area2D_body_exited(_body):
 	pass

@@ -7,6 +7,8 @@ https://arks.itch.io/dungeon-platform-tileset
 
 https://megabyte-games.itch.io/mouse-cursor-pack
 
+https://greenpixels.itch.io/pixel-art-asset-3
+
 Wood Break.wav by Deathscyp -- https://freesound.org/s/443293/ -- License: Creative Commons 0
 Arrow_loose03.wav by SonoFxAudio -- https://freesound.org/s/649333/ -- License: Attribution 4.0
 Metal barrel hit.wav by SuperSouper -- https://freesound.org/s/681764/ -- License: Creative Commons 0
