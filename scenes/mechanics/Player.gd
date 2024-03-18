@@ -12,6 +12,8 @@ const SLIPPERY_SURFACE_MOD = 0.01
 const SLIPPERY_SURFACE_ACCEL_MOD = 0.3
 
 export var speed = 50
+export var dash_burst = 100
+export var dash_speed = 75
 export var acceleration = 70
 export var jumpForce = 50
 export var maxJumpCount = 2
@@ -23,6 +25,9 @@ var ladderCount = 0
 var slipperyFloorCount = 0
 var is_dead = false
 var allowedToMove = true
+var dashDuration = 0.15
+var dashDurationTime = 0.0
+var is_dashing = false
 
 onready var animatedSprite = $AnimatedSprite
 onready var deathSprite = $DeathAnimation
@@ -36,6 +41,7 @@ onready var globals = Globals
 var rng = RandomNumberGenerator.new()
 
 var dustKickSource = preload("res://scenes/polish/DustKick.tscn")
+var playerTrailEffect = preload("res://scenes/polish/PlayerTrailEffect.tscn")
 
 func _ready():
 	rng.randomize()
@@ -46,6 +52,12 @@ func _process(delta):
 	if globals.paused or is_dead:
 		return
 
+	handle_movement(delta)
+	handle_gravity(delta)
+	handle_jump()
+	handle_dash()
+	
+func handle_movement(delta):
 	var frictionMod = 1.0
 	var accelMod = 1.0
 	if !grounded:
@@ -59,17 +71,38 @@ func _process(delta):
 	if !allowedToMove:
 		input_dir = 0
 		
+	if is_dashing:
+		dashDurationTime += delta
+		input_dir = -1 if animatedSprite.flip_h else 1
+
+		# spawn trail effects
+		var temp = playerTrailEffect.instance()
+		temp.position = position
+		temp.flip_h = animatedSprite.flip_h
+		temp.animation = animatedSprite.animation
+		temp.frame = animatedSprite.frame
+		get_parent().add_child(temp)
+
+		if dashDurationTime >= dashDuration:
+			is_dashing = false
+			if velocity.x > speed:
+				velocity.x = speed
+			if velocity.x < -speed:
+				velocity.x = -speed
+
 	if input_dir == 0:
 		velocity.x = move_toward(velocity.x, 0, frictionMod * FRICTION * delta)
 		animatedSprite.play("idle")
 	else:
-		velocity.x = move_toward(velocity.x, input_dir * speed, accelMod * acceleration * delta)
+		var target_speed = dash_speed if is_dashing else speed
+		velocity.x = move_toward(velocity.x, input_dir * target_speed, accelMod * acceleration * delta)
 		animatedSprite.play("run")
 		if input_dir > 0:
 			animatedSprite.flip_h = false
 		elif input_dir < 0:
 			animatedSprite.flip_h = true
-	
+
+func handle_gravity(delta):
 	if !grounded:
 		animatedSprite.play("falling")
 		if ladderCount == 0:
@@ -83,11 +116,24 @@ func _process(delta):
 
 			if velocity.y > MAX_AIR_GRAVITY:
 				velocity.y -= 1.25 * AIR_FORCE * delta
-	
+
+func handle_jump():
 	if Input.is_action_just_pressed("jump") && jumpCount < maxJumpCount:
 		velocity.y = -jumpForce
 		jumpCount += 1
 		jumpSfx.play()
+
+func handle_dash():
+	if Input.is_action_just_pressed("dash"):
+		if !is_dashing:
+			dashDurationTime = 0.0
+			is_dashing = true
+			
+			if !animatedSprite.flip_h:
+				velocity.x += dash_burst
+			else:
+				velocity.x += -dash_burst
+			velocity.y = 0
 
 func _physics_process(_delta):
 	if is_dead:
@@ -117,7 +163,6 @@ func kill():
 func _on_DeathAnimation_animation_finished():
 	messageBroker.emit_signal("show_gameover_screen")
 	queue_free()
-
 
 func _on_DustTimer_timeout():
 	if grounded && velocity.x != 0 && input_dir != 0:

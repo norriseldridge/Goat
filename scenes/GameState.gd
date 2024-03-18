@@ -29,9 +29,12 @@ func _process(delta):
 			music.volume_db -= fadeSpeed * delta
 		else:
 			currentMusic = nextMusic
-			music.stream = load("res://music/" + nextMusic)
-			music.play()
-			music.volume_db = settings.GetMusicVolume()
+			if currentMusic != "":
+				music.stream = load("res://music/" + nextMusic)
+				music.play()
+				music.volume_db = settings.GetMusicVolume()
+			else:
+				music.stop()
 	else:
 		music.volume_db = settings.GetMusicVolume()
 	

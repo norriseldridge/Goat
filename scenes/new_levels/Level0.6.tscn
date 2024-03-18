@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://scenes/new_levels/NewLevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/polish/Cage.tscn" type="PackedScene" id=2]
@@ -22,6 +22,11 @@
 [ext_resource path="res://scenes/mechanics/Coin.tscn" type="PackedScene" id=20]
 [ext_resource path="res://sprites/Arrow.png" type="Texture" id=21]
 [ext_resource path="res://scenes/mechanics/LevelLoadZone.tscn" type="PackedScene" id=22]
+[ext_resource path="res://sfx/Retro FootStep Metal 01.wav" type="AudioStream" id=23]
+[ext_resource path="res://sfx/649333__sonofxaudio__arrow_loose03.wav" type="AudioStream" id=24]
+[ext_resource path="res://sfx/681764__supersouper__metal-barrel-hit.wav" type="AudioStream" id=25]
+[ext_resource path="res://sfx/99962__cgeffex__piano-crash.wav" type="AudioStream" id=26]
+[ext_resource path="res://sfx/665884__klankbeeld__storm-wind-in-trees-1639-160221_0857.wav" type="AudioStream" id=27]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 6, 35 )
@@ -60,6 +65,9 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 10.5, 10 )
 
 [node name="Level" instance=ExtResource( 1 )]
 script = ExtResource( 13 )
@@ -176,7 +184,7 @@ tile_data = PoolIntArray( -65537, 5, 0, -1, 5, 0, 65535, 5, 0, 24, 3, 0, 131071,
 position = Vector2( 18, 175 )
 
 [node name="GoatDialogueTrigger" type="Area2D" parent="." index="6"]
-position = Vector2( -12, 0 )
+position = Vector2( -84, 0 )
 collision_layer = 0
 collision_mask = 2
 
@@ -241,6 +249,7 @@ position = Vector2( 0, -36 )
 position = Vector2( 6, -10 )
 
 [node name="KnightTimer" type="Timer" parent="." index="15"]
+one_shot = true
 
 [node name="ArrowTimer" type="Timer" parent="." index="16"]
 wait_time = 2.0
@@ -271,6 +280,29 @@ flip_h = true
 
 [node name="LevelLoadZone" parent="." index="22" instance=ExtResource( 22 )]
 position = Vector2( 308, 165 )
+
+[node name="CageBreakArea" type="Area2D" parent="." index="23"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CageBreakArea" index="0"]
+position = Vector2( 250.5, 170 )
+shape = SubResource( 12 )
+
+[node name="KnightLandSFX" type="AudioStreamPlayer2D" parent="." index="24"]
+stream = ExtResource( 23 )
+
+[node name="ArrowSFX" type="AudioStreamPlayer2D" parent="." index="25"]
+stream = ExtResource( 24 )
+
+[node name="ImpactSFX" type="AudioStreamPlayer2D" parent="." index="26"]
+stream = ExtResource( 26 )
+
+[node name="CageSFX" type="AudioStreamPlayer2D" parent="." index="27"]
+stream = ExtResource( 25 )
+
+[node name="WindSFX" type="AudioStreamPlayer2D" parent="." index="28"]
+stream = ExtResource( 27 )
 
 [connection signal="body_entered" from="GoatDialogueTrigger" to="." method="_on_GoatDialogueTrigger_body_entered"]
 [connection signal="body_entered" from="FinalGoatTrigger" to="." method="_on_FinalGoatTrigger_body_entered"]

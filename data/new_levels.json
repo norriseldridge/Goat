@@ -46,6 +46,7 @@
             "id": "0.6",
             "name": "Tower Top",
             "scene": "res://scenes/new_levels/Level0.6.tscn",
+            "music": "",
             "next": "-1"
         },
         {
