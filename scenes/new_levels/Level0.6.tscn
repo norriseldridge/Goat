@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scenes/new_levels/NewLevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/polish/Cage.tscn" type="PackedScene" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://sfx/681764__supersouper__metal-barrel-hit.wav" type="AudioStream" id=25]
 [ext_resource path="res://sfx/99962__cgeffex__piano-crash.wav" type="AudioStream" id=26]
 [ext_resource path="res://sfx/665884__klankbeeld__storm-wind-in-trees-1639-160221_0857.wav" type="AudioStream" id=27]
+[ext_resource path="res://sprites/Target.png" type="Texture" id=28]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 6, 35 )
@@ -86,41 +87,41 @@ texture = ExtResource( 7 )
 
 [node name="BlinkingStar" parent="ParallaxBackground/Stars/BlinkingStars" index="0" instance=ExtResource( 11 )]
 position = Vector2( 66.5, 42.5 )
+frame = 3
 
 [node name="BlinkingStar2" parent="ParallaxBackground/Stars/BlinkingStars" index="1" instance=ExtResource( 11 )]
 position = Vector2( 140.5, 23.5 )
-frame = 4
+frame = 2
 
 [node name="BlinkingStar3" parent="ParallaxBackground/Stars/BlinkingStars" index="2" instance=ExtResource( 11 )]
 position = Vector2( 227.5, 24.5 )
-frame = 3
+frame = 1
 
 [node name="BlinkingStar4" parent="ParallaxBackground/Stars/BlinkingStars" index="3" instance=ExtResource( 11 )]
 position = Vector2( 264.5, 48.5 )
-frame = 3
+frame = 1
 
 [node name="BlinkingStar5" parent="ParallaxBackground/Stars/BlinkingStars" index="4" instance=ExtResource( 11 )]
 position = Vector2( 370.5, 25.5 )
-frame = 2
 
 [node name="BlinkingStar6" parent="ParallaxBackground/Stars/BlinkingStars" index="5" instance=ExtResource( 11 )]
 position = Vector2( 467.5, -9.5 )
-frame = 2
 
 [node name="BlinkingStar7" parent="ParallaxBackground/Stars/BlinkingStars" index="6" instance=ExtResource( 11 )]
 position = Vector2( 575.5, 19.5 )
-frame = 1
+frame = 4
 
 [node name="BlinkingStar8" parent="ParallaxBackground/Stars/BlinkingStars" index="7" instance=ExtResource( 11 )]
 position = Vector2( 660.5, -0.5 )
-frame = 1
+frame = 4
 
 [node name="BlinkingStar9" parent="ParallaxBackground/Stars/BlinkingStars" index="8" instance=ExtResource( 11 )]
 position = Vector2( 743.5, -14.5 )
+frame = 3
 
 [node name="BlinkingStar10" parent="ParallaxBackground/Stars/BlinkingStars" index="9" instance=ExtResource( 11 )]
 position = Vector2( 801.5, 14.5 )
-frame = 4
+frame = 2
 
 [node name="Moon" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
 motion_scale = Vector2( 0, 1 )
@@ -278,16 +279,16 @@ frames = SubResource( 10 )
 playing = true
 flip_h = true
 
-[node name="LevelLoadZone" parent="." index="22" instance=ExtResource( 22 )]
-position = Vector2( 308, 165 )
-
-[node name="CageBreakArea" type="Area2D" parent="." index="23"]
+[node name="CageBreakArea" type="Area2D" parent="." index="22"]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CageBreakArea" index="0"]
 position = Vector2( 250.5, 170 )
 shape = SubResource( 12 )
+
+[node name="LevelLoadZone" parent="." index="23" instance=ExtResource( 22 )]
+position = Vector2( 308, 165 )
 
 [node name="KnightLandSFX" type="AudioStreamPlayer2D" parent="." index="24"]
 stream = ExtResource( 23 )
@@ -303,6 +304,18 @@ stream = ExtResource( 25 )
 
 [node name="WindSFX" type="AudioStreamPlayer2D" parent="." index="28"]
 stream = ExtResource( 27 )
+
+[node name="Target" type="Sprite" parent="." index="29"]
+modulate = Color( 0.45098, 0.45098, 0.45098, 1 )
+position = Vector2( 90, 168 )
+z_index = -2
+texture = ExtResource( 28 )
+
+[node name="Target2" type="Sprite" parent="." index="30"]
+modulate = Color( 0.45098, 0.45098, 0.45098, 1 )
+position = Vector2( 210, 168 )
+z_index = -2
+texture = ExtResource( 28 )
 
 [connection signal="body_entered" from="GoatDialogueTrigger" to="." method="_on_GoatDialogueTrigger_body_entered"]
 [connection signal="body_entered" from="FinalGoatTrigger" to="." method="_on_FinalGoatTrigger_body_entered"]

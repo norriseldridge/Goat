@@ -1,15 +1,18 @@
 extends Node2D
 
 onready var messageBroker = MessageBroker
+onready var settings = PlayerSettings
 onready var player = $Player
 onready var camera = $Camera2D
 onready var openGateTimer = $OpenGateTimer
 onready var enablePlayerTimer = $EnablePlayerTimer
 onready var gate = $Gate
+onready var sfx = $GateSFX
 var gateSpeed = 20.0
 var coin_index = 0
 var coins = []
 var shouldOpen = false
+var isOpen = false
 
 func _ready():
 	coins = [
@@ -33,6 +36,11 @@ func _process(delta):
 	if shouldOpen:
 		if gate.position.y > 0:
 			gate.position.y -= delta * gateSpeed
+		else:
+			if !isOpen:
+				isOpen = true
+				sfx.volume_db = settings.GetSFXVolume()
+				sfx.play()
 
 func set_coin_state(coin, state: bool):
 	if is_instance_valid(coin):

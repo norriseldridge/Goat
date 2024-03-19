@@ -1,10 +1,15 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenes/mechanics/Player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Flame.png" type="Texture" id=2]
 [ext_resource path="res://sfx/Retro Jump Classic 08.wav" type="AudioStream" id=3]
 [ext_resource path="res://sfx/Gallop.wav" type="AudioStream" id=4]
 [ext_resource path="res://sprites/Flame-death.png" type="Texture" id=5]
+[ext_resource path="res://sfx/dash.wav" type="AudioStream" id=6]
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 2 )
+region = Rect2( 36, 0, 12, 12 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 2 )
@@ -28,6 +33,11 @@ region = Rect2( 0, 0, 12, 12 )
 
 [sub_resource type="SpriteFrames" id=17]
 animations = [ {
+"frames": [ SubResource( 40 ) ],
+"loop": true,
+"name": "dash",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 24 ) ],
 "loop": true,
 "name": "falling",
@@ -41,7 +51,7 @@ animations = [ {
 "frames": [ SubResource( 23 ), SubResource( 22 ) ],
 "loop": true,
 "name": "run",
-"speed": 8.0
+"speed": 7.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=25]
@@ -93,8 +103,7 @@ jumpForce = 110
 position = Vector2( 0, -1 )
 z_index = 1000
 frames = SubResource( 17 )
-animation = "run"
-frame = 1
+animation = "dash"
 speed_scale = 0.7
 playing = true
 
@@ -117,6 +126,10 @@ pitch_scale = 0.6
 
 [node name="RunSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = -45.0
+
+[node name="DashSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 volume_db = -45.0
 
 [node name="DeathAnimation" type="AnimatedSprite" parent="."]

@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Retro Swooosh 02.wav-e71f31249494e04b6e7a120931c6be10.sample"
+path="res://.import/Goat-Victory.wav-db33619d0edaba1a004b622991298835.sample"
 
 [deps]
 
-source_file="res://sfx/Retro Swooosh 02.wav"
-dest_files=[ "res://.import/Retro Swooosh 02.wav-e71f31249494e04b6e7a120931c6be10.sample" ]
+source_file="res://music/Goat-Victory.wav"
+dest_files=[ "res://.import/Goat-Victory.wav-db33619d0edaba1a004b622991298835.sample" ]
 
 [params]
 

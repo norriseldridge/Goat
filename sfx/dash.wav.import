@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Pickup.wav-6b7eab209fb2d48247cb089f5d14c4ad.sample"
+path="res://.import/dash.wav-d0e036c6de7ed993bc04a9c9dbab04e2.sample"
 
 [deps]
 
-source_file="res://sfx/Pickup.wav"
-dest_files=[ "res://.import/Pickup.wav-6b7eab209fb2d48247cb089f5d14c4ad.sample" ]
+source_file="res://sfx/dash.wav"
+dest_files=[ "res://.import/dash.wav-d0e036c6de7ed993bc04a9c9dbab04e2.sample" ]
 
 [params]
 

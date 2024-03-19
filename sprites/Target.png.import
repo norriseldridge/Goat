@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CONTROLPADLEFT_RIGHT.png-a2aff66a40ddcf6aba9c563ee19fd0a1.stex"
+path="res://.import/Target.png-6efc5dce4bb2c7b815917f6b891efac6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Inputs/CONTROLPADLEFT_RIGHT.png"
-dest_files=[ "res://.import/CONTROLPADLEFT_RIGHT.png-a2aff66a40ddcf6aba9c563ee19fd0a1.stex" ]
+source_file="res://sprites/Target.png"
+dest_files=[ "res://.import/Target.png-6efc5dce4bb2c7b815917f6b891efac6.stex" ]
 
 [params]
 

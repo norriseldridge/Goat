@@ -6,7 +6,7 @@
 [ext_resource path="res://sfx/Retro Water Drop 01.wav" type="AudioStream" id=4]
 [ext_resource path="res://sfx/Retro FootStep Metal 01.wav" type="AudioStream" id=5]
 [ext_resource path="res://sfx/Retro Event Wrong Echo 03.wav" type="AudioStream" id=6]
-[ext_resource path="res://sfx/Retro Success Melody 01 - sawtooth lead 1.wav" type="AudioStream" id=7]
+[ext_resource path="res://music/Goat-Victory.wav" type="AudioStream" id=7]
 [ext_resource path="res://scenes/Camera2D.gd" type="Script" id=8]
 [ext_resource path="res://scenes/mechanics/PlayerData.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/ui/GameOver.tscn" type="PackedScene" id=10]

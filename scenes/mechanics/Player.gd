@@ -12,7 +12,7 @@ const SLIPPERY_SURFACE_MOD = 0.01
 const SLIPPERY_SURFACE_ACCEL_MOD = 0.3
 
 export var speed = 50
-export var dash_burst = 100
+export var dash_burst = 60
 export var dash_speed = 75
 export var acceleration = 70
 export var jumpForce = 50
@@ -25,9 +25,12 @@ var ladderCount = 0
 var slipperyFloorCount = 0
 var is_dead = false
 var allowedToMove = true
-var dashDuration = 0.15
+var dashDuration = 0.2
 var dashDurationTime = 0.0
+var dashCooldown = 0.25
+var dashCooldownTime = 0.0
 var is_dashing = false
+var can_dash = true
 
 onready var animatedSprite = $AnimatedSprite
 onready var deathSprite = $DeathAnimation
@@ -36,6 +39,7 @@ onready var messageBroker = MessageBroker
 onready var settings = PlayerSettings
 onready var jumpSfx = $JumpSFX
 onready var runSfx = $RunSFX
+onready var dashSfx = $DashSFX
 onready var globals = Globals
 
 var rng = RandomNumberGenerator.new()
@@ -47,6 +51,7 @@ func _ready():
 	rng.randomize()
 	jumpSfx.volume_db = settings.GetSFXVolume()
 	runSfx.volume_db = settings.GetSFXVolume(6)
+	dashSfx.volume_db = settings.GetSFXVolume()
 
 func _process(delta):
 	if globals.paused or is_dead:
@@ -56,6 +61,8 @@ func _process(delta):
 	handle_gravity(delta)
 	handle_jump()
 	handle_dash()
+	if is_dashing:
+		animatedSprite.play("dash")
 	
 func handle_movement(delta):
 	var frictionMod = 1.0
@@ -77,7 +84,7 @@ func handle_movement(delta):
 
 		# spawn trail effects
 		var temp = playerTrailEffect.instance()
-		temp.position = position
+		temp.position = position - (Vector2.RIGHT * 2 * input_dir)
 		temp.flip_h = animatedSprite.flip_h
 		temp.animation = animatedSprite.animation
 		temp.frame = animatedSprite.frame
@@ -89,6 +96,12 @@ func handle_movement(delta):
 				velocity.x = speed
 			if velocity.x < -speed:
 				velocity.x = -speed
+	else:
+		if !can_dash:
+			dashCooldownTime += delta
+			if dashCooldownTime >= dashCooldown:
+				can_dash = true
+				dashCooldownTime = 0.0
 
 	if input_dir == 0:
 		velocity.x = move_toward(velocity.x, 0, frictionMod * FRICTION * delta)
@@ -103,6 +116,9 @@ func handle_movement(delta):
 			animatedSprite.flip_h = true
 
 func handle_gravity(delta):
+	if is_dashing:
+		return
+
 	if !grounded:
 		animatedSprite.play("falling")
 		if ladderCount == 0:
@@ -124,10 +140,15 @@ func handle_jump():
 		jumpSfx.play()
 
 func handle_dash():
+	if !allowedToMove:
+		return
+
 	if Input.is_action_just_pressed("dash"):
-		if !is_dashing:
+		if !is_dashing && can_dash:
+			dashSfx.play()
 			dashDurationTime = 0.0
 			is_dashing = true
+			can_dash = false
 			
 			if !animatedSprite.flip_h:
 				velocity.x += dash_burst
