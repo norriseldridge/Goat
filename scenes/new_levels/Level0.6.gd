@@ -8,14 +8,15 @@ onready var goatDialogue = $GoatDialogue
 onready var goatDialogue2 = $GoatDialogue2
 onready var knightDialogue = $KnightDialogue
 onready var player = $Player
+onready var camera = $Camera2D
 onready var knight = $Knight
 onready var knightTimer = $KnightTimer
 onready var arrowTimer = $ArrowTimer
 onready var ballista = $Ballista
 onready var ballistaArrow = $Arrow
-onready var movingPlatform = $MovingPlatform
-onready var movingPlatform2 = $MovingPlatform2
-onready var movingPlatform3 = $MovingPlatform3
+onready var movingPlatform = $MovingPlatforms/MovingPlatform
+onready var movingPlatform2 = $MovingPlatforms/MovingPlatform2
+onready var movingPlatform3 = $MovingPlatforms/MovingPlatform3
 onready var cage = $Cage/CollisionShape2D
 onready var cageAnimation = $Cage/AnimatedSprite
 onready var goatFriend = $GoatFriend
@@ -25,6 +26,12 @@ onready var arrowSFX = $ArrowSFX
 onready var impactSFX = $ImpactSFX
 onready var cageSFX = $CageSFX
 onready var windSFX = $WindSFX
+onready var finalGoatTrigger = $FinalGoatTrigger
+
+onready var gate = $Gate
+onready var sfx = $GateSFX
+onready var enablePlayerTimer = $EnablePlayerTimer
+var gateSpeed = 20.0
 
 var shownGoatDialogue = false
 var shownGoatDialogue2 = false
@@ -34,6 +41,9 @@ var ballistaFired = false
 var speed = 200.0
 var won = false
 var cageBroken = false
+
+var shouldOpen = false
+var isOpen = false
 
 var dustKickSource = preload("res://scenes/polish/DustKick.tscn")
 var arrowSource = preload("res://scenes/mechanics/Enemy/Arrow.tscn")
@@ -47,10 +57,14 @@ func _ready():
 	windSFX.volume_db = settings.GetSFXVolume(0.5)
 	windSFX.play()
 
+	finalGoatTrigger.set_deferred("monitoring", false)
+	finalGoatTrigger.set_deferred("monitorable", false)
+
 	messageBroker.connect("dialogue_complete", self, "on_dialogue_complete")
 	messageBroker.connect("player_picked_up_coin", self, "on_player_picked_up_coin")
 	arrowTimer.connect("timeout", self, "on_arrow_timer")
 	knightTimer.connect("timeout", self, "on_knight_timer")
+	enablePlayerTimer.connect("timeout", self, "enable_player")
 
 func _process(delta):
 	if dropKnightIn:
@@ -82,6 +96,7 @@ func _process(delta):
 					impactSFX.play()
 					messageBroker.emit_signal("camera_shake")
 					messageBroker.emit_signal("stop_music")
+					enablePlayerTimer.start()
 					
 	if won:
 		if cageBreakArea.get_overlapping_bodies().size() > 0:
@@ -93,6 +108,17 @@ func _process(delta):
 					cageSFX.play()
 					goatFriend.z_index = 1
 					cage.set_deferred("disabled", true)
+					finalGoatTrigger.set_deferred("monitoring", true)
+					finalGoatTrigger.set_deferred("monitorable", true)
+
+	if shouldOpen:
+		if gate.position.y > 0:
+			gate.position.y -= delta * gateSpeed
+		else:
+			if !isOpen:
+				isOpen = true
+				sfx.volume_db = settings.GetSFXVolume()
+				sfx.play()
 
 func _on_GoatDialogueTrigger_body_entered(_body:Node):
 	if !shownGoatDialogue:
@@ -106,11 +132,14 @@ func on_dialogue_complete():
 	if !dropKnightIn:
 		knightTimer.start()
 	else:
-		messageBroker.emit_signal("play_music", "Goat-gameplay-loop.wav")
-		arrowTimer.start()
-		movingPlatform.set_physics_process(true)
-		movingPlatform2.set_physics_process(true)
-		movingPlatform3.set_physics_process(true)
+		if !won:
+			messageBroker.emit_signal("play_music", "Goat-gameplay-loop.wav")
+			arrowTimer.start()
+			movingPlatform.set_physics_process(true)
+			movingPlatform2.set_physics_process(true)
+			movingPlatform3.set_physics_process(true)
+		else:
+			StartOpenGate()
 
 func on_knight_timer():
 	dropKnightIn = true
@@ -143,8 +172,31 @@ func on_player_picked_up_coin():
 
 	ballista.play()
 	ballistaFired = true
+	
+	destroy_arrows()
 
+	player.allowedToMove = false
+	camera.follow_player = false
+	camera.position = Vector2(0, 0)
+	
 func _on_FinalGoatTrigger_body_entered(_body:Node):
 	if !shownGoatDialogue2:
 		shownGoatDialogue2 = true
 		goatDialogue2.Show()
+
+func StartOpenGate():
+	shouldOpen = true
+	player.allowedToMove = false
+	camera.follow_player = false
+	camera.position = Vector2(569, 175)
+	enablePlayerTimer.start()
+
+func enable_player():
+	player.allowedToMove = true
+	camera.follow_player = true
+	camera.position = player.position
+
+func destroy_arrows():
+	for arrow in arrows:
+		arrow.queue_free()
+	arrows.clear()

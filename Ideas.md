@@ -6,6 +6,21 @@ Never introduce more than 2 mechanics at a time and even then ideally they are r
 Reinforce the idea. Ideally make them do that action / interact with the mechnic a couple of times in the level / subsequent levels.
 
 
+Bridge:
+
+Enemies:
+- Bats
+- Rats
+
+Mechanics:
+- Arrows?
+- Falling Blocks
+- Wind Shoots
+
+- Moving Platforms
+
+- Raising sections of bridge by completing little "tasks"
+
 
 
 

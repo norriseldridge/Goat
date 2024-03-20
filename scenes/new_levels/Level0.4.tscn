@@ -226,23 +226,20 @@ position = Vector2( 144, 96 )
 [node name="EndPoint" parent="Hazards/Birdy2" index="1"]
 position = Vector2( 0, -60 )
 
-[node name="AnimatedSprite" parent="Hazards/Birdy2/KinematicBody2D" index="0"]
-frame = 1
-
 [node name="Birdy3" parent="Hazards" index="1" instance=ExtResource( 10 )]
 position = Vector2( 96, -68 )
 
 [node name="EndPoint" parent="Hazards/Birdy3" index="1"]
 position = Vector2( 48, 0 )
 
-[node name="AnimatedSprite" parent="Hazards/Birdy3/KinematicBody2D" index="0"]
-frame = 1
-
 [node name="Birdy6" parent="Hazards" index="2" instance=ExtResource( 10 )]
 position = Vector2( 127, -271 )
 
 [node name="EndPoint" parent="Hazards/Birdy6" index="1"]
 position = Vector2( 0, -70 )
+
+[node name="AnimatedSprite" parent="Hazards/Birdy6/KinematicBody2D" index="0"]
+frame = 2
 
 [node name="Birdy7" parent="Hazards" index="3" instance=ExtResource( 10 )]
 position = Vector2( 102, -341 )
@@ -251,7 +248,7 @@ position = Vector2( 102, -341 )
 position = Vector2( 0, 71 )
 
 [node name="AnimatedSprite" parent="Hazards/Birdy7/KinematicBody2D" index="0"]
-frame = 2
+frame = 1
 
 [node name="GateSFX" type="AudioStreamPlayer2D" parent="." index="15"]
 stream = ExtResource( 11 )

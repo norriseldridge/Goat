@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://scenes/new_levels/NewLevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/polish/Cage.tscn" type="PackedScene" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://sfx/99962__cgeffex__piano-crash.wav" type="AudioStream" id=26]
 [ext_resource path="res://sfx/665884__klankbeeld__storm-wind-in-trees-1639-160221_0857.wav" type="AudioStream" id=27]
 [ext_resource path="res://sprites/Target.png" type="Texture" id=28]
+[ext_resource path="res://sprites/gate.png" type="Texture" id=29]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 6, 35 )
@@ -68,7 +69,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 10.5, 10 )
+extents = Vector2( 12, 10 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 6, 12 )
 
 [node name="Level" instance=ExtResource( 1 )]
 script = ExtResource( 13 )
@@ -87,41 +91,41 @@ texture = ExtResource( 7 )
 
 [node name="BlinkingStar" parent="ParallaxBackground/Stars/BlinkingStars" index="0" instance=ExtResource( 11 )]
 position = Vector2( 66.5, 42.5 )
+frame = 3
 
 [node name="BlinkingStar2" parent="ParallaxBackground/Stars/BlinkingStars" index="1" instance=ExtResource( 11 )]
 position = Vector2( 140.5, 23.5 )
-frame = 4
+frame = 2
 
 [node name="BlinkingStar3" parent="ParallaxBackground/Stars/BlinkingStars" index="2" instance=ExtResource( 11 )]
 position = Vector2( 227.5, 24.5 )
-frame = 3
+frame = 1
 
 [node name="BlinkingStar4" parent="ParallaxBackground/Stars/BlinkingStars" index="3" instance=ExtResource( 11 )]
 position = Vector2( 264.5, 48.5 )
-frame = 3
+frame = 1
 
 [node name="BlinkingStar5" parent="ParallaxBackground/Stars/BlinkingStars" index="4" instance=ExtResource( 11 )]
 position = Vector2( 370.5, 25.5 )
-frame = 2
 
 [node name="BlinkingStar6" parent="ParallaxBackground/Stars/BlinkingStars" index="5" instance=ExtResource( 11 )]
 position = Vector2( 467.5, -9.5 )
-frame = 2
 
 [node name="BlinkingStar7" parent="ParallaxBackground/Stars/BlinkingStars" index="6" instance=ExtResource( 11 )]
 position = Vector2( 575.5, 19.5 )
-frame = 1
+frame = 4
 
 [node name="BlinkingStar8" parent="ParallaxBackground/Stars/BlinkingStars" index="7" instance=ExtResource( 11 )]
 position = Vector2( 660.5, -0.5 )
-frame = 1
+frame = 4
 
 [node name="BlinkingStar9" parent="ParallaxBackground/Stars/BlinkingStars" index="8" instance=ExtResource( 11 )]
 position = Vector2( 743.5, -14.5 )
+frame = 3
 
 [node name="BlinkingStar10" parent="ParallaxBackground/Stars/BlinkingStars" index="9" instance=ExtResource( 11 )]
 position = Vector2( 801.5, 14.5 )
-frame = 4
+frame = 2
 
 [node name="Moon" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
 motion_scale = Vector2( 0, 1 )
@@ -175,17 +179,21 @@ speed = 3.0
 position = Vector2( 60, 138 )
 texture = ExtResource( 8 )
 
+[node name="Camera2D" parent="." index="1"]
+limit_right = 600
+
 [node name="BackingSprite" parent="." index="2"]
-visible = false
+position = Vector2( 1539, 1295.5 )
+scale = Vector2( 480.5, 602.25 )
 
 [node name="TileMap" parent="." index="3"]
-tile_data = PoolIntArray( -65537, 16, 0, -1, 16, 0, 65535, 16, 0, 24, 16, 0, 131071, 16, 0, 65560, 16, 0, 196607, 16, 0, 131096, 16, 0, 262143, 16, 0, 196632, 16, 0, 327679, 16, 0, 262168, 16, 0, 393215, 16, 0, 327681, 13, 0, 327682, 15, 0, 327704, 16, 0, 393216, 14, 0, 393217, 12, 0, 393218, 18, 0, 393238, 13, 0, 393239, 14, 0, 393240, 25, 0, 458752, 29, 0, 458753, 29, 0, 458754, 18, 0, 458774, 16, 0, 458775, 29, 0, 458776, 29, 0, 524288, 29, 0, 524289, 29, 0, 524290, 18, 0, 524309, 32, 0, 524310, 16, 0, 524311, 29, 0, 524312, 29, 0, 589824, 29, 0, 589825, 29, 0, 589826, 18, 0, 589846, 16, 0, 589847, 29, 0, 589848, 29, 0, 655360, 29, 0, 655361, 29, 0, 655362, 18, 0, 655382, 16, 0, 655383, 29, 0, 655384, 29, 0, 720896, 29, 0, 720897, 29, 0, 720898, 18, 0, 720918, 16, 0, 720919, 29, 0, 720920, 29, 0, 786432, 20, 0, 786433, 20, 0, 786434, 21, 0, 786454, 19, 0, 786455, 20, 0, 786456, 20, 0, 786457, 20, 0, 917503, 16, 0, 851968, 37, 0, 851969, 27, 0, 851970, 37, 0, 851971, 38, 0, 851973, 38, 0, 851975, 38, 0, 851977, 38, 0, 851979, 38, 0, 851981, 38, 0, 851983, 38, 0, 851985, 38, 0, 851987, 38, 0, 851989, 38, 0, 851990, 37, 0, 851991, 27, 0, 851992, 37, 0, 851993, 37, 0, 851994, 3, 0, 983039, 16, 0, 917504, 37, 0, 917505, 28, 0, 917506, 37, 0, 917507, 38, 0, 917508, 38, 0, 917509, 38, 0, 917510, 38, 0, 917511, 38, 0, 917512, 38, 0, 917513, 38, 0, 917514, 38, 0, 917515, 38, 0, 917516, 38, 0, 917517, 38, 0, 917518, 38, 0, 917519, 38, 0, 917520, 38, 0, 917521, 38, 0, 917522, 38, 0, 917523, 38, 0, 917524, 38, 0, 917525, 38, 0, 917526, 37, 0, 917527, 28, 0, 917528, 37, 0, 917529, 37, 0, 917530, 3, 0, 983040, 14, 0, 983041, 14, 0, 983042, 14, 0, 983043, 14, 0, 983044, 14, 0, 983045, 14, 0, 983046, 14, 0, 983047, 14, 0, 983048, 14, 0, 983049, 14, 0, 983050, 14, 0, 983051, 14, 0, 983052, 14, 0, 983053, 14, 0, 983054, 14, 0, 983055, 14, 0, 983056, 14, 0, 983057, 14, 0, 983058, 14, 0, 983059, 14, 0, 983060, 14, 0, 983061, 14, 0, 983062, 14, 0, 983063, 14, 0, 983064, 14, 0, 983065, 14, 0 )
+tile_data = PoolIntArray( -65537, 16, 0, -1, 16, 0, 65535, 16, 0, 50, 18, 0, 131071, 16, 0, 65586, 18, 0, 196607, 16, 0, 131122, 18, 0, 262143, 16, 0, 196658, 18, 0, 327679, 16, 0, 262194, 18, 0, 393215, 16, 0, 327681, 13, 0, 327682, 15, 0, 327727, 13, 0, 327728, 15, 0, 327730, 18, 0, 393216, 14, 0, 393217, 12, 0, 393218, 18, 0, 393238, 13, 0, 393239, 14, 0, 393240, 14, 0, 393241, 14, 0, 393242, 14, 0, 393243, 15, 0, 393263, 16, 0, 393264, 24, 0, 393265, 14, 0, 393266, 18, 0, 458752, 29, 0, 458753, 29, 0, 458754, 18, 0, 458774, 16, 0, 458775, 29, 0, 458776, 29, 0, 458777, 29, 0, 458778, 29, 0, 458779, 18, 0, 458799, 16, 0, 458800, 29, 0, 458801, 29, 0, 458802, 18, 0, 524288, 29, 0, 524289, 29, 0, 524290, 18, 0, 524310, 16, 0, 524311, 29, 0, 524312, 29, 0, 524313, 29, 0, 524314, 29, 0, 524315, 18, 0, 524335, 16, 0, 524336, 22, 0, 524337, 20, 0, 524338, 18, 0, 589824, 29, 0, 589825, 29, 0, 589826, 18, 0, 589846, 19, 0, 589847, 20, 0, 589848, 20, 0, 589849, 20, 0, 589850, 20, 0, 589851, 21, 0, 589871, 16, 0, 589872, 18, 0, 589873, 34, 0, 589874, 18, 0, 655360, 29, 0, 655361, 29, 0, 655362, 18, 0, 655382, 37, 0, 655383, 27, 0, 655384, 37, 0, 655385, 37, 0, 655386, 27, 0, 655387, 37, 0, 655407, 16, 0, 655408, 18, 0, 655409, 34, 0, 655410, 18, 0, 720896, 29, 0, 720897, 29, 0, 720898, 18, 0, 720918, 37, 0, 720919, 28, 0, 720920, 37, 0, 720921, 37, 0, 720922, 28, 0, 720923, 37, 0, 720943, 16, 0, 720944, 18, 0, 720945, 34, 0, 720946, 18, 0, 786432, 20, 0, 786433, 20, 0, 786434, 21, 0, 786454, 13, 0, 786455, 14, 0, 786456, 14, 0, 786457, 14, 0, 786458, 14, 0, 786459, 15, 0, 786479, 19, 0, 786480, 21, 0, 786481, 34, 0, 786482, 20, 0, 917503, 16, 0, 851968, 37, 0, 851969, 27, 0, 851970, 37, 0, 851971, 38, 0, 851973, 38, 0, 851975, 38, 0, 851977, 38, 0, 851979, 38, 0, 851981, 38, 0, 851983, 38, 0, 851985, 38, 0, 851987, 38, 0, 851989, 38, 0, 851990, 16, 0, 851991, 29, 0, 851992, 29, 0, 851993, 29, 0, 851994, 29, 0, 851995, 18, 0, 851996, 38, 0, 851998, 38, 0, 852000, 38, 0, 852002, 38, 0, 852004, 38, 0, 852006, 38, 0, 852008, 38, 0, 852010, 38, 0, 852012, 38, 0, 852014, 38, 0, 852015, 37, 0, 852016, 27, 0, 852017, 37, 0, 852018, 37, 0, 852019, 18, 0, 983039, 16, 0, 917504, 37, 0, 917505, 28, 0, 917506, 37, 0, 917507, 38, 0, 917508, 38, 0, 917509, 38, 0, 917510, 38, 0, 917511, 38, 0, 917512, 38, 0, 917513, 38, 0, 917514, 38, 0, 917515, 38, 0, 917516, 38, 0, 917517, 38, 0, 917518, 38, 0, 917519, 38, 0, 917520, 38, 0, 917521, 38, 0, 917522, 38, 0, 917523, 38, 0, 917524, 38, 0, 917525, 38, 0, 917526, 16, 0, 917527, 29, 0, 917528, 29, 0, 917529, 29, 0, 917530, 29, 0, 917531, 18, 0, 917532, 38, 0, 917533, 38, 0, 917534, 38, 0, 917535, 38, 0, 917536, 38, 0, 917537, 38, 0, 917538, 38, 0, 917539, 38, 0, 917540, 38, 0, 917541, 38, 0, 917542, 38, 0, 917543, 38, 0, 917544, 38, 0, 917545, 38, 0, 917546, 38, 0, 917547, 38, 0, 917548, 38, 0, 917549, 38, 0, 917550, 38, 0, 917551, 37, 0, 917552, 28, 0, 917553, 37, 0, 917554, 37, 0, 917555, 18, 0, 983040, 14, 0, 983041, 14, 0, 983042, 14, 0, 983043, 14, 0, 983044, 14, 0, 983045, 14, 0, 983046, 14, 0, 983047, 14, 0, 983048, 14, 0, 983049, 14, 0, 983050, 14, 0, 983051, 14, 0, 983052, 14, 0, 983053, 14, 0, 983054, 14, 0, 983055, 14, 0, 983056, 14, 0, 983057, 14, 0, 983058, 14, 0, 983059, 14, 0, 983060, 14, 0, 983061, 14, 0, 983062, 25, 0, 983063, 29, 0, 983064, 29, 0, 983065, 29, 0, 983066, 29, 0, 983067, 24, 0, 983068, 14, 0, 983069, 14, 0, 983070, 14, 0, 983071, 14, 0, 983072, 14, 0, 983073, 14, 0, 983074, 14, 0, 983075, 14, 0, 983076, 14, 0, 983077, 14, 0, 983078, 14, 0, 983079, 14, 0, 983080, 14, 0, 983081, 14, 0, 983082, 14, 0, 983083, 14, 0, 983084, 14, 0, 983085, 14, 0, 983086, 14, 0, 983087, 14, 0, 983088, 14, 0, 983089, 14, 0, 983090, 14, 0 )
 
 [node name="Player" parent="." index="4"]
 position = Vector2( 18, 175 )
 
 [node name="GoatDialogueTrigger" type="Area2D" parent="." index="6"]
-position = Vector2( -84, 0 )
+position = Vector2( -160, 0 )
 collision_layer = 0
 collision_mask = 2
 
@@ -194,6 +202,7 @@ position = Vector2( 234, 145 )
 shape = SubResource( 4 )
 
 [node name="FinalGoatTrigger" type="Area2D" parent="." index="7"]
+position = Vector2( -102, 0 )
 collision_layer = 0
 collision_mask = 2
 
@@ -222,100 +231,138 @@ id = "tower-top-knight"
 [node name="TextureRect" parent="KnightDialogue/Border/ColorRect" index="0"]
 texture = ExtResource( 18 )
 
-[node name="MovingPlatform" parent="." index="11" instance=ExtResource( 16 )]
-position = Vector2( 204, 96 )
+[node name="MovingPlatforms" type="Node2D" parent="." index="11"]
 
-[node name="End" parent="MovingPlatform" index="2"]
+[node name="MovingPlatform" parent="MovingPlatforms" index="0" instance=ExtResource( 16 )]
+position = Vector2( 528, 144 )
+speed = 10
+
+[node name="End" parent="MovingPlatforms/MovingPlatform" index="2"]
 position = Vector2( -24, 0 )
 
-[node name="MovingPlatform3" parent="." index="12" instance=ExtResource( 16 )]
-position = Vector2( 144, 96 )
+[node name="MovingPlatform2" parent="MovingPlatforms" index="1" instance=ExtResource( 16 )]
+position = Vector2( 456, 120 )
+speed = 10
 
-[node name="End" parent="MovingPlatform3" index="2"]
+[node name="End" parent="MovingPlatforms/MovingPlatform2" index="2"]
 position = Vector2( -24, 0 )
 
-[node name="MovingPlatform2" parent="." index="13" instance=ExtResource( 16 )]
-position = Vector2( 84, 144 )
+[node name="MovingPlatform3" parent="MovingPlatforms" index="2" instance=ExtResource( 16 )]
+position = Vector2( 384, 96 )
+speed = 10
 
-[node name="Platform" parent="MovingPlatform2" index="0"]
-position = Vector2( 0, -48 )
+[node name="End" parent="MovingPlatforms/MovingPlatform3" index="2"]
+position = Vector2( -24, 0 )
 
-[node name="Begin" parent="MovingPlatform2" index="1"]
-position = Vector2( 0, 12 )
-
-[node name="End" parent="MovingPlatform2" index="2"]
-position = Vector2( 0, -36 )
-
-[node name="Knight" parent="." index="14" instance=ExtResource( 17 )]
+[node name="Knight" parent="." index="12" instance=ExtResource( 17 )]
 position = Vector2( 6, -10 )
 
-[node name="KnightTimer" type="Timer" parent="." index="15"]
+[node name="KnightTimer" type="Timer" parent="." index="13"]
 one_shot = true
 
-[node name="ArrowTimer" type="Timer" parent="." index="16"]
-wait_time = 2.0
+[node name="ArrowTimer" type="Timer" parent="." index="14"]
+wait_time = 1.5
 
-[node name="Ballista" type="AnimatedSprite" parent="." index="17"]
+[node name="Ballista" type="AnimatedSprite" parent="." index="15"]
 position = Vector2( 276, 60 )
 frames = SubResource( 7 )
 
-[node name="Arrow" type="Sprite" parent="." index="18"]
+[node name="Arrow" type="Sprite" parent="." index="16"]
 modulate = Color( 0.309804, 0.309804, 0.309804, 1 )
 position = Vector2( 275, 58 )
 rotation = -1.57079
 texture = ExtResource( 21 )
 
-[node name="Coin" parent="." index="19" instance=ExtResource( 20 )]
+[node name="Coin" parent="." index="17" instance=ExtResource( 20 )]
 position = Vector2( 271, 36 )
 
-[node name="Cage" parent="." index="20" instance=ExtResource( 2 )]
-position = Vector2( 253, 168 )
+[node name="Cage" parent="." index="18" instance=ExtResource( 2 )]
+position = Vector2( 168, 168 )
 
-[node name="GoatFriend" type="AnimatedSprite" parent="." index="21"]
+[node name="GoatFriend" type="AnimatedSprite" parent="." index="19"]
 modulate = Color( 0.921569, 0.741176, 0.741176, 1 )
-position = Vector2( 253, 174 )
+position = Vector2( 168, 174 )
 z_index = -1
 frames = SubResource( 10 )
 playing = true
 flip_h = true
 
-[node name="CageBreakArea" type="Area2D" parent="." index="22"]
+[node name="CageBreakArea" type="Area2D" parent="." index="20"]
+position = Vector2( -83, 0 )
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CageBreakArea" index="0"]
-position = Vector2( 250.5, 170 )
+position = Vector2( 251, 170 )
 shape = SubResource( 12 )
 
-[node name="LevelLoadZone" parent="." index="23" instance=ExtResource( 22 )]
-position = Vector2( 308, 165 )
+[node name="LevelLoadZone" parent="." index="21" instance=ExtResource( 22 )]
+position = Vector2( 608, 171 )
 
-[node name="KnightLandSFX" type="AudioStreamPlayer2D" parent="." index="24"]
+[node name="KnightLandSFX" type="AudioStreamPlayer2D" parent="." index="22"]
 stream = ExtResource( 23 )
 
-[node name="ArrowSFX" type="AudioStreamPlayer2D" parent="." index="25"]
+[node name="ArrowSFX" type="AudioStreamPlayer2D" parent="." index="23"]
 stream = ExtResource( 24 )
 
-[node name="ImpactSFX" type="AudioStreamPlayer2D" parent="." index="26"]
+[node name="ImpactSFX" type="AudioStreamPlayer2D" parent="." index="24"]
 stream = ExtResource( 26 )
 
-[node name="CageSFX" type="AudioStreamPlayer2D" parent="." index="27"]
+[node name="CageSFX" type="AudioStreamPlayer2D" parent="." index="25"]
 stream = ExtResource( 25 )
 
-[node name="WindSFX" type="AudioStreamPlayer2D" parent="." index="28"]
+[node name="WindSFX" type="AudioStreamPlayer2D" parent="." index="26"]
 stream = ExtResource( 27 )
 
-[node name="Target" type="Sprite" parent="." index="29"]
+[node name="GateSFX" type="AudioStreamPlayer2D" parent="." index="27"]
+stream = ExtResource( 23 )
+
+[node name="Environment" type="Node2D" parent="." index="28"]
+
+[node name="Target" type="Sprite" parent="Environment" index="0"]
 modulate = Color( 0.45098, 0.45098, 0.45098, 1 )
 position = Vector2( 90, 168 )
 z_index = -2
 texture = ExtResource( 28 )
 
-[node name="Target2" type="Sprite" parent="." index="30"]
+[node name="Target2" type="Sprite" parent="Environment" index="1"]
 modulate = Color( 0.45098, 0.45098, 0.45098, 1 )
 position = Vector2( 210, 168 )
 z_index = -2
 texture = ExtResource( 28 )
+
+[node name="Target3" type="Sprite" parent="Environment" index="2"]
+modulate = Color( 0.45098, 0.45098, 0.45098, 1 )
+position = Vector2( 390, 168 )
+z_index = -2
+texture = ExtResource( 28 )
+
+[node name="Target4" type="Sprite" parent="Environment" index="3"]
+modulate = Color( 0.45098, 0.45098, 0.45098, 1 )
+position = Vector2( 510, 168 )
+z_index = -2
+texture = ExtResource( 28 )
+
+[node name="Gate" type="Node2D" parent="." index="29"]
+position = Vector2( 312, 24 )
+
+[node name="Gate" type="Sprite" parent="Gate" index="0"]
+position = Vector2( 282, 150 )
+texture = ExtResource( 29 )
+
+[node name="Gate2" type="Sprite" parent="Gate" index="1"]
+position = Vector2( 282, 138 )
+texture = ExtResource( 29 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Gate" index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/KinematicBody2D" index="0"]
+position = Vector2( 282, 144 )
+shape = SubResource( 13 )
+
+[node name="EnablePlayerTimer" type="Timer" parent="." index="30"]
+wait_time = 1.5
+one_shot = true
 
 [connection signal="body_entered" from="GoatDialogueTrigger" to="." method="_on_GoatDialogueTrigger_body_entered"]
 [connection signal="body_entered" from="FinalGoatTrigger" to="." method="_on_FinalGoatTrigger_body_entered"]
@@ -324,7 +371,7 @@ texture = ExtResource( 28 )
 [editable path="GoatDialogue"]
 [editable path="GoatDialogue2"]
 [editable path="KnightDialogue"]
-[editable path="MovingPlatform"]
-[editable path="MovingPlatform3"]
-[editable path="MovingPlatform2"]
+[editable path="MovingPlatforms/MovingPlatform"]
+[editable path="MovingPlatforms/MovingPlatform2"]
+[editable path="MovingPlatforms/MovingPlatform3"]
 [editable path="Cage"]
