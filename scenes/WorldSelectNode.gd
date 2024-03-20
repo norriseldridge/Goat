@@ -3,6 +3,7 @@ extends BaseButton
 onready var messageBroker = MessageBroker
 onready var worldLabel = $Label
 onready var flashing = $AnimatedSprite
+onready var default = $DefaultSprite
 var worldData
 var index = 0
 
@@ -17,6 +18,7 @@ func SetWorldData(data):
 func SetActiveState(state: bool):
 	flashing.visible = state
 	worldLabel.visible = state
+	default.visible = !state
 
 func _on_WorldSelectNode_mouse_entered():
 	messageBroker.emit_signal("change_world_select_index", index)

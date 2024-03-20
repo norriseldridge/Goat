@@ -46,9 +46,9 @@ zoom = Vector2( 0.6, 0.6 )
 
 [node name="CastleEntrance" parent="." instance=ExtResource( 5 )]
 margin_left = 69.0
-margin_top = 75.0
+margin_top = 76.0
 margin_right = 75.0
-margin_bottom = 81.0
+margin_bottom = 82.0
 
 [node name="CastleEntrance2" parent="." instance=ExtResource( 5 )]
 margin_left = 84.0
@@ -58,15 +58,15 @@ margin_bottom = 73.0
 
 [node name="CastleEntrance3" parent="." instance=ExtResource( 5 )]
 margin_left = 95.0
-margin_top = 76.0
+margin_top = 77.0
 margin_right = 101.0
-margin_bottom = 82.0
+margin_bottom = 83.0
 
 [node name="CastleEntrance4" parent="." instance=ExtResource( 5 )]
 margin_left = 97.0
-margin_top = 88.0
+margin_top = 89.0
 margin_right = 103.0
-margin_bottom = 94.0
+margin_bottom = 95.0
 
 [node name="CastleEntrance5" parent="." instance=ExtResource( 5 )]
 margin_left = 105.0
@@ -76,30 +76,29 @@ margin_bottom = 70.0
 
 [node name="CastleEntrance6" parent="." instance=ExtResource( 5 )]
 margin_left = 108.0
-margin_top = 32.0
+margin_top = 33.0
 margin_right = 114.0
-margin_bottom = 38.0
+margin_bottom = 39.0
 
 [node name="CastleEntrance7" parent="." instance=ExtResource( 5 )]
 margin_left = 134.0
-margin_top = 81.0
+margin_top = 82.0
 margin_right = 140.0
-margin_bottom = 87.0
+margin_bottom = 88.0
 
 [node name="BlinkingStar" parent="." instance=ExtResource( 1 )]
 position = Vector2( 38, 32 )
+frame = 2
 
 [node name="BlinkingStar2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 148, 15 )
-frame = 4
+frame = 1
 
 [node name="BlinkingStar3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 185, 42 )
-frame = 3
 
 [node name="BlinkingStar4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 81, 35 )
-frame = 3
 
 [node name="LevelSelect" parent="." instance=ExtResource( 4 )]
 visible = false

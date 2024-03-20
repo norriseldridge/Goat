@@ -1,9 +1,9 @@
 Ideas
 
-TODO:
-- slugs should be rats in the inside intro levels
 
-
+Rules of level design:
+Never introduce more than 2 mechanics at a time and even then ideally they are related.
+Reinforce the idea. Ideally make them do that action / interact with the mechnic a couple of times in the level / subsequent levels.
 
 
 

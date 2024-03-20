@@ -20,5 +20,5 @@ func on_player_unlocked_door(doorid):
 
 func set_locked(is_locked):
 	locked = is_locked
-	sprite.frame = 15 if is_locked else 14
+	sprite.frame = 30 if is_locked else 38
 	body.set_collision_layer_bit(0, is_locked)
